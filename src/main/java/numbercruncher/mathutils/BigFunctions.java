@@ -30,7 +30,7 @@ public final class BigFunctions
   /**
    * Compute x^exponent to a given scale. Uses the same algorithm as class
    * numbercruncher.mathutils.IntPower.
-   * 
+   *
    * @param px
    *        the value x
    * @param pexponent
@@ -73,9 +73,9 @@ public final class BigFunctions
   }
 
   /**
-   * Compute the integral root of x to a given scale, x >= 0. Use Newton's
+   * Compute the integral root of x to a given scale, x &ge; 0. Use Newton's
    * algorithm.
-   * 
+   *
    * @param px
    *        the value of x
    * @param index
@@ -133,7 +133,7 @@ public final class BigFunctions
   /**
    * Compute e^x to a given scale. Break x into its whole and fraction parts and
    * compute (e^(1 + fraction/whole))^whole using Taylor's formula.
-   * 
+   *
    * @param x
    *        the value of x
    * @param scale
@@ -188,7 +188,7 @@ public final class BigFunctions
 
   /**
    * Compute e^x to a given scale by the Taylor series.
-   * 
+   *
    * @param x
    *        the value of x
    * @param scale
@@ -230,7 +230,7 @@ public final class BigFunctions
   }
 
   /**
-   * Compute the natural logarithm of x to a given scale, x > 0.
+   * Compute the natural logarithm of x to a given scale, x &gt; 0.
    */
   public static BigDecimal ln (@Nonnull final BigDecimal x, final int scale)
   {
@@ -295,8 +295,8 @@ public final class BigFunctions
   }
 
   /**
-   * Compute the arctangent of x to a given scale, |x| < 1
-   * 
+   * Compute the arctangent of x to a given scale, |x| &lt; 1
+   *
    * @param x
    *        the value of x
    * @param scale
@@ -321,7 +321,7 @@ public final class BigFunctions
 
   /**
    * Compute the arctangent of x to a given scale by the Taylor series, |x| < 1
-   * 
+   *
    * @param x
    *        the value of x
    * @param scale
@@ -364,9 +364,9 @@ public final class BigFunctions
   }
 
   /**
-   * Compute the square root of x to a given scale, x >= 0. Use Newton's
+   * Compute the square root of x to a given scale, x &ge; 0. Use Newton's
    * algorithm.
-   * 
+   *
    * @param x
    *        the value of x
    * @param scale

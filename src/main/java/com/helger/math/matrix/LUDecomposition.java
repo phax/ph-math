@@ -26,29 +26,31 @@ import com.helger.commons.math.MathHelper;
 
 /**
  * LU Decomposition.
- * <P>
- * For an m-by-n matrix A with m >= n, the LU decomposition is an m-by-n unit
+ * <p>
+ * For an m-by-n matrix A with m &gt;= n, the LU decomposition is an m-by-n unit
  * lower triangular matrix L, an n-by-n upper triangular matrix U, and a
- * permutation vector piv of length m so that A(piv,:) = L*U. If m < n, then L
- * is m-by-m and U is m-by-n.
- * <P>
+ * permutation vector piv of length m so that A(piv,:) = L*U. If m &lt; n, then
+ * L is m-by-m and U is m-by-n.
+ * </p>
+ * <p>
  * The LU decompostion with pivoting always exists, even if the matrix is
  * singular, so the constructor will never fail. The primary use of the LU
  * decomposition is in the solution of square systems of simultaneous linear
  * equations. This will fail if isNonsingular() returns false.
+ * </p>
  */
 public class LUDecomposition implements Serializable
 {
   /**
    * Array for internal storage of decomposition.
-   * 
+   *
    * @serial internal array storage.
    */
   private final double [][] m_aLU;
 
   /**
    * Row and column dimensions, and pivot sign.
-   * 
+   *
    * @serial column dimension.
    * @serial row dimension.
    * @serial pivot sign.
@@ -59,14 +61,14 @@ public class LUDecomposition implements Serializable
 
   /**
    * Internal storage of pivot vector.
-   * 
+   *
    * @serial pivot vector.
    */
   private final int [] m_aPivot;
 
   /**
    * LU Decomposition Structure to access L, U and piv.
-   * 
+   *
    * @param aMatrix
    *        Rectangular matrix
    */
@@ -159,7 +161,7 @@ public class LUDecomposition implements Serializable
 
   /**
    * Is the matrix nonsingular?
-   * 
+   *
    * @return true if U, and hence A, is nonsingular.
    */
   public boolean isNonsingular ()
@@ -172,7 +174,7 @@ public class LUDecomposition implements Serializable
 
   /**
    * Return lower triangular factor
-   * 
+   *
    * @return L
    */
   @Nonnull
@@ -199,7 +201,7 @@ public class LUDecomposition implements Serializable
 
   /**
    * Return upper triangular factor
-   * 
+   *
    * @return U
    */
   @Nonnull
@@ -222,7 +224,7 @@ public class LUDecomposition implements Serializable
 
   /**
    * Return pivot permutation vector
-   * 
+   *
    * @return piv
    */
   @Nonnull
@@ -236,7 +238,7 @@ public class LUDecomposition implements Serializable
 
   /**
    * Return pivot permutation vector as a one-dimensional double array
-   * 
+   *
    * @return (double) piv
    */
   @Nonnull
@@ -250,7 +252,7 @@ public class LUDecomposition implements Serializable
 
   /**
    * Determinant
-   * 
+   *
    * @return det(A)
    * @exception IllegalArgumentException
    *            Matrix must be square
@@ -267,7 +269,7 @@ public class LUDecomposition implements Serializable
 
   /**
    * Solve A*X = B
-   * 
+   *
    * @param aMatrix
    *        A Matrix with as many rows as A and any number of columns.
    * @return X so that L*U*X = B(piv,:)

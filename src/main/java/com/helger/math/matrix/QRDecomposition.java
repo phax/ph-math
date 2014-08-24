@@ -17,6 +17,8 @@
  */
 package com.helger.math.matrix;
 
+import java.io.Serializable;
+
 import javax.annotation.Nonnull;
 
 import com.helger.commons.annotations.ReturnsMutableCopy;
@@ -25,41 +27,42 @@ import com.helger.commons.math.MathHelper;
 /**
  * QR Decomposition.
  * <P>
- * For an m-by-n matrix A with m >= n, the QR decomposition is an m-by-n
+ * For an m-by-n matrix A with m &ge; n, the QR decomposition is an m-by-n
  * orthogonal matrix Q and an n-by-n upper triangular matrix R so that A = Q*R.
+ * </P>
  * <P>
  * The QR decompostion always exists, even if the matrix does not have full
  * rank, so the constructor will never fail. The primary use of the QR
  * decomposition is in the least squares solution of nonsquare systems of
  * simultaneous linear equations. This will fail if isFullRank() returns false.
+ * </P>
  */
-
-public class QRDecomposition implements java.io.Serializable
+public class QRDecomposition implements Serializable
 {
   /**
    * Array for internal storage of decomposition.
-   * 
+   *
    * @serial internal array storage.
    */
   private final double [][] m_aQR;
 
   /**
    * Row dimension.
-   * 
+   *
    * @serial row dimension.
    */
   private final int m_nRows;
 
   /**
    * Column dimension.
-   * 
+   *
    * @serial column dimension.
    */
   private final int m_nCols;
 
   /**
    * Array for internal storage of diagonal of R.
-   * 
+   *
    * @serial diagonal of R.
    */
   private final double [] m_aRdiag;
@@ -67,7 +70,7 @@ public class QRDecomposition implements java.io.Serializable
   /**
    * QR Decomposition, computed by Householder reflections. Structure to access
    * R and the Householder vectors and compute Q.
-   * 
+   *
    * @param aMatrix
    *        Rectangular matrix
    */
@@ -121,7 +124,7 @@ public class QRDecomposition implements java.io.Serializable
 
   /**
    * Is the matrix full rank?
-   * 
+   *
    * @return true if R, and hence A, has full rank.
    */
   public boolean isFullRank ()
@@ -134,7 +137,7 @@ public class QRDecomposition implements java.io.Serializable
 
   /**
    * Return the Householder vectors
-   * 
+   *
    * @return Lower trapezoidal matrix whose columns define the reflections
    */
   @Nonnull
@@ -157,7 +160,7 @@ public class QRDecomposition implements java.io.Serializable
 
   /**
    * Return the upper triangular factor
-   * 
+   *
    * @return R
    */
   @Nonnull
@@ -185,7 +188,7 @@ public class QRDecomposition implements java.io.Serializable
 
   /**
    * Generate and return the (economy-sized) orthogonal factor
-   * 
+   *
    * @return Q
    */
   @Nonnull
@@ -220,7 +223,7 @@ public class QRDecomposition implements java.io.Serializable
 
   /**
    * Least squares solution of A*X = B
-   * 
+   *
    * @param aMatrix
    *        A Matrix with as many rows as A and any number of columns.
    * @return X that minimizes the two norm of Q*R*X-B.

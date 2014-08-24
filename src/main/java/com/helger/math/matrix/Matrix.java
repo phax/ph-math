@@ -56,13 +56,14 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  * printing matrices are also included. All the operations in this version of
  * the Matrix Class involve real matrices. Complex matrices may be handled in a
  * future version.
+ * </P>
  * <P>
  * Five fundamental matrix decompositions, which consist of pairs or triples of
  * matrices, permutation vectors, and the like, produce results in five
  * decomposition classes. These decompositions are accessed by the Matrix class
  * to compute solutions of simultaneous linear equations, determinants, inverses
  * and other matrix functions. The five decompositions are:
- * <P>
+ * </P>
  * <UL>
  * <LI>Cholesky Decomposition of symmetric, positive definite matrices.
  * <LI>LU Decomposition of rectangular matrices.
@@ -73,10 +74,8 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  * </UL>
  * <DL>
  * <DT><B>Example of use:</B></DT>
- * <P>
  * <DD>Solve a linear system A x = b and compute the residual norm, ||b - A x||.
- * <P>
- * 
+ *
  * <PRE>
  * double [][] vals = { { 1., 2., 3 }, { 4., 5., 6. }, { 7., 8., 10. } };
  * Matrix A = new Matrix (vals);
@@ -85,10 +84,10 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  * Matrix r = A.times (x).minus (b);
  * double rnorm = r.normInf ();
  * </PRE>
- * 
+ *
  * </DD>
  * </DL>
- * 
+ *
  * @author The MathWorks, Inc. and the National Institute of Standards and
  *         Technology.
  * @version 5 August 1998
@@ -97,28 +96,28 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 {
   /**
    * Array for internal storage of elements.
-   * 
+   *
    * @serial internal array storage.
    */
   private final double [][] m_aData;
 
   /**
    * Row dimensions.
-   * 
+   *
    * @serial row dimension.
    */
   private final int m_nRows;
 
   /**
    * Column dimensions.
-   * 
+   *
    * @serial column dimension.
    */
   private final int m_nCols;
 
   /**
    * Construct an nRows-by-nCols matrix of zeros.
-   * 
+   *
    * @param nRows
    *        Number of rows.
    * @param nCols
@@ -137,7 +136,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Construct an nRows-by-nCols constant matrix.
-   * 
+   *
    * @param nRows
    *        Number of rows.
    * @param nCols
@@ -154,7 +153,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Construct a matrix from a 2-D array.
-   * 
+   *
    * @param aOther
    *        Two-dimensional array of doubles.
    * @exception IllegalArgumentException
@@ -181,7 +180,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Construct a matrix quickly without checking arguments.
-   * 
+   *
    * @param aOther
    *        Two-dimensional array of doubles. Is directly reused!
    * @param nRows
@@ -211,7 +210,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Construct a matrix from a one-dimensional packed array
-   * 
+   *
    * @param aVals
    *        One-dimensional array of doubles, packed by columns (ala Fortran).
    * @param nRows
@@ -237,7 +236,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Construct a matrix from a copy of a 2-D array.
-   * 
+   *
    * @param aArray
    *        Two-dimensional array of doubles.
    * @return The new matrix
@@ -282,7 +281,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Access the internal two-dimensional array.
-   * 
+   *
    * @return Pointer to the two-dimensional array of matrix elements.
    */
   @SuppressFBWarnings ("EI_EXPOSE_REP")
@@ -295,7 +294,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Copy the internal two-dimensional array.
-   * 
+   *
    * @return Two-dimensional array copy of matrix elements.
    */
   @Nonnull
@@ -314,7 +313,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Make a one-dimensional column packed copy of the internal array.
-   * 
+   *
    * @return Matrix elements packed in a one-dimensional array by columns.
    */
   @Nonnull
@@ -332,7 +331,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Make a one-dimensional row packed copy of the internal array.
-   * 
+   *
    * @return Matrix elements packed in a one-dimensional array by rows.
    */
   @Nonnull
@@ -350,7 +349,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Get row dimension.
-   * 
+   *
    * @return nRows, the number of rows.
    */
   @Nonnegative
@@ -361,7 +360,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Get column dimension.
-   * 
+   *
    * @return nCols, the number of columns.
    */
   @Nonnegative
@@ -381,7 +380,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Get a single element.
-   * 
+   *
    * @param nRow
    *        Row index.
    * @param nCol
@@ -396,7 +395,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Get a submatrix.
-   * 
+   *
    * @param nStartRowIndex
    *        Initial row index
    * @param nEndRowIndex
@@ -432,7 +431,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Get a submatrix.
-   * 
+   *
    * @param aRows
    *        Array of row indices.
    * @param aCols
@@ -460,7 +459,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Get a submatrix.
-   * 
+   *
    * @param nStartRowIndex
    *        Initial row index
    * @param nEndRowIndex
@@ -490,7 +489,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Get a submatrix.
-   * 
+   *
    * @param aRows
    *        Array of row indices.
    * @param nStartColumnIndex
@@ -522,7 +521,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Set a single element.
-   * 
+   *
    * @param nRow
    *        Row index.
    * @param nCol
@@ -538,7 +537,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Set a submatrix.
-   * 
+   *
    * @param nStartRowIndex
    *        Initial row index
    * @param nEndRowIndex
@@ -569,7 +568,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Set a submatrix.
-   * 
+   *
    * @param aRows
    *        Array of row indices.
    * @param aCols
@@ -592,7 +591,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Set a submatrix.
-   * 
+   *
    * @param aRows
    *        Array of row indices.
    * @param nStartColumnIndex
@@ -620,7 +619,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Set a submatrix.
-   * 
+   *
    * @param nStartRowIndex
    *        Initial row index
    * @param nEndRowIndex
@@ -650,7 +649,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Matrix transpose.
-   * 
+   *
    * @return A'
    */
   @Nonnull
@@ -670,7 +669,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * One norm
-   * 
+   *
    * @return maximum column sum.
    */
   public double norm1 ()
@@ -688,7 +687,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Two norm
-   * 
+   *
    * @return maximum singular value.
    */
   public double norm2 ()
@@ -698,7 +697,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Infinity norm
-   * 
+   *
    * @return maximum row sum.
    */
   public double normInf ()
@@ -717,7 +716,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Frobenius norm
-   * 
+   *
    * @return sqrt of sum of squares of all elements.
    */
   public double normF ()
@@ -734,7 +733,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Unary minus
-   * 
+   *
    * @return -A
    */
   @Nonnull
@@ -755,7 +754,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Check if size(A) == size(B)
-   * 
+   *
    * @param aMatrix
    *        Matrix to check
    */
@@ -769,7 +768,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * C = A + B
-   * 
+   *
    * @param aMatrix
    *        another matrix
    * @return A + B
@@ -794,7 +793,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * A = A + B
-   * 
+   *
    * @param aMatrix
    *        another matrix
    * @return this
@@ -815,7 +814,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * C = A - B
-   * 
+   *
    * @param aMatrix
    *        another matrix
    * @return A - B
@@ -840,7 +839,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * A = A - B
-   * 
+   *
    * @param aMatrix
    *        another matrix
    * @return this
@@ -861,7 +860,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Element-by-element multiplication, C = A.*B
-   * 
+   *
    * @param aMatrix
    *        another matrix
    * @return A.*B
@@ -886,7 +885,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Element-by-element multiplication in place, A = A.*B
-   * 
+   *
    * @param aMatrix
    *        another matrix
    * @return this
@@ -907,7 +906,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Element-by-element right division, C = A./B
-   * 
+   *
    * @param aMatrix
    *        another matrix
    * @return A./B
@@ -932,7 +931,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Element-by-element right division in place, A = A./B
-   * 
+   *
    * @param aMatrix
    *        another matrix
    * @return this
@@ -953,7 +952,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Element-by-element left division, C = B.\A
-   * 
+   *
    * @param aMatrix
    *        another matrix
    * @return B.\A
@@ -978,7 +977,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Element-by-element left division in place, A = B.\A
-   * 
+   *
    * @param aMatrix
    *        another matrix
    * @return this
@@ -1000,7 +999,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Multiply a matrix by a scalar, C = s*A
-   * 
+   *
    * @param s
    *        scalar
    * @return s*A
@@ -1023,7 +1022,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Multiply a matrix by a scalar in place, A = s*A
-   * 
+   *
    * @param s
    *        scalar
    * @return this
@@ -1042,7 +1041,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Linear algebraic matrix multiplication, A * B
-   * 
+   *
    * @param aMatrix
    *        another matrix
    * @return Matrix product, A * B
@@ -1080,7 +1079,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * LU Decomposition
-   * 
+   *
    * @return LUDecomposition
    * @see LUDecomposition
    */
@@ -1093,7 +1092,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * QR Decomposition
-   * 
+   *
    * @return QRDecomposition
    * @see QRDecomposition
    */
@@ -1106,7 +1105,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Cholesky Decomposition
-   * 
+   *
    * @return CholeskyDecomposition
    * @see CholeskyDecomposition
    */
@@ -1119,7 +1118,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Singular Value Decomposition
-   * 
+   *
    * @return SingularValueDecomposition
    * @see SingularValueDecomposition
    */
@@ -1132,7 +1131,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Eigenvalue Decomposition
-   * 
+   *
    * @return EigenvalueDecomposition
    * @see EigenvalueDecomposition
    */
@@ -1145,7 +1144,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Solve A*X = B
-   * 
+   *
    * @param aMatrix
    *        right hand side
    * @return solution if A is square, least squares solution otherwise
@@ -1162,7 +1161,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Solve X*A = B, which is also A'*X' = B'
-   * 
+   *
    * @param aMatrix
    *        right hand side
    * @return solution if A is square, least squares solution otherwise.
@@ -1175,7 +1174,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Matrix inverse or pseudoinverse
-   * 
+   *
    * @return inverse(A) if A is square, pseudoinverse otherwise.
    */
   @Nonnull
@@ -1186,7 +1185,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Matrix determinant
-   * 
+   *
    * @return determinant
    */
   public double det ()
@@ -1196,7 +1195,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Matrix rank
-   * 
+   *
    * @return effective numerical rank, obtained from SVD.
    */
   public int rank ()
@@ -1206,7 +1205,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Matrix condition (2 norm)
-   * 
+   *
    * @return ratio of largest to smallest singular value.
    */
   public double cond ()
@@ -1216,7 +1215,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Matrix trace.
-   * 
+   *
    * @return sum of the diagonal elements.
    */
   public double trace ()
@@ -1230,7 +1229,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Generate matrix with random elements
-   * 
+   *
    * @param nRows
    *        Number of rows.
    * @param nCols
@@ -1255,7 +1254,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
 
   /**
    * Generate identity matrix
-   * 
+   *
    * @param nRows
    *        Number of rows.
    * @param nCols
@@ -1281,7 +1280,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
   /**
    * Print the matrix to stdout. Line the elements up in columns with a
    * Fortran-like 'Fw.d' style format.
-   * 
+   *
    * @param nWidth
    *        Column width.
    * @param nFractionDigits
@@ -1298,7 +1297,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
   /**
    * Print the matrix to the output stream. Line the elements up in columns with
    * a Fortran-like 'Fw.d' style format.
-   * 
+   *
    * @param aPW
    *        Output stream.
    * @param nWidth
@@ -1324,7 +1323,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
    * object, and right justify within columns of width characters. Note that is
    * the matrix is to be read back in, you probably will want to use a
    * NumberFormat that is set to US Locale.
-   * 
+   *
    * @param aFormat
    *        A Formatting object for individual elements.
    * @param nWidth
@@ -1348,7 +1347,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
    * the format object, and right justify within columns of width characters.
    * Note that is the matrix is to be read back in, you probably will want to
    * use a NumberFormat that is set to US Locale.
-   * 
+   *
    * @param aPW
    *        the output stream.
    * @param aFormat
@@ -1407,7 +1406,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
    * printed matrices can be read back in (provided they were printed using US
    * Locale). Elements are separated by whitespace, all the elements for each
    * row appear on a single line, the last row is followed by a blank line.
-   * 
+   *
    * @param aReader
    *        the input stream.
    * @return The read matrix

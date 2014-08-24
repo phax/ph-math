@@ -30,7 +30,7 @@ import com.helger.commons.state.EChange;
 
 /**
  * Base interface for graph node implementations.
- * 
+ *
  * @author Philip Helger
  */
 @MustImplementEqualsAndHashcode
@@ -38,7 +38,7 @@ public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, 
 {
   /**
    * Add a new incoming relation to this node
-   * 
+   *
    * @param aRelation
    *        The relation to be added. May not be <code>null</code>.
    */
@@ -57,7 +57,7 @@ public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, 
 
   /**
    * Check if this node has the passed relation as an incoming relations.
-   * 
+   *
    * @param aRelation
    *        The relation to be checked. May be <code>null</code>.
    * @return <code>true</code> if the passed relation is an incoming relation,
@@ -74,7 +74,7 @@ public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, 
 
   /**
    * Remove the passed relation from the set of incoming relations.
-   * 
+   *
    * @param aRelation
    *        The relation to be removed. May be <code>null</code>.
    * @return {@link EChange#CHANGED} if the passed relation was successfully
@@ -85,7 +85,7 @@ public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, 
 
   /**
    * Remove all incoming relations.
-   * 
+   *
    * @return {@link EChange#CHANGED} if the at least one relation was
    *         successfully removed from the incoming relations.
    */
@@ -95,7 +95,7 @@ public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, 
   /**
    * Check if this graph node is directly connected to the passed node via an
    * incoming relation.
-   * 
+   *
    * @param aNode
    *        The node to be checked. May be <code>null</code>.
    * @return <code>true</code> if is connected, <code>false</code> if not
@@ -111,7 +111,7 @@ public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, 
 
   /**
    * Find the incoming relation from the passed node to this node.
-   * 
+   *
    * @param aFromNode
    *        The from node to use. May be <code>null</code>.
    * @return <code>null</code> if there exists no incoming relation from the
@@ -124,7 +124,7 @@ public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, 
 
   /**
    * Add a new outgoing relation from this node
-   * 
+   *
    * @param aRelation
    *        The relation to be added. May not be <code>null</code>.
    */
@@ -143,7 +143,7 @@ public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, 
 
   /**
    * Check if this node has the passed relation as an outgoing relations.
-   * 
+   *
    * @param aRelation
    *        The relation to be checked. May be <code>null</code>.
    * @return <code>true</code> if the passed relation is an outgoing relation,
@@ -160,7 +160,7 @@ public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, 
 
   /**
    * Remove the passed relation from the set of outgoing relations.
-   * 
+   *
    * @param aRelation
    *        The relation to be removed. May be <code>null</code>.
    * @return {@link EChange#CHANGED} if the passed relation was successfully
@@ -171,7 +171,7 @@ public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, 
 
   /**
    * Remove all outgoing relations.
-   * 
+   *
    * @return {@link EChange#CHANGED} if the at least one relation was
    *         successfully removed from the outgoing relations.
    */
@@ -181,7 +181,7 @@ public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, 
   /**
    * Check if this graph node is directly connected to the passed node via an
    * outgoing relation.
-   * 
+   *
    * @param aNode
    *        The node to be checked. May be <code>null</code>.
    * @return <code>true</code> if is connected, <code>false</code> if not
@@ -197,7 +197,7 @@ public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, 
 
   /**
    * Find the incoming relation from this node to the passed node.
-   * 
+   *
    * @param aToNode
    *        The to node to use. May be <code>null</code>.
    * @return <code>null</code> if there exists no incoming relation from this
@@ -211,7 +211,7 @@ public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, 
   /**
    * Check if this node has incoming <b>or</b> outgoing relations. This is equal
    * to calling <code>hasIncomingRelations() || hasOutgoingRelations()</code>
-   * 
+   *
    * @return <code>true</code> if this node has at least one incoming or
    *         outgoing relation.
    */
@@ -220,8 +220,8 @@ public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, 
   /**
    * Check if this node has incoming <b>and</b> outgoing relations. This is
    * equal to calling
-   * <code>hasIncomingRelations() && hasOutgoingRelations()</code>
-   * 
+   * <code>hasIncomingRelations() &amp;&amp; hasOutgoingRelations()</code>
+   *
    * @return <code>true</code> if this node has at least one incoming and at
    *         least one outgoing relation.
    */

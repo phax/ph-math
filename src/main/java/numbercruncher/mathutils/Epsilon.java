@@ -29,7 +29,6 @@ public final class Epsilon
 
   static
   {
-
     // Loop to compute the float epsilon value.
     float fTemp = 0.5f;
     while (1 + fTemp > 1)
@@ -45,8 +44,8 @@ public final class Epsilon
 
   /**
    * Return the float epsilon value.
-   * 
-   * @returns the value
+   *
+   * @return the value
    */
   public static float floatValue ()
   {
@@ -55,8 +54,8 @@ public final class Epsilon
 
   /**
    * Return the double epsilon value.
-   * 
-   * @returns the value
+   *
+   * @return the value
    */
   public static double doubleValue ()
   {

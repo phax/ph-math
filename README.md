@@ -1,4 +1,7 @@
-ph-graph
+ph-math
 ========
 
-Java library with some graph implementations
+Java library with some basic math implementations
+
+  * Graphs - directed and undirected
+  * Matrix implementations
