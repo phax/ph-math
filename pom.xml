@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright (C) 2006-2014 phloc systems (www.phloc.com)
     Copyright (C) 2014 Philip Helger (www.helger.com)
     philip[at]helger[dot]com
 
@@ -19,18 +18,19 @@
 
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.helger</groupId>
     <artifactId>parent-pom</artifactId>
     <version>1.2</version>
   </parent>
-  <modelVersion>4.0.0</modelVersion>
   <artifactId>ph-math</artifactId>
   <version>1.2.1-SNAPSHOT</version>
   <packaging>bundle</packaging>
   <name>ph-math</name>
   <description>Java library with basic math stuff</description>
   <url>https://github.com/phax/ph-math</url>
+  <inceptionYear>2014</inceptionYear>
   
   <licenses>
     <license>
@@ -58,13 +58,6 @@
       <name>Philip Helger</name>
       <email>ph(at)helger.com</email>
       <url>http://www.helger.com</url>
-    </developer>
-    <developer>
-      <id>boris</id>
-      <name>Boris Gregorcic</name>
-      <email>bg(at)phloc.com</email>
-      <url>http://www.phloc.com</url>
-      <organization>phloc systems</organization>
     </developer>
   </developers>
 
