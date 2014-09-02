@@ -26,15 +26,19 @@ import com.helger.commons.annotations.ReturnsMutableCopy;
 
 /**
  * Base interface for a single undirected graph relation.
- * 
+ *
  * @author Philip Helger
+ * @param <N>
+ *        Node class
+ * @param <R>
+ *        Relation class
  */
 @MustImplementEqualsAndHashcode
 public interface IBaseGraphRelation <N extends IBaseGraphNode <N, R>, R extends IBaseGraphRelation <N, R>> extends IBaseGraphObject
 {
   /**
    * Check if this relation is connected to the passed node.
-   * 
+   *
    * @param aNode
    *        The node to be checked. May be <code>null</code>.
    * @return <code>true</code> if the passed node is related via this relation,

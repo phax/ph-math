@@ -35,8 +35,12 @@ import com.helger.math.graph.IBaseGraphRelation;
 
 /**
  * A simple graph object that bidirectionally links graph nodes.
- * 
+ *
  * @author Philip Helger
+ * @param <N>
+ *        Node class
+ * @param <R>
+ *        Relation class
  */
 @NotThreadSafe
 public abstract class AbstractBaseGraph <N extends IBaseGraphNode <N, R>, R extends IBaseGraphRelation <N, R>> extends AbstractBaseGraphObject implements IBaseGraph <N, R>

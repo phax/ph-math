@@ -28,8 +28,12 @@ import com.helger.math.matrix.Matrix;
 
 /**
  * Base interface for a read-only graph.
- * 
+ *
  * @author Philip Helger
+ * @param <N>
+ *        Node class
+ * @param <R>
+ *        Relation class
  */
 public interface IReadonlyBaseGraph <N extends IBaseGraphNode <N, R>, R extends IBaseGraphRelation <N, R>> extends IBaseGraphObject
 {
@@ -41,7 +45,7 @@ public interface IReadonlyBaseGraph <N extends IBaseGraphNode <N, R>, R extends 
 
   /**
    * Find the graph node with the specified ID.
-   * 
+   *
    * @param sID
    *        The ID to be searched. Maybe <code>null</code>.
    * @return <code>null</code> if no such graph node exists in this graph.
@@ -86,7 +90,7 @@ public interface IReadonlyBaseGraph <N extends IBaseGraphNode <N, R>, R extends 
    * <code>NodeA</code> has an outgoing relation to <code>NodeB</code>,
    * <code>NodeB</code> has an outgoing relation to <code>NodeC</code> and
    * finally <code>NodeC</code> has an outgoing relation to <code>NodeA</code>.
-   * 
+   *
    * @return <code>true</code> if this graph contains at least one cycle,
    *         <code>false</code> if this graph is cycle-free.
    */
@@ -98,7 +102,7 @@ public interface IReadonlyBaseGraph <N extends IBaseGraphNode <N, R>, R extends 
    * possible to link different graphs together with relations. This method
    * returns true, if all nodes referenced from all relations link to objects
    * inside this graph.
-   * 
+   *
    * @return <code>true</code> if this graph is self contained,
    *         <code>false</code> if not.
    */

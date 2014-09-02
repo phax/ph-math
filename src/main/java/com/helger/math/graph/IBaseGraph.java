@@ -23,8 +23,12 @@ import com.helger.commons.state.EChange;
 
 /**
  * Interface for a modifiable graph.
- * 
+ *
  * @author Philip Helger
+ * @param <N>
+ *        Node class
+ * @param <R>
+ *        Relation class
  */
 public interface IBaseGraph <N extends IBaseGraphNode <N, R>, R extends IBaseGraphRelation <N, R>> extends IReadonlyBaseGraph <N, R>
 {
@@ -32,7 +36,7 @@ public interface IBaseGraph <N extends IBaseGraphNode <N, R>, R extends IBaseGra
    * Allow or disallow that {@link #addNode(IBaseGraphNode)} and
    * {@link #removeNode(IBaseGraphNode)} can handle graph nodes that are already
    * connected.
-   * 
+   *
    * @param bAllow
    *        if <code>true</code> it is allowed to add and remove nodes that
    *        already have incoming or outgoing relations.
@@ -49,7 +53,7 @@ public interface IBaseGraph <N extends IBaseGraphNode <N, R>, R extends IBaseGra
 
   /**
    * Add an existing node to this graph.
-   * 
+   *
    * @param aNode
    *        The node to be added. May not be <code>null</code>.
    * @return {@link EChange}
@@ -67,7 +71,7 @@ public interface IBaseGraph <N extends IBaseGraphNode <N, R>, R extends IBaseGra
    * Important note: existing relations are not altered when this method is
    * called, so it may be possible that existing relations pointing to that
    * object therefore reference a node that is no longer in the graph!
-   * 
+   *
    * @param aNode
    *        The node to be removed. May not be <code>null</code>.
    * @return {@link EChange}
@@ -82,7 +86,7 @@ public interface IBaseGraph <N extends IBaseGraphNode <N, R>, R extends IBaseGra
 
   /**
    * Remove an existing node and all connected relations from the graph.
-   * 
+   *
    * @param aNode
    *        The node to be removed. May not be <code>null</code>.
    * @return {@link EChange}
@@ -92,7 +96,7 @@ public interface IBaseGraph <N extends IBaseGraphNode <N, R>, R extends IBaseGra
 
   /**
    * Remove the passed relation from the graph.
-   * 
+   *
    * @param aRelation
    *        The relation to be removed. May be <code>null</code>.
    * @return {@link EChange#CHANGED} if the relation was at least removed from

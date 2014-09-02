@@ -43,7 +43,7 @@ public class BisectionRootFinder extends RootFinder
 
   /**
    * Constructor.
-   * 
+   *
    * @param function
    *        the functions whose roots to find
    * @param xMin
@@ -51,6 +51,7 @@ public class BisectionRootFinder extends RootFinder
    * @param xMax
    *        the initial x-value where the function is positive
    * @throws RootFinder.InvalidIntervalException
+   *         in checkInterval
    */
   public BisectionRootFinder (final Function function, final float xMin, final float xMax) throws RootFinder.InvalidIntervalException
   {
@@ -83,7 +84,7 @@ public class BisectionRootFinder extends RootFinder
 
   /**
    * Return the current value of x-negative.
-   * 
+   *
    * @return the value
    */
   public float getXNeg ()
@@ -93,7 +94,7 @@ public class BisectionRootFinder extends RootFinder
 
   /**
    * Return the current value of x-middle.
-   * 
+   *
    * @return the value
    */
   public float getXMid ()
@@ -103,7 +104,7 @@ public class BisectionRootFinder extends RootFinder
 
   /**
    * Return the current value of x-positive.
-   * 
+   *
    * @return the value
    */
   public float getXPos ()
@@ -113,7 +114,7 @@ public class BisectionRootFinder extends RootFinder
 
   /**
    * Return the current value of f(x-negative).
-   * 
+   *
    * @return the value
    */
   public float getFNeg ()
@@ -123,7 +124,7 @@ public class BisectionRootFinder extends RootFinder
 
   /**
    * Return the current value of f(x-middle).
-   * 
+   *
    * @return the value
    */
   public float getFMid ()
@@ -133,7 +134,7 @@ public class BisectionRootFinder extends RootFinder
 
   /**
    * Return the current value of f(x-positive).
-   * 
+   *
    * @return the value
    */
   public float getFPos ()
@@ -147,7 +148,7 @@ public class BisectionRootFinder extends RootFinder
 
   /**
    * Do the bisection iteration procedure.
-   * 
+   *
    * @param n
    *        the iteration count
    */
@@ -182,7 +183,7 @@ public class BisectionRootFinder extends RootFinder
 
   /**
    * Check the position of xMid.
-   * 
+   *
    * @throws PositionUnchangedException
    */
   @Override
@@ -196,7 +197,7 @@ public class BisectionRootFinder extends RootFinder
 
   /**
    * Indicate whether or not the algorithm has converged.
-   * 
+   *
    * @return true if converged, else false
    */
   @Override

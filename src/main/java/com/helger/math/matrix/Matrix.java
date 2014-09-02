@@ -385,7 +385,6 @@ public class Matrix implements Serializable, ICloneable <Matrix>
    * @param nCol
    *        Column index.
    * @return A(nRow,nCol)
-   * @exception ArrayIndexOutOfBoundsException
    */
   public double get (@Nonnegative final int nRow, @Nonnegative final int nCol)
   {
@@ -527,7 +526,6 @@ public class Matrix implements Serializable, ICloneable <Matrix>
    *        Column index.
    * @param dValue
    *        A(nRow,nCol).
-   * @exception ArrayIndexOutOfBoundsException
    */
   public void set (@Nonnegative final int nRow, @Nonnegative final int nCol, final double dValue)
   {

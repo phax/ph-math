@@ -230,6 +230,12 @@ public final class BigFunctions
 
   /**
    * Compute the natural logarithm of x to a given scale, x &gt; 0.
+   *
+   * @param x
+   *        Base value
+   * @param scale
+   *        Scale
+   * @return ln(x)
    */
   public static BigDecimal ln (@Nonnull final BigDecimal x, final int scale)
   {

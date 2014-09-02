@@ -29,7 +29,7 @@ public class Complex
 
   /**
    * Constructor.
-   * 
+   *
    * @param real
    *        the real part
    * @param imaginary
@@ -43,7 +43,7 @@ public class Complex
 
   /**
    * Return this complex number's real part.
-   * 
+   *
    * @return the real part
    */
   public float real ()
@@ -53,7 +53,7 @@ public class Complex
 
   /**
    * Return this complex number's imaginary part.
-   * 
+   *
    * @return the imaginary part
    */
   public float imaginary ()
@@ -62,7 +62,7 @@ public class Complex
   }
 
   /**
-   * Compute this complex number's modulus
+   * @return Compute this complex number's modulus
    */
   public float modulus ()
   {
@@ -71,7 +71,7 @@ public class Complex
 
   /**
    * Return whether or not this complex number is equal to another one.
-   * 
+   *
    * @param z
    *        the other complex number
    * @return true if equal, false if not
@@ -83,7 +83,7 @@ public class Complex
 
   /**
    * Add another complex number to this one.
-   * 
+   *
    * @param z
    *        the other complex number
    * @return a new complex number that is the sum
@@ -95,7 +95,7 @@ public class Complex
 
   /**
    * Subtract another complex number from this one.
-   * 
+   *
    * @param z
    *        the other complex number
    * @return a new complex number that is the difference
@@ -107,7 +107,7 @@ public class Complex
 
   /**
    * Multiply this complex number by another one.
-   * 
+   *
    * @param z
    *        the other complex number
    * @return a new complex number that is the product
@@ -122,7 +122,7 @@ public class Complex
 
   /**
    * Divide this complex number by another one.
-   * 
+   *
    * @param z
    *        the other complex number
    * @return a new complex number that is the quotient
@@ -138,7 +138,7 @@ public class Complex
 
   /**
    * Return the string representation of this complex number.
-   * 
+   *
    * @return the string representation
    */
   @Override

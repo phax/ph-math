@@ -28,8 +28,12 @@ import com.helger.commons.state.EChange;
 
 /**
  * Base interface for a single graph node.
- * 
+ *
  * @author Philip Helger
+ * @param <N>
+ *        Node class
+ * @param <R>
+ *        Relation class
  */
 @MustImplementEqualsAndHashcode
 public interface IBaseGraphNode <N extends IBaseGraphNode <N, R>, R extends IBaseGraphRelation <N, R>> extends IBaseGraphObject
@@ -39,7 +43,7 @@ public interface IBaseGraphNode <N extends IBaseGraphNode <N, R>, R extends IBas
    * via an incoming or via an outgoing relation.<br>
    * This is the same as calling
    * <code>isFromNode(aNode) || isToNode(aNode)</code>
-   * 
+   *
    * @param aNode
    *        The node to be checked. May be <code>null</code>.
    * @return <code>true</code> if is connected, <code>false</code> if not
@@ -48,7 +52,7 @@ public interface IBaseGraphNode <N extends IBaseGraphNode <N, R>, R extends IBas
 
   /**
    * Find the relation from this node to the passed node.
-   * 
+   *
    * @param aNode
    *        The to node to use. May be <code>null</code>.
    * @return <code>null</code> if there exists no relation between this node and
@@ -59,7 +63,7 @@ public interface IBaseGraphNode <N extends IBaseGraphNode <N, R>, R extends IBas
 
   /**
    * Check if this node has any relations.
-   * 
+   *
    * @return <code>true</code> if this node has at least one incoming or
    *         outgoing relation.
    */
@@ -106,7 +110,7 @@ public interface IBaseGraphNode <N extends IBaseGraphNode <N, R>, R extends IBas
 
   /**
    * Remove all relations of this node.
-   * 
+   *
    * @return {@link EChange}
    */
   @Nonnull

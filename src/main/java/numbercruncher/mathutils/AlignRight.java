@@ -32,7 +32,7 @@ public class AlignRight
 
   /**
    * Print text right-aligned in the column.
-   * 
+   *
    * @param text
    *        the text to print
    * @param width
@@ -50,7 +50,7 @@ public class AlignRight
 
   /**
    * Print an integer value right-aligned in the column.
-   * 
+   *
    * @param value
    *        the value to print
    * @param width
@@ -63,9 +63,11 @@ public class AlignRight
 
   /**
    * Print a float value right-aligned in the column.
-   * 
+   *
    * @param value
    *        the value to print
+   * @param width
+   *        the column width
    */
   public void print (final float value, final int width)
   {
@@ -74,7 +76,7 @@ public class AlignRight
 
   /**
    * Print a double value right-aligned in the column.
-   * 
+   *
    * @param value
    *        the value to print
    * @param width
