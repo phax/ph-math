@@ -94,6 +94,9 @@
               com.helger.math.*,
               numbercruncher.*
             </Export-Package>
+            <Import-Package>
+              !javax.annotation.*,*
+            </Import-Package>
           </instructions>
         </configuration>
       </plugin>
