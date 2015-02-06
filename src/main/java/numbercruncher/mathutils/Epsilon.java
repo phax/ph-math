@@ -23,8 +23,8 @@ package numbercruncher.mathutils;
  */
 public final class Epsilon
 {
-  private static final float floatEpsilon;
-  private static final double doubleEpsilon;
+  private static final float FLOAT_EPSILON;
+  private static final double DOUBLE_EPSILON;
 
   static
   {
@@ -32,13 +32,13 @@ public final class Epsilon
     float fTemp = 0.5f;
     while (1 + fTemp > 1)
       fTemp /= 2;
-    floatEpsilon = fTemp;
+    FLOAT_EPSILON = fTemp;
 
     // Loop to compute the double epsilon value.
     double dTemp = 0.5;
     while (1 + dTemp > 1)
       dTemp /= 2;
-    doubleEpsilon = dTemp;
+    DOUBLE_EPSILON = dTemp;
   }
 
   /**
@@ -48,7 +48,7 @@ public final class Epsilon
    */
   public static float floatValue ()
   {
-    return floatEpsilon;
+    return FLOAT_EPSILON;
   }
 
   /**
@@ -58,6 +58,6 @@ public final class Epsilon
    */
   public static double doubleValue ()
   {
-    return doubleEpsilon;
+    return DOUBLE_EPSILON;
   }
 }
