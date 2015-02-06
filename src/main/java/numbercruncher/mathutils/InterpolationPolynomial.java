@@ -24,23 +24,23 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 public class InterpolationPolynomial implements IEvaluatable
 {
   /** number of data points */
-  private int n;
+  private int m_nDataPoints;
   /** array of data points */
   private final DataPoint [] m_aData;
   /** divided difference table */
-  private final float [][] dd;
+  private final float [][] m_aDivDiff;
 
   /**
    * Constructor.
-   * 
+   *
    * @param data
    *        the array of data points
    */
   @SuppressFBWarnings ("EI_EXPOSE_REP2")
   public InterpolationPolynomial (final DataPoint [] data)
   {
-    this.m_aData = data;
-    this.dd = new float [data.length] [data.length];
+    m_aData = data;
+    m_aDivDiff = new float [data.length] [data.length];
 
     for (final DataPoint element : data)
     {
@@ -50,19 +50,19 @@ public class InterpolationPolynomial implements IEvaluatable
 
   /**
    * Constructor.
-   * 
+   *
    * @param maxPoints
    *        the maximum number of data points
    */
   public InterpolationPolynomial (final int maxPoints)
   {
     this.m_aData = new DataPoint [maxPoints];
-    this.dd = new float [m_aData.length] [m_aData.length];
+    this.m_aDivDiff = new float [m_aData.length] [m_aData.length];
   }
 
   /**
    * Return the data points.
-   * 
+   *
    * @return the array of data points
    */
   @SuppressFBWarnings ("EI_EXPOSE_REP")
@@ -73,73 +73,73 @@ public class InterpolationPolynomial implements IEvaluatable
 
   /**
    * Return the divided difference table.
-   * 
+   *
    * @return the table
    */
   @SuppressFBWarnings ("EI_EXPOSE_REP")
   public float [][] getDividedDifferenceTable ()
   {
-    return dd;
+    return m_aDivDiff;
   }
 
   /**
    * Return the current number of data points.
-   * 
+   *
    * @return the count
    */
   public int getDataPointCount ()
   {
-    return n;
+    return m_nDataPoints;
   }
 
   /**
    * Add new data point: Augment the divided difference table by appending a new
    * entry at the bottom of each column.
-   * 
+   *
    * @param dataPoint
    *        the new data point
    */
   public void addDataPoint (final DataPoint dataPoint)
   {
-    if (n >= m_aData.length)
+    if (m_nDataPoints >= m_aData.length)
       return;
 
-    m_aData[n] = dataPoint;
-    dd[n][0] = dataPoint.getY ();
+    m_aData[m_nDataPoints] = dataPoint;
+    m_aDivDiff[m_nDataPoints][0] = dataPoint.getY ();
 
-    ++n;
+    ++m_nDataPoints;
 
-    for (int order = 1; order < n; ++order)
+    for (int order = 1; order < m_nDataPoints; ++order)
     {
-      final int bottom = n - order - 1;
-      final float numerator = dd[bottom + 1][order - 1] - dd[bottom][order - 1];
+      final int bottom = m_nDataPoints - order - 1;
+      final float numerator = m_aDivDiff[bottom + 1][order - 1] - m_aDivDiff[bottom][order - 1];
       final float denominator = m_aData[bottom + order].getX () - m_aData[bottom].getX ();
 
-      dd[bottom][order] = numerator / denominator;
+      m_aDivDiff[bottom][order] = numerator / denominator;
     }
   }
 
   /**
    * Return the value of the polynomial interpolation function at x.
    * (Implementation of Evaluatable.)
-   * 
+   *
    * @param x
    *        the value of x
    * @return the value of the function at x
    */
   public float at (final float x)
   {
-    if (n < 2)
+    if (m_nDataPoints < 2)
       return Float.NaN;
 
-    float y = dd[0][0];
+    float y = m_aDivDiff[0][0];
     float xFactor = 1;
 
     // Compute the value of the function.
-    for (int order = 1; order < n; ++order)
+    for (int order = 1; order < m_nDataPoints; ++order)
     {
       xFactor = xFactor * (x - m_aData[order - 1].getX ());
-      y = y + xFactor * dd[0][order];
+      y = y + xFactor * m_aDivDiff[0][order];
     }
 
     return y;
@@ -150,6 +150,6 @@ public class InterpolationPolynomial implements IEvaluatable
    */
   public void reset ()
   {
-    n = 0;
+    m_nDataPoints = 0;
   }
 }

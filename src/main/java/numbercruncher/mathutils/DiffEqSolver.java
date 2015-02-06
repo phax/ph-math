@@ -25,12 +25,12 @@ public abstract class DiffEqSolver
   protected DifferentialEquation m_aEquation;
 
   /** the initial condition data point */
-  protected DataPoint initialCondition;
+  protected DataPoint m_aInitialCondition;
 
   /** current x value */
-  protected float x;
+  protected float m_fX;
   /** current y value */
-  protected float y;
+  protected float m_fY;
 
   /**
    * Constructor.
@@ -41,7 +41,7 @@ public abstract class DiffEqSolver
   public DiffEqSolver (final DifferentialEquation equation)
   {
     this.m_aEquation = equation;
-    this.initialCondition = equation.getInitialCondition ();
+    this.m_aInitialCondition = equation.getInitialCondition ();
 
     reset ();
   }
@@ -51,8 +51,8 @@ public abstract class DiffEqSolver
    */
   public void reset ()
   {
-    this.x = initialCondition.getX ();
-    this.y = initialCondition.getY ();
+    this.m_fX = m_aInitialCondition.getX ();
+    this.m_fY = m_aInitialCondition.getY ();
   }
 
   /**

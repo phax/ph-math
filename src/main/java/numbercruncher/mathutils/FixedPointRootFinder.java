@@ -25,11 +25,11 @@ public class FixedPointRootFinder extends RootFinder
   private static final float TOLERANCE = 100 * Epsilon.floatValue ();
 
   /** x[n] value */
-  private float xn = Float.NaN;
+  private float m_fXn = Float.NaN;
   /** previous x[n] value */
-  private float prevXn;
+  private float m_fPrevXn;
   /** g(x[n]) */
-  private float gn;
+  private float m_fGn;
 
   /**
    * Constructor.
@@ -51,7 +51,7 @@ public class FixedPointRootFinder extends RootFinder
   public void reset (final float x0)
   {
     super.reset ();
-    gn = x0;
+    m_fGn = x0;
   }
 
   // ---------//
@@ -65,7 +65,7 @@ public class FixedPointRootFinder extends RootFinder
    */
   public float getXn ()
   {
-    return xn;
+    return m_fXn;
   }
 
   /**
@@ -75,7 +75,7 @@ public class FixedPointRootFinder extends RootFinder
    */
   public float getGn ()
   {
-    return gn;
+    return m_fGn;
   }
 
   // -----------------------------//
@@ -98,9 +98,9 @@ public class FixedPointRootFinder extends RootFinder
   @Override
   protected void computeNextPosition ()
   {
-    prevXn = xn;
-    xn = gn;
-    gn = m_aFunction.at (xn);
+    m_fPrevXn = m_fXn;
+    m_fXn = m_fGn;
+    m_fGn = m_aFunction.at (m_fXn);
   }
 
   /**
@@ -111,7 +111,7 @@ public class FixedPointRootFinder extends RootFinder
   @Override
   protected void checkPosition () throws RootFinder.PositionUnchangedException
   {
-    if (xn == prevXn)
+    if (m_fXn == m_fPrevXn)
     {
       throw new RootFinder.PositionUnchangedException ();
     }
@@ -125,6 +125,6 @@ public class FixedPointRootFinder extends RootFinder
   @Override
   protected boolean hasConverged ()
   {
-    return Math.abs ((gn - xn) / xn) < TOLERANCE;
+    return Math.abs ((m_fGn - m_fXn) / m_fXn) < TOLERANCE;
   }
 }

@@ -22,23 +22,23 @@ package numbercruncher.mathutils;
 public class RegressionLine implements IEvaluatable
 {
   /** sum of x */
-  private double sumX;
+  private double m_dSumX;
   /** sum of y */
-  private double sumY;
+  private double m_dSumY;
   /** sum of x*x */
-  private double sumXX;
+  private double m_dSumXX;
   /** sum of x*y */
-  private double sumXY;
+  private double m_dSumXY;
 
   /** line coefficient a0 */
-  private float a0;
+  private float m_fA0;
   /** line coefficient a1 */
-  private float a1;
+  private float m_fA1;
 
   /** number of data points */
-  private int n;
+  private int m_nDataPoints;
   /** true if coefficients valid */
-  private boolean coefsValid;
+  private boolean m_bCoefsValid;
 
   /**
    * Constructor.
@@ -48,11 +48,11 @@ public class RegressionLine implements IEvaluatable
 
   /**
    * Constructor.
-   * 
+   *
    * @param data
    *        the array of data points
    */
-  public RegressionLine (final DataPoint data[])
+  public RegressionLine (final DataPoint [] data)
   {
     for (final DataPoint element : data)
     {
@@ -62,108 +62,108 @@ public class RegressionLine implements IEvaluatable
 
   /**
    * Return the current number of data points.
-   * 
+   *
    * @return the count
    */
   public int getDataPointCount ()
   {
-    return n;
+    return m_nDataPoints;
   }
 
   /**
    * Return the coefficient a0.
-   * 
+   *
    * @return the value of a0
    */
   public float getA0 ()
   {
     validateCoefficients ();
-    return a0;
+    return m_fA0;
   }
 
   /**
    * Return the coefficient a1.
-   * 
+   *
    * @return the value of a1
    */
   public float getA1 ()
   {
     validateCoefficients ();
-    return a1;
+    return m_fA1;
   }
 
   /**
    * Return the sum of the x values.
-   * 
+   *
    * @return the sum
    */
   public double getSumX ()
   {
-    return sumX;
+    return m_dSumX;
   }
 
   /**
    * Return the sum of the y values.
-   * 
+   *
    * @return the sum
    */
   public double getSumY ()
   {
-    return sumY;
+    return m_dSumY;
   }
 
   /**
    * Return the sum of the x*x values.
-   * 
+   *
    * @return the sum
    */
   public double getSumXX ()
   {
-    return sumXX;
+    return m_dSumXX;
   }
 
   /**
    * Return the sum of the x*y values.
-   * 
+   *
    * @return the sum
    */
   public double getSumXY ()
   {
-    return sumXY;
+    return m_dSumXY;
   }
 
   /**
    * Add a new data point: Update the sums.
-   * 
+   *
    * @param dataPoint
    *        the new data point
    */
   public void addDataPoint (final DataPoint dataPoint)
   {
-    sumX += dataPoint.getX ();
-    sumY += dataPoint.getY ();
-    sumXX += dataPoint.getX () * dataPoint.getX ();
-    sumXY += dataPoint.getX () * dataPoint.getY ();
+    m_dSumX += dataPoint.getX ();
+    m_dSumY += dataPoint.getY ();
+    m_dSumXX += dataPoint.getX () * dataPoint.getX ();
+    m_dSumXY += dataPoint.getX () * dataPoint.getY ();
 
-    ++n;
-    coefsValid = false;
+    ++m_nDataPoints;
+    m_bCoefsValid = false;
   }
 
   /**
    * Return the value of the regression line function at x. (Implementation of
    * Evaluatable.)
-   * 
+   *
    * @param x
    *        the value of x
    * @return the value of the function at x
    */
   public float at (final float x)
   {
-    if (n < 2)
+    if (m_nDataPoints < 2)
       return Float.NaN;
 
     validateCoefficients ();
-    return a0 + a1 * x;
+    return m_fA0 + m_fA1 * x;
   }
 
   /**
@@ -171,9 +171,9 @@ public class RegressionLine implements IEvaluatable
    */
   public void reset ()
   {
-    n = 0;
-    sumX = sumY = sumXX = sumXY = 0;
-    coefsValid = false;
+    m_nDataPoints = 0;
+    m_dSumX = m_dSumY = m_dSumXX = m_dSumXY = 0;
+    m_bCoefsValid = false;
   }
 
   /**
@@ -181,22 +181,22 @@ public class RegressionLine implements IEvaluatable
    */
   private void validateCoefficients ()
   {
-    if (coefsValid)
+    if (m_bCoefsValid)
       return;
 
-    if (n >= 2)
+    if (m_nDataPoints >= 2)
     {
-      final float xBar = (float) sumX / n;
-      final float yBar = (float) sumY / n;
+      final float xBar = (float) m_dSumX / m_nDataPoints;
+      final float yBar = (float) m_dSumY / m_nDataPoints;
 
-      a1 = (float) ((n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX));
-      a0 = yBar - a1 * xBar;
+      m_fA1 = (float) ((m_nDataPoints * m_dSumXY - m_dSumX * m_dSumY) / (m_nDataPoints * m_dSumXX - m_dSumX * m_dSumX));
+      m_fA0 = yBar - m_fA1 * xBar;
     }
     else
     {
-      a0 = a1 = Float.NaN;
+      m_fA0 = m_fA1 = Float.NaN;
     }
 
-    coefsValid = true;
+    m_bCoefsValid = true;
   }
 }

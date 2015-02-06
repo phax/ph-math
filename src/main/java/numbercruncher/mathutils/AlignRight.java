@@ -22,7 +22,7 @@ package numbercruncher.mathutils;
 public class AlignRight
 {
   /** line size */
-  private int lineSize;
+  private int m_nLineSize;
 
   /**
    * Constructor.
@@ -45,7 +45,7 @@ public class AlignRight
       System.out.print (" ");
     System.out.print (text);
 
-    lineSize += width;
+    m_nLineSize += width;
   }
 
   /**
@@ -93,7 +93,7 @@ public class AlignRight
   public void println ()
   {
     System.out.println ();
-    lineSize = 0;
+    m_nLineSize = 0;
   }
 
   /**
@@ -102,9 +102,9 @@ public class AlignRight
   public void underline ()
   {
     System.out.println ();
-    for (int i = 0; i < lineSize; ++i)
+    for (int i = 0; i < m_nLineSize; ++i)
       System.out.print ("-");
     System.out.println ();
-    lineSize = 0;
+    m_nLineSize = 0;
   }
 }

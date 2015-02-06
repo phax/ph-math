@@ -27,19 +27,19 @@ public class BisectionRootFinder extends RootFinder
   private static final float TOLERANCE = 100 * Epsilon.floatValue ();
 
   /** x-negative value */
-  private float xNeg;
+  private float m_fXNeg;
   /** x-middle value */
-  private float xMid = Float.NaN;
+  private float m_fXMid = Float.NaN;
   /** x-positive value */
-  private float xPos;
+  private float m_fXPos;
   /** previous x-middle value */
-  private float prevXMid;
+  private float m_fPrevXMid;
   /** f(xNeg) */
-  private float fNeg;
+  private float m_fNeg;
   /** f(xMid) */
-  private float fMid;
+  private float m_fMid;
   /** f(xPos) */
-  private float fPos;
+  private float m_fPos;
 
   /**
    * Constructor.
@@ -64,17 +64,17 @@ public class BisectionRootFinder extends RootFinder
     // Initialize xNeg, fNeg, xPos, and fPos.
     if (yMin < 0)
     {
-      xNeg = xMin;
-      xPos = xMax;
-      fNeg = yMin;
-      fPos = yMax;
+      m_fXNeg = xMin;
+      m_fXPos = xMax;
+      m_fNeg = yMin;
+      m_fPos = yMax;
     }
     else
     {
-      xNeg = xMax;
-      xPos = xMin;
-      fNeg = yMax;
-      fPos = yMin;
+      m_fXNeg = xMax;
+      m_fXPos = xMin;
+      m_fNeg = yMax;
+      m_fPos = yMin;
     }
   }
 
@@ -89,7 +89,7 @@ public class BisectionRootFinder extends RootFinder
    */
   public float getXNeg ()
   {
-    return xNeg;
+    return m_fXNeg;
   }
 
   /**
@@ -99,7 +99,7 @@ public class BisectionRootFinder extends RootFinder
    */
   public float getXMid ()
   {
-    return xMid;
+    return m_fXMid;
   }
 
   /**
@@ -109,7 +109,7 @@ public class BisectionRootFinder extends RootFinder
    */
   public float getXPos ()
   {
-    return xPos;
+    return m_fXPos;
   }
 
   /**
@@ -119,7 +119,7 @@ public class BisectionRootFinder extends RootFinder
    */
   public float getFNeg ()
   {
-    return fNeg;
+    return m_fNeg;
   }
 
   /**
@@ -129,7 +129,7 @@ public class BisectionRootFinder extends RootFinder
    */
   public float getFMid ()
   {
-    return fMid;
+    return m_fMid;
   }
 
   /**
@@ -139,7 +139,7 @@ public class BisectionRootFinder extends RootFinder
    */
   public float getFPos ()
   {
-    return fPos;
+    return m_fPos;
   }
 
   // -----------------------------//
@@ -158,15 +158,15 @@ public class BisectionRootFinder extends RootFinder
     if (n == 1)
       return; // already initialized
 
-    if (fMid < 0)
+    if (m_fMid < 0)
     {
-      xNeg = xMid; // the root is in the xPos half
-      fNeg = fMid;
+      m_fXNeg = m_fXMid; // the root is in the xPos half
+      m_fNeg = m_fMid;
     }
     else
     {
-      xPos = xMid; // the root is in the xNeg half
-      fPos = fMid;
+      m_fXPos = m_fXMid; // the root is in the xNeg half
+      m_fPos = m_fMid;
     }
   }
 
@@ -176,9 +176,9 @@ public class BisectionRootFinder extends RootFinder
   @Override
   protected void computeNextPosition ()
   {
-    prevXMid = xMid;
-    xMid = (xNeg + xPos) / 2;
-    fMid = m_aFunction.at (xMid);
+    m_fPrevXMid = m_fXMid;
+    m_fXMid = (m_fXNeg + m_fXPos) / 2;
+    m_fMid = m_aFunction.at (m_fXMid);
   }
 
   /**
@@ -189,7 +189,7 @@ public class BisectionRootFinder extends RootFinder
   @Override
   protected void checkPosition () throws RootFinder.PositionUnchangedException
   {
-    if (EqualsUtils.equals (xMid, prevXMid))
+    if (EqualsUtils.equals (m_fXMid, m_fPrevXMid))
     {
       throw new RootFinder.PositionUnchangedException ();
     }
@@ -203,6 +203,6 @@ public class BisectionRootFinder extends RootFinder
   @Override
   protected boolean hasConverged ()
   {
-    return Math.abs (fMid) < TOLERANCE;
+    return Math.abs (m_fMid) < TOLERANCE;
   }
 }

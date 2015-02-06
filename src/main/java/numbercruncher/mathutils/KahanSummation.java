@@ -22,11 +22,11 @@ package numbercruncher.mathutils;
 public class KahanSummation
 {
   /** the current running sum */
-  private float sum;
+  private float m_fSum;
   /** the current correction */
-  private float correction;
+  private float m_fCorrection;
   /** the current corrected added */
-  private float correctedAddend;
+  private float m_fCorrectedAddend;
 
   /**
    * Constructor.
@@ -41,7 +41,7 @@ public class KahanSummation
    */
   public float value ()
   {
-    return sum + correction;
+    return m_fSum + m_fCorrection;
   }
 
   /**
@@ -51,7 +51,7 @@ public class KahanSummation
    */
   public float correctedAddend ()
   {
-    return correctedAddend;
+    return m_fCorrectedAddend;
   }
 
   /**
@@ -63,14 +63,14 @@ public class KahanSummation
   public void add (final float addend)
   {
     // Correct the addend value and add it to the running sum.
-    correctedAddend = addend + correction;
-    final float tempSum = sum + correctedAddend;
+    m_fCorrectedAddend = addend + m_fCorrection;
+    final float tempSum = m_fSum + m_fCorrectedAddend;
 
     // Compute the next correction and set the running sum.
     // The parentheses are necessary to compute the high-order
     // bits of the addend.
-    correction = correctedAddend - (tempSum - sum);
-    sum = tempSum;
+    m_fCorrection = m_fCorrectedAddend - (tempSum - m_fSum);
+    m_fSum = tempSum;
   }
 
   /**
@@ -78,7 +78,7 @@ public class KahanSummation
    */
   public void clear ()
   {
-    sum = 0;
-    correction = 0;
+    m_fSum = 0;
+    m_fCorrection = 0;
   }
 }

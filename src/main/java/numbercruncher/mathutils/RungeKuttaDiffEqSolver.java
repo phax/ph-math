@@ -42,14 +42,14 @@ public class RungeKuttaDiffEqSolver extends DiffEqSolver
   @Override
   public DataPoint nextPoint (final float h)
   {
-    final float k1 = m_aEquation.at (x, y);
-    final float k2 = m_aEquation.at (x + h / 2, y + k1 * h / 2);
-    final float k3 = m_aEquation.at (x + h / 2, y + k2 * h / 2);
-    final float k4 = m_aEquation.at (x + h, y + k3 * h);
+    final float k1 = m_aEquation.at (m_fX, m_fY);
+    final float k2 = m_aEquation.at (m_fX + h / 2, m_fY + k1 * h / 2);
+    final float k3 = m_aEquation.at (m_fX + h / 2, m_fY + k2 * h / 2);
+    final float k4 = m_aEquation.at (m_fX + h, m_fY + k3 * h);
 
-    y += (k1 + 2 * (k2 + k3) + k4) * h / 6;
-    x += h;
+    m_fY += (k1 + 2 * (k2 + k3) + k4) * h / 6;
+    m_fX += h;
 
-    return new DataPoint (x, y);
+    return new DataPoint (m_fX, m_fY);
   }
 }

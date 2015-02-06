@@ -22,10 +22,10 @@ package numbercruncher.mathutils;
 public class ImprovedRegulaFalsiRootFinder extends RegulaFalsiRootFinder
 {
   /** previous f(xFalse) value */
-  private float prevFFalse;
+  private float m_fPrevFFalse;
 
-  private boolean decreasePos = false;
-  private boolean decreaseNeg = false;
+  private boolean m_bDecreasePos = false;
+  private boolean m_bDecreaseNeg = false;
 
   /**
    * Constructor.
@@ -59,9 +59,9 @@ public class ImprovedRegulaFalsiRootFinder extends RegulaFalsiRootFinder
     super.doIterationProcedure (n);
 
     // Decrease the slope of the secant?
-    if (decreasePos)
+    if (m_bDecreasePos)
       m_fPos /= 2;
-    if (decreaseNeg)
+    if (m_bDecreaseNeg)
       m_fNeg /= 2;
   }
 
@@ -72,21 +72,21 @@ public class ImprovedRegulaFalsiRootFinder extends RegulaFalsiRootFinder
   protected void computeNextPosition ()
   {
     m_fPrevXFalse = m_fXFalse;
-    prevFFalse = m_fFalse;
+    m_fPrevFFalse = m_fFalse;
     m_fXFalse = m_fXPos - m_fPos * (m_fXNeg - m_fXPos) / (m_fNeg - m_fPos);
     m_fFalse = m_aFunction.at (m_fXFalse);
 
-    decreasePos = decreaseNeg = false;
+    m_bDecreasePos = m_bDecreaseNeg = false;
 
     // If there was no sign change in f(xFalse),
     // or if this is the first iteration step,
     // then decrease the slope of the secant.
-    if (Float.isNaN (prevFFalse) || (prevFFalse * m_fFalse > 0))
+    if (Float.isNaN (m_fPrevFFalse) || (m_fPrevFFalse * m_fFalse > 0))
     {
       if (m_fFalse < 0)
-        decreasePos = true;
+        m_bDecreasePos = true;
       else
-        decreaseNeg = true;
+        m_bDecreaseNeg = true;
     }
   }
 }

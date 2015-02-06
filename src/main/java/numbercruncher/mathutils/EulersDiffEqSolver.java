@@ -41,9 +41,9 @@ public class EulersDiffEqSolver extends DiffEqSolver
   @Override
   public DataPoint nextPoint (final float h)
   {
-    y += h * m_aEquation.at (x, y);
-    x += h;
+    m_fY += h * m_aEquation.at (m_fX, m_fY);
+    m_fX += h;
 
-    return new DataPoint (x, y);
+    return new DataPoint (m_fX, m_fY);
   }
 }

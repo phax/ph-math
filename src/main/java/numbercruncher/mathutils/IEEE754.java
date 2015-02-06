@@ -79,15 +79,15 @@ public class IEEE754
     m_fFloatValue = value;
     m_bIsDouble = false;
 
-    decompose (bits,
-               IEEE754Constants.FLOAT_EXPONENT_BIAS,
-               IEEE754Constants.FLOAT_EXPONENT_RESERVED,
-               IEEE754Constants.FLOAT_SIGN_INDEX,
-               IEEE754Constants.FLOAT_SIGN_SIZE,
-               IEEE754Constants.FLOAT_EXPONENT_INDEX,
-               IEEE754Constants.FLOAT_EXPONENT_SIZE,
-               IEEE754Constants.FLOAT_FRACTION_INDEX,
-               IEEE754Constants.FLOAT_FRACTION_SIZE);
+    _decompose (bits,
+                IEEE754Constants.FLOAT_EXPONENT_BIAS,
+                IEEE754Constants.FLOAT_EXPONENT_RESERVED,
+                IEEE754Constants.FLOAT_SIGN_INDEX,
+                IEEE754Constants.FLOAT_SIGN_SIZE,
+                IEEE754Constants.FLOAT_EXPONENT_INDEX,
+                IEEE754Constants.FLOAT_EXPONENT_SIZE,
+                IEEE754Constants.FLOAT_FRACTION_INDEX,
+                IEEE754Constants.FLOAT_FRACTION_SIZE);
   }
 
   /**
@@ -104,15 +104,15 @@ public class IEEE754
     m_dDoubleValue = value;
     m_bIsDouble = true;
 
-    decompose (bits,
-               IEEE754Constants.DOUBLE_EXPONENT_BIAS,
-               IEEE754Constants.DOUBLE_EXPONENT_RESERVED,
-               IEEE754Constants.DOUBLE_SIGN_INDEX,
-               IEEE754Constants.DOUBLE_SIGN_SIZE,
-               IEEE754Constants.DOUBLE_EXPONENT_INDEX,
-               IEEE754Constants.DOUBLE_EXPONENT_SIZE,
-               IEEE754Constants.DOUBLE_FRACTION_INDEX,
-               IEEE754Constants.DOUBLE_FRACTION_SIZE);
+    _decompose (bits,
+                IEEE754Constants.DOUBLE_EXPONENT_BIAS,
+                IEEE754Constants.DOUBLE_EXPONENT_RESERVED,
+                IEEE754Constants.DOUBLE_SIGN_INDEX,
+                IEEE754Constants.DOUBLE_SIGN_SIZE,
+                IEEE754Constants.DOUBLE_EXPONENT_INDEX,
+                IEEE754Constants.DOUBLE_EXPONENT_SIZE,
+                IEEE754Constants.DOUBLE_FRACTION_INDEX,
+                IEEE754Constants.DOUBLE_FRACTION_SIZE);
   }
 
   /**
@@ -154,15 +154,15 @@ public class IEEE754
     // Convert the value to a character array of '0' and '1'.
     final char bits [] = toCharBitArray (intBits, 32);
 
-    decompose (bits,
-               IEEE754Constants.FLOAT_EXPONENT_BIAS,
-               IEEE754Constants.FLOAT_EXPONENT_RESERVED,
-               IEEE754Constants.FLOAT_SIGN_INDEX,
-               IEEE754Constants.FLOAT_SIGN_SIZE,
-               IEEE754Constants.FLOAT_EXPONENT_INDEX,
-               IEEE754Constants.FLOAT_EXPONENT_SIZE,
-               IEEE754Constants.FLOAT_FRACTION_INDEX,
-               IEEE754Constants.FLOAT_FRACTION_SIZE);
+    _decompose (bits,
+                IEEE754Constants.FLOAT_EXPONENT_BIAS,
+                IEEE754Constants.FLOAT_EXPONENT_RESERVED,
+                IEEE754Constants.FLOAT_SIGN_INDEX,
+                IEEE754Constants.FLOAT_SIGN_SIZE,
+                IEEE754Constants.FLOAT_EXPONENT_INDEX,
+                IEEE754Constants.FLOAT_EXPONENT_SIZE,
+                IEEE754Constants.FLOAT_FRACTION_INDEX,
+                IEEE754Constants.FLOAT_FRACTION_SIZE);
   }
 
   /**
@@ -204,15 +204,15 @@ public class IEEE754
     // Convert the value to a character array of '0' and '1'.
     final char bits [] = toCharBitArray (longBits, 64);
 
-    decompose (bits,
-               IEEE754Constants.DOUBLE_EXPONENT_BIAS,
-               IEEE754Constants.DOUBLE_EXPONENT_RESERVED,
-               IEEE754Constants.DOUBLE_SIGN_INDEX,
-               IEEE754Constants.DOUBLE_SIGN_SIZE,
-               IEEE754Constants.DOUBLE_EXPONENT_INDEX,
-               IEEE754Constants.DOUBLE_EXPONENT_SIZE,
-               IEEE754Constants.DOUBLE_FRACTION_INDEX,
-               IEEE754Constants.DOUBLE_FRACTION_SIZE);
+    _decompose (bits,
+                IEEE754Constants.DOUBLE_EXPONENT_BIAS,
+                IEEE754Constants.DOUBLE_EXPONENT_RESERVED,
+                IEEE754Constants.DOUBLE_SIGN_INDEX,
+                IEEE754Constants.DOUBLE_SIGN_SIZE,
+                IEEE754Constants.DOUBLE_EXPONENT_INDEX,
+                IEEE754Constants.DOUBLE_EXPONENT_SIZE,
+                IEEE754Constants.DOUBLE_FRACTION_INDEX,
+                IEEE754Constants.DOUBLE_FRACTION_SIZE);
   }
 
   // -------------------------//
@@ -391,15 +391,15 @@ public class IEEE754
    * @param fractionSize
    *        the size of the fraction
    */
-  private void decompose (final char bits [],
-                          final int bias,
-                          final int reserved,
-                          final int signIndex,
-                          final int signSize,
-                          final int exponentIndex,
-                          final int exponentSize,
-                          final int fractionIndex,
-                          final int fractionSize)
+  private void _decompose (final char [] bits,
+                           final int bias,
+                           final int reserved,
+                           final int signIndex,
+                           final int signSize,
+                           final int exponentIndex,
+                           final int exponentSize,
+                           final int fractionIndex,
+                           final int fractionSize)
   {
     this.m_nBias = bias;
 
@@ -618,7 +618,7 @@ public class IEEE754
   private static abstract class Part
   {
     /** the part buffer */
-    private final StringBuffer part;
+    private final StringBuilder m_aPart;
 
     /**
      * Constructor.
@@ -637,12 +637,12 @@ public class IEEE754
       }
 
       final int length = bits.length ();
-      part = new StringBuffer (size);
+      m_aPart = new StringBuilder (size);
 
       // String length matches part size.
       if (length == size)
       {
-        part.append (bits);
+        m_aPart.append (bits);
         validate ();
       }
 
@@ -650,16 +650,16 @@ public class IEEE754
       else
         if (length < size)
         {
-          part.append (bits);
+          m_aPart.append (bits);
           validate ();
           for (int i = length; i < size; ++i)
-            part.append ('0');
+            m_aPart.append ('0');
         }
 
         // String length > part size: Truncate at the right end.
         else
         {
-          part.append (bits.substring (0, size));
+          m_aPart.append (bits.substring (0, size));
           validate ();
         }
     }
@@ -675,11 +675,11 @@ public class IEEE754
     {
       try
       {
-        return Integer.parseInt (part.toString (), 2);
+        return Integer.parseInt (m_aPart.toString (), 2);
       }
       catch (final NumberFormatException ex)
       {
-        throw new IEEE754Exception ("Invalid binary number format: " + part.toString ());
+        throw new IEEE754Exception ("Invalid binary number format: " + m_aPart.toString ());
       }
     }
 
@@ -694,11 +694,11 @@ public class IEEE754
     {
       try
       {
-        return Long.parseLong (part.toString (), 2);
+        return Long.parseLong (m_aPart.toString (), 2);
       }
       catch (final NumberFormatException ex)
       {
-        throw new IEEE754Exception ("Invalid binary number format: " + part.toString ());
+        throw new IEEE754Exception ("Invalid binary number format: " + m_aPart.toString ());
       }
     }
 
@@ -708,7 +708,7 @@ public class IEEE754
     @Override
     public String toString ()
     {
-      return part.toString ();
+      return m_aPart.toString ();
     }
 
     /**
@@ -718,11 +718,11 @@ public class IEEE754
      */
     private void validate () throws IEEE754Exception
     {
-      final int length = part.length ();
+      final int length = m_aPart.length ();
 
       for (int i = 0; i < length; ++i)
       {
-        final char bit = part.charAt (i);
+        final char bit = m_aPart.charAt (i);
         if ((bit != '0') && (bit != '1'))
         {
           throw new IEEE754Exception ("Invalid fraction bit string.");

@@ -41,12 +41,12 @@ public class PredictorCorrectorDiffEqSolver extends DiffEqSolver
   @Override
   public DataPoint nextPoint (final float h)
   {
-    final float predictor = y + Math.abs (h) * m_aEquation.at (x);
-    final float avgSlope = (m_aEquation.at (x, y) + m_aEquation.at (x + h, predictor)) / 2;
+    final float predictor = m_fY + Math.abs (h) * m_aEquation.at (m_fX);
+    final float avgSlope = (m_aEquation.at (m_fX, m_fY) + m_aEquation.at (m_fX + h, predictor)) / 2;
 
-    y += h * avgSlope; // corrector
-    x += h;
+    m_fY += h * avgSlope; // corrector
+    m_fX += h;
 
-    return new DataPoint (x, y);
+    return new DataPoint (m_fX, m_fY);
   }
 }
