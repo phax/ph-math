@@ -27,19 +27,19 @@ public class RegulaFalsiRootFinder extends RootFinder
   private static final float TOLERANCE = 100 * Epsilon.floatValue ();
 
   /** x-negative value */
-  protected float xNeg;
+  protected float m_fXNeg;
   /** x-false value */
-  protected float xFalse = Float.NaN;
+  protected float m_fXFalse = Float.NaN;
   /** x-positive value */
-  protected float xPos;
+  protected float m_fXPos;
   /** previous x-false value */
-  protected float prevXFalse;
+  protected float m_fPrevXFalse;
   /** f(xNeg) */
-  protected float fNeg;
+  protected float m_fNeg;
   /** f(xFalse) */
-  protected float fFalse = Float.NaN;
+  protected float m_fFalse = Float.NaN;
   /** f(xPos) */
-  protected float fPos;
+  protected float m_fPos;
 
   /**
    * Constructor.
@@ -63,17 +63,17 @@ public class RegulaFalsiRootFinder extends RootFinder
     // Initialize xNeg, fNeg, xPos, and fPos.
     if (yMin < 0)
     {
-      xNeg = xMin;
-      xPos = xMax;
-      fNeg = yMin;
-      fPos = yMax;
+      m_fXNeg = xMin;
+      m_fXPos = xMax;
+      m_fNeg = yMin;
+      m_fPos = yMax;
     }
     else
     {
-      xNeg = xMax;
-      xPos = xMin;
-      fNeg = yMax;
-      fPos = yMin;
+      m_fXNeg = xMax;
+      m_fXPos = xMin;
+      m_fNeg = yMax;
+      m_fPos = yMin;
     }
   }
 
@@ -88,7 +88,7 @@ public class RegulaFalsiRootFinder extends RootFinder
    */
   public float getXNeg ()
   {
-    return xNeg;
+    return m_fXNeg;
   }
 
   /**
@@ -98,7 +98,7 @@ public class RegulaFalsiRootFinder extends RootFinder
    */
   public float getXFalse ()
   {
-    return xFalse;
+    return m_fXFalse;
   }
 
   /**
@@ -108,7 +108,7 @@ public class RegulaFalsiRootFinder extends RootFinder
    */
   public float getXPos ()
   {
-    return xPos;
+    return m_fXPos;
   }
 
   /**
@@ -118,7 +118,7 @@ public class RegulaFalsiRootFinder extends RootFinder
    */
   public float getFNeg ()
   {
-    return fNeg;
+    return m_fNeg;
   }
 
   /**
@@ -128,7 +128,7 @@ public class RegulaFalsiRootFinder extends RootFinder
    */
   public float getFFalse ()
   {
-    return fFalse;
+    return m_fFalse;
   }
 
   /**
@@ -138,7 +138,7 @@ public class RegulaFalsiRootFinder extends RootFinder
    */
   public float getFPos ()
   {
-    return fPos;
+    return m_fPos;
   }
 
   // -----------------------------//
@@ -157,15 +157,15 @@ public class RegulaFalsiRootFinder extends RootFinder
     if (n == 1)
       return; // already initialized
 
-    if (fFalse < 0)
+    if (m_fFalse < 0)
     {
-      xNeg = xFalse; // the root is in the xPos side
-      fNeg = fFalse;
+      m_fXNeg = m_fXFalse; // the root is in the xPos side
+      m_fNeg = m_fFalse;
     }
     else
     {
-      xPos = xFalse; // the root is in the xNeg side
-      fPos = fFalse;
+      m_fXPos = m_fXFalse; // the root is in the xNeg side
+      m_fPos = m_fFalse;
     }
   }
 
@@ -175,9 +175,9 @@ public class RegulaFalsiRootFinder extends RootFinder
   @Override
   protected void computeNextPosition ()
   {
-    prevXFalse = xFalse;
-    xFalse = xPos - fPos * (xNeg - xPos) / (fNeg - fPos);
-    fFalse = m_aFunction.at (xFalse);
+    m_fPrevXFalse = m_fXFalse;
+    m_fXFalse = m_fXPos - m_fPos * (m_fXNeg - m_fXPos) / (m_fNeg - m_fPos);
+    m_fFalse = m_aFunction.at (m_fXFalse);
   }
 
   /**
@@ -188,7 +188,7 @@ public class RegulaFalsiRootFinder extends RootFinder
   @Override
   protected void checkPosition () throws RootFinder.PositionUnchangedException
   {
-    if (EqualsUtils.equals (xFalse, prevXFalse))
+    if (EqualsUtils.equals (m_fXFalse, m_fPrevXFalse))
     {
       throw new RootFinder.PositionUnchangedException ();
     }
@@ -202,6 +202,6 @@ public class RegulaFalsiRootFinder extends RootFinder
   @Override
   protected boolean hasConverged ()
   {
-    return Math.abs (fFalse) < TOLERANCE;
+    return Math.abs (m_fFalse) < TOLERANCE;
   }
 }

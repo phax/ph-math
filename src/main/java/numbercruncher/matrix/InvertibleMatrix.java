@@ -80,13 +80,13 @@ public class InvertibleMatrix extends LinearSystem
 
     // Each row exchange during forward elimination flips the sign
     // of the determinant, so check for an odd number of exchanges.
-    float determinant = ((exchangeCount & 1) == 0) ? 1 : -1;
+    float determinant = ((m_nExchangeCount & 1) == 0) ? 1 : -1;
 
     // Form the product of the diagonal elements of matrix U.
     for (int i = 0; i < m_nRows; ++i)
     {
-      final int pi = permutation[i]; // permuted index
-      determinant *= LU.at (pi, i);
+      final int pi = m_aPermutation[i]; // permuted index
+      determinant *= m_aLU.at (pi, i);
     }
 
     return determinant;

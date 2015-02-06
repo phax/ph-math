@@ -60,9 +60,9 @@ public class ImprovedRegulaFalsiRootFinder extends RegulaFalsiRootFinder
 
     // Decrease the slope of the secant?
     if (decreasePos)
-      fPos /= 2;
+      m_fPos /= 2;
     if (decreaseNeg)
-      fNeg /= 2;
+      m_fNeg /= 2;
   }
 
   /**
@@ -71,19 +71,19 @@ public class ImprovedRegulaFalsiRootFinder extends RegulaFalsiRootFinder
   @Override
   protected void computeNextPosition ()
   {
-    prevXFalse = xFalse;
-    prevFFalse = fFalse;
-    xFalse = xPos - fPos * (xNeg - xPos) / (fNeg - fPos);
-    fFalse = m_aFunction.at (xFalse);
+    m_fPrevXFalse = m_fXFalse;
+    prevFFalse = m_fFalse;
+    m_fXFalse = m_fXPos - m_fPos * (m_fXNeg - m_fXPos) / (m_fNeg - m_fPos);
+    m_fFalse = m_aFunction.at (m_fXFalse);
 
     decreasePos = decreaseNeg = false;
 
     // If there was no sign change in f(xFalse),
     // or if this is the first iteration step,
     // then decrease the slope of the secant.
-    if (Float.isNaN (prevFFalse) || (prevFFalse * fFalse > 0))
+    if (Float.isNaN (prevFFalse) || (prevFFalse * m_fFalse > 0))
     {
-      if (fFalse < 0)
+      if (m_fFalse < 0)
         decreasePos = true;
       else
         decreaseNeg = true;

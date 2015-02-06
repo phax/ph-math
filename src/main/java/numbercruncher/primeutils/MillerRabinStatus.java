@@ -27,45 +27,45 @@ public class MillerRabinStatus
   public static final int PROBABLY_PRIME = 2;
 
   /** random base */
-  int b;
+  int m_nRandomBase;
   /** shifted p-1 */
-  int k;
+  int m_nShiftedPMinus1;
   /** no. of right shifts */
-  int s;
+  int m_nRightShifts;
   /** counter */
-  int i;
+  int m_nCounter;
   /** modulo value */
-  int r;
+  int m_nModulo;
   /** status code */
-  int code;
+  int m_nStatusCode;
 
   public int getB ()
   {
-    return b;
+    return m_nRandomBase;
   }
 
   public int getK ()
   {
-    return k;
+    return m_nShiftedPMinus1;
   }
 
   public int getS ()
   {
-    return s;
+    return m_nRightShifts;
   }
 
   public int getIndex ()
   {
-    return i;
+    return m_nCounter;
   }
 
   public int getValue ()
   {
-    return r;
+    return m_nModulo;
   }
 
   public int getCode ()
   {
-    return code;
+    return m_nStatusCode;
   }
 }

@@ -32,11 +32,11 @@ public class RandomNormal
   /**
    * next random value from the polar algorithm
    */
-  private float nextPolar;
+  private float m_fNextPolar;
   /**
    * true if the next polar value is available
    */
-  private boolean haveNextPolar = false;
+  private boolean m_bHaveNextPolar = false;
 
   /** generator of uniformly-distributed random values */
   private static final Random GENERATOR = new Random ();
@@ -79,10 +79,10 @@ public class RandomNormal
   public float nextPolar ()
   {
     // If there's a saved value, return it.
-    if (haveNextPolar)
+    if (m_bHaveNextPolar)
     {
-      haveNextPolar = false;
-      return nextPolar;
+      m_bHaveNextPolar = false;
+      return m_fNextPolar;
     }
 
     float u1, u2, r; // point coordinates and their radius
@@ -106,8 +106,8 @@ public class RandomNormal
     final float v2 = factor * u2 + m_fMean;
 
     // Save v1 for next time.
-    nextPolar = v1;
-    haveNextPolar = true;
+    m_fNextPolar = v1;
+    m_bHaveNextPolar = true;
 
     return v2;
   }

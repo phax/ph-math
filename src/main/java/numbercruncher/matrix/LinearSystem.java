@@ -41,15 +41,15 @@ public class LinearSystem extends SquareMatrix
   }
 
   /** decomposed matrix A = LU */
-  protected SquareMatrix LU;
+  protected SquareMatrix m_aLU;
   /** row index permutation vector */
-  protected int permutation[];
+  protected int [] m_aPermutation;
   /** row exchange count */
-  protected int exchangeCount;
+  protected int m_nExchangeCount;
 
   /**
    * Constructor.
-   * 
+   *
    * @param n
    *        the number of rows = the number of columns
    */
@@ -61,23 +61,23 @@ public class LinearSystem extends SquareMatrix
 
   /**
    * Constructor.
-   * 
+   *
    * @param values
    *        the array of values
    */
-  public LinearSystem (final float values[][])
+  public LinearSystem (final float values [][])
   {
     super (values);
   }
 
   /**
    * Set the values of the matrix.
-   * 
+   *
    * @param values
    *        the 2-d array of values
    */
   @Override
-  protected void set (final float values[][])
+  protected void set (final float values [][])
   {
     super.set (values);
     reset ();
@@ -85,7 +85,7 @@ public class LinearSystem extends SquareMatrix
 
   /**
    * Set the value of element [r,c] in the matrix.
-   * 
+   *
    * @param r
    *        the row index, 0..nRows
    * @param c
@@ -104,7 +104,7 @@ public class LinearSystem extends SquareMatrix
 
   /**
    * Set a row of this matrix from a row vector.
-   * 
+   *
    * @param rv
    *        the row vector
    * @param r
@@ -121,7 +121,7 @@ public class LinearSystem extends SquareMatrix
 
   /**
    * Set a column of this matrix from a column vector.
-   * 
+   *
    * @param cv
    *        the column vector
    * @param c
@@ -141,14 +141,14 @@ public class LinearSystem extends SquareMatrix
    */
   protected void reset ()
   {
-    LU = null;
-    permutation = null;
-    exchangeCount = 0;
+    m_aLU = null;
+    m_aPermutation = null;
+    m_nExchangeCount = 0;
   }
 
   /**
    * Solve Ax = b for x using the Gaussian elimination algorithm.
-   * 
+   *
    * @param b
    *        the right-hand-side column vector
    * @param improve
@@ -180,7 +180,7 @@ public class LinearSystem extends SquareMatrix
 
   /**
    * Print the decomposed matrix LU.
-   * 
+   *
    * @param width
    *        the column width
    * @throws MatrixException
@@ -194,14 +194,14 @@ public class LinearSystem extends SquareMatrix
 
     for (int r = 0; r < m_nRows; ++r)
     {
-      final int pr = permutation[r]; // permuted row index
+      final int pr = m_aPermutation[r]; // permuted row index
       ar.print ("Row ", 0);
       ar.print (r + 1, 2);
       ar.print (":", 0);
 
       for (int c = 0; c < m_nCols; ++c)
       {
-        ar.print (LU.m_aValues[pr][c], width);
+        ar.print (m_aLU.m_aValues[pr][c], width);
       }
       ar.println ();
     }
@@ -211,33 +211,33 @@ public class LinearSystem extends SquareMatrix
    * Compute the upper triangular matrix U and lower triangular matrix L such
    * that A = L*U. Store L and U together in matrix LU. Compute the permutation
    * vector permutation of the row indices.
-   * 
+   *
    * @throws MatrixException
    *         for a zero row or a singular matrix
    */
   protected void decompose () throws MatrixException
   {
     // Return if the decomposition is valid.
-    if (LU != null)
+    if (m_aLU != null)
       return;
 
     // Create a new LU matrix and permutation vector.
     // LU is initially just a copy of the values of this system.
-    LU = new SquareMatrix (this.copyValues2D ());
-    permutation = new int [m_nRows];
+    m_aLU = new SquareMatrix (this.copyValues2D ());
+    m_aPermutation = new int [m_nRows];
 
-    final float scales[] = new float [m_nRows];
+    final float scales [] = new float [m_nRows];
 
     // Loop to initialize the permutation vector and scales.
     for (int r = 0; r < m_nRows; ++r)
     {
-      permutation[r] = r; // initially no row exchanges
+      m_aPermutation[r] = r; // initially no row exchanges
 
       // Find the largest row element.
       float largestRowElmt = 0;
       for (int c = 0; c < m_nRows; ++c)
       {
-        final float elmt = Math.abs (LU.at (r, c));
+        final float elmt = Math.abs (m_aLU.at (r, c));
         if (largestRowElmt < elmt)
           largestRowElmt = elmt;
       }
@@ -257,7 +257,7 @@ public class LinearSystem extends SquareMatrix
     forwardElimination (scales);
 
     // Check bottom right element of the permuted matrix.
-    if (LU.at (permutation[m_nRows - 1], m_nRows - 1) == 0)
+    if (m_aLU.at (m_aPermutation[m_nRows - 1], m_nRows - 1) == 0)
     {
       throw new MatrixException (MatrixException.SINGULAR);
     }
@@ -265,12 +265,12 @@ public class LinearSystem extends SquareMatrix
 
   /**
    * Do forward elimination with scaled partial row pivoting.
-   * 
+   *
    * @parm scales the scaling vector
    * @throws MatrixException
    *         for a singular matrix
    */
-  private void forwardElimination (final float scales[]) throws MatrixException
+  private void forwardElimination (final float scales []) throws MatrixException
   {
     // Loop once per pivot row 0..nRows-1.
     for (int rPivot = 0; rPivot < m_nRows - 1; ++rPivot)
@@ -284,8 +284,8 @@ public class LinearSystem extends SquareMatrix
       {
 
         // Use the permuted row index.
-        final int pr = permutation[r];
-        final float absElmt = Math.abs (LU.at (pr, rPivot));
+        final int pr = m_aPermutation[r];
+        final float absElmt = Math.abs (m_aLU.at (pr, rPivot));
         final float scaledElmt = absElmt * scales[pr];
 
         if (largestScaledElmt < scaledElmt)
@@ -308,38 +308,38 @@ public class LinearSystem extends SquareMatrix
       // pivot element by making its row the pivot row.
       if (rLargest != rPivot)
       {
-        final int temp = permutation[rPivot];
-        permutation[rPivot] = permutation[rLargest];
-        permutation[rLargest] = temp;
+        final int temp = m_aPermutation[rPivot];
+        m_aPermutation[rPivot] = m_aPermutation[rLargest];
+        m_aPermutation[rLargest] = temp;
 
-        ++exchangeCount;
+        ++m_nExchangeCount;
       }
 
       // Use the permuted pivot row index.
-      final int prPivot = permutation[rPivot];
-      final float pivotElmt = LU.at (prPivot, rPivot);
+      final int prPivot = m_aPermutation[rPivot];
+      final float pivotElmt = m_aLU.at (prPivot, rPivot);
 
       // Do the elimination below the pivot row.
       for (int r = rPivot + 1; r < m_nRows; ++r)
       {
 
         // Use the permuted row index.
-        final int pr = permutation[r];
-        final float multiple = LU.at (pr, rPivot) / pivotElmt;
+        final int pr = m_aPermutation[r];
+        final float multiple = m_aLU.at (pr, rPivot) / pivotElmt;
 
         // Set the multiple into matrix L.
-        LU.set (pr, rPivot, multiple);
+        m_aLU.set (pr, rPivot, multiple);
 
         // Eliminate an unknown from matrix U.
         if (multiple != 0)
         {
           for (int c = rPivot + 1; c < m_nCols; ++c)
           {
-            float elmt = LU.at (pr, c);
+            float elmt = m_aLU.at (pr, c);
 
             // Subtract the multiple of the pivot row.
-            elmt -= multiple * LU.at (prPivot, c);
-            LU.set (pr, c, elmt);
+            elmt -= multiple * m_aLU.at (prPivot, c);
+            m_aLU.set (pr, c, elmt);
           }
         }
       }
@@ -348,7 +348,7 @@ public class LinearSystem extends SquareMatrix
 
   /**
    * Solve Ly = b for y by forward substitution.
-   * 
+   *
    * @param b
    *        the column vector b
    * @return the column vector y
@@ -362,11 +362,11 @@ public class LinearSystem extends SquareMatrix
     // Do forward substitution.
     for (int r = 0; r < m_nRows; ++r)
     {
-      final int pr = permutation[r]; // permuted row index
+      final int pr = m_aPermutation[r]; // permuted row index
       float dot = 0;
       for (int c = 0; c < r; ++c)
       {
-        dot += LU.at (pr, c) * y.at (c);
+        dot += m_aLU.at (pr, c) * y.at (c);
       }
       y.set (r, b.at (pr) - dot);
     }
@@ -376,7 +376,7 @@ public class LinearSystem extends SquareMatrix
 
   /**
    * Solve Ux = y for x by back substitution.
-   * 
+   *
    * @param y
    *        the column vector y
    * @return the solution column vector x
@@ -390,13 +390,13 @@ public class LinearSystem extends SquareMatrix
     // Do back substitution.
     for (int r = m_nRows - 1; r >= 0; --r)
     {
-      final int pr = permutation[r]; // permuted row index
+      final int pr = m_aPermutation[r]; // permuted row index
       float dot = 0;
       for (int c = r + 1; c < m_nRows; ++c)
       {
-        dot += LU.at (pr, c) * x.at (c);
+        dot += m_aLU.at (pr, c) * x.at (c);
       }
-      x.set (r, (y.at (r) - dot) / LU.at (pr, r));
+      x.set (r, (y.at (r) - dot) / m_aLU.at (pr, r));
     }
 
     return x;
@@ -404,7 +404,7 @@ public class LinearSystem extends SquareMatrix
 
   /**
    * Iteratively improve the solution x to machine accuracy.
-   * 
+   *
    * @param b
    *        the right-hand side column vector
    * @param x

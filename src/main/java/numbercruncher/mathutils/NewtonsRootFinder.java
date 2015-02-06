@@ -27,17 +27,17 @@ public class NewtonsRootFinder extends RootFinder
   private static final float TOLERANCE = 100 * Epsilon.floatValue ();
 
   /** x[n] value */
-  private float xn;
+  private float m_fXn;
   /** x[n+1] value */
-  private float xnp1;
+  private float m_fXnp1;
   /** previous x[n+1] value */
-  private float prevXnp1;
+  private float m_fPrevXnp1;
   /** f(x[n]) */
-  private float fn;
+  private float m_fFn;
   /** f(x[n+1]) */
-  private float fnp1;
+  private float m_fFnp1;
   /** f'(x[n]) */
-  private float fpn;
+  private float m_fFpn;
 
   /**
    * Constructor.
@@ -60,8 +60,8 @@ public class NewtonsRootFinder extends RootFinder
   {
     super.reset ();
 
-    xnp1 = x0;
-    fnp1 = m_aFunction.at (xnp1);
+    m_fXnp1 = x0;
+    m_fFnp1 = m_aFunction.at (m_fXnp1);
   }
 
   // ---------//
@@ -75,7 +75,7 @@ public class NewtonsRootFinder extends RootFinder
    */
   public float getXn ()
   {
-    return xn;
+    return m_fXn;
   }
 
   /**
@@ -85,7 +85,7 @@ public class NewtonsRootFinder extends RootFinder
    */
   public float getXnp1 ()
   {
-    return xnp1;
+    return m_fXnp1;
   }
 
   /**
@@ -95,7 +95,7 @@ public class NewtonsRootFinder extends RootFinder
    */
   public float getFn ()
   {
-    return fn;
+    return m_fFn;
   }
 
   /**
@@ -105,7 +105,7 @@ public class NewtonsRootFinder extends RootFinder
    */
   public float getFnp1 ()
   {
-    return fnp1;
+    return m_fFnp1;
   }
 
   /**
@@ -115,7 +115,7 @@ public class NewtonsRootFinder extends RootFinder
    */
   public float getFpn ()
   {
-    return fpn;
+    return m_fFpn;
   }
 
   // -----------------------------//
@@ -131,7 +131,7 @@ public class NewtonsRootFinder extends RootFinder
   @Override
   protected void doIterationProcedure (final int n)
   {
-    xn = xnp1;
+    m_fXn = m_fXnp1;
   }
 
   /**
@@ -140,14 +140,14 @@ public class NewtonsRootFinder extends RootFinder
   @Override
   protected void computeNextPosition ()
   {
-    fn = fnp1;
-    fpn = m_aFunction.derivativeAt (xn);
+    m_fFn = m_fFnp1;
+    m_fFpn = m_aFunction.derivativeAt (m_fXn);
 
     // Compute the value of x[n+1].
-    prevXnp1 = xnp1;
-    xnp1 = xn - fn / fpn;
+    m_fPrevXnp1 = m_fXnp1;
+    m_fXnp1 = m_fXn - m_fFn / m_fFpn;
 
-    fnp1 = m_aFunction.at (xnp1);
+    m_fFnp1 = m_aFunction.at (m_fXnp1);
   }
 
   /**
@@ -158,7 +158,7 @@ public class NewtonsRootFinder extends RootFinder
   @Override
   protected void checkPosition () throws RootFinder.PositionUnchangedException
   {
-    if (EqualsUtils.equals (xnp1, prevXnp1))
+    if (EqualsUtils.equals (m_fXnp1, m_fPrevXnp1))
     {
       throw new RootFinder.PositionUnchangedException ();
     }
@@ -172,6 +172,6 @@ public class NewtonsRootFinder extends RootFinder
   @Override
   protected boolean hasConverged ()
   {
-    return Math.abs (fnp1) < TOLERANCE;
+    return Math.abs (m_fFnp1) < TOLERANCE;
   }
 }

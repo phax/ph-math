@@ -81,11 +81,11 @@ public class LucasTest
     // Report status back to the caller.
     if (m_aCaller != null)
     {
-      status.a = a;
-      status.q = 1;
-      status.exponent = exponent;
-      status.value = value;
-      status.pass = (value == 1);
+      status.m_a = a;
+      status.m_nPrimeFactory = 1;
+      status.m_nExponent = exponent;
+      status.m_nModuloValue = value;
+      status.m_bPass = (value == 1);
 
       m_aCaller.reportStatus (status);
     }
@@ -113,11 +113,11 @@ public class LucasTest
       // Report status back to the caller.
       if (m_aCaller != null)
       {
-        status.a = a;
-        status.q = element;
-        status.exponent = exponent;
-        status.value = value;
-        status.pass = (value != 1);
+        status.m_a = a;
+        status.m_nPrimeFactory = element;
+        status.m_nExponent = exponent;
+        status.m_nModuloValue = value;
+        status.m_bPass = (value != 1);
 
         m_aCaller.reportStatus (status);
       }

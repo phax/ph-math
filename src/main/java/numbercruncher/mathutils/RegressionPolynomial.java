@@ -27,29 +27,29 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 public class RegressionPolynomial implements IEvaluatable
 {
   /** number of data points */
-  private int n;
+  private int m_n;
   /** degree of the polynomial */
   private final int m_nDegree;
   /** maximum no. of data points */
   private final int m_nMaxPoints;
   /** true if coefficients valid */
-  private boolean coefsValid;
+  private boolean m_bCoefsValid;
   /** warning message */
-  private String warningMsg;
+  private String m_sWarningMsg;
 
   /** data points */
-  private DataPoint m_aData[];
+  private DataPoint [] m_aData;
 
   /** coefficient matrix A */
-  private LinearSystem A;
+  private LinearSystem m_aA;
   /** regression coefficients vector a */
-  private ColumnVector a;
+  private ColumnVector m_aVA;
   /** right-hand-side vector b */
-  private ColumnVector b;
+  private ColumnVector m_aVB;
 
   /**
    * Constructor.
-   * 
+   *
    * @param degree
    *        the degree of the polynomial
    * @param maxPoints
@@ -64,7 +64,7 @@ public class RegressionPolynomial implements IEvaluatable
 
   /**
    * Constructor.
-   * 
+   *
    * @param degree
    *        the degree of the polynomial
    * @param data
@@ -76,12 +76,12 @@ public class RegressionPolynomial implements IEvaluatable
     this.m_nDegree = degree;
     this.m_nMaxPoints = data.length;
     this.m_aData = data;
-    this.n = data.length;
+    this.m_n = data.length;
   }
 
   /**
    * Return the degree of the polynomial.
-   * 
+   *
    * @return the count
    */
   public int getDegree ()
@@ -91,17 +91,17 @@ public class RegressionPolynomial implements IEvaluatable
 
   /**
    * Return the current number of data points.
-   * 
+   *
    * @return the count
    */
   public int getDataPointCount ()
   {
-    return n;
+    return m_n;
   }
 
   /**
    * Return the data points.
-   * 
+   *
    * @return the count
    */
   @SuppressFBWarnings ("EI_EXPOSE_REP")
@@ -112,7 +112,7 @@ public class RegressionPolynomial implements IEvaluatable
 
   /**
    * Return the coefficients matrix.
-   * 
+   *
    * @return the A matrix
    * @throws MatrixException
    *         if a matrix error occurred
@@ -122,12 +122,12 @@ public class RegressionPolynomial implements IEvaluatable
   public LinearSystem getCoefficientsMatrix () throws Exception, MatrixException
   {
     validateCoefficients ();
-    return A;
+    return m_aA;
   }
 
   /**
    * Return the regression coefficients.
-   * 
+   *
    * @return the a vector
    * @throws MatrixException
    *         if a matrix error occurred
@@ -137,12 +137,12 @@ public class RegressionPolynomial implements IEvaluatable
   public ColumnVector getRegressionCoefficients () throws Exception, MatrixException
   {
     validateCoefficients ();
-    return a;
+    return m_aVA;
   }
 
   /**
    * Return the right hand side.
-   * 
+   *
    * @return the b vector
    * @throws MatrixException
    *         if a matrix error occurred
@@ -152,45 +152,45 @@ public class RegressionPolynomial implements IEvaluatable
   public ColumnVector getRHS () throws Exception, MatrixException
   {
     validateCoefficients ();
-    return b;
+    return m_aVB;
   }
 
   /**
    * Return the warning message (if any).
-   * 
+   *
    * @return the message or null
    */
   public String getWarningMessage ()
   {
-    return warningMsg;
+    return m_sWarningMsg;
   }
 
   /**
    * Add a new data point: Update the sums.
-   * 
+   *
    * @param dataPoint
    *        the new data point
    */
   public void addDataPoint (final DataPoint dataPoint)
   {
-    if (n == m_nMaxPoints)
+    if (m_n == m_nMaxPoints)
       return;
 
-    m_aData[n++] = dataPoint;
-    coefsValid = false;
+    m_aData[m_n++] = dataPoint;
+    m_bCoefsValid = false;
   }
 
   /**
    * Return the value of the regression polynomial function at x.
    * (Implementation of Evaluatable.)
-   * 
+   *
    * @param x
    *        the value of x
    * @return the value of the function at x
    */
   public float at (final float x)
   {
-    if (n < m_nDegree + 1)
+    if (m_n < m_nDegree + 1)
       return Float.NaN;
 
     try
@@ -203,7 +203,7 @@ public class RegressionPolynomial implements IEvaluatable
       // Compute y = a[0] + a[1]*x + a[2]*x^2 + ... + a[n]*x^n
       for (int i = 0; i <= m_nDegree; ++i)
       {
-        y += a.at (i) * xPower;
+        y += m_aVA.at (i) * xPower;
         xPower *= x;
       }
 
@@ -224,14 +224,14 @@ public class RegressionPolynomial implements IEvaluatable
    */
   public void reset ()
   {
-    n = 0;
+    m_n = 0;
     m_aData = new DataPoint [m_nMaxPoints];
-    coefsValid = false;
+    m_bCoefsValid = false;
   }
 
   /**
    * Compute the coefficients.
-   * 
+   *
    * @throws MatrixException
    *         if a matrix error occurred
    * @throws Exception
@@ -244,7 +244,7 @@ public class RegressionPolynomial implements IEvaluatable
 
   /**
    * Validate the coefficients.
-   * 
+   *
    * @throws MatrixException
    *         if a matrix error occurred
    * @throws Exception
@@ -252,11 +252,11 @@ public class RegressionPolynomial implements IEvaluatable
    */
   private void validateCoefficients () throws Exception, MatrixException
   {
-    if (coefsValid)
+    if (m_bCoefsValid)
       return;
 
-    A = new LinearSystem (m_nDegree + 1);
-    b = new ColumnVector (m_nDegree + 1);
+    m_aA = new LinearSystem (m_nDegree + 1);
+    m_aVB = new ColumnVector (m_nDegree + 1);
 
     // Compute the multipliers of a[0] for each equation.
     for (int r = 0; r <= m_nDegree; ++r)
@@ -271,10 +271,10 @@ public class RegressionPolynomial implements IEvaluatable
 
       // Set the multipliers along the diagonal.
       for (int i = r; i >= 0; --i)
-        A.set (i, j++, sum);
+        m_aA.set (i, j++, sum);
 
       // Set the right-hand-side value.
-      b.set (r, sumXPowerY (r));
+      m_aVB.set (r, sumXPowerY (r));
     }
 
     // Compute the multipliers of a[c] for the last equation.
@@ -290,36 +290,36 @@ public class RegressionPolynomial implements IEvaluatable
 
       // Set the multipliers along the diagonal.
       for (int j = c; j <= m_nDegree; ++j)
-        A.set (i--, j, sum);
+        m_aA.set (i--, j, sum);
     }
 
-    warningMsg = null;
+    m_sWarningMsg = null;
 
     // First try solving with iterative improvement. If that
     // fails, then try solving without iterative improvement.
     try
     {
-      a = A.solve (b, true);
+      m_aVA = m_aA.solve (m_aVB, true);
     }
     catch (final MatrixException ex)
     {
-      warningMsg = ex.getMessage ();
-      a = A.solve (b, false);
+      m_sWarningMsg = ex.getMessage ();
+      m_aVA = m_aA.solve (m_aVB, false);
     }
 
-    coefsValid = true;
+    m_bCoefsValid = true;
   }
 
   /**
    * Compute the sum of the x coordinates each raised to an integer power.
-   * 
+   *
    * @return the sum
    */
   private float sumXPower (final int power)
   {
     float sum = 0;
 
-    for (int i = 0; i < n; ++i)
+    for (int i = 0; i < m_n; ++i)
     {
       sum += (float) IntPower.raise (m_aData[i].getX (), power);
     }
@@ -330,14 +330,14 @@ public class RegressionPolynomial implements IEvaluatable
   /**
    * Compute the sum of the x coordinates each raised to an integer power and
    * multiplied by the corresponding y coordinate.
-   * 
+   *
    * @return the sum
    */
   private float sumXPowerY (final int power)
   {
     float sum = 0;
 
-    for (int i = 0; i < n; ++i)
+    for (int i = 0; i < m_n; ++i)
     {
       sum += m_aData[i].getY () * IntPower.raise (m_aData[i].getX (), power);
     }

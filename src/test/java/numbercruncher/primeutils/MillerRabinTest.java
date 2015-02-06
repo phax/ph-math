@@ -70,8 +70,8 @@ public class MillerRabinTest
       ++s;
     }
 
-    status.k = k;
-    status.s = s;
+    status.m_nShiftedPMinus1 = k;
+    status.m_nRightShifts = s;
 
     // Run the test with different random base values.
     for (int i = 0; i < m_nIterations; ++i)
@@ -84,7 +84,7 @@ public class MillerRabinTest
         // want 1 < b < p
       }
 
-      status.b = b;
+      status.m_nRandomBase = b;
 
       // Composite?
       if (!test (k, s, b))
@@ -108,15 +108,15 @@ public class MillerRabinTest
     final int pm1 = m_nP - 1;
     final int sm1 = s - 1;
 
-    status.i = 0;
-    status.code = MillerRabinStatus.DONT_KNOW_YET;
+    status.m_nCounter = 0;
+    status.m_nStatusCode = MillerRabinStatus.DONT_KNOW_YET;
 
     int r = ModuloArithmetic.raise (b, k, m_nP); // b^k (mod p)
-    status.r = r;
+    status.m_nModulo = r;
 
     if (r == 1)
     {
-      status.code = MillerRabinStatus.PROBABLY_PRIME;
+      status.m_nStatusCode = MillerRabinStatus.PROBABLY_PRIME;
       reportStatus ();
 
       return true; // probably prime
@@ -127,27 +127,27 @@ public class MillerRabinTest
     while (r != pm1)
     {
       reportStatus ();
-      status.i = ++i;
+      status.m_nCounter = ++i;
 
       if (i > sm1)
       {
-        status.code = MillerRabinStatus.DEFINITELY_COMPOSITE;
+        status.m_nStatusCode = MillerRabinStatus.DEFINITELY_COMPOSITE;
         return false; // definitely composite
       }
 
       r = ModuloArithmetic.raise (r, 2, m_nP); // r^2 (mod p)
-      status.r = r;
+      status.m_nModulo = r;
 
       if (r == 1)
       {
-        status.code = MillerRabinStatus.DEFINITELY_COMPOSITE;
+        status.m_nStatusCode = MillerRabinStatus.DEFINITELY_COMPOSITE;
         reportStatus ();
 
         return false; // definitely composite
       }
     }
 
-    status.code = MillerRabinStatus.PROBABLY_PRIME;
+    status.m_nStatusCode = MillerRabinStatus.PROBABLY_PRIME;
     reportStatus ();
 
     return true; // probably prime

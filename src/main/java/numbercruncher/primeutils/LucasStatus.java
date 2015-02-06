@@ -22,38 +22,38 @@ package numbercruncher.primeutils;
 public class LucasStatus
 {
   /** trial integer a */
-  int a;
+  int m_a;
   /** prime factor */
-  int q;
+  int m_nPrimeFactory;
   /** exponent of a */
-  int exponent;
+  int m_nExponent;
   /** modulo value */
-  int value;
+  int m_nModuloValue;
   /** pass or fail */
-  boolean pass;
+  boolean m_bPass;
 
   public int getA ()
   {
-    return a;
+    return m_a;
   }
 
   public int getQ ()
   {
-    return q;
+    return m_nPrimeFactory;
   }
 
   public int getExponent ()
   {
-    return exponent;
+    return m_nExponent;
   }
 
   public int getValue ()
   {
-    return value;
+    return m_nModuloValue;
   }
 
   public boolean didPass ()
   {
-    return pass;
+    return m_bPass;
   }
 }

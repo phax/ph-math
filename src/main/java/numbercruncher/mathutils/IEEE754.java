@@ -23,16 +23,16 @@ package numbercruncher.mathutils;
 public class IEEE754
 {
   /** sign bit as a string */
-  private String signBit;
+  private String m_sSignBit;
   /** exponent bits as a string */
-  private String exponentBits;
+  private String m_sExponentBits;
   /** fraction bits as a string */
-  private String fractionBits;
+  private String m_sFractionBits;
   /** implied bit as a string */
-  private String impliedBit;
+  private String m_sImpliedBit;
 
   /** biased exponent value */
-  private int biased;
+  private int m_nBiased;
   /** fraction value */
   private long m_nFraction;
 
@@ -40,26 +40,26 @@ public class IEEE754
   private int m_nBias;
 
   /** float number value */
-  private float floatValue;
+  private float m_fFloatValue;
   /** double number value */
-  private double doubleValue;
+  private double m_dDoubleValue;
 
   /**
    * true if number value is zero
    */
-  private boolean isZero;
+  private boolean m_bIsZero;
   /**
    * true if reserved exponent value
    */
-  private boolean isReserved;
+  private boolean m_bIsReserved;
   /**
    * true if number type is double
    */
-  private final boolean isDouble;
+  private final boolean m_bIsDouble;
   /**
    * true if denormalized number value
    */
-  private boolean isDenormalized;
+  private boolean m_bIsDenormalized;
 
   // --------------//
   // Constructors //
@@ -76,8 +76,8 @@ public class IEEE754
     // Convert the value to a character array of '0' and '1'.
     final char bits [] = toCharBitArray (Float.floatToIntBits (value), 32);
 
-    floatValue = value;
-    isDouble = false;
+    m_fFloatValue = value;
+    m_bIsDouble = false;
 
     decompose (bits,
                IEEE754Constants.FLOAT_EXPONENT_BIAS,
@@ -101,8 +101,8 @@ public class IEEE754
     // Convert the value to a character array of '0' and '1'.
     final char bits [] = toCharBitArray (Double.doubleToLongBits (value), 64);
 
-    doubleValue = value;
-    isDouble = true;
+    m_dDoubleValue = value;
+    m_bIsDouble = true;
 
     decompose (bits,
                IEEE754Constants.DOUBLE_EXPONENT_BIAS,
@@ -148,8 +148,8 @@ public class IEEE754
     intBits += fraction.toInt ();
 
     // Convert to the float value.
-    floatValue = Float.intBitsToFloat (intBits);
-    isDouble = false;
+    m_fFloatValue = Float.intBitsToFloat (intBits);
+    m_bIsDouble = false;
 
     // Convert the value to a character array of '0' and '1'.
     final char bits [] = toCharBitArray (intBits, 32);
@@ -198,8 +198,8 @@ public class IEEE754
     longBits += fraction.toLong ();
 
     // Convert to the double value.
-    doubleValue = Double.longBitsToDouble (longBits);
-    isDouble = true;
+    m_dDoubleValue = Double.longBitsToDouble (longBits);
+    m_bIsDouble = true;
 
     // Convert the value to a character array of '0' and '1'.
     final char bits [] = toCharBitArray (longBits, 64);
@@ -226,7 +226,7 @@ public class IEEE754
    */
   public float floatValue ()
   {
-    return floatValue;
+    return m_fFloatValue;
   }
 
   /**
@@ -236,7 +236,7 @@ public class IEEE754
    */
   public double doubleValue ()
   {
-    return doubleValue;
+    return m_dDoubleValue;
   }
 
   /**
@@ -246,7 +246,7 @@ public class IEEE754
    */
   public int biasedExponent ()
   {
-    return biased;
+    return m_nBiased;
   }
 
   /**
@@ -256,7 +256,7 @@ public class IEEE754
    */
   public int unbiasedExponent ()
   {
-    return isDenormalized ? -m_nBias + 1 : biased - m_nBias;
+    return m_bIsDenormalized ? -m_nBias + 1 : m_nBiased - m_nBias;
   }
 
   /**
@@ -266,7 +266,7 @@ public class IEEE754
    */
   public String signBit ()
   {
-    return signBit;
+    return m_sSignBit;
   }
 
   /**
@@ -276,7 +276,7 @@ public class IEEE754
    */
   public String exponentBits ()
   {
-    return exponentBits;
+    return m_sExponentBits;
   }
 
   /**
@@ -286,7 +286,7 @@ public class IEEE754
    */
   public String fractionBits ()
   {
-    return fractionBits;
+    return m_sFractionBits;
   }
 
   /**
@@ -296,7 +296,7 @@ public class IEEE754
    */
   public String significandBits ()
   {
-    return impliedBit + "." + fractionBits;
+    return m_sImpliedBit + "." + m_sFractionBits;
   }
 
   /**
@@ -306,7 +306,7 @@ public class IEEE754
    */
   public boolean isZero ()
   {
-    return isZero;
+    return m_bIsZero;
   }
 
   /**
@@ -316,7 +316,7 @@ public class IEEE754
    */
   public boolean isDouble ()
   {
-    return isDouble;
+    return m_bIsDouble;
   }
 
   /**
@@ -326,7 +326,7 @@ public class IEEE754
    */
   public boolean isDenormalized ()
   {
-    return isDenormalized;
+    return m_bIsDenormalized;
   }
 
   /**
@@ -336,7 +336,7 @@ public class IEEE754
    */
   public boolean isExponentReserved ()
   {
-    return isReserved;
+    return m_bIsReserved;
   }
 
   // -----------------------//
@@ -404,23 +404,23 @@ public class IEEE754
     this.m_nBias = bias;
 
     // Extract the individual parts as strings of '0' and '1'.
-    signBit = new String (bits, signIndex, signSize);
-    exponentBits = new String (bits, exponentIndex, exponentSize);
-    fractionBits = new String (bits, fractionIndex, fractionSize);
+    m_sSignBit = new String (bits, signIndex, signSize);
+    m_sExponentBits = new String (bits, exponentIndex, exponentSize);
+    m_sFractionBits = new String (bits, fractionIndex, fractionSize);
 
     try
     {
-      biased = Integer.parseInt (exponentBits, 2);
-      m_nFraction = Long.parseLong (fractionBits, 2);
+      m_nBiased = Integer.parseInt (m_sExponentBits, 2);
+      m_nFraction = Long.parseLong (m_sFractionBits, 2);
     }
     catch (final NumberFormatException ex)
     {}
 
-    isZero = (biased == 0) && (m_nFraction == 0);
-    isDenormalized = (biased == 0) && (m_nFraction != 0);
-    isReserved = (biased == reserved);
+    m_bIsZero = (m_nBiased == 0) && (m_nFraction == 0);
+    m_bIsDenormalized = (m_nBiased == 0) && (m_nFraction != 0);
+    m_bIsReserved = (m_nBiased == reserved);
 
-    impliedBit = isDenormalized || isZero || isReserved ? "0" : "1";
+    m_sImpliedBit = m_bIsDenormalized || m_bIsZero || m_bIsReserved ? "0" : "1";
   }
 
   /**

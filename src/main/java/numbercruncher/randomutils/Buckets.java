@@ -25,48 +25,48 @@ public class Buckets
 {
   private static final int MAX_BAR_SIZE = 50;
 
-  private final AlignRight ar = new AlignRight ();
+  private final AlignRight m_aAlignRight = new AlignRight ();
 
   /** number of intervals */
   private final int m_n;
   /** counters per interval */
-  private final int counters[];
+  private final int m_aCounters [];
 
   /** minimum random value */
   private float m_fMin;
   /** maximum random value */
   private float m_fMax;
   /** from min to max */
-  private float width;
+  private float m_fWidth;
 
   /**
    * Constructor.
-   * 
+   *
    * @param n
    *        the number of intervals
    */
   public Buckets (final int n)
   {
-    this.m_n = n;
-    this.counters = new int [n];
+    m_n = n;
+    m_aCounters = new int [n];
     clear ();
   }
 
   /**
    * Return the counter value for interval i.
-   * 
+   *
    * @param i
    *        the value of i
    * @return the counter value
    */
   public int get (final int i)
   {
-    return counters[i];
+    return m_aCounters[i];
   }
 
   /**
    * Set the minimum and maximum random values.
-   * 
+   *
    * @param rMin
    *        the minimum value
    * @param rMax
@@ -76,12 +76,12 @@ public class Buckets
   {
     this.m_fMin = rMin;
     this.m_fMax = rMax;
-    this.width = (rMax - rMin) / m_n;
+    this.m_fWidth = (rMax - rMin) / m_n;
   }
 
   /**
    * Determine a random value's interval and count it.
-   * 
+   *
    * @param r
    *        the random value
    */
@@ -92,8 +92,8 @@ public class Buckets
       return;
 
     // Determine its interval and count it.
-    final int i = (int) ((r - m_fMin) / width);
-    ++counters[i];
+    final int i = (int) ((r - m_fMin) / m_fWidth);
+    ++m_aCounters[i];
   }
 
   /**
@@ -101,8 +101,8 @@ public class Buckets
    */
   public void clear ()
   {
-    for (int i = 0; i < counters.length; ++i)
-      counters[i] = 0;
+    for (int i = 0; i < m_aCounters.length; ++i)
+      m_aCounters[i] = 0;
   }
 
   /**
@@ -115,7 +115,7 @@ public class Buckets
     int maxCount = 0;
     for (int i = 0; i < m_n; ++i)
     {
-      maxCount = Math.max (maxCount, counters[i]);
+      maxCount = Math.max (maxCount, m_aCounters[i]);
     }
 
     // Compute the scaling factor.
@@ -124,11 +124,11 @@ public class Buckets
     // Loop to print each bar.
     for (int i = 0; i < m_n; ++i)
     {
-      final int b = counters[i];
+      final int b = m_aCounters[i];
 
       // Interval number.
-      ar.print (i, 2);
-      ar.print (b, 7);
+      m_aAlignRight.print (i, 2);
+      m_aAlignRight.print (b, 7);
       System.out.print (": ");
 
       // Bar.
