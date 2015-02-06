@@ -39,11 +39,11 @@ public class RandomNormal
   private boolean haveNextPolar = false;
 
   /** generator of uniformly-distributed random values */
-  private static Random gen = new Random ();
+  private static final Random GENERATOR = new Random ();
 
   /**
    * Set the mean and standard deviation.
-   * 
+   *
    * @param mean
    *        the mean
    * @param stddev
@@ -51,8 +51,8 @@ public class RandomNormal
    */
   public void setParameters (final float mean, final float stddev)
   {
-    this.m_fMean = mean;
-    this.m_fStddev = stddev;
+    m_fMean = mean;
+    m_fStddev = stddev;
   }
 
   /**
@@ -65,7 +65,7 @@ public class RandomNormal
     // Average 12 uniformly-distributed random values.
     float sum = 0.0f;
     for (int j = 0; j < 12; ++j)
-      sum += gen.nextFloat ();
+      sum += GENERATOR.nextFloat ();
 
     // Subtract 6 to center about 0.
     return m_fStddev * (sum - 6) + m_fMean;
@@ -91,8 +91,8 @@ public class RandomNormal
     {
       // u1 and u2 will be uniformly-distributed
       // random values in [-1, +1).
-      u1 = 2 * gen.nextFloat () - 1;
-      u2 = 2 * gen.nextFloat () - 1;
+      u1 = 2 * GENERATOR.nextFloat () - 1;
+      u2 = 2 * GENERATOR.nextFloat () - 1;
 
       // Want radius r inside the unit circle.
       r = u1 * u1 + u2 * u2;
@@ -129,11 +129,11 @@ public class RandomNormal
     {
       // u and v are two uniformly-distributed random values
       // in [0, 1), and u != 0.
-      while ((u = gen.nextFloat ()) == 0)
+      while ((u = GENERATOR.nextFloat ()) == 0)
       {
         // try again if 0
       }
-      v = gen.nextFloat ();
+      v = GENERATOR.nextFloat ();
 
       final float y = C1 * (v - 0.5f); // y coord of point (u, y)
       x = y / u; // ratio of point's coords

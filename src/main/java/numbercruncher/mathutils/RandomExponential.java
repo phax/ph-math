@@ -27,11 +27,11 @@ public class RandomExponential
   private float m_fMean;
 
   /** generator of uniformly-distributed random values */
-  private static Random gen = new Random ();
+  private static final Random GENERATOR = new Random ();
 
   /**
    * Set the mean.
-   * 
+   *
    * @param mean
    *        the mean
    */
@@ -48,7 +48,7 @@ public class RandomExponential
   {
     // Generate a non-zero uniformly-distributed random value.
     float u;
-    while ((u = gen.nextFloat ()) == 0)
+    while ((u = GENERATOR.nextFloat ()) == 0)
     {
       // try again if 0
     }
@@ -71,7 +71,7 @@ public class RandomExponential
     for (;;)
     {
       n = 1;
-      u1 = gen.nextFloat ();
+      u1 = GENERATOR.nextFloat ();
 
       float u = u1;
       float uPrev = Float.NaN;
@@ -81,7 +81,7 @@ public class RandomExponential
       for (;;)
       {
         uPrev = u;
-        u = gen.nextFloat ();
+        u = GENERATOR.nextFloat ();
 
         // No longer decreasing?
         if (u > uPrev)
