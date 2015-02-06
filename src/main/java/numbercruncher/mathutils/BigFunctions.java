@@ -158,7 +158,7 @@ public final class BigFunctions
 
     // If there isn't a whole part, compute and return e^x.
     if (xWhole.signum () == 0)
-      return expTaylor (x, scale);
+      return _expTaylor (x, scale);
 
     // Compute the fraction part of x.
     final BigDecimal xFraction = x.subtract (xWhole);
@@ -167,7 +167,7 @@ public final class BigFunctions
     final BigDecimal z = BigDecimal.ONE.add (xFraction.divide (xWhole, scale, BigDecimal.ROUND_HALF_EVEN));
 
     // t = e^z
-    final BigDecimal t = expTaylor (z, scale);
+    final BigDecimal t = _expTaylor (z, scale);
 
     final BigDecimal maxLong = BigDecimal.valueOf (Long.MAX_VALUE);
     BigDecimal result = BigDecimal.ONE;
@@ -194,7 +194,7 @@ public final class BigFunctions
    *        the desired scale of the result
    * @return the result value
    */
-  private static BigDecimal expTaylor (final BigDecimal x, final int scale)
+  private static BigDecimal _expTaylor (final BigDecimal x, final int scale)
   {
     BigDecimal factorial = BigDecimal.ONE;
     BigDecimal xPower = x;
@@ -250,7 +250,7 @@ public final class BigFunctions
 
     if (magnitude < 3)
     {
-      return lnNewton (x, scale);
+      return _lnNewton (x, scale);
     }
 
     // Compute magnitude*ln(x^(1/magnitude)).
@@ -259,7 +259,7 @@ public final class BigFunctions
     final BigDecimal root = intRoot (x, magnitude, scale);
 
     // ln(x^(1/magnitude))
-    final BigDecimal lnRoot = lnNewton (root, scale);
+    final BigDecimal lnRoot = _lnNewton (root, scale);
 
     // magnitude*ln(x^(1/magnitude))
     return BigDecimal.valueOf (magnitude).multiply (lnRoot).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
@@ -269,7 +269,7 @@ public final class BigFunctions
    * Compute the natural logarithm of x to a given scale, x > 0. Use Newton's
    * algorithm.
    */
-  private static BigDecimal lnNewton (@Nonnull final BigDecimal px, final int scale)
+  private static BigDecimal _lnNewton (@Nonnull final BigDecimal px, final int scale)
   {
     BigDecimal x = px;
     final int sp1 = scale + 1;
@@ -321,7 +321,7 @@ public final class BigFunctions
     {
       return arctan (x.negate (), scale).negate ();
     }
-    return arctanTaylor (x, scale);
+    return _arctanTaylor (x, scale);
   }
 
   /**
@@ -333,7 +333,7 @@ public final class BigFunctions
    *        the desired scale of the result
    * @return the result value
    */
-  private static BigDecimal arctanTaylor (final BigDecimal x, final int scale)
+  private static BigDecimal _arctanTaylor (final BigDecimal x, final int scale)
   {
     final int sp1 = scale + 1;
     int i = 3;

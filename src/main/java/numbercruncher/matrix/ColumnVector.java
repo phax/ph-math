@@ -55,7 +55,7 @@ public class ColumnVector extends Matrix
    */
   private ColumnVector (final Matrix m)
   {
-    set (m);
+    _set (m);
   }
 
   // ---------//
@@ -109,7 +109,7 @@ public class ColumnVector extends Matrix
    * @param m
    *        the matrix
    */
-  private void set (final Matrix m)
+  private void _set (final Matrix m)
   {
     this.m_nRows = m.m_nRows;
     this.m_nCols = 1;

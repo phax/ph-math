@@ -77,7 +77,7 @@ public class RegressionLine implements IEvaluatable
    */
   public float getA0 ()
   {
-    validateCoefficients ();
+    _validateCoefficients ();
     return m_fA0;
   }
 
@@ -88,7 +88,7 @@ public class RegressionLine implements IEvaluatable
    */
   public float getA1 ()
   {
-    validateCoefficients ();
+    _validateCoefficients ();
     return m_fA1;
   }
 
@@ -162,7 +162,7 @@ public class RegressionLine implements IEvaluatable
     if (m_nDataPoints < 2)
       return Float.NaN;
 
-    validateCoefficients ();
+    _validateCoefficients ();
     return m_fA0 + m_fA1 * x;
   }
 
@@ -179,7 +179,7 @@ public class RegressionLine implements IEvaluatable
   /**
    * Validate the coefficients.
    */
-  private void validateCoefficients ()
+  private void _validateCoefficients ()
   {
     if (m_bCoefsValid)
       return;

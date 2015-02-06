@@ -59,7 +59,7 @@ public class TrapezoidalIntegrator implements IIntegrator
     for (int i = 0; i < intervals; ++i)
     {
       final float x1 = a + i * h;
-      totalArea += areaOf (x1, h);
+      totalArea += _areaOf (x1, h);
     }
 
     return totalArea;
@@ -74,7 +74,7 @@ public class TrapezoidalIntegrator implements IIntegrator
    *        the interval width
    * @return the area of the region
    */
-  private float areaOf (final float x1, final float h)
+  private float _areaOf (final float x1, final float h)
   {
     final float x2 = x1 + h; // right bound of the region
     final float y1 = m_aIntegrand.at (x1); // value at left bound

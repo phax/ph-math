@@ -121,7 +121,7 @@ public class RegressionPolynomial implements IEvaluatable
    */
   public LinearSystem getCoefficientsMatrix () throws Exception, MatrixException
   {
-    validateCoefficients ();
+    _validateCoefficients ();
     return m_aA;
   }
 
@@ -136,7 +136,7 @@ public class RegressionPolynomial implements IEvaluatable
    */
   public ColumnVector getRegressionCoefficients () throws Exception, MatrixException
   {
-    validateCoefficients ();
+    _validateCoefficients ();
     return m_aVA;
   }
 
@@ -151,7 +151,7 @@ public class RegressionPolynomial implements IEvaluatable
    */
   public ColumnVector getRHS () throws Exception, MatrixException
   {
-    validateCoefficients ();
+    _validateCoefficients ();
     return m_aVB;
   }
 
@@ -195,7 +195,7 @@ public class RegressionPolynomial implements IEvaluatable
 
     try
     {
-      validateCoefficients ();
+      _validateCoefficients ();
 
       float xPower = 1;
       float y = 0;
@@ -239,7 +239,7 @@ public class RegressionPolynomial implements IEvaluatable
    */
   public void computeCoefficients () throws Exception, MatrixException
   {
-    validateCoefficients ();
+    _validateCoefficients ();
   }
 
   /**
@@ -250,7 +250,7 @@ public class RegressionPolynomial implements IEvaluatable
    * @throws Exception
    *         if an overflow occurred
    */
-  private void validateCoefficients () throws Exception, MatrixException
+  private void _validateCoefficients () throws Exception, MatrixException
   {
     if (m_bCoefsValid)
       return;
@@ -261,7 +261,7 @@ public class RegressionPolynomial implements IEvaluatable
     // Compute the multipliers of a[0] for each equation.
     for (int r = 0; r <= m_nDegree; ++r)
     {
-      final float sum = sumXPower (r);
+      final float sum = _sumXPower (r);
       int j = 0;
 
       if (Float.isInfinite (sum))
@@ -274,13 +274,13 @@ public class RegressionPolynomial implements IEvaluatable
         m_aA.set (i, j++, sum);
 
       // Set the right-hand-side value.
-      m_aVB.set (r, sumXPowerY (r));
+      m_aVB.set (r, _sumXPowerY (r));
     }
 
     // Compute the multipliers of a[c] for the last equation.
     for (int c = 1; c <= m_nDegree; ++c)
     {
-      final float sum = sumXPower (m_nDegree + c);
+      final float sum = _sumXPower (m_nDegree + c);
       int i = m_nDegree;
 
       if (Float.isInfinite (sum))
@@ -315,7 +315,7 @@ public class RegressionPolynomial implements IEvaluatable
    *
    * @return the sum
    */
-  private float sumXPower (final int power)
+  private float _sumXPower (final int power)
   {
     float sum = 0;
 
@@ -333,7 +333,7 @@ public class RegressionPolynomial implements IEvaluatable
    *
    * @return the sum
    */
-  private float sumXPowerY (final int power)
+  private float _sumXPowerY (final int power)
   {
     float sum = 0;
 

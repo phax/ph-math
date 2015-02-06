@@ -60,7 +60,7 @@ public class SimpsonsIntegrator implements IIntegrator
     for (int i = 0; i < intervals; ++i)
     {
       final float x1 = a + 2 * i * h;
-      totalArea += areaOf (x1, h);
+      totalArea += _areaOf (x1, h);
     }
 
     return totalArea;
@@ -75,7 +75,7 @@ public class SimpsonsIntegrator implements IIntegrator
    *        the interval width
    * @return the area of the region
    */
-  private float areaOf (final float x1, final float h)
+  private float _areaOf (final float x1, final float h)
   {
     final float x2 = x1 + h; // middle
     final float x3 = x2 + h; // right bound of the region

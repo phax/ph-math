@@ -44,7 +44,7 @@ public class SquareMatrix extends Matrix
    */
   private SquareMatrix (final Matrix m)
   {
-    set (m);
+    _set (m);
   }
 
   /**
@@ -70,7 +70,7 @@ public class SquareMatrix extends Matrix
    * @param m
    *        the 2-d array of values
    */
-  private void set (final Matrix m)
+  private void _set (final Matrix m)
   {
     this.m_nRows = this.m_nCols = Math.min (m.m_nRows, m.m_nCols);
     this.m_aValues = m.m_aValues;

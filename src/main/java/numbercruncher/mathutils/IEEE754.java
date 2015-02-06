@@ -74,7 +74,7 @@ public class IEEE754
   public IEEE754 (final float value)
   {
     // Convert the value to a character array of '0' and '1'.
-    final char bits [] = toCharBitArray (Float.floatToIntBits (value), 32);
+    final char bits [] = _toCharBitArray (Float.floatToIntBits (value), 32);
 
     m_fFloatValue = value;
     m_bIsDouble = false;
@@ -99,7 +99,7 @@ public class IEEE754
   public IEEE754 (final double value)
   {
     // Convert the value to a character array of '0' and '1'.
-    final char bits [] = toCharBitArray (Double.doubleToLongBits (value), 64);
+    final char bits [] = _toCharBitArray (Double.doubleToLongBits (value), 64);
 
     m_dDoubleValue = value;
     m_bIsDouble = true;
@@ -152,7 +152,7 @@ public class IEEE754
     m_bIsDouble = false;
 
     // Convert the value to a character array of '0' and '1'.
-    final char bits [] = toCharBitArray (intBits, 32);
+    final char bits [] = _toCharBitArray (intBits, 32);
 
     _decompose (bits,
                 IEEE754Constants.FLOAT_EXPONENT_BIAS,
@@ -202,7 +202,7 @@ public class IEEE754
     m_bIsDouble = true;
 
     // Convert the value to a character array of '0' and '1'.
-    final char bits [] = toCharBitArray (longBits, 64);
+    final char bits [] = _toCharBitArray (longBits, 64);
 
     _decompose (bits,
                 IEEE754Constants.DOUBLE_EXPONENT_BIAS,
@@ -353,7 +353,7 @@ public class IEEE754
    *        the array size
    * @return the character array
    */
-  private static char [] toCharBitArray (final long pvalue, final int size)
+  private static char [] _toCharBitArray (final long pvalue, final int size)
   {
     long value = pvalue;
     final char bits [] = new char [size];
@@ -643,7 +643,7 @@ public class IEEE754
       if (length == size)
       {
         m_aPart.append (bits);
-        validate ();
+        _validate ();
       }
 
       // String length < part size: Pad with '0'.
@@ -651,7 +651,7 @@ public class IEEE754
         if (length < size)
         {
           m_aPart.append (bits);
-          validate ();
+          _validate ();
           for (int i = length; i < size; ++i)
             m_aPart.append ('0');
         }
@@ -660,7 +660,7 @@ public class IEEE754
         else
         {
           m_aPart.append (bits.substring (0, size));
-          validate ();
+          _validate ();
         }
     }
 
@@ -716,7 +716,7 @@ public class IEEE754
      *
      * @throws numbercruncher.mathutils.IEEE754.IEEE754Exception
      */
-    private void validate () throws IEEE754Exception
+    private void _validate () throws IEEE754Exception
     {
       final int length = m_aPart.length ();
 

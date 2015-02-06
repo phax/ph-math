@@ -169,12 +169,12 @@ public class LinearSystem extends SquareMatrix
 
     // Solve Ly = b for y by forward substitution.
     // Solve Ux = y for x by back substitution.
-    final ColumnVector y = forwardSubstitution (b);
-    final ColumnVector x = backSubstitution (y);
+    final ColumnVector y = _forwardSubstitution (b);
+    final ColumnVector x = _backSubstitution (y);
 
     // Improve and return x.
     if (improve)
-      improve (b, x);
+      _improve (b, x);
     return x;
   }
 
@@ -254,7 +254,7 @@ public class LinearSystem extends SquareMatrix
     }
 
     // Do forward elimination with scaled partial row pivoting.
-    forwardElimination (scales);
+    _forwardElimination (scales);
 
     // Check bottom right element of the permuted matrix.
     if (m_aLU.at (m_aPermutation[m_nRows - 1], m_nRows - 1) == 0)
@@ -270,7 +270,7 @@ public class LinearSystem extends SquareMatrix
    * @throws MatrixException
    *         for a singular matrix
    */
-  private void forwardElimination (final float scales []) throws MatrixException
+  private void _forwardElimination (final float scales []) throws MatrixException
   {
     // Loop once per pivot row 0..nRows-1.
     for (int rPivot = 0; rPivot < m_nRows - 1; ++rPivot)
@@ -355,7 +355,7 @@ public class LinearSystem extends SquareMatrix
    * @throws MatrixException
    *         if an error occurred
    */
-  private ColumnVector forwardSubstitution (final ColumnVector b) throws MatrixException
+  private ColumnVector _forwardSubstitution (final ColumnVector b) throws MatrixException
   {
     final ColumnVector y = new ColumnVector (m_nRows);
 
@@ -383,7 +383,7 @@ public class LinearSystem extends SquareMatrix
    * @throws MatrixException
    *         if an error occurred
    */
-  private ColumnVector backSubstitution (final ColumnVector y) throws MatrixException
+  private ColumnVector _backSubstitution (final ColumnVector y) throws MatrixException
   {
     final ColumnVector x = new ColumnVector (m_nRows);
 
@@ -412,7 +412,7 @@ public class LinearSystem extends SquareMatrix
    * @throws MatrixException
    *         if failed to converge
    */
-  private void improve (final ColumnVector b, final ColumnVector x) throws MatrixException
+  private void _improve (final ColumnVector b, final ColumnVector x) throws MatrixException
   {
     // Find the largest x element.
     float largestX = 0;

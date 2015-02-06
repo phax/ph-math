@@ -52,7 +52,7 @@ public class RowVector extends Matrix
    */
   private RowVector (final Matrix m)
   {
-    set (m);
+    _set (m);
   }
 
   // ---------//
@@ -106,7 +106,7 @@ public class RowVector extends Matrix
    * @param m
    *        the matrix
    */
-  private void set (final Matrix m)
+  private void _set (final Matrix m)
   {
     this.m_nRows = 1;
     this.m_nCols = m.m_nCols;
