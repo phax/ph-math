@@ -23,8 +23,8 @@ import java.awt.Label;
 
 import numbercruncher.graphutils.PlotProperties;
 import numbercruncher.mathutils.BisectionRootFinder;
-import numbercruncher.mathutils.Function;
-import numbercruncher.mathutils.RootFinder;
+import numbercruncher.mathutils.AbstractFunction;
+import numbercruncher.mathutils.AbstractRootFinder;
 import numbercruncher.rootutils.PlotFunction;
 import numbercruncher.rootutils.RootFinderPanel;
 
@@ -215,9 +215,9 @@ public class BisectionPanel extends RootFinderPanel
     // Create the bisection root finder.
     try
     {
-      finder = new BisectionRootFinder ((Function) plotFunction.getFunction (), xNeg, xPos);
+      finder = new BisectionRootFinder ((AbstractFunction) plotFunction.getFunction (), xNeg, xPos);
     }
-    catch (final RootFinder.InvalidIntervalException ex)
+    catch (final AbstractRootFinder.InvalidIntervalException ex)
     {
       nText.setText ("***");
       xMidText.setText ("Bad interval");
@@ -239,12 +239,12 @@ public class BisectionPanel extends RootFinderPanel
         successfullyConverged ();
       }
     }
-    catch (final RootFinder.IterationCountExceededException ex)
+    catch (final AbstractRootFinder.IterationCountExceededException ex)
     {
       iterationLimitExceeded (MAX_ITERS, xMidText);
       return;
     }
-    catch (final RootFinder.PositionUnchangedException ex)
+    catch (final AbstractRootFinder.PositionUnchangedException ex)
     {
       // ignore
     }

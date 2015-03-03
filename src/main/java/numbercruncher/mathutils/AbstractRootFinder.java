@@ -19,10 +19,10 @@ package numbercruncher.mathutils;
 /**
  * Abstract base class for the root finder classes.
  */
-public abstract class RootFinder
+public abstract class AbstractRootFinder
 {
   /** the function whose roots to find */
-  protected Function m_aFunction;
+  protected AbstractFunction m_aFunction;
   /** iteration counter */
   private int m_nIndex;
   /** maximum number of iterations */
@@ -30,21 +30,21 @@ public abstract class RootFinder
 
   /**
    * Constructor.
-   * 
+   *
    * @param function
    *        the function whose roots to find
    * @param maxIters
    *        the maximum number of iterations
    */
-  public RootFinder (final Function function, final int maxIters)
+  public AbstractRootFinder (final AbstractFunction function, final int maxIters)
   {
-    this.m_aFunction = function;
-    this.m_nMaxIters = maxIters;
+    m_aFunction = function;
+    m_nMaxIters = maxIters;
   }
 
   /**
    * Check the interval.
-   * 
+   *
    * @param x1
    *        x-coordinate of the left of the interval
    * @param x2
@@ -63,7 +63,7 @@ public abstract class RootFinder
 
   /**
    * Return the iteration count.
-   * 
+   *
    * @return the count
    */
   public int getIterationCount ()
@@ -73,7 +73,7 @@ public abstract class RootFinder
 
   /**
    * Perform one iteration step.
-   * 
+   *
    * @return true if the algorithm converged, else false
    * @throws IterationCountExceededException
    * @throws PositionUnchangedException
@@ -92,7 +92,7 @@ public abstract class RootFinder
   /**
    * Check the iteration count to see if it has exeeded the maximum number of
    * iterations.
-   * 
+   *
    * @throws IterationCountExceededException
    */
   protected void checkIterationCount () throws IterationCountExceededException
@@ -117,7 +117,7 @@ public abstract class RootFinder
 
   /**
    * Do the iteration procedure.
-   * 
+   *
    * @param n
    *        the iteration count
    */
@@ -130,14 +130,14 @@ public abstract class RootFinder
 
   /**
    * Check the position of x.
-   * 
+   *
    * @throws PositionUnchangedException
    */
   protected abstract void checkPosition () throws PositionUnchangedException;
 
   /**
    * Indicate whether or not the algorithm has converged.
-   * 
+   *
    * @return true if converged, else false
    */
   protected abstract boolean hasConverged ();

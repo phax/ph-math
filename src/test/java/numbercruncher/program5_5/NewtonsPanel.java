@@ -26,9 +26,9 @@ import java.awt.Panel;
 import java.awt.event.MouseEvent;
 
 import numbercruncher.graphutils.PlotProperties;
-import numbercruncher.mathutils.Function;
+import numbercruncher.mathutils.AbstractFunction;
 import numbercruncher.mathutils.NewtonsRootFinder;
-import numbercruncher.mathutils.RootFinder;
+import numbercruncher.mathutils.AbstractRootFinder;
 import numbercruncher.rootutils.PlotFunction;
 import numbercruncher.rootutils.RootFinderPanel;
 
@@ -145,7 +145,7 @@ class NewtonsPanel extends RootFinderPanel
     final PlotFunction plotFunction = getSelectedPlotFunction ();
 
     // Create the Newton's root finder.
-    finder = new NewtonsRootFinder ((Function) plotFunction.getFunction ());
+    finder = new NewtonsRootFinder ((AbstractFunction) plotFunction.getFunction ());
   }
 
   /**
@@ -259,12 +259,12 @@ class NewtonsPanel extends RootFinderPanel
       {
         converged = finder.step ();
       }
-      catch (final RootFinder.IterationCountExceededException ex)
+      catch (final AbstractRootFinder.IterationCountExceededException ex)
       {
         iterationLimitExceeded (MAX_ITERS, xnp1Text);
         return;
       }
-      catch (final RootFinder.PositionUnchangedException ex)
+      catch (final AbstractRootFinder.PositionUnchangedException ex)
       {
         // ignore
       }
@@ -353,7 +353,7 @@ class NewtonsPanel extends RootFinderPanel
     final Frame test = new Frame ();
     final NewtonsPanel demo = new NewtonsPanel ();
 
-    final Function function = new Function ()
+    final AbstractFunction function = new AbstractFunction ()
     {
       @Override
       public float at (final float x)

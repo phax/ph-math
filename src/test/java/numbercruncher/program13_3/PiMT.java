@@ -19,13 +19,13 @@ package numbercruncher.program13_3;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import numbercruncher.piutils.PiFormula;
+import numbercruncher.piutils.AbstractPiFormula;
 
 /**
  * PROGRAM 13-3: The Borwein Pi Algorithm Compute digits of pi by the Borwein
  * algorithm.
  */
-public class PiMT extends PiFormula implements IPiBorweinParent
+public class PiMT extends AbstractPiFormula implements IPiBorweinParent
 {
   private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat ("HH:mm:ss.SSS");
 

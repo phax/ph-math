@@ -23,7 +23,7 @@ import java.util.Map;
 import numbercruncher.graphutils.IPlottable;
 import numbercruncher.graphutils.PlotProperties;
 import numbercruncher.mathutils.DataPoint;
-import numbercruncher.mathutils.DifferentialEquation;
+import numbercruncher.mathutils.AbstractDifferentialEquation;
 import numbercruncher.mathutils.IEvaluatable;
 
 /**
@@ -48,7 +48,7 @@ public class PlotDiffEq implements IPlottable
   private static final int Y62 = 219;
 
   /** differential equation */
-  private DifferentialEquation m_aEquation;
+  private AbstractDifferentialEquation m_aEquation;
   /** image region */
   private Rectangle rectangle;
   /** plot properties */
@@ -130,7 +130,7 @@ public class PlotDiffEq implements IPlottable
    * @param yMax
    *        the maximum y value of the plot bounds
    */
-  public PlotDiffEq (final DifferentialEquation equation,
+  public PlotDiffEq (final AbstractDifferentialEquation equation,
                      final float xMin,
                      final float xMax,
                      final float yMin,

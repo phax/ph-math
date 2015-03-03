@@ -20,7 +20,7 @@ package numbercruncher.mathutils;
  * Differential equation solver that implements a fourth-order Runge-Kutta
  * algorithm.
  */
-public class RungeKuttaDiffEqSolver extends DiffEqSolver
+public class RungeKuttaDiffEqSolver extends AbstractDiffEqSolver
 {
   /**
    * Constructor.
@@ -28,7 +28,7 @@ public class RungeKuttaDiffEqSolver extends DiffEqSolver
    * @param equation
    *        the differential equation to solve
    */
-  public RungeKuttaDiffEqSolver (final DifferentialEquation equation)
+  public RungeKuttaDiffEqSolver (final AbstractDifferentialEquation equation)
   {
     super (equation);
   }

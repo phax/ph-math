@@ -20,7 +20,7 @@ package numbercruncher.mathutils;
  * The base class for functions that can have derivatives. Initialize the static
  * function table with some sample functions.
  */
-public abstract class DifferentialEquation implements IEvaluatable
+public abstract class AbstractDifferentialEquation implements IEvaluatable
 {
   /** initial condition */
   private final DataPoint m_aInitialCondition;
@@ -35,7 +35,7 @@ public abstract class DifferentialEquation implements IEvaluatable
    * @param solutionLabel
    *        the solution function label
    */
-  public DifferentialEquation (final DataPoint initialCondition, final String solutionLabel)
+  public AbstractDifferentialEquation (final DataPoint initialCondition, final String solutionLabel)
   {
     this.m_aInitialCondition = initialCondition;
     this.m_sSolutionLabel = solutionLabel;

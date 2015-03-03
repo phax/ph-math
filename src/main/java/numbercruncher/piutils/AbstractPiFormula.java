@@ -23,7 +23,7 @@ import java.util.Date;
 /**
  * Utility class for programs that compute pi.
  */
-public abstract class PiFormula
+public abstract class AbstractPiFormula
 {
   /**
    * Print the string containing the digits of pi.

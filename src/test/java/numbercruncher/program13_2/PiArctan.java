@@ -19,13 +19,13 @@ package numbercruncher.program13_2;
 import java.math.BigDecimal;
 
 import numbercruncher.mathutils.BigFunctions;
-import numbercruncher.piutils.PiFormula;
+import numbercruncher.piutils.AbstractPiFormula;
 
 /**
  * PROGRAM 13-2: Arctangent Formulas for pi Compute pi with two arctangent
  * formulas.
  */
-public class PiArctan extends PiFormula
+public class PiArctan extends AbstractPiFormula
 {
   /**
    * Compute the digits of pi using two arctangent formulas.

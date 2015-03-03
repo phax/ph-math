@@ -19,7 +19,7 @@ package numbercruncher.mathutils;
 /**
  * The base class for functions that can have derivatives.
  */
-public abstract class Function implements IEvaluatable
+public abstract class AbstractFunction implements IEvaluatable
 {
   /**
    * Return the value of the function at x. (Implementation of Evaluatable.)

@@ -27,8 +27,8 @@ import java.awt.event.MouseEvent;
 
 import numbercruncher.graphutils.PlotProperties;
 import numbercruncher.mathutils.FixedPointRootFinder;
-import numbercruncher.mathutils.Function;
-import numbercruncher.mathutils.RootFinder;
+import numbercruncher.mathutils.AbstractFunction;
+import numbercruncher.mathutils.AbstractRootFinder;
 import numbercruncher.rootutils.PlotFunction;
 import numbercruncher.rootutils.RootFinderPanel;
 
@@ -152,7 +152,7 @@ public class FixedPointPanel extends RootFinderPanel
     final PlotFunction plotFunction = getSelectedPlotFunction ();
 
     // Create the fixed-point iteration root finder.
-    finder = new FixedPointRootFinder ((Function) plotFunction.getFunction ());
+    finder = new FixedPointRootFinder ((AbstractFunction) plotFunction.getFunction ());
   }
 
   /**
@@ -268,12 +268,12 @@ public class FixedPointPanel extends RootFinderPanel
       {
         converged = finder.step ();
       }
-      catch (final RootFinder.IterationCountExceededException ex)
+      catch (final AbstractRootFinder.IterationCountExceededException ex)
       {
         iterationLimitExceeded (MAX_ITERS, xnText);
         return;
       }
-      catch (final RootFinder.PositionUnchangedException ex)
+      catch (final AbstractRootFinder.PositionUnchangedException ex)
       {
         // ignore
       }
@@ -325,7 +325,7 @@ public class FixedPointPanel extends RootFinderPanel
     final Frame test = new Frame ();
     final FixedPointPanel demo = new FixedPointPanel ();
 
-    final Function function = new Function ()
+    final AbstractFunction function = new AbstractFunction ()
     {
       @Override
       public float at (final float x)

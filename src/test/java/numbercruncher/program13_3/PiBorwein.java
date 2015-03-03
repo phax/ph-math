@@ -16,13 +16,13 @@
  */
 package numbercruncher.program13_3;
 
-import numbercruncher.piutils.PiFormula;
+import numbercruncher.piutils.AbstractPiFormula;
 
 /**
  * PROGRAM 13-3: The Borwein Pi Algorithm Compute digits of pi by the Borwein
  * algorithm.
  */
-public class PiBorwein extends PiFormula implements IPiBorweinParent
+public class PiBorwein extends AbstractPiFormula implements IPiBorweinParent
 {
   private long m_nStartTime;
   private long m_nMarkTime;

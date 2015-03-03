@@ -22,9 +22,9 @@ import java.awt.GridLayout;
 import java.awt.Label;
 
 import numbercruncher.graphutils.PlotProperties;
-import numbercruncher.mathutils.Function;
+import numbercruncher.mathutils.AbstractFunction;
 import numbercruncher.mathutils.ImprovedRegulaFalsiRootFinder;
-import numbercruncher.mathutils.RootFinder;
+import numbercruncher.mathutils.AbstractRootFinder;
 import numbercruncher.rootutils.PlotFunction;
 import numbercruncher.rootutils.RootFinderPanel;
 
@@ -191,9 +191,9 @@ public class ImprovedRegulaFalsiPanel extends RootFinderPanel
     // Create the regula falsi root finder.
     try
     {
-      finder = new ImprovedRegulaFalsiRootFinder ((Function) plotFunction.getFunction (), xNeg, xPos);
+      finder = new ImprovedRegulaFalsiRootFinder ((AbstractFunction) plotFunction.getFunction (), xNeg, xPos);
     }
-    catch (final RootFinder.InvalidIntervalException ex)
+    catch (final AbstractRootFinder.InvalidIntervalException ex)
     {
       nText.setText ("***");
       xFalseText.setText ("Bad interval");
@@ -216,12 +216,12 @@ public class ImprovedRegulaFalsiPanel extends RootFinderPanel
         successfullyConverged ();
       }
     }
-    catch (final RootFinder.IterationCountExceededException ex)
+    catch (final AbstractRootFinder.IterationCountExceededException ex)
     {
       iterationLimitExceeded (MAX_ITERS, xFalseText);
       return;
     }
-    catch (final RootFinder.PositionUnchangedException ex)
+    catch (final AbstractRootFinder.PositionUnchangedException ex)
     {
       // ignore
     }

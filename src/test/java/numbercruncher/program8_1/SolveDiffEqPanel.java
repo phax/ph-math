@@ -32,8 +32,8 @@ import numbercruncher.graphutils.FunctionFrame;
 import numbercruncher.graphutils.GraphPanel;
 import numbercruncher.graphutils.PlotProperties;
 import numbercruncher.mathutils.DataPoint;
-import numbercruncher.mathutils.DiffEqSolver;
-import numbercruncher.mathutils.DifferentialEquation;
+import numbercruncher.mathutils.AbstractDiffEqSolver;
+import numbercruncher.mathutils.AbstractDifferentialEquation;
 import numbercruncher.mathutils.EulersDiffEqSolver;
 import numbercruncher.mathutils.PredictorCorrectorDiffEqSolver;
 import numbercruncher.mathutils.RungeKuttaDiffEqSolver;
@@ -105,7 +105,7 @@ public class SolveDiffEqPanel extends GraphPanel
   /** selected equation */
   private PlotDiffEq plotEquation;
   /** differential equation */
-  private DifferentialEquation equation;
+  private AbstractDifferentialEquation equation;
   /** initial condition */
   private DataPoint initialCondition;
 
@@ -148,7 +148,7 @@ public class SolveDiffEqPanel extends GraphPanel
   private final int rs2[] = new int [MAX_LINES];
 
   /** Differential equation solver */
-  protected DiffEqSolver solver;
+  protected AbstractDiffEqSolver solver;
 
   /** Differential equations to solve */
   private static PlotDiffEq EQUATIONS[] = { new PlotDiffEq ("2x", -5.25f, 5.25f, -10.5f, 20.25f),
@@ -166,7 +166,7 @@ public class SolveDiffEqPanel extends GraphPanel
     super (EQUATIONS, EQUATIONS[0].getPlotProperties (), true, false);
 
     plotEquation = EQUATIONS[0];
-    equation = (DifferentialEquation) plotEquation.getFunction ();
+    equation = (AbstractDifferentialEquation) plotEquation.getFunction ();
     initialCondition = plotEquation.getInitialCondition ();
 
     functionImageFileName = EQUATION_IMAGE_FILE_NAME;
@@ -344,7 +344,7 @@ public class SolveDiffEqPanel extends GraphPanel
   public void chooseFunction (final int index)
   {
     plotEquation = EQUATIONS[index];
-    equation = (DifferentialEquation) plotEquation.getFunction ();
+    equation = (AbstractDifferentialEquation) plotEquation.getFunction ();
     initialCondition = plotEquation.getInitialCondition ();
 
     setFunction (plotEquation);

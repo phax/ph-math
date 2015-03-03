@@ -615,7 +615,7 @@ public class IEEE754
   /**
    * Abstract base class for the IEEE 754 part classes.
    */
-  private static abstract class Part
+  private static abstract class AbstractPart
   {
     /** the part buffer */
     private final StringBuilder m_aPart;
@@ -629,7 +629,7 @@ public class IEEE754
      *        the string of character bits '0' and '1'
      * @throws numbercruncher.mathutils.IEEE754.IEEE754Exception
      */
-    private Part (final int size, final String bits) throws IEEE754Exception
+    private AbstractPart (final int size, final String bits) throws IEEE754Exception
     {
       if (size <= 0)
       {
@@ -734,7 +734,7 @@ public class IEEE754
   /**
    * The IEEE 754 fraction part for a float.
    */
-  public static class FloatFraction extends Part
+  public static class FloatFraction extends AbstractPart
   {
     /**
      * Constructor.
@@ -752,7 +752,7 @@ public class IEEE754
   /**
    * The IEEE 754 fraction part for a double.
    */
-  public static class DoubleFraction extends Part
+  public static class DoubleFraction extends AbstractPart
   {
     /**
      * Constructor.

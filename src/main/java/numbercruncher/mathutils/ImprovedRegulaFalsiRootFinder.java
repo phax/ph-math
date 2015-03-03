@@ -36,9 +36,9 @@ public class ImprovedRegulaFalsiRootFinder extends RegulaFalsiRootFinder
    *        the initial x-value where the function is negative
    * @param xMax
    *        the initial x-value where the function is positive
-   * @throws RootFinder.InvalidIntervalException
+   * @throws AbstractRootFinder.InvalidIntervalException
    */
-  public ImprovedRegulaFalsiRootFinder (final Function function, final float xMin, final float xMax) throws RootFinder.InvalidIntervalException
+  public ImprovedRegulaFalsiRootFinder (final AbstractFunction function, final float xMin, final float xMax) throws AbstractRootFinder.InvalidIntervalException
   {
     super (function, xMin, xMax);
   }

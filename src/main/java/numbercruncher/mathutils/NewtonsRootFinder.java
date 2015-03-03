@@ -21,7 +21,7 @@ import com.helger.commons.equals.EqualsUtils;
 /**
  * The root finder class that implements Newton's algorithm.
  */
-public class NewtonsRootFinder extends RootFinder
+public class NewtonsRootFinder extends AbstractRootFinder
 {
   private static final int MAX_ITERS = 50;
   private static final float TOLERANCE = 100 * Epsilon.floatValue ();
@@ -45,7 +45,7 @@ public class NewtonsRootFinder extends RootFinder
    * @param function
    *        the functions whose roots to find
    */
-  public NewtonsRootFinder (final Function function)
+  public NewtonsRootFinder (final AbstractFunction function)
   {
     super (function, MAX_ITERS);
   }
@@ -156,11 +156,11 @@ public class NewtonsRootFinder extends RootFinder
    * @throws PositionUnchangedException
    */
   @Override
-  protected void checkPosition () throws RootFinder.PositionUnchangedException
+  protected void checkPosition () throws AbstractRootFinder.PositionUnchangedException
   {
     if (EqualsUtils.equals (m_fXnp1, m_fPrevXnp1))
     {
-      throw new RootFinder.PositionUnchangedException ();
+      throw new AbstractRootFinder.PositionUnchangedException ();
     }
   }
 

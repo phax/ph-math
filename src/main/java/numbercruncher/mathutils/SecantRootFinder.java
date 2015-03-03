@@ -21,7 +21,7 @@ import com.helger.commons.equals.EqualsUtils;
 /**
  * The root finder class that implements the secant algorithm.
  */
-public class SecantRootFinder extends RootFinder
+public class SecantRootFinder extends AbstractRootFinder
 {
   private static final int MAX_ITERS = 50;
   private static final float TOLERANCE = 100 * Epsilon.floatValue ();
@@ -51,7 +51,7 @@ public class SecantRootFinder extends RootFinder
    * @param x1
    *        the second initial x-value
    */
-  public SecantRootFinder (final Function function, final float x0, final float x1)
+  public SecantRootFinder (final AbstractFunction function, final float x0, final float x1)
   {
     super (function, MAX_ITERS);
 
@@ -166,11 +166,11 @@ public class SecantRootFinder extends RootFinder
    * @throws PositionUnchangedException
    */
   @Override
-  protected void checkPosition () throws RootFinder.PositionUnchangedException
+  protected void checkPosition () throws AbstractRootFinder.PositionUnchangedException
   {
     if (EqualsUtils.equals (m_fXnp1, m_fPrevXnp1))
     {
-      throw new RootFinder.PositionUnchangedException ();
+      throw new AbstractRootFinder.PositionUnchangedException ();
     }
   }
 

@@ -18,7 +18,7 @@ package numbercruncher.program7_1;
 
 import numbercruncher.mathutils.AlignRight;
 import numbercruncher.mathutils.Epsilon;
-import numbercruncher.mathutils.Function;
+import numbercruncher.mathutils.AbstractFunction;
 import numbercruncher.mathutils.IIntegrator;
 import numbercruncher.mathutils.SimpsonsIntegrator;
 import numbercruncher.mathutils.TrapezoidalIntegrator;
@@ -60,7 +60,7 @@ public class Integration
     System.out.println ();
 
     // The function to integrate.
-    final Function integrand = new Function ()
+    final AbstractFunction integrand = new AbstractFunction ()
     {
       @Override
       public float at (final float x)
@@ -81,7 +81,7 @@ public class Integration
    * @param integrand
    *        the function to integrate
    */
-  private static void integrate (final int algorithm, final Function integrand)
+  private static void integrate (final int algorithm, final AbstractFunction integrand)
   {
     int intervals = 1; // number of intervals
     float area = 0; // total area

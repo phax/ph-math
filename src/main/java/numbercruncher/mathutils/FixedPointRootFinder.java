@@ -19,7 +19,7 @@ package numbercruncher.mathutils;
 /**
  * The root finder class that implements the fixed-point iteration algorithm.
  */
-public class FixedPointRootFinder extends RootFinder
+public class FixedPointRootFinder extends AbstractRootFinder
 {
   private static final int MAX_ITERS = 50;
   private static final float TOLERANCE = 100 * Epsilon.floatValue ();
@@ -37,7 +37,7 @@ public class FixedPointRootFinder extends RootFinder
    * @param function
    *        the functions whose roots to find
    */
-  public FixedPointRootFinder (final Function function)
+  public FixedPointRootFinder (final AbstractFunction function)
   {
     super (function, MAX_ITERS);
   }
@@ -109,11 +109,11 @@ public class FixedPointRootFinder extends RootFinder
    * @throws PositionUnchangedException
    */
   @Override
-  protected void checkPosition () throws RootFinder.PositionUnchangedException
+  protected void checkPosition () throws AbstractRootFinder.PositionUnchangedException
   {
     if (m_fXn == m_fPrevXn)
     {
-      throw new RootFinder.PositionUnchangedException ();
+      throw new AbstractRootFinder.PositionUnchangedException ();
     }
   }
 

@@ -22,7 +22,7 @@ import java.util.Map;
 
 import numbercruncher.graphutils.IPlottable;
 import numbercruncher.graphutils.PlotProperties;
-import numbercruncher.mathutils.Function;
+import numbercruncher.mathutils.AbstractFunction;
 import numbercruncher.mathutils.IEvaluatable;
 
 /**
@@ -73,7 +73,7 @@ public class PlotFunction implements IPlottable
   private static final int Y92B = 506;
 
   /** function */
-  private Function m_aFunction;
+  private AbstractFunction m_aFunction;
   /** image region */
   private Rectangle rectangle;
   /** plot properties */
@@ -169,7 +169,7 @@ public class PlotFunction implements IPlottable
    * @param yMax
    *        the maximum y value of the plot bounds
    */
-  public PlotFunction (final Function function, final float xMin, final float xMax, final float yMin, final float yMax)
+  public PlotFunction (final AbstractFunction function, final float xMin, final float xMax, final float yMin, final float yMax)
   {
     this.m_aFunction = function;
     this.rectangle = null;

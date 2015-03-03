@@ -18,8 +18,8 @@ package numbercruncher.program8_1;
 
 import numbercruncher.mathutils.AlignRight;
 import numbercruncher.mathutils.DataPoint;
-import numbercruncher.mathutils.DiffEqSolver;
-import numbercruncher.mathutils.DifferentialEquation;
+import numbercruncher.mathutils.AbstractDiffEqSolver;
+import numbercruncher.mathutils.AbstractDifferentialEquation;
 import numbercruncher.mathutils.EulersDiffEqSolver;
 import numbercruncher.mathutils.PredictorCorrectorDiffEqSolver;
 import numbercruncher.mathutils.RungeKuttaDiffEqSolver;
@@ -64,7 +64,7 @@ public class SolveDiffEq
 
   private static void solve (final int algorithm, final String key, final float x)
   {
-    final DifferentialEquation equation = DiffEqsToSolve.equation (key);
+    final AbstractDifferentialEquation equation = DiffEqsToSolve.equation (key);
     final DataPoint initialCondition = equation.getInitialCondition ();
     final String solutionLabel = equation.getSolutionLabel ();
 
@@ -79,7 +79,7 @@ public class SolveDiffEq
     System.out.println ("           True value: y(" + x + ") = " + trueValue);
     System.out.println ();
 
-    DiffEqSolver solver;
+    AbstractDiffEqSolver solver;
 
     switch (algorithm)
     {

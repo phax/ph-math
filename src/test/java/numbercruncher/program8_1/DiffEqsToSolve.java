@@ -20,7 +20,7 @@ import java.util.Hashtable;
 import java.util.Map;
 
 import numbercruncher.mathutils.DataPoint;
-import numbercruncher.mathutils.DifferentialEquation;
+import numbercruncher.mathutils.AbstractDifferentialEquation;
 
 /**
  * Load into a global table the differential equations we want to solve.
@@ -28,7 +28,7 @@ import numbercruncher.mathutils.DifferentialEquation;
 public class DiffEqsToSolve
 {
   /** global function table */
-  private static Map <String, DifferentialEquation> TABLE = new Hashtable <String, DifferentialEquation> (32);
+  private static Map <String, AbstractDifferentialEquation> TABLE = new Hashtable <String, AbstractDifferentialEquation> (32);
 
   // Enter the differential equations into the global table.
   static
@@ -43,7 +43,7 @@ public class DiffEqsToSolve
    *        the hash key
    * @return the differential equation
    */
-  public static DifferentialEquation equation (final String key)
+  public static AbstractDifferentialEquation equation (final String key)
   {
     return TABLE.get (key);
   }
@@ -56,7 +56,7 @@ public class DiffEqsToSolve
     // Differential equation f(x, y) = 2x
     // Initial condition y(2) = 0
     // Solution y = x^2 - 4
-    TABLE.put ("2x", new DifferentialEquation (new DataPoint (2, 0), "x^2 - 4")
+    TABLE.put ("2x", new AbstractDifferentialEquation (new DataPoint (2, 0), "x^2 - 4")
     {
       @Override
       public float at (final float x)
@@ -74,7 +74,7 @@ public class DiffEqsToSolve
     // Differential equation f(x, y) = 3x^2 + 6x - 9
     // Initial condition y(-4.5050397) = 0
     // Solution y = x^3 + 3x^2 - 9x - 10
-    TABLE.put ("3x^2 + 6x - 9", new DifferentialEquation (new DataPoint (-4.5050397f, 0), "x^3 + 3x^2 - 9x - 10")
+    TABLE.put ("3x^2 + 6x - 9", new AbstractDifferentialEquation (new DataPoint (-4.5050397f, 0), "x^3 + 3x^2 - 9x - 10")
     {
       @Override
       public float at (final float x)
@@ -92,7 +92,7 @@ public class DiffEqsToSolve
     // Differential equation f(x, y) = 6x^2 - 20x + 11
     // Initial condition y(0) = -5
     // Solution y = 2x^3 - 10x^2 + 11x - 5
-    TABLE.put ("6x^2 - 20x + 11", new DifferentialEquation (new DataPoint (0, -5), "2x^3 - 10x^2 + 11x - 5")
+    TABLE.put ("6x^2 - 20x + 11", new AbstractDifferentialEquation (new DataPoint (0, -5), "2x^3 - 10x^2 + 11x - 5")
     {
       @Override
       public float at (final float x)
@@ -110,7 +110,7 @@ public class DiffEqsToSolve
     // Differential equation f(x, y) = 2xe^2x + y
     // Initial condition y(0) = 1
     // Solution y = 3e^x - 2e^2x + 2xe^2x
-    TABLE.put ("2xe^2x + y", new DifferentialEquation (new DataPoint (0, 1), "3e^x - 2e^2x + 2xe^2x")
+    TABLE.put ("2xe^2x + y", new AbstractDifferentialEquation (new DataPoint (0, 1), "3e^x - 2e^2x + 2xe^2x")
     {
       @Override
       public float at (final float x)
@@ -134,7 +134,7 @@ public class DiffEqsToSolve
     // Differential equation f(x, y) = 8x - 2y + 8
     // Initial condition y(0) = -1
     // Solution y = 4x - 3e^-2x + 2
-    TABLE.put ("8x - 2y + 8", new DifferentialEquation (new DataPoint (0, -1), "4x - 3e^-2x + 2")
+    TABLE.put ("8x - 2y + 8", new AbstractDifferentialEquation (new DataPoint (0, -1), "4x - 3e^-2x + 2")
     {
       @Override
       public float at (final float x)
@@ -158,7 +158,7 @@ public class DiffEqsToSolve
     // Differential equation f(x, y) = xe^-2x - 2y
     // Initial condition y(0) = -0.5
     // Solution y = (x^2e^-2x - e^-2x)/2
-    TABLE.put ("xe^-2x - 2y", new DifferentialEquation (new DataPoint (0, -0.5f), "(x^2e^-2x - e^-2x)/2")
+    TABLE.put ("xe^-2x - 2y", new AbstractDifferentialEquation (new DataPoint (0, -0.5f), "(x^2e^-2x - e^-2x)/2")
     {
       @Override
       public float at (final float x)

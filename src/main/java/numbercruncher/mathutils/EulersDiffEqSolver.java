@@ -19,7 +19,7 @@ package numbercruncher.mathutils;
 /**
  * Differential equation solver that implements Euler's algorithm.
  */
-public class EulersDiffEqSolver extends DiffEqSolver
+public class EulersDiffEqSolver extends AbstractDiffEqSolver
 {
   /**
    * Constructor.
@@ -27,7 +27,7 @@ public class EulersDiffEqSolver extends DiffEqSolver
    * @param equation
    *        the differential equation to solve
    */
-  public EulersDiffEqSolver (final DifferentialEquation equation)
+  public EulersDiffEqSolver (final AbstractDifferentialEquation equation)
   {
     super (equation);
   }

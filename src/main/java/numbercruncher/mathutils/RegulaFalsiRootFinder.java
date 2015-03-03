@@ -21,7 +21,7 @@ import com.helger.commons.equals.EqualsUtils;
 /**
  * The root finder class that implements the regula falsi algorithm.
  */
-public class RegulaFalsiRootFinder extends RootFinder
+public class RegulaFalsiRootFinder extends AbstractRootFinder
 {
   private static final int MAX_ITERS = 50;
   private static final float TOLERANCE = 100 * Epsilon.floatValue ();
@@ -50,9 +50,9 @@ public class RegulaFalsiRootFinder extends RootFinder
    *        the initial x-value where the function is negative
    * @param xMax
    *        the initial x-value where the function is positive
-   * @throws RootFinder.InvalidIntervalException
+   * @throws AbstractRootFinder.InvalidIntervalException
    */
-  public RegulaFalsiRootFinder (final Function function, final float xMin, final float xMax) throws RootFinder.InvalidIntervalException
+  public RegulaFalsiRootFinder (final AbstractFunction function, final float xMin, final float xMax) throws AbstractRootFinder.InvalidIntervalException
   {
     super (function, MAX_ITERS);
     checkInterval (xMin, xMax);
@@ -186,11 +186,11 @@ public class RegulaFalsiRootFinder extends RootFinder
    * @throws PositionUnchangedException
    */
   @Override
-  protected void checkPosition () throws RootFinder.PositionUnchangedException
+  protected void checkPosition () throws AbstractRootFinder.PositionUnchangedException
   {
     if (EqualsUtils.equals (m_fXFalse, m_fPrevXFalse))
     {
-      throw new RootFinder.PositionUnchangedException ();
+      throw new AbstractRootFinder.PositionUnchangedException ();
     }
   }
 

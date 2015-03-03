@@ -19,10 +19,10 @@ package numbercruncher.mathutils;
 /**
  * The base class for differential equation solvers.
  */
-public abstract class DiffEqSolver
+public abstract class AbstractDiffEqSolver
 {
   /** the differential equation to solve */
-  protected DifferentialEquation m_aEquation;
+  protected AbstractDifferentialEquation m_aEquation;
 
   /** the initial condition data point */
   protected DataPoint m_aInitialCondition;
@@ -38,7 +38,7 @@ public abstract class DiffEqSolver
    * @param equation
    *        the differential equation to solve
    */
-  public DiffEqSolver (final DifferentialEquation equation)
+  public AbstractDiffEqSolver (final AbstractDifferentialEquation equation)
   {
     this.m_aEquation = equation;
     this.m_aInitialCondition = equation.getInitialCondition ();

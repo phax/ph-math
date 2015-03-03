@@ -19,7 +19,7 @@ package numbercruncher.mathutils;
 /**
  * Differential equation solver that implements a predictor-corrector algorithm.
  */
-public class PredictorCorrectorDiffEqSolver extends DiffEqSolver
+public class PredictorCorrectorDiffEqSolver extends AbstractDiffEqSolver
 {
   /**
    * Constructor.
@@ -27,7 +27,7 @@ public class PredictorCorrectorDiffEqSolver extends DiffEqSolver
    * @param equation
    *        the differential equation to solve
    */
-  public PredictorCorrectorDiffEqSolver (final DifferentialEquation equation)
+  public PredictorCorrectorDiffEqSolver (final AbstractDifferentialEquation equation)
   {
     super (equation);
   }

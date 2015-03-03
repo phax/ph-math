@@ -24,8 +24,8 @@ import java.awt.Panel;
 import java.awt.event.MouseEvent;
 
 import numbercruncher.graphutils.PlotProperties;
-import numbercruncher.mathutils.Function;
-import numbercruncher.mathutils.RootFinder;
+import numbercruncher.mathutils.AbstractFunction;
+import numbercruncher.mathutils.AbstractRootFinder;
 import numbercruncher.mathutils.SecantRootFinder;
 import numbercruncher.rootutils.PlotFunction;
 import numbercruncher.rootutils.RootFinderPanel;
@@ -324,7 +324,7 @@ public class SecantPanel extends RootFinderPanel
     // Create the secant root finder.
     if (xStartCount == 2)
     {
-      finder = new SecantRootFinder ((Function) plotFunction.getFunction (), xnm1, xn);
+      finder = new SecantRootFinder ((AbstractFunction) plotFunction.getFunction (), xnm1, xn);
     }
   }
 
@@ -352,12 +352,12 @@ public class SecantPanel extends RootFinderPanel
         successfullyConverged ();
       }
     }
-    catch (final RootFinder.IterationCountExceededException ex)
+    catch (final AbstractRootFinder.IterationCountExceededException ex)
     {
       iterationLimitExceeded (MAX_ITERS, xnp1Text);
       return;
     }
-    catch (final RootFinder.PositionUnchangedException ex)
+    catch (final AbstractRootFinder.PositionUnchangedException ex)
     {
       // ignore
     }
