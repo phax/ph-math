@@ -44,7 +44,7 @@ import com.helger.math.graph.IDirectedGraphRelation;
 
 /**
  * Find the shortest path between 2 graph nodes, using Dijsktra's algorithm
- * 
+ *
  * @author Philip Helger
  */
 public final class Dijkstra
@@ -59,7 +59,7 @@ public final class Dijkstra
 
     /**
      * Special constructor for the initial state
-     * 
+     *
      * @param nDistance
      *        Distance to use
      * @param aToNode
@@ -246,7 +246,6 @@ public final class Dijkstra
     return aLastMatch.getToNode ().getRelation (aNode);
   }
 
-  // ESCA-JAVA0285:
   @Nonnull
   public static <N extends IBaseGraphNode <N, R>, R extends IBaseGraphRelation <N, R>> Dijkstra.Result <N> applyDijkstra (@Nonnull final IBaseGraph <N, R> aGraph,
                                                                                                                           @Nonnull @Nonempty final String sFromID,

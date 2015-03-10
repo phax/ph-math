@@ -49,42 +49,42 @@ public class EigenvalueDecomposition implements Serializable
 
   /**
    * Row and column dimension (square matrix).
-   * 
+   *
    * @serial matrix dimension.
    */
   private final int m_nDim;
 
   /**
    * Symmetry flag.
-   * 
+   *
    * @serial internal symmetry flag.
    */
   private boolean m_bIsSymmetric;
 
   /**
    * Arrays for internal storage of eigenvalues.
-   * 
+   *
    * @serial internal storage of eigenvalues.
    */
   private final double [] m_aEVd, m_aEVe;
 
   /**
    * Array for internal storage of eigenvectors.
-   * 
+   *
    * @serial internal storage of eigenvectors.
    */
   private final double [][] m_aEigenVector;
 
   /**
    * Array for internal storage of nonsymmetric Hessenberg form.
-   * 
+   *
    * @serial internal storage of nonsymmetric Hessenberg form.
    */
   private double [][] m_aHessenBerg;
 
   /**
    * Working storage for nonsymmetric algorithm.
-   * 
+   *
    * @serial working storage for nonsymmetric algorithm.
    */
   private double [] m_aOrt;
@@ -992,7 +992,7 @@ public class EigenvalueDecomposition implements Serializable
   /**
    * Check for symmetry, then construct the eigenvalue decomposition Structure
    * to access D and V.
-   * 
+   *
    * @param aMatrix
    *        Square matrix
    */
@@ -1062,7 +1062,7 @@ public class EigenvalueDecomposition implements Serializable
 
   /**
    * Return the eigenvector matrix
-   * 
+   *
    * @return V
    */
   @Nonnull
@@ -1074,7 +1074,7 @@ public class EigenvalueDecomposition implements Serializable
 
   /**
    * Return the real parts of the eigenvalues
-   * 
+   *
    * @return real(diag(D))
    */
   @SuppressFBWarnings ("EI_EXPOSE_REP")
@@ -1082,13 +1082,12 @@ public class EigenvalueDecomposition implements Serializable
   @ReturnsMutableObject (reason = "took code as is")
   public double [] getRealEigenvalues ()
   {
-    // ESCA-JAVA0259:
     return m_aEVd;
   }
 
   /**
    * Return the imaginary parts of the eigenvalues
-   * 
+   *
    * @return imag(diag(D))
    */
   @SuppressFBWarnings ("EI_EXPOSE_REP")
@@ -1096,13 +1095,12 @@ public class EigenvalueDecomposition implements Serializable
   @ReturnsMutableObject (reason = "took code as is")
   public double [] getImagEigenvalues ()
   {
-    // ESCA-JAVA0259:
     return m_aEVe;
   }
 
   /**
    * Return the block diagonal eigenvalue matrix
-   * 
+   *
    * @return D
    */
   @Nonnull

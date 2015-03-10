@@ -287,7 +287,6 @@ public class Matrix implements Serializable, ICloneable <Matrix>
   @Nonnull
   public double [][] internalGetArray ()
   {
-    // ESCA-JAVA0259:
     return m_aData;
   }
 
@@ -1285,7 +1284,6 @@ public class Matrix implements Serializable, ICloneable <Matrix>
    */
   public void print (@Nonnegative final int nWidth, @Nonnegative final int nFractionDigits)
   {
-    // ESCA-JAVA0266:
     print (new PrintWriter (new OutputStreamWriter (System.out, SystemHelper.getSystemCharset ()), true),
            nWidth,
            nFractionDigits);
