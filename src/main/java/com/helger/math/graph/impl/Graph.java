@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.state.EChange;
 import com.helger.commons.state.ETriState;
 import com.helger.math.graph.IGraph;
@@ -39,7 +39,7 @@ import com.helger.math.matrix.Matrix;
 
 /**
  * A simple graph object that bidirectionally links graph nodes.
- * 
+ *
  * @author Philip Helger
  */
 @NotThreadSafe
@@ -218,7 +218,7 @@ public class Graph extends AbstractBaseGraph <IGraphNode, IGraphRelation> implem
       m_eCacheHasCycles = ETriState.FALSE;
       // Check all nodes, in case we a small cycle and a set of other nodes (see
       // test case testCycles2)
-      final List <IGraphNode> aAllNodes = ContainerHelper.newList (m_aNodes.values ());
+      final List <IGraphNode> aAllNodes = CollectionHelper.newList (m_aNodes.values ());
       while (!aAllNodes.isEmpty ())
       {
         // Iterate from the first node

@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.math.graph.IGraphNode;
@@ -35,7 +35,7 @@ import com.helger.math.graph.IGraphRelation;
 
 /**
  * Default implementation if the {@link IGraphNode} interface
- * 
+ *
  * @author Philip Helger
  */
 @NotThreadSafe
@@ -113,13 +113,13 @@ public class GraphNode extends AbstractBaseGraphObject implements IGraphNode
 
   public boolean hasRelations ()
   {
-    return ContainerHelper.isNotEmpty (m_aRelations);
+    return CollectionHelper.isNotEmpty (m_aRelations);
   }
 
   @Nonnegative
   public int getRelationCount ()
   {
-    return ContainerHelper.getSize (m_aRelations);
+    return CollectionHelper.getSize (m_aRelations);
   }
 
   @Nonnull

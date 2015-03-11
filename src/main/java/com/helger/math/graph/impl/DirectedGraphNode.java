@@ -30,7 +30,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.math.graph.IDirectedGraphNode;
@@ -38,7 +38,7 @@ import com.helger.math.graph.IDirectedGraphRelation;
 
 /**
  * Default implementation if the {@link IDirectedGraphNode} interface
- * 
+ *
  * @author Philip Helger
  */
 @NotThreadSafe
@@ -93,13 +93,13 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IDirec
 
   public boolean hasIncomingRelations ()
   {
-    return ContainerHelper.isNotEmpty (m_aIncoming);
+    return CollectionHelper.isNotEmpty (m_aIncoming);
   }
 
   @Nonnegative
   public int getIncomingRelationCount ()
   {
-    return ContainerHelper.getSize (m_aIncoming);
+    return CollectionHelper.getSize (m_aIncoming);
   }
 
   public boolean isIncomingRelation (@Nullable final IDirectedGraphRelation aRelation)
@@ -112,7 +112,7 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IDirec
   public List <IDirectedGraphRelation> getAllIncomingRelations ()
   {
     return m_aIncoming == null ? new ArrayList <IDirectedGraphRelation> ()
-                              : ContainerHelper.newList (m_aIncoming.values ());
+                              : CollectionHelper.newList (m_aIncoming.values ());
   }
 
   @Nonnull
@@ -187,13 +187,13 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IDirec
 
   public boolean hasOutgoingRelations ()
   {
-    return ContainerHelper.isNotEmpty (m_aOutgoing);
+    return CollectionHelper.isNotEmpty (m_aOutgoing);
   }
 
   @Nonnegative
   public int getOutgoingRelationCount ()
   {
-    return ContainerHelper.getSize (m_aOutgoing);
+    return CollectionHelper.getSize (m_aOutgoing);
   }
 
   public boolean isOutgoingRelation (@Nullable final IDirectedGraphRelation aRelation)
@@ -206,7 +206,7 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IDirec
   public List <IDirectedGraphRelation> getAllOutgoingRelations ()
   {
     return m_aOutgoing == null ? new ArrayList <IDirectedGraphRelation> ()
-                              : ContainerHelper.newList (m_aOutgoing.values ());
+                              : CollectionHelper.newList (m_aOutgoing.values ());
   }
 
   @Nonnull

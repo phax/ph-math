@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.hash.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.math.graph.IBaseGraph;
@@ -82,14 +82,14 @@ public abstract class AbstractBaseGraph <N extends IBaseGraphNode <N, R>, R exte
   @ReturnsMutableCopy
   public Map <String, N> getAllNodes ()
   {
-    return ContainerHelper.newOrderedMap (m_aNodes);
+    return CollectionHelper.newOrderedMap (m_aNodes);
   }
 
   @Nonnull
   @ReturnsMutableCopy
   public Set <String> getAllNodeIDs ()
   {
-    return ContainerHelper.newOrderedSet (m_aNodes.keySet ());
+    return CollectionHelper.newOrderedSet (m_aNodes.keySet ());
   }
 
   @Override

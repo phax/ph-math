@@ -34,7 +34,7 @@ import com.helger.commons.GlobalDebug;
 import com.helger.commons.IHasStringRepresentation;
 import com.helger.commons.annotations.Nonempty;
 import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.lang.GenericReflection;
 import com.helger.math.graph.IBaseGraph;
 import com.helger.math.graph.IBaseGraphNode;
@@ -168,7 +168,7 @@ public final class Dijkstra
     @ReturnsMutableCopy
     public List <WorkElement <N>> getAllElements ()
     {
-      return ContainerHelper.newList (m_aElements.values ());
+      return CollectionHelper.newList (m_aElements.values ());
     }
   }
 
@@ -180,7 +180,7 @@ public final class Dijkstra
 
     public Result (@Nonnull @Nonempty final List <N> aResultNodes, @Nonnegative final int nResultDistance)
     {
-      if (ContainerHelper.isEmpty (aResultNodes))
+      if (CollectionHelper.isEmpty (aResultNodes))
         throw new IllegalArgumentException ("resultNodes");
       if (nResultDistance < 0)
         throw new IllegalArgumentException ("Distance negative: " + nResultDistance);
@@ -192,7 +192,7 @@ public final class Dijkstra
     @ReturnsMutableCopy
     public List <N> getAllResultNodes ()
     {
-      return ContainerHelper.newList (m_aResultNodes);
+      return CollectionHelper.newList (m_aResultNodes);
     }
 
     @Nonnull
@@ -260,7 +260,7 @@ public final class Dijkstra
       throw new IllegalArgumentException ("To ID: " + sToID);
 
     // Ordered set for deterministic results
-    final Set <N> aAllRemainingNodes = ContainerHelper.newOrderedSet (aGraph.getAllNodes ().values ());
+    final Set <N> aAllRemainingNodes = CollectionHelper.newOrderedSet (aGraph.getAllNodes ().values ());
 
     if (GlobalDebug.isDebugMode ())
       s_aLogger.info ("Starting Dijkstra on directed graph with " +

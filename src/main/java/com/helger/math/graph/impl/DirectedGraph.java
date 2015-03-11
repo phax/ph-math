@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.state.EChange;
 import com.helger.commons.state.ETriState;
 import com.helger.math.graph.IDirectedGraph;
@@ -39,7 +39,7 @@ import com.helger.math.matrix.Matrix;
 
 /**
  * A simple graph object that bidirectionally links graph nodes.
- * 
+ *
  * @author Philip Helger
  */
 @NotThreadSafe
@@ -185,7 +185,7 @@ public class DirectedGraph extends AbstractBaseGraph <IDirectedGraphNode, IDirec
       throw new IllegalStateException ("Graph has more than one starting node");
     if (aStartNodes.isEmpty ())
       throw new IllegalStateException ("Graph has no starting node");
-    return ContainerHelper.getFirstElement (aStartNodes);
+    return CollectionHelper.getFirstElement (aStartNodes);
   }
 
   @Nonnull
@@ -207,7 +207,7 @@ public class DirectedGraph extends AbstractBaseGraph <IDirectedGraphNode, IDirec
       throw new IllegalStateException ("Graph has more than one ending node");
     if (aEndNodes.isEmpty ())
       throw new IllegalStateException ("Graph has no ending node");
-    return ContainerHelper.getFirstElement (aEndNodes);
+    return CollectionHelper.getFirstElement (aEndNodes);
   }
 
   @Nonnull

@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.hash.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.math.graph.IGraphNode;
@@ -31,7 +31,7 @@ import com.helger.math.graph.IGraphRelation;
 
 /**
  * Default implementation of the {@link IGraphRelation} interface
- * 
+ *
  * @author Philip Helger
  */
 @NotThreadSafe
@@ -70,14 +70,14 @@ public class GraphRelation extends AbstractBaseGraphObject implements IGraphRela
   @ReturnsMutableCopy
   public Set <IGraphNode> getAllConnectedNodes ()
   {
-    return ContainerHelper.newSet (m_aNode1, m_aNode2);
+    return CollectionHelper.newSet (m_aNode1, m_aNode2);
   }
 
   @Nonnull
   @ReturnsMutableCopy
   public Set <String> getAllConnectedNodeIDs ()
   {
-    return ContainerHelper.newSet (m_aNode1.getID (), m_aNode2.getID ());
+    return CollectionHelper.newSet (m_aNode1.getID (), m_aNode2.getID ());
   }
 
   @Nonnull

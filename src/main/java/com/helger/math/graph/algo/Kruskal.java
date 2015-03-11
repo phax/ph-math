@@ -28,7 +28,7 @@ import org.slf4j.LoggerFactory;
 
 import com.helger.commons.GlobalDebug;
 import com.helger.commons.annotations.Nonempty;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.compare.AbstractNumericComparator;
 import com.helger.commons.string.StringHelper;
 import com.helger.math.graph.IGraphNode;
@@ -39,7 +39,7 @@ import com.helger.math.graph.simple.SimpleGraphObjectFastFactory;
 
 /**
  * Find the minimum spanning tree of a graph, using Kruskal's algorithm.
- * 
+ *
  * @author Philip Helger
  */
 public final class Kruskal
@@ -107,7 +107,7 @@ public final class Kruskal
     final Collection <IGraphRelation> aAllRelations = aGraph.getAllRelations ().values ();
     if (GlobalDebug.isDebugMode ())
       s_aLogger.info ("Starting Kruskal on " + aAllRelations.size () + " relations");
-    final List <IGraphRelation> aSortedRelations = ContainerHelper.getSorted (aAllRelations,
+    final List <IGraphRelation> aSortedRelations = CollectionHelper.getSorted (aAllRelations,
                                                                               new AbstractNumericComparator <IGraphRelation> ()
                                                                               {
                                                                                 @Override

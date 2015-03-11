@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.collections.ContainerHelper;
+import com.helger.commons.collections.CollectionHelper;
 import com.helger.commons.hash.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.math.graph.IDirectedGraphNode;
@@ -31,7 +31,7 @@ import com.helger.math.graph.IDirectedGraphRelation;
 
 /**
  * Default implementation of the {@link IDirectedGraphRelation} interface
- * 
+ *
  * @author Philip Helger
  */
 @NotThreadSafe
@@ -72,14 +72,14 @@ public class DirectedGraphRelation extends AbstractBaseGraphObject implements ID
   @ReturnsMutableCopy
   public Set <IDirectedGraphNode> getAllConnectedNodes ()
   {
-    return ContainerHelper.newSet (m_aFrom, m_aTo);
+    return CollectionHelper.newSet (m_aFrom, m_aTo);
   }
 
   @Nonnull
   @ReturnsMutableCopy
   public Set <String> getAllConnectedNodeIDs ()
   {
-    return ContainerHelper.newSet (m_aFrom.getID (), m_aTo.getID ());
+    return CollectionHelper.newSet (m_aFrom.getID (), m_aTo.getID ());
   }
 
   @Nonnull
