@@ -24,7 +24,7 @@ import org.junit.Test;
 
 /** Example of use of Matrix Class, featuring magic squares. **/
 
-public class MagicSquareExample
+public class MagicSquareExampleTest
 {
 
   /** Generate magic square test matrix. **/
