@@ -19,7 +19,7 @@ package numbercruncher.primeutils;
 /**
  * Primality test that combines the Miller-Rabin and Lucas tests.
  */
-public class PrimalityTest
+public class PrimalityFuncTest
 {
   /** number to test for primality */
   private final int m_nP;
@@ -36,7 +36,7 @@ public class PrimalityTest
    * @param iterations
    *        the number of times to run the Miller-Rabin test
    */
-  public PrimalityTest (final int p, final int iterations)
+  public PrimalityFuncTest (final int p, final int iterations)
   {
     this.m_nP = p;
     this.m_nIterations = iterations;
@@ -49,6 +49,6 @@ public class PrimalityTest
    */
   public boolean test ()
   {
-    return (new MillerRabinTest (m_nP, m_nIterations, null)).test () && (new LucasTest (m_nP, null)).test ();
+    return (new MillerRabinFuncTest (m_nP, m_nIterations, null)).test () && (new LucasFuncTest (m_nP, null)).test ();
   }
 }

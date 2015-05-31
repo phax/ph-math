@@ -22,7 +22,7 @@ import numbercruncher.mathutils.PrimeFactors;
 /**
  * An implemention of the the Lucas test for primality.
  */
-public class LucasTest
+public class LucasFuncTest
 {
   private static LucasStatus status = new LucasStatus ();
 
@@ -41,7 +41,7 @@ public class LucasTest
    * @param caller
    *        the caller of the test
    */
-  public LucasTest (final int p, final ILucasCaller caller)
+  public LucasFuncTest (final int p, final ILucasCaller caller)
   {
     this.m_nP = p;
     this.m_aCaller = caller;

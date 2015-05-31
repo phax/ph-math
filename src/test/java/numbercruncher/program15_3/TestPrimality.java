@@ -16,7 +16,7 @@
  */
 package numbercruncher.program15_3;
 
-import numbercruncher.primeutils.PrimalityTest;
+import numbercruncher.primeutils.PrimalityFuncTest;
 
 /**
  * PROGRAM 15-3: Primality Testing Demonstrate the primality test.
@@ -33,7 +33,7 @@ public class TestPrimality
     {
       System.out.print (p + " is ");
 
-      System.out.println ((new PrimalityTest (p, 5)).test () ? "prime." : "composite.");
+      System.out.println ((new PrimalityFuncTest (p, 5)).test () ? "prime." : "composite.");
     }
   }
 }

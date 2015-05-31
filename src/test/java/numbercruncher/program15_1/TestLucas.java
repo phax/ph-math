@@ -19,7 +19,7 @@ package numbercruncher.program15_1;
 import numbercruncher.mathutils.AlignRight;
 import numbercruncher.primeutils.ILucasCaller;
 import numbercruncher.primeutils.LucasStatus;
-import numbercruncher.primeutils.LucasTest;
+import numbercruncher.primeutils.LucasFuncTest;
 
 /**
  * PROGRAM 15-1: Lucas Test for Primality Demonstrate the Lucas test for
@@ -48,7 +48,7 @@ public class TestLucas implements ILucasCaller
 
     prevA = 0;
 
-    final boolean result = (new LucasTest (p, this)).test ();
+    final boolean result = (new LucasFuncTest (p, this)).test ();
 
     System.out.println ();
     System.out.println (p + " is " + (result ? "prime." : "composite."));

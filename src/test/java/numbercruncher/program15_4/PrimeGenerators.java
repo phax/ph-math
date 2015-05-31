@@ -20,7 +20,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import numbercruncher.mathutils.AlignRight;
-import numbercruncher.primeutils.PrimalityTest;
+import numbercruncher.primeutils.PrimalityFuncTest;
 
 /**
  * PROGRAM 15-4: Prime Number Generators Demonstrate two quadratic polynomials
@@ -60,8 +60,8 @@ public class PrimeGenerators
       final int gp = Math.abs (41 * n * n - 4641 * n + 88007); // Greenwood
 
       // Test for primality.
-      final boolean epIsPrime = (new PrimalityTest (ep, 5)).test ();
-      final boolean gpIsPrime = (new PrimalityTest (gp, 5)).test ();
+      final boolean epIsPrime = (new PrimalityFuncTest (ep, 5)).test ();
+      final boolean gpIsPrime = (new PrimalityFuncTest (gp, 5)).test ();
 
       ar.print (n, 2);
 

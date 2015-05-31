@@ -19,7 +19,7 @@ package numbercruncher.program15_2;
 import numbercruncher.mathutils.AlignRight;
 import numbercruncher.primeutils.IMillerRabinCaller;
 import numbercruncher.primeutils.MillerRabinStatus;
-import numbercruncher.primeutils.MillerRabinTest;
+import numbercruncher.primeutils.MillerRabinFuncTest;
 
 /**
  * PROGRAM 15-2: Miller-Rabin Test for Primality Demonstrate the Miller-Rabin
@@ -50,7 +50,7 @@ public class TestMillerRabin implements IMillerRabinCaller
     ar.print ("status", 12);
     ar.underline ();
 
-    final MillerRabinTest mrt = new MillerRabinTest (p, ITERATIONS, this);
+    final MillerRabinFuncTest mrt = new MillerRabinFuncTest (p, ITERATIONS, this);
     final boolean result = mrt.test ();
 
     System.out.println ();

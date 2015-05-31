@@ -23,7 +23,7 @@ import numbercruncher.mathutils.ModuloArithmetic;
 /**
  * An implemention of the the Miller-Rabin test for primality.
  */
-public class MillerRabinTest
+public class MillerRabinFuncTest
 {
   private static MillerRabinStatus status = new MillerRabinStatus ();
 
@@ -45,7 +45,7 @@ public class MillerRabinTest
    * @param caller
    *        the caller of the test
    */
-  public MillerRabinTest (final int p, final int iterations, final IMillerRabinCaller caller)
+  public MillerRabinFuncTest (final int p, final int iterations, final IMillerRabinCaller caller)
   {
     this.m_nP = p;
     this.m_nIterations = iterations;
