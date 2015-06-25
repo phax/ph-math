@@ -30,6 +30,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
 import javax.annotation.Nonnull;
@@ -37,7 +38,6 @@ import javax.annotation.Nonnull;
 import org.junit.Test;
 
 import com.helger.commons.io.file.FileOperations;
-import com.helger.commons.lang.DecimalFormatSymbolsFactory;
 import com.helger.commons.string.StringHelper;
 
 /**
@@ -45,20 +45,20 @@ import com.helger.commons.string.StringHelper;
  * decompositions.
  * <P>
  * Run the test from the command line using <BLOCKQUOTE>
- * 
+ *
  * <PRE>
  * <CODE>
- *  java Jama.test.TestMatrix 
+ *  java Jama.test.TestMatrix
  * </CODE>
  * </PRE>
- * 
+ *
  * </BLOCKQUOTE> Detailed output is provided indicating the functionality being
  * tested and whether the functionality is correctly implemented. Exception
  * handling is also tested.
  * <P>
  * The test is designed to run to completion and give a summary of any
  * implementation errors encountered. The final output should be: <BLOCKQUOTE>
- * 
+ *
  * <PRE>
  * <CODE>
  *       TestMatrix completed.
@@ -66,7 +66,7 @@ import com.helger.commons.string.StringHelper;
  *       Total warning reported: n2
  * </CODE>
  * </PRE>
- * 
+ *
  * </BLOCKQUOTE> If the test does not run to completion, this indicates that
  * there is a substantial problem within the implementation that was not
  * anticipated in the test design. The stopping point should give an indication
@@ -908,7 +908,7 @@ public class MatrixTest
     try
     {
       final DecimalFormat fmt = new DecimalFormat ("0.0000E00");
-      fmt.setDecimalFormatSymbols (DecimalFormatSymbolsFactory.getInstance (Locale.US));
+      fmt.setDecimalFormatSymbols (DecimalFormatSymbols.getInstance (Locale.US));
 
       final PrintWriter aPW = new PrintWriter (new FileOutputStream (FILENAME_JAMA_TEST_MATRIX_OUT));
       A.print (aPW, fmt, 10);

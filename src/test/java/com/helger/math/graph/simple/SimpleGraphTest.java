@@ -25,7 +25,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import com.helger.commons.mock.PHTestUtils;
+import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.math.graph.AbstractGraphTestCase;
 import com.helger.math.graph.IGraphNode;
 import com.helger.math.graph.IReadonlyGraph;
@@ -132,9 +132,9 @@ public final class SimpleGraphTest extends AbstractGraphTestCase
 
     assertTrue (sg.isSelfContained ());
 
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (_buildGraph (), _buildGraph ());
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (new SimpleGraph (), new SimpleGraph ());
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (_buildGraph (), new SimpleGraph ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (_buildGraph (), _buildGraph ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (new SimpleGraph (), new SimpleGraph ());
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (_buildGraph (), new SimpleGraph ());
   }
 
   @Test

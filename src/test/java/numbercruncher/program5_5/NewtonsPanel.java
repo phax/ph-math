@@ -27,8 +27,8 @@ import java.awt.event.MouseEvent;
 
 import numbercruncher.graphutils.PlotProperties;
 import numbercruncher.mathutils.AbstractFunction;
-import numbercruncher.mathutils.NewtonsRootFinder;
 import numbercruncher.mathutils.AbstractRootFinder;
+import numbercruncher.mathutils.NewtonsRootFinder;
 import numbercruncher.rootutils.PlotFunction;
 import numbercruncher.rootutils.RootFinderPanel;
 

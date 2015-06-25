@@ -19,7 +19,7 @@ package com.helger.math.graph.simple;
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.NotThreadSafe;
 
-import com.helger.commons.annotations.Nonempty;
+import com.helger.commons.annotation.Nonempty;
 import com.helger.math.graph.IDirectedGraphNode;
 import com.helger.math.graph.IDirectedGraphObjectFactory;
 import com.helger.math.graph.IDirectedGraphRelation;

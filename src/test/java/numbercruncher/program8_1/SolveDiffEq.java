@@ -16,10 +16,10 @@
  */
 package numbercruncher.program8_1;
 
-import numbercruncher.mathutils.AlignRight;
-import numbercruncher.mathutils.DataPoint;
 import numbercruncher.mathutils.AbstractDiffEqSolver;
 import numbercruncher.mathutils.AbstractDifferentialEquation;
+import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.DataPoint;
 import numbercruncher.mathutils.EulersDiffEqSolver;
 import numbercruncher.mathutils.PredictorCorrectorDiffEqSolver;
 import numbercruncher.mathutils.RungeKuttaDiffEqSolver;

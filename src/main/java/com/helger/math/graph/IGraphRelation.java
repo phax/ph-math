@@ -18,7 +18,7 @@ package com.helger.math.graph;
 
 import javax.annotation.Nonnull;
 
-import com.helger.commons.annotations.MustImplementEqualsAndHashcode;
+import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
 
 /**
  * Base interface for a single undirected graph relation.

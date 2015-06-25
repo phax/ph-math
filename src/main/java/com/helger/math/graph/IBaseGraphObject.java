@@ -16,15 +16,15 @@
  */
 package com.helger.math.graph;
 
-import com.helger.commons.collections.attrs.IAttributeContainer;
+import com.helger.commons.collection.attr.IMutableAttributeContainerAny;
 import com.helger.commons.id.IHasID;
 
 /**
  * Base interface for graph nodes and graph relations.
- * 
+ *
  * @author Philip Helger
  */
-public interface IBaseGraphObject extends IHasID <String>, IAttributeContainer
+public interface IBaseGraphObject extends IHasID <String>, IMutableAttributeContainerAny <Object>
 {
   /**
    * Check if the object is directed or undirected. Directed nodes must
@@ -32,7 +32,7 @@ public interface IBaseGraphObject extends IHasID <String>, IAttributeContainer
    * implement {@link IGraphNode}. Directed relations must implement
    * {@link IDirectedGraphRelation} whereas undirected relations must implement
    * {@link IGraphRelation}.
-   * 
+   *
    * @return <code>true</code> if it is a directed object "from" and "to"),
    *         <code>false</code> if it is an undirected object.
    */

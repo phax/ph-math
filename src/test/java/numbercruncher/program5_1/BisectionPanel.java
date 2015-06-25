@@ -22,9 +22,9 @@ import java.awt.GridLayout;
 import java.awt.Label;
 
 import numbercruncher.graphutils.PlotProperties;
-import numbercruncher.mathutils.BisectionRootFinder;
 import numbercruncher.mathutils.AbstractFunction;
 import numbercruncher.mathutils.AbstractRootFinder;
+import numbercruncher.mathutils.BisectionRootFinder;
 import numbercruncher.rootutils.PlotFunction;
 import numbercruncher.rootutils.RootFinderPanel;
 

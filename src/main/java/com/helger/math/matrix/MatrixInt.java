@@ -23,6 +23,7 @@ import java.io.PrintWriter;
 import java.io.Serializable;
 import java.io.StreamTokenizer;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,10 +34,9 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.WillNotClose;
 
-import com.helger.commons.ICloneable;
-import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.hash.HashCodeGenerator;
-import com.helger.commons.lang.DecimalFormatSymbolsFactory;
+import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.hashcode.HashCodeGenerator;
+import com.helger.commons.lang.ICloneable;
 import com.helger.commons.math.MathHelper;
 import com.helger.commons.random.VerySecureRandom;
 import com.helger.commons.string.StringHelper;
@@ -402,7 +402,7 @@ public class MatrixInt implements Serializable, ICloneable <MatrixInt>
    *        Initial column index
    * @param nEndColumnIndex
    *        Final column index
-   * @return 
+   * @return
    *         Matrix(nStartRowIndex:nEndRowIndex,nStartColumnIndex:nEndColumnIndex
    *         )
    * @exception ArrayIndexOutOfBoundsException
@@ -1162,7 +1162,7 @@ public class MatrixInt implements Serializable, ICloneable <MatrixInt>
                      @Nonnegative final int nFractionDigits)
   {
     final DecimalFormat format = new DecimalFormat ();
-    format.setDecimalFormatSymbols (DecimalFormatSymbolsFactory.getInstance (Locale.US));
+    format.setDecimalFormatSymbols (DecimalFormatSymbols.getInstance (Locale.US));
     format.setMinimumIntegerDigits (1);
     format.setMaximumFractionDigits (nFractionDigits);
     format.setMinimumFractionDigits (nFractionDigits);

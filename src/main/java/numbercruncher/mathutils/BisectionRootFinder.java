@@ -16,7 +16,7 @@
  */
 package numbercruncher.mathutils;
 
-import com.helger.commons.equals.EqualsUtils;
+import com.helger.commons.equals.EqualsHelper;
 
 /**
  * The root finder class that implements the bisection algorithm.
@@ -189,7 +189,7 @@ public class BisectionRootFinder extends AbstractRootFinder
   @Override
   protected void checkPosition () throws AbstractRootFinder.PositionUnchangedException
   {
-    if (EqualsUtils.equals (m_fXMid, m_fPrevXMid))
+    if (EqualsHelper.equals (m_fXMid, m_fPrevXMid))
     {
       throw new AbstractRootFinder.PositionUnchangedException ();
     }

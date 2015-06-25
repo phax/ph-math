@@ -25,9 +25,9 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
-import com.helger.commons.annotations.UnsupportedOperation;
-import com.helger.commons.collections.NonBlockingStack;
-import com.helger.commons.collections.iterate.IIterableIterator;
+import com.helger.commons.annotation.UnsupportedOperation;
+import com.helger.commons.collection.impl.NonBlockingStack;
+import com.helger.commons.collection.iterate.IIterableIterator;
 import com.helger.commons.filter.IFilter;
 import com.helger.math.graph.IDirectedGraphNode;
 import com.helger.math.graph.IDirectedGraphRelation;

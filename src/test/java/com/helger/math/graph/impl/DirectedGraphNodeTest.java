@@ -26,7 +26,7 @@ import java.util.Iterator;
 
 import org.junit.Test;
 
-import com.helger.commons.mock.PHTestUtils;
+import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.commons.string.StringHelper;
 import com.helger.math.graph.IDirectedGraphRelation;
 
@@ -226,15 +226,15 @@ public final class DirectedGraphNodeTest
   @Test
   public void testStdMethods ()
   {
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (new DirectedGraphNode ("id0"),
-                                                                 new DirectedGraphNode ("id0"));
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (new DirectedGraphNode ("id0"),
-                                                                     new DirectedGraphNode ("id1"));
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (new DirectedGraphNode ("id0"),
+                                                                       new DirectedGraphNode ("id0"));
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (new DirectedGraphNode ("id0"),
+                                                                           new DirectedGraphNode ("id1"));
     final DirectedGraphNode n1 = new DirectedGraphNode ("id0");
     n1.setAttribute ("a", "b");
     final DirectedGraphNode n2 = new DirectedGraphNode ("id0");
     n2.setAttribute ("a", "c");
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (n1, n2);
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (n1, n2);
   }
 
   @Test

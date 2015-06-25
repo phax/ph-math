@@ -23,16 +23,17 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
-import com.helger.commons.annotations.Nonempty;
+import com.helger.commons.ValueEnforcer;
+import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.charset.CCharset;
 import com.helger.commons.charset.CharsetManager;
-import com.helger.commons.io.streams.NonBlockingByteArrayOutputStream;
-import com.helger.commons.io.streams.StreamUtils;
+import com.helger.commons.io.stream.NonBlockingByteArrayOutputStream;
+import com.helger.commons.io.stream.StreamHelper;
 import com.helger.commons.string.StringHelper;
-import com.helger.commons.xml.EXMLCharMode;
-import com.helger.commons.xml.EXMLIncorrectCharacterHandling;
-import com.helger.commons.xml.serialize.EXMLSerializeVersion;
-import com.helger.commons.xml.serialize.XMLMaskHelper;
+import com.helger.commons.xml.serialize.write.EXMLCharMode;
+import com.helger.commons.xml.serialize.write.EXMLIncorrectCharacterHandling;
+import com.helger.commons.xml.serialize.write.EXMLSerializeVersion;
+import com.helger.commons.xml.serialize.write.XMLMaskHelper;
 import com.helger.math.graph.IDirectedGraphNode;
 import com.helger.math.graph.IDirectedGraphRelation;
 import com.helger.math.graph.IGraphNode;
@@ -42,7 +43,7 @@ import com.helger.math.graph.IReadonlyGraph;
 
 /**
  * Utility class to export a graph to something else
- * 
+ *
  * @author Philip Helger
  */
 @Immutable
@@ -69,7 +70,7 @@ public final class GraphVizUtils
    * (http://www.graphviz.org). The DOT specs can be found at
    * http://www.graphviz.org/content/dot-language<br>
    * The default file encoding for GraphViz 2.28 is UTF-8!
-   * 
+   *
    * @param aGraph
    *        The graph to be converted. May not be <code>null</code>.
    * @param sNodeLabelAttr
@@ -124,7 +125,7 @@ public final class GraphVizUtils
    * (http://www.graphviz.org). The DOT specs can be found at
    * http://www.graphviz.org/content/dot-language<br>
    * The default file encoding for GraphViz 2.28 is UTF-8!
-   * 
+   *
    * @param aGraph
    *        The graph to be converted. May not be <code>null</code>.
    * @param sNodeLabelAttr
@@ -186,7 +187,7 @@ public final class GraphVizUtils
   /**
    * Invoked the external process "neato" from the GraphViz package. Attention:
    * this spans a sub-process!
-   * 
+   *
    * @param sFileType
    *        The file type to be generated. E.g. "png" - see neato help for
    *        details. May neither be <code>null</code> nor empty.
@@ -205,10 +206,8 @@ public final class GraphVizUtils
                                                                                    @Nonnull final String sDOT) throws IOException,
                                                                                                               InterruptedException
   {
-    if (StringHelper.hasNoText (sFileType))
-      throw new IllegalArgumentException ("Empty file type!");
-    if (StringHelper.hasNoText (sDOT))
-      throw new IllegalArgumentException ("Empty DOT!");
+    ValueEnforcer.notEmpty (sFileType, "FileType");
+    ValueEnforcer.notEmpty (sDOT, "DOT");
 
     final ProcessBuilder aPB = new ProcessBuilder ("neato", "-T" + sFileType).redirectErrorStream (false);
     final Process p = aPB.start ();
@@ -217,7 +216,7 @@ public final class GraphVizUtils
     p.getOutputStream ().close ();
     // Read neato stdout
     final NonBlockingByteArrayOutputStream aBAOS = new NonBlockingByteArrayOutputStream ();
-    StreamUtils.copyInputStreamToOutputStream (p.getInputStream (), aBAOS);
+    StreamHelper.copyInputStreamToOutputStream (p.getInputStream (), aBAOS);
     p.waitFor ();
     return aBAOS;
   }

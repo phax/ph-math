@@ -19,7 +19,7 @@ package com.helger.math.graph.impl;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
-import com.helger.commons.hash.HashCodeGenerator;
+import com.helger.commons.hashcode.HashCodeGenerator;
 
 /**
  * Implementation of {@link com.helger.math.graph.IGraphNode} interface with

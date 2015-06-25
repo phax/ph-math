@@ -22,8 +22,8 @@ import java.util.Map;
 
 import numbercruncher.graphutils.IPlottable;
 import numbercruncher.graphutils.PlotProperties;
-import numbercruncher.mathutils.DataPoint;
 import numbercruncher.mathutils.AbstractDifferentialEquation;
+import numbercruncher.mathutils.DataPoint;
 import numbercruncher.mathutils.IEvaluatable;
 
 /**

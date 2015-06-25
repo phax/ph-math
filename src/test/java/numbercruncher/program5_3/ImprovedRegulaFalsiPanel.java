@@ -23,8 +23,8 @@ import java.awt.Label;
 
 import numbercruncher.graphutils.PlotProperties;
 import numbercruncher.mathutils.AbstractFunction;
-import numbercruncher.mathutils.ImprovedRegulaFalsiRootFinder;
 import numbercruncher.mathutils.AbstractRootFinder;
+import numbercruncher.mathutils.ImprovedRegulaFalsiRootFinder;
 import numbercruncher.rootutils.PlotFunction;
 import numbercruncher.rootutils.RootFinderPanel;
 

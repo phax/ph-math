@@ -16,9 +16,9 @@
  */
 package numbercruncher.program7_1;
 
+import numbercruncher.mathutils.AbstractFunction;
 import numbercruncher.mathutils.AlignRight;
 import numbercruncher.mathutils.Epsilon;
-import numbercruncher.mathutils.AbstractFunction;
 import numbercruncher.mathutils.IIntegrator;
 import numbercruncher.mathutils.SimpsonsIntegrator;
 import numbercruncher.mathutils.TrapezoidalIntegrator;

@@ -25,7 +25,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import com.helger.commons.mock.PHTestUtils;
+import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.math.graph.AbstractGraphTestCase;
 import com.helger.math.graph.IDirectedGraphNode;
 import com.helger.math.graph.IReadonlyDirectedGraph;
@@ -204,9 +204,11 @@ public final class SimpleDirectedGraphTest extends AbstractGraphTestCase
     assertTrue (sg.containsCycles ());
     assertTrue (sg.containsCycles ());
 
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (_buildDirectedGraph (), _buildDirectedGraph ());
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (new SimpleDirectedGraph (), new SimpleDirectedGraph ());
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (_buildDirectedGraph (), new SimpleDirectedGraph ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (_buildDirectedGraph (), _buildDirectedGraph ());
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (new SimpleDirectedGraph (),
+                                                                       new SimpleDirectedGraph ());
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (_buildDirectedGraph (),
+                                                                           new SimpleDirectedGraph ());
   }
 
   @Test

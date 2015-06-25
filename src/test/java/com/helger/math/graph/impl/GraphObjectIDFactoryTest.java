@@ -21,8 +21,8 @@ import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
-import com.helger.commons.idfactory.IIDFactory;
-import com.helger.commons.idfactory.StringIDFromGlobalIntIDFactory;
+import com.helger.commons.id.factory.IIDFactory;
+import com.helger.commons.id.factory.StringIDFromGlobalIntIDFactory;
 
 /**
  * Test class for class {@link GraphObjectIDFactory}.

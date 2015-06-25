@@ -22,7 +22,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import com.helger.commons.mock.PHTestUtils;
+import com.helger.commons.mock.CommonsTestHelper;
 
 /**
  * Test class for class {@link GraphRelation}.
@@ -71,12 +71,14 @@ public final class GraphRelationTest
     assertTrue (gr.getAllConnectedNodes ().contains (nf));
     assertTrue (gr.getAllConnectedNodes ().contains (nt));
 
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (new GraphRelation ("id1", nf, nt),
-                                                                 new GraphRelation ("id1", nf, nt));
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (new GraphRelation ("id1", nf, nt),
+                                                                       new GraphRelation ("id1", nf, nt));
     // different IDs
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (new GraphRelation (nf, nt), new GraphRelation (nf,
-                                                                                                                    nt));
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (new GraphRelation ("id1", nf, nt),
-                                                                     new GraphRelation ("id1", nf, new GraphNode ()));
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (new GraphRelation (nf, nt),
+                                                                           new GraphRelation (nf, nt));
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (new GraphRelation ("id1", nf, nt),
+                                                                           new GraphRelation ("id1",
+                                                                                              nf,
+                                                                                              new GraphNode ()));
   }
 }

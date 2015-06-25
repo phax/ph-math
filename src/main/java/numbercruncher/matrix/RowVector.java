@@ -16,15 +16,15 @@
  */
 package numbercruncher.matrix;
 
+import javax.annotation.Nonnull;
+
+import com.helger.commons.annotation.ReturnsMutableCopy;
+
 public class RowVector extends Matrix
 {
-  // --------------//
-  // Constructors //
-  // --------------//
-
   /**
    * Constructor.
-   * 
+   *
    * @param n
    *        the number of elements
    */
@@ -35,18 +35,18 @@ public class RowVector extends Matrix
 
   /**
    * Constructor.
-   * 
+   *
    * @param values
    *        the array of values
    */
-  public RowVector (final float values[])
+  public RowVector (final float values [])
   {
     set (values);
   }
 
   /**
    * Constructor.
-   * 
+   *
    * @param m
    *        the matrix (only the first row used)
    */
@@ -54,10 +54,6 @@ public class RowVector extends Matrix
   {
     _set (m);
   }
-
-  // ---------//
-  // Getters //
-  // ---------//
 
   /**
    * Return the row vector's size.
@@ -69,24 +65,22 @@ public class RowVector extends Matrix
 
   /**
    * Copy the values of this matrix.
-   * 
+   *
    * @return the copied values
    */
+  @Nonnull
+  @ReturnsMutableCopy
   public float [] copyValues1D ()
   {
-    final float v[] = new float [m_nCols];
-
+    final float v [] = new float [m_nCols];
     for (int c = 0; c < m_nCols; ++c)
-    {
       v[c] = m_aValues[0][c];
-    }
-
     return v;
   }
 
   /**
    * Return the i'th value of the vector.
-   * 
+   *
    * @param i
    *        the index
    * @return the value
@@ -102,35 +96,35 @@ public class RowVector extends Matrix
 
   /**
    * Set this row vector from a matrix. Only the first row is used.
-   * 
+   *
    * @param m
    *        the matrix
    */
   private void _set (final Matrix m)
   {
-    this.m_nRows = 1;
-    this.m_nCols = m.m_nCols;
-    this.m_aValues = m.m_aValues;
+    m_nRows = 1;
+    m_nCols = m.m_nCols;
+    m_aValues = m.m_aValues;
   }
 
   /**
    * Set this row vector from an array of values.
-   * 
+   *
    * @param values
    *        the array of values
    */
-  protected void set (final float values[])
+  protected void set (final float values [])
   {
-    this.m_nRows = 1;
-    this.m_nCols = values.length;
-    this.m_aValues = new float [1] [];
+    m_nRows = 1;
+    m_nCols = values.length;
+    m_aValues = new float [1] [];
 
-    this.m_aValues[0] = values;
+    m_aValues[0] = values;
   }
 
   /**
    * Set the i'th value of the vector.
-   * 
+   *
    * @param i
    *        the index
    * @param value
@@ -147,7 +141,7 @@ public class RowVector extends Matrix
 
   /**
    * Add another row vector to this row vector.
-   * 
+   *
    * @param rv
    *        the other row vector
    * @return the sum row vector
@@ -161,7 +155,7 @@ public class RowVector extends Matrix
 
   /**
    * Subtract another row vector from this row vector.
-   * 
+   *
    * @param rv
    *        the other row vector
    * @return the sum row vector
@@ -175,7 +169,7 @@ public class RowVector extends Matrix
 
   /**
    * Compute the Euclidean norm.
-   * 
+   *
    * @return the norm
    */
   public float norm ()

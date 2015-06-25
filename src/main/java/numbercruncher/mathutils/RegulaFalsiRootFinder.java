@@ -16,7 +16,7 @@
  */
 package numbercruncher.mathutils;
 
-import com.helger.commons.equals.EqualsUtils;
+import com.helger.commons.equals.EqualsHelper;
 
 /**
  * The root finder class that implements the regula falsi algorithm.
@@ -43,7 +43,7 @@ public class RegulaFalsiRootFinder extends AbstractRootFinder
 
   /**
    * Constructor.
-   * 
+   *
    * @param function
    *        the functions whose roots to find
    * @param xMin
@@ -83,7 +83,7 @@ public class RegulaFalsiRootFinder extends AbstractRootFinder
 
   /**
    * Return the current value of x-negative.
-   * 
+   *
    * @return the value
    */
   public float getXNeg ()
@@ -93,7 +93,7 @@ public class RegulaFalsiRootFinder extends AbstractRootFinder
 
   /**
    * Return the current value of x-false.
-   * 
+   *
    * @return the value
    */
   public float getXFalse ()
@@ -103,7 +103,7 @@ public class RegulaFalsiRootFinder extends AbstractRootFinder
 
   /**
    * Return the current value of x-positive.
-   * 
+   *
    * @return the value
    */
   public float getXPos ()
@@ -113,7 +113,7 @@ public class RegulaFalsiRootFinder extends AbstractRootFinder
 
   /**
    * Return the current value of f(x-negative).
-   * 
+   *
    * @return the value
    */
   public float getFNeg ()
@@ -123,7 +123,7 @@ public class RegulaFalsiRootFinder extends AbstractRootFinder
 
   /**
    * Return the current value of f(x-false).
-   * 
+   *
    * @return the value
    */
   public float getFFalse ()
@@ -133,7 +133,7 @@ public class RegulaFalsiRootFinder extends AbstractRootFinder
 
   /**
    * Return the current value of f(x-positive).
-   * 
+   *
    * @return the value
    */
   public float getFPos ()
@@ -147,7 +147,7 @@ public class RegulaFalsiRootFinder extends AbstractRootFinder
 
   /**
    * Do the regula falsi iteration procedure.
-   * 
+   *
    * @param n
    *        the iteration count
    */
@@ -182,13 +182,13 @@ public class RegulaFalsiRootFinder extends AbstractRootFinder
 
   /**
    * Check the position of x-false.
-   * 
+   *
    * @throws PositionUnchangedException
    */
   @Override
   protected void checkPosition () throws AbstractRootFinder.PositionUnchangedException
   {
-    if (EqualsUtils.equals (m_fXFalse, m_fPrevXFalse))
+    if (EqualsHelper.equals (m_fXFalse, m_fPrevXFalse))
     {
       throw new AbstractRootFinder.PositionUnchangedException ();
     }
@@ -196,7 +196,7 @@ public class RegulaFalsiRootFinder extends AbstractRootFinder
 
   /**
    * Indicate whether or not the algorithm has converged.
-   * 
+   *
    * @return true if converged, else false
    */
   @Override

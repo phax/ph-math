@@ -16,7 +16,7 @@
  */
 package numbercruncher.mathutils;
 
-import com.helger.commons.equals.EqualsUtils;
+import com.helger.commons.equals.EqualsHelper;
 
 /**
  * The root finder class that implements Newton's algorithm.
@@ -41,7 +41,7 @@ public class NewtonsRootFinder extends AbstractRootFinder
 
   /**
    * Constructor.
-   * 
+   *
    * @param function
    *        the functions whose roots to find
    */
@@ -52,7 +52,7 @@ public class NewtonsRootFinder extends AbstractRootFinder
 
   /**
    * Reset.
-   * 
+   *
    * @param x0
    *        the initial x-value
    */
@@ -70,7 +70,7 @@ public class NewtonsRootFinder extends AbstractRootFinder
 
   /**
    * Return the current value of x[n].
-   * 
+   *
    * @return the value
    */
   public float getXn ()
@@ -80,7 +80,7 @@ public class NewtonsRootFinder extends AbstractRootFinder
 
   /**
    * Return the current value of x[n+1].
-   * 
+   *
    * @return the value
    */
   public float getXnp1 ()
@@ -90,7 +90,7 @@ public class NewtonsRootFinder extends AbstractRootFinder
 
   /**
    * Return the current value of f(x[n]).
-   * 
+   *
    * @return the value
    */
   public float getFn ()
@@ -100,7 +100,7 @@ public class NewtonsRootFinder extends AbstractRootFinder
 
   /**
    * Return the current value of f(x[n+1]).
-   * 
+   *
    * @return the value
    */
   public float getFnp1 ()
@@ -110,7 +110,7 @@ public class NewtonsRootFinder extends AbstractRootFinder
 
   /**
    * Return the current value of f'(x[n]).
-   * 
+   *
    * @return the value
    */
   public float getFpn ()
@@ -124,7 +124,7 @@ public class NewtonsRootFinder extends AbstractRootFinder
 
   /**
    * Do Newton's iteration procedure.
-   * 
+   *
    * @param n
    *        the iteration count
    */
@@ -152,13 +152,13 @@ public class NewtonsRootFinder extends AbstractRootFinder
 
   /**
    * Check the position of x[n+1].
-   * 
+   *
    * @throws PositionUnchangedException
    */
   @Override
   protected void checkPosition () throws AbstractRootFinder.PositionUnchangedException
   {
-    if (EqualsUtils.equals (m_fXnp1, m_fPrevXnp1))
+    if (EqualsHelper.equals (m_fXnp1, m_fPrevXnp1))
     {
       throw new AbstractRootFinder.PositionUnchangedException ();
     }
@@ -166,7 +166,7 @@ public class NewtonsRootFinder extends AbstractRootFinder
 
   /**
    * Indicate whether or not the algorithm has converged.
-   * 
+   *
    * @return true if converged, else false
    */
   @Override

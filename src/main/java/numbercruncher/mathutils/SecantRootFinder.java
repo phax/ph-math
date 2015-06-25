@@ -16,7 +16,7 @@
  */
 package numbercruncher.mathutils;
 
-import com.helger.commons.equals.EqualsUtils;
+import com.helger.commons.equals.EqualsHelper;
 
 /**
  * The root finder class that implements the secant algorithm.
@@ -43,7 +43,7 @@ public class SecantRootFinder extends AbstractRootFinder
 
   /**
    * Constructor.
-   * 
+   *
    * @param function
    *        the functions whose roots to find
    * @param x0
@@ -68,7 +68,7 @@ public class SecantRootFinder extends AbstractRootFinder
 
   /**
    * Return the current value of x[n-1].
-   * 
+   *
    * @return the value
    */
   public float getXnm1 ()
@@ -78,7 +78,7 @@ public class SecantRootFinder extends AbstractRootFinder
 
   /**
    * Return the current value of x[n].
-   * 
+   *
    * @return the value
    */
   public float getXn ()
@@ -88,7 +88,7 @@ public class SecantRootFinder extends AbstractRootFinder
 
   /**
    * Return the current value of x[n+1].
-   * 
+   *
    * @return the value
    */
   public float getXnp1 ()
@@ -98,7 +98,7 @@ public class SecantRootFinder extends AbstractRootFinder
 
   /**
    * Return the current value of f(x[n-1]).
-   * 
+   *
    * @return the value
    */
   public float getFnm1 ()
@@ -108,7 +108,7 @@ public class SecantRootFinder extends AbstractRootFinder
 
   /**
    * Return the current value of f(x[n]).
-   * 
+   *
    * @return the value
    */
   public float getFn ()
@@ -118,7 +118,7 @@ public class SecantRootFinder extends AbstractRootFinder
 
   /**
    * Return the current value of f(x[n+1]).
-   * 
+   *
    * @return the value
    */
   public float getFnp1 ()
@@ -132,7 +132,7 @@ public class SecantRootFinder extends AbstractRootFinder
 
   /**
    * Do the secant iteration procedure.
-   * 
+   *
    * @param n
    *        the iteration count
    */
@@ -162,13 +162,13 @@ public class SecantRootFinder extends AbstractRootFinder
 
   /**
    * Check the position of x[n+1].
-   * 
+   *
    * @throws PositionUnchangedException
    */
   @Override
   protected void checkPosition () throws AbstractRootFinder.PositionUnchangedException
   {
-    if (EqualsUtils.equals (m_fXnp1, m_fPrevXnp1))
+    if (EqualsHelper.equals (m_fXnp1, m_fPrevXnp1))
     {
       throw new AbstractRootFinder.PositionUnchangedException ();
     }
@@ -176,7 +176,7 @@ public class SecantRootFinder extends AbstractRootFinder
 
   /**
    * Indicate whether or not the algorithm has converged.
-   * 
+   *
    * @return true if converged, else false
    */
   @Override

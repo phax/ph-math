@@ -18,7 +18,7 @@ package com.helger.math.graph.simple;
 
 import javax.annotation.Nonnull;
 
-import com.helger.commons.annotations.Nonempty;
+import com.helger.commons.annotation.Nonempty;
 import com.helger.math.graph.IDirectedGraph;
 import com.helger.math.graph.IDirectedGraphRelation;
 

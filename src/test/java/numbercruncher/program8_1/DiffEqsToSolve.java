@@ -19,8 +19,8 @@ package numbercruncher.program8_1;
 import java.util.Hashtable;
 import java.util.Map;
 
-import numbercruncher.mathutils.DataPoint;
 import numbercruncher.mathutils.AbstractDifferentialEquation;
+import numbercruncher.mathutils.DataPoint;
 
 /**
  * Load into a global table the differential equations we want to solve.

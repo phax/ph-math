@@ -20,8 +20,8 @@ import java.io.Serializable;
 
 import javax.annotation.Nonnull;
 
-import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.equals.EqualsUtils;
+import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.equals.EqualsHelper;
 
 /**
  * Cholesky Decomposition.
@@ -37,21 +37,21 @@ public class CholeskyDecomposition implements Serializable
 {
   /**
    * Array for internal storage of decomposition.
-   * 
+   *
    * @serial internal array storage.
    */
   private final double [][] m_aData;
 
   /**
    * Row and column dimension (square matrix).
-   * 
+   *
    * @serial matrix dimension.
    */
   private final int m_nDim;
 
   /**
    * Symmetric and positive definite flag.
-   * 
+   *
    * @serial is symmetric and positive definite flag.
    */
   private boolean m_bIsSPD;
@@ -59,7 +59,7 @@ public class CholeskyDecomposition implements Serializable
   /**
    * Cholesky algorithm for symmetric and positive definite matrix. Structure to
    * access L and isspd flag.
-   * 
+   *
    * @param aMatrix
    *        Square, symmetric matrix.
    */
@@ -84,7 +84,7 @@ public class CholeskyDecomposition implements Serializable
           s += aRowK[i] * aRowJ[i];
         aRowJ[nCol] = s = (aArrayJ[nCol] - s) / aRowK[nCol];
         d += s * s;
-        m_bIsSPD = m_bIsSPD && EqualsUtils.equals (aArray[nCol][nRow], aArrayJ[nCol]);
+        m_bIsSPD = m_bIsSPD && EqualsHelper.equals (aArray[nCol][nRow], aArrayJ[nCol]);
       }
       d = aArrayJ[nRow] - d;
       m_bIsSPD = m_bIsSPD && (d > 0.0);
@@ -124,7 +124,7 @@ public class CholeskyDecomposition implements Serializable
 
   /**
    * Is the matrix symmetric and positive definite?
-   * 
+   *
    * @return true if A is symmetric and positive definite.
    */
   public boolean isSPD ()
@@ -134,7 +134,7 @@ public class CholeskyDecomposition implements Serializable
 
   /**
    * Return triangular factor.
-   * 
+   *
    * @return L
    */
   @Nonnull
@@ -146,7 +146,7 @@ public class CholeskyDecomposition implements Serializable
 
   /**
    * Solve A*X = B
-   * 
+   *
    * @param aMatrix
    *        A Matrix with as many rows as A and any number of columns.
    * @return X so that L*L'*X = B

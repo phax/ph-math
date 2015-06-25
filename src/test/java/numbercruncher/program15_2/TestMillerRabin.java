@@ -18,8 +18,8 @@ package numbercruncher.program15_2;
 
 import numbercruncher.mathutils.AlignRight;
 import numbercruncher.primeutils.IMillerRabinCaller;
-import numbercruncher.primeutils.MillerRabinStatus;
 import numbercruncher.primeutils.MillerRabinFuncTest;
+import numbercruncher.primeutils.MillerRabinStatus;
 
 /**
  * PROGRAM 15-2: Miller-Rabin Test for Primality Demonstrate the Miller-Rabin

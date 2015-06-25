@@ -26,10 +26,10 @@ import javax.annotation.Nonnull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.GlobalDebug;
-import com.helger.commons.annotations.Nonempty;
-import com.helger.commons.collections.CollectionHelper;
-import com.helger.commons.compare.AbstractNumericComparator;
+import com.helger.commons.annotation.Nonempty;
+import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.compare.AbstractDoubleComparator;
+import com.helger.commons.debug.GlobalDebug;
 import com.helger.commons.string.StringHelper;
 import com.helger.math.graph.IGraphNode;
 import com.helger.math.graph.IGraphRelation;
@@ -108,14 +108,14 @@ public final class Kruskal
     if (GlobalDebug.isDebugMode ())
       s_aLogger.info ("Starting Kruskal on " + aAllRelations.size () + " relations");
     final List <IGraphRelation> aSortedRelations = CollectionHelper.getSorted (aAllRelations,
-                                                                              new AbstractNumericComparator <IGraphRelation> ()
-                                                                              {
-                                                                                @Override
-                                                                                protected double asDouble (final IGraphRelation aObject)
-                                                                                {
-                                                                                  return aObject.getAttributeAsInt (sRelationCostAttr);
-                                                                                }
-                                                                              });
+                                                                               new AbstractDoubleComparator <IGraphRelation> ()
+                                                                               {
+                                                                                 @Override
+                                                                                 protected double getAsDouble (final IGraphRelation aObject)
+                                                                                 {
+                                                                                   return aObject.getAttributeAsInt (sRelationCostAttr);
+                                                                                 }
+                                                                               });
 
     if (GlobalDebug.isDebugMode ())
     {

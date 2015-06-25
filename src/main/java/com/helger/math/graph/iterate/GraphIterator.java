@@ -26,8 +26,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
-import com.helger.commons.annotations.UnsupportedOperation;
-import com.helger.commons.collections.iterate.IIterableIterator;
+import com.helger.commons.annotation.UnsupportedOperation;
+import com.helger.commons.collection.iterate.IIterableIterator;
 import com.helger.math.graph.IGraphNode;
 import com.helger.math.graph.IGraphRelation;
 

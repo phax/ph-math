@@ -24,7 +24,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import com.helger.commons.mock.PHTestUtils;
+import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.commons.string.StringHelper;
 import com.helger.math.graph.IGraphRelation;
 
@@ -82,13 +82,13 @@ public final class GraphNodeTest
   @Test
   public void testStdMethods ()
   {
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (new GraphNode ("id0"), new GraphNode ("id0"));
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (new GraphNode ("id0"), new GraphNode ("id1"));
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (new GraphNode ("id0"), new GraphNode ("id0"));
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (new GraphNode ("id0"), new GraphNode ("id1"));
     final GraphNode n1 = new GraphNode ("id0");
     n1.setAttribute ("a", "b");
     final GraphNode n2 = new GraphNode ("id0");
     n2.setAttribute ("a", "c");
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (n1, n2);
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (n1, n2);
   }
 
   @Test

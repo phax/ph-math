@@ -21,7 +21,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import com.helger.commons.mock.PHTestUtils;
+import com.helger.commons.mock.CommonsTestHelper;
 
 /**
  * Test class for class {@link DirectedGraphRelation}.
@@ -69,14 +69,14 @@ public final class DirectedGraphRelationTest
     assertSame (gr.getFrom (), nf);
     assertSame (gr.getTo (), nt);
 
-    PHTestUtils.testDefaultImplementationWithEqualContentObject (new DirectedGraphRelation ("id1", nf, nt),
-                                                                 new DirectedGraphRelation ("id1", nf, nt));
+    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (new DirectedGraphRelation ("id1", nf, nt),
+                                                                       new DirectedGraphRelation ("id1", nf, nt));
     // different IDs
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (new DirectedGraphRelation (nf, nt),
-                                                                     new DirectedGraphRelation (nf, nt));
-    PHTestUtils.testDefaultImplementationWithDifferentContentObject (new DirectedGraphRelation ("id1", nf, nt),
-                                                                     new DirectedGraphRelation ("id1",
-                                                                                                nf,
-                                                                                                new DirectedGraphNode ()));
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (new DirectedGraphRelation (nf, nt),
+                                                                           new DirectedGraphRelation (nf, nt));
+    CommonsTestHelper.testDefaultImplementationWithDifferentContentObject (new DirectedGraphRelation ("id1", nf, nt),
+                                                                           new DirectedGraphRelation ("id1",
+                                                                                                      nf,
+                                                                                                      new DirectedGraphNode ()));
   }
 }

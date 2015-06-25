@@ -21,9 +21,9 @@ import java.util.Arrays;
 
 import javax.annotation.Nonnull;
 
-import com.helger.commons.annotations.ReturnsMutableCopy;
-import com.helger.commons.annotations.ReturnsMutableObject;
-import com.helger.commons.equals.EqualsUtils;
+import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.annotation.ReturnsMutableObject;
+import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.math.MathHelper;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
@@ -1009,7 +1009,7 @@ public class EigenvalueDecomposition implements Serializable
     {
       final double [] aRow = aArray[nRow];
       for (int nCol = 0; nCol < m_nDim; nCol++)
-        if (!EqualsUtils.equals (aRow[nCol], aArray[nCol][nRow]))
+        if (!EqualsHelper.equals (aRow[nCol], aArray[nCol][nRow]))
         {
           m_bIsSymmetric = false;
           break;
@@ -1079,7 +1079,7 @@ public class EigenvalueDecomposition implements Serializable
    */
   @SuppressFBWarnings ("EI_EXPOSE_REP")
   @Nonnull
-  @ReturnsMutableObject (reason = "took code as is")
+  @ReturnsMutableObject ("took code as is")
   public double [] getRealEigenvalues ()
   {
     return m_aEVd;
@@ -1092,7 +1092,7 @@ public class EigenvalueDecomposition implements Serializable
    */
   @SuppressFBWarnings ("EI_EXPOSE_REP")
   @Nonnull
-  @ReturnsMutableObject (reason = "took code as is")
+  @ReturnsMutableObject ("took code as is")
   public double [] getImagEigenvalues ()
   {
     return m_aEVe;

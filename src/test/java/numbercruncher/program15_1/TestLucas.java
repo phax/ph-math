@@ -18,8 +18,8 @@ package numbercruncher.program15_1;
 
 import numbercruncher.mathutils.AlignRight;
 import numbercruncher.primeutils.ILucasCaller;
-import numbercruncher.primeutils.LucasStatus;
 import numbercruncher.primeutils.LucasFuncTest;
+import numbercruncher.primeutils.LucasStatus;
 
 /**
  * PROGRAM 15-1: Lucas Test for Primality Demonstrate the Lucas test for
