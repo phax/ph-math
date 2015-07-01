@@ -26,7 +26,7 @@ import com.helger.math.graph.IDirectedGraphNode;
 /**
  * Implementation of {@link com.helger.math.graph.IDirectedGraphRelation}
  * interface with quick and dirty equals and hashCode (on ID only)
- * 
+ *
  * @author Philip Helger
  */
 @NotThreadSafe
@@ -51,7 +51,7 @@ public class DirectedGraphRelationFast extends DirectedGraphRelation
   {
     if (o == this)
       return true;
-    if (!(o instanceof DirectedGraphRelationFast))
+    if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final DirectedGraphRelationFast rhs = (DirectedGraphRelationFast) o;
     return getID ().equals (rhs.getID ());

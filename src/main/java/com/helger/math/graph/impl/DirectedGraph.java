@@ -26,6 +26,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
+import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.state.EChange;
@@ -51,8 +52,7 @@ public class DirectedGraph extends AbstractBaseGraph <IDirectedGraphNode, IDirec
   public DirectedGraph (@Nullable final String sID, @Nonnull final IDirectedGraphObjectFactory aFactory)
   {
     super (sID);
-    if (aFactory == null)
-      throw new NullPointerException ("factory");
+    ValueEnforcer.notNull (aFactory, "Factory");
     m_aFactory = aFactory;
   }
 
@@ -87,8 +87,7 @@ public class DirectedGraph extends AbstractBaseGraph <IDirectedGraphNode, IDirec
   @Nonnull
   public EChange addNode (@Nonnull final IDirectedGraphNode aNode)
   {
-    if (aNode == null)
-      throw new NullPointerException ("node");
+    ValueEnforcer.notNull (aNode, "Node");
 
     if (!isChangingConnectedObjectsAllowed () && aNode.hasRelations ())
       throw new IllegalArgumentException ("The node to be added already has incoming and/or outgoing relations and this is not allowed!");
@@ -105,8 +104,7 @@ public class DirectedGraph extends AbstractBaseGraph <IDirectedGraphNode, IDirec
   @Nonnull
   public EChange removeNode (@Nonnull final IDirectedGraphNode aNode)
   {
-    if (aNode == null)
-      throw new NullPointerException ("node");
+    ValueEnforcer.notNull (aNode, "Node");
 
     if (!isChangingConnectedObjectsAllowed () && aNode.hasRelations ())
       throw new IllegalArgumentException ("The node to be removed already has incoming and/or outgoing relations and this is not allowed!");
@@ -121,8 +119,7 @@ public class DirectedGraph extends AbstractBaseGraph <IDirectedGraphNode, IDirec
   @Nonnull
   public EChange removeNodeAndAllRelations (@Nonnull final IDirectedGraphNode aNode)
   {
-    if (aNode == null)
-      throw new NullPointerException ("node");
+    ValueEnforcer.notNull (aNode, "Node");
 
     if (!m_aNodes.containsKey (aNode.getID ()))
       return EChange.UNCHANGED;
@@ -312,17 +309,5 @@ public class DirectedGraph extends AbstractBaseGraph <IDirectedGraphNode, IDirec
           }
     }
     return ret;
-  }
-
-  @Override
-  public boolean equals (final Object o)
-  {
-    return super.equals (o);
-  }
-
-  @Override
-  public int hashCode ()
-  {
-    return super.hashCode ();
   }
 }

@@ -24,7 +24,7 @@ import com.helger.commons.hashcode.HashCodeGenerator;
 /**
  * Implementation of {@link com.helger.math.graph.IDirectedGraphNode} interface
  * with quick and dirty equals and hashCode (on ID only)
- * 
+ *
  * @author Philip Helger
  */
 @NotThreadSafe
@@ -47,7 +47,7 @@ public class DirectedGraphNodeFast extends DirectedGraphNode
   {
     if (o == this)
       return true;
-    if (!(o instanceof DirectedGraphNodeFast))
+    if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final DirectedGraphNodeFast rhs = (DirectedGraphNodeFast) o;
     return getID ().equals (rhs.getID ());

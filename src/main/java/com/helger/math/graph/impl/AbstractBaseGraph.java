@@ -97,23 +97,27 @@ public abstract class AbstractBaseGraph <N extends IBaseGraphNode <N, R>, R exte
   {
     if (o == this)
       return true;
-    if (!(o instanceof AbstractBaseGraph <?, ?>))
+    // ignore super equals!
+    if (o == null || !getClass ().equals (o.getClass ()))
       return false;
-    // Do not use m_eHasCycles because this is just a state variable
     final AbstractBaseGraph <?, ?> rhs = (AbstractBaseGraph <?, ?>) o;
-    return m_aNodes.equals (rhs.m_aNodes);
+    return m_aNodes.equals (rhs.m_aNodes) &&
+           m_bIsChangingConnectedObjectsAllowed == rhs.m_bIsChangingConnectedObjectsAllowed;
   }
 
   @Override
   public int hashCode ()
   {
-    // Do not use m_eHasCycles because this is just a state variable
-    return new HashCodeGenerator (this).append (m_aNodes).getHashCode ();
+    // ignore super hashCode!
+    return new HashCodeGenerator (this).append (m_aNodes).append (m_bIsChangingConnectedObjectsAllowed).getHashCode ();
   }
 
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (this).append ("nodes", m_aNodes).toString ();
+    return ToStringGenerator.getDerived (super.toString ())
+                            .append ("nodes", m_aNodes)
+                            .append ("isChangingConnectedObjectsAllowed", m_bIsChangingConnectedObjectsAllowed)
+                            .toString ();
   }
 }

@@ -29,6 +29,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
+import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.state.EChange;
@@ -64,10 +65,8 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IDirec
 
   public void addIncomingRelation (@Nonnull final IDirectedGraphRelation aNewRelation)
   {
-    if (aNewRelation == null)
-      throw new NullPointerException ("relation");
-    if (aNewRelation.getTo () != this)
-      throw new IllegalArgumentException ("Passed incoming relation is not based on this node");
+    ValueEnforcer.notNull (aNewRelation, "NewRelation");
+    ValueEnforcer.isTrue (aNewRelation.getTo () == this, "Passed incoming relation is not based on this node");
     if (m_aIncoming != null)
     {
       if (m_aIncoming.containsKey (aNewRelation.getID ()))
@@ -159,10 +158,8 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IDirec
 
   public void addOutgoingRelation (@Nonnull final IDirectedGraphRelation aNewRelation)
   {
-    if (aNewRelation == null)
-      throw new NullPointerException ("relation");
-    if (aNewRelation.getFrom () != this)
-      throw new IllegalArgumentException ("Passed outgoing relation is not based on this node");
+    ValueEnforcer.notNull (aNewRelation, "NewRelation");
+    ValueEnforcer.isTrue (aNewRelation.getFrom () == this, "Passed outgoing relation is not based on this node");
     if (m_aOutgoing != null)
     {
       if (m_aOutgoing.containsKey (aNewRelation.getID ()))

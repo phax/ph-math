@@ -22,6 +22,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
+import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
@@ -50,10 +51,8 @@ public class DirectedGraphRelation extends AbstractBaseGraphObject implements ID
                                 @Nonnull final IDirectedGraphNode aTo)
   {
     super (sID);
-    if (aFrom == null)
-      throw new NullPointerException ("from");
-    if (aTo == null)
-      throw new NullPointerException ("to");
+    ValueEnforcer.notNull (aFrom, "From");
+    ValueEnforcer.notNull (aTo, "To");
     m_aFrom = aFrom;
     m_aTo = aTo;
   }
