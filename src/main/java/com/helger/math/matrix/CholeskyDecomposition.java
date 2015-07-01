@@ -40,7 +40,7 @@ public class CholeskyDecomposition implements Serializable
    *
    * @serial internal array storage.
    */
-  private final double [][] m_aData;
+  private final double [] [] m_aData;
 
   /**
    * Row and column dimension (square matrix).
@@ -66,7 +66,7 @@ public class CholeskyDecomposition implements Serializable
   public CholeskyDecomposition (@Nonnull final Matrix aMatrix)
   {
     // Initialize.
-    final double [][] aArray = aMatrix.internalGetArray ();
+    final double [] [] aArray = aMatrix.internalGetArray ();
     m_nDim = aMatrix.getRowDimension ();
     m_aData = new double [m_nDim] [m_nDim];
     m_bIsSPD = (aMatrix.getColumnDimension () == m_nDim);
@@ -165,7 +165,7 @@ public class CholeskyDecomposition implements Serializable
       throw new IllegalStateException ("Matrix is not symmetric positive definite.");
 
     // Copy right hand side.
-    final double [][] aArray = aMatrix.getArrayCopy ();
+    final double [] [] aArray = aMatrix.getArrayCopy ();
     final int nCols = aMatrix.getColumnDimension ();
 
     // Solve L*Y = B;

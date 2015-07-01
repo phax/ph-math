@@ -111,14 +111,14 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IMutab
   public List <IMutableDirectedGraphRelation> getAllIncomingRelations ()
   {
     return m_aIncoming == null ? new ArrayList <IMutableDirectedGraphRelation> ()
-                              : CollectionHelper.newList (m_aIncoming.values ());
+                               : CollectionHelper.newList (m_aIncoming.values ());
   }
 
   @Nonnull
   public EChange removeIncomingRelation (@Nonnull final IMutableDirectedGraphRelation aRelation)
   {
     return aRelation == null || m_aIncoming == null ? EChange.UNCHANGED
-                                                   : EChange.valueOf (m_aIncoming.remove (aRelation.getID ()) != null);
+                                                    : EChange.valueOf (m_aIncoming.remove (aRelation.getID ()) != null);
   }
 
   @Nonnull
@@ -203,7 +203,7 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IMutab
   public List <IMutableDirectedGraphRelation> getAllOutgoingRelations ()
   {
     return m_aOutgoing == null ? new ArrayList <IMutableDirectedGraphRelation> ()
-                              : CollectionHelper.newList (m_aOutgoing.values ());
+                               : CollectionHelper.newList (m_aOutgoing.values ());
   }
 
   @Nonnull
@@ -221,7 +221,7 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IMutab
   public EChange removeOutgoingRelation (@Nonnull final IMutableDirectedGraphRelation aRelation)
   {
     return aRelation == null || m_aOutgoing == null ? EChange.UNCHANGED
-                                                   : EChange.valueOf (m_aOutgoing.remove (aRelation.getID ()) != null);
+                                                    : EChange.valueOf (m_aOutgoing.remove (aRelation.getID ()) != null);
   }
 
   @Nonnull

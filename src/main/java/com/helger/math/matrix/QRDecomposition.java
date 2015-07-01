@@ -43,7 +43,7 @@ public class QRDecomposition implements Serializable
    *
    * @serial internal array storage.
    */
-  private final double [][] m_aQR;
+  private final double [] [] m_aQR;
 
   /**
    * Row dimension.
@@ -144,7 +144,7 @@ public class QRDecomposition implements Serializable
   public Matrix getH ()
   {
     final Matrix aNewMatrix = new Matrix (m_nRows, m_nCols);
-    final double [][] aNewArray = aNewMatrix.internalGetArray ();
+    final double [] [] aNewArray = aNewMatrix.internalGetArray ();
     for (int nRow = 0; nRow < m_nRows; nRow++)
     {
       final double [] aSrcRow = m_aQR[nRow];
@@ -167,7 +167,7 @@ public class QRDecomposition implements Serializable
   public Matrix getR ()
   {
     final Matrix aNewMatrix = new Matrix (m_nCols, m_nCols);
-    final double [][] aNewArray = aNewMatrix.internalGetArray ();
+    final double [] [] aNewArray = aNewMatrix.internalGetArray ();
     for (int nRow = 0; nRow < m_nCols; nRow++)
     {
       final double [] aDstRow = aNewArray[nRow];
@@ -195,7 +195,7 @@ public class QRDecomposition implements Serializable
   public Matrix getQ ()
   {
     final Matrix aNewMatrix = new Matrix (m_nRows, m_nCols);
-    final double [][] aNewArray = aNewMatrix.internalGetArray ();
+    final double [] [] aNewArray = aNewMatrix.internalGetArray ();
     for (int k = m_nCols - 1; k >= 0; k--)
     {
       final double [] aQRk = m_aQR[k];
@@ -242,7 +242,7 @@ public class QRDecomposition implements Serializable
 
     // Copy right hand side
     final int nCols = aMatrix.getColumnDimension ();
-    final double [][] aArray = aMatrix.getArrayCopy ();
+    final double [] [] aArray = aMatrix.getArrayCopy ();
 
     // Compute Y = transpose(Q)*B
     for (int k = 0; k < m_nCols; k++)

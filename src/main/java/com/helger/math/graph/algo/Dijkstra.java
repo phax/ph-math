@@ -229,7 +229,7 @@ public final class Dijkstra
 
   @Nullable
   private static <N extends IMutableBaseGraphNode <N, R>, R extends IMutableBaseGraphRelation <N, R>> R _getRelationFromLastMatch (@Nonnull final WorkElement <N> aLastMatch,
-                                                                                                                     @Nonnull final N aNode)
+                                                                                                                                   @Nonnull final N aNode)
   {
     if (aNode.isDirected ())
     {
@@ -248,9 +248,9 @@ public final class Dijkstra
 
   @Nonnull
   public static <N extends IMutableBaseGraphNode <N, R>, R extends IMutableBaseGraphRelation <N, R>> Dijkstra.Result <N> applyDijkstra (@Nonnull final IMutableBaseGraph <N, R> aGraph,
-                                                                                                                          @Nonnull @Nonempty final String sFromID,
-                                                                                                                          @Nonnull @Nonempty final String sToID,
-                                                                                                                          @Nonnull @Nonempty final String sRelationCostAttr)
+                                                                                                                                        @Nonnull @Nonempty final String sFromID,
+                                                                                                                                        @Nonnull @Nonempty final String sToID,
+                                                                                                                                        @Nonnull @Nonempty final String sRelationCostAttr)
   {
     final N aStartNode = aGraph.getNodeOfID (sFromID);
     if (aStartNode == null)

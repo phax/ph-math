@@ -20,18 +20,18 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.math.graph.IMutableDirectedGraphNode;
-import com.helger.math.graph.IDirectedGraphObjectFactory;
+import com.helger.math.graph.IMutableDirectedGraphObjectFactory;
 import com.helger.math.graph.IMutableDirectedGraphRelation;
 import com.helger.math.graph.impl.DirectedGraphNodeFast;
 import com.helger.math.graph.impl.DirectedGraphRelationFast;
 
 /**
- * Default implementation of the {@link IDirectedGraphObjectFactory} with
+ * Default implementation of the {@link IMutableDirectedGraphObjectFactory} with
  * {@link DirectedGraphNodeFast} and {@link DirectedGraphRelationFast}.
  * 
  * @author Philip Helger
  */
-public class SimpleDirectedGraphObjectFastFactory implements IDirectedGraphObjectFactory
+public class SimpleDirectedGraphObjectFastFactory implements IMutableDirectedGraphObjectFactory
 {
   @Nonnull
   public IMutableDirectedGraphNode createNode ()
@@ -47,15 +47,15 @@ public class SimpleDirectedGraphObjectFastFactory implements IDirectedGraphObjec
 
   @Nonnull
   public IMutableDirectedGraphRelation createRelation (@Nonnull final IMutableDirectedGraphNode aFrom,
-                                                @Nonnull final IMutableDirectedGraphNode aTo)
+                                                       @Nonnull final IMutableDirectedGraphNode aTo)
   {
     return new DirectedGraphRelationFast (aFrom, aTo);
   }
 
   @Nonnull
   public IMutableDirectedGraphRelation createRelation (@Nullable final String sID,
-                                                @Nonnull final IMutableDirectedGraphNode aFrom,
-                                                @Nonnull final IMutableDirectedGraphNode aTo)
+                                                       @Nonnull final IMutableDirectedGraphNode aFrom,
+                                                       @Nonnull final IMutableDirectedGraphNode aTo)
   {
     return new DirectedGraphRelationFast (sID, aFrom, aTo);
   }

@@ -23,16 +23,16 @@ import com.helger.commons.state.EChange;
 
 /**
  * Interface for a modifiable undirected graph.
- * 
+ *
  * @author Philip Helger
  */
-public interface IMutableGraph extends IMutableBaseGraph <IMutableGraphNode, IMutableGraphRelation>, IGraph, IGraphObjectFactory
+public interface IMutableGraph extends IMutableBaseGraph <IMutableGraphNode, IMutableGraphRelation>, IMutableGraphObjectFactory
 {
   /**
    * Allow or disallow that {@link #addNode(IMutableGraphNode)} and
-   * {@link #removeNode(IMutableGraphNode)} can handle graph nodes that are already
-   * connected.
-   * 
+   * {@link #removeNode(IMutableGraphNode)} can handle graph nodes that are
+   * already connected.
+   *
    * @param bAllow
    *        if <code>true</code> it is allowed to add and remove nodes that
    *        already have incoming or outgoing relations.
@@ -49,7 +49,7 @@ public interface IMutableGraph extends IMutableBaseGraph <IMutableGraphNode, IMu
 
   /**
    * Add an existing node to this graph.
-   * 
+   *
    * @param aNode
    *        The node to be added. May not be <code>null</code>.
    * @return {@link EChange}
@@ -67,7 +67,7 @@ public interface IMutableGraph extends IMutableBaseGraph <IMutableGraphNode, IMu
    * Important note: existing relations are not altered when this method is
    * called, so it may be possible that existing relations pointing to that
    * object therefore reference a node that is no longer in the graph!
-   * 
+   *
    * @param aNode
    *        The node to be removed. May not be <code>null</code>.
    * @return {@link EChange}
@@ -82,7 +82,7 @@ public interface IMutableGraph extends IMutableBaseGraph <IMutableGraphNode, IMu
 
   /**
    * Remove the passed relation from the graph.
-   * 
+   *
    * @param aRelation
    *        The relation to be removed. May be <code>null</code>.
    * @return {@link EChange#CHANGED} if the relation was at least removed from

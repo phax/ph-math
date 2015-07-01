@@ -20,11 +20,11 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 /**
- * Factory interface for creating directed graph nodes
+ * Factory interface for creating undirected graph nodes
  * 
  * @author Philip Helger
  */
-public interface IDirectedGraphNodeFactory
+public interface IMutableGraphNodeFactory
 {
   /**
    * Create a new graph node with a <code>null</code> value and add it to the
@@ -34,7 +34,7 @@ public interface IDirectedGraphNodeFactory
    * @return The created graph node. Never <code>null</code>.
    */
   @Nonnull
-  IMutableDirectedGraphNode createNode ();
+  IMutableGraphNode createNode ();
 
   /**
    * Create a new graph node with a known ID.
@@ -45,5 +45,5 @@ public interface IDirectedGraphNodeFactory
    * @return The created graph node. May not be <code>null</code>.
    */
   @Nonnull
-  IMutableDirectedGraphNode createNode (@Nullable String sID);
+  IMutableGraphNode createNode (@Nullable String sID);
 }

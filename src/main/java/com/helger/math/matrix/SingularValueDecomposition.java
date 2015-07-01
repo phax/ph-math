@@ -54,7 +54,7 @@ public class SingularValueDecomposition implements Serializable
    * @serial internal storage of U.
    * @serial internal storage of V.
    */
-  private final double [][] m_aU, m_aV;
+  private final double [] [] m_aU, m_aV;
 
   /**
    * Array for internal storage of singular values.
@@ -87,7 +87,7 @@ public class SingularValueDecomposition implements Serializable
   {
     // Derived from LINPACK code.
     // Initialize.
-    final double [][] aArray = aMatrix.getArrayCopy ();
+    final double [] [] aArray = aMatrix.getArrayCopy ();
     m_nRows = aMatrix.getRowDimension ();
     m_nCols = aMatrix.getColumnDimension ();
 
@@ -331,7 +331,7 @@ public class SingularValueDecomposition implements Serializable
 
       switch (kase)
       {
-      // Deflate negligible s(p).
+        // Deflate negligible s(p).
         case 1:
         {
           double f = e[p - 2];
@@ -361,7 +361,7 @@ public class SingularValueDecomposition implements Serializable
           break;
         }
 
-        // Split at negligible s(k).
+          // Split at negligible s(k).
         case 2:
         {
           double f = e[k - 1];
@@ -388,7 +388,7 @@ public class SingularValueDecomposition implements Serializable
           break;
         }
 
-        // Perform one qr step.
+          // Perform one qr step.
         case 3:
         {
 
@@ -461,7 +461,7 @@ public class SingularValueDecomposition implements Serializable
           break;
         }
 
-        // Convergence.
+          // Convergence.
         case 4:
         {
           // Make the singular values positive.
@@ -563,7 +563,7 @@ public class SingularValueDecomposition implements Serializable
   public Matrix getS ()
   {
     final Matrix aNewMatrix = new Matrix (m_nCols, m_nCols);
-    final double [][] aNewArray = aNewMatrix.internalGetArray ();
+    final double [] [] aNewArray = aNewMatrix.internalGetArray ();
     for (int i = 0; i < m_nCols; i++)
     {
       Arrays.fill (aNewArray[i], 0.0);

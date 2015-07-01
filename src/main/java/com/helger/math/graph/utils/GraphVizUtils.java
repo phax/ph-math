@@ -34,12 +34,12 @@ import com.helger.commons.xml.serialize.write.EXMLCharMode;
 import com.helger.commons.xml.serialize.write.EXMLIncorrectCharacterHandling;
 import com.helger.commons.xml.serialize.write.EXMLSerializeVersion;
 import com.helger.commons.xml.serialize.write.XMLMaskHelper;
-import com.helger.math.graph.IMutableDirectedGraphNode;
-import com.helger.math.graph.IMutableDirectedGraphRelation;
-import com.helger.math.graph.IMutableGraphNode;
-import com.helger.math.graph.IMutableGraphRelation;
+import com.helger.math.graph.IBaseGraph;
+import com.helger.math.graph.IBaseGraphNode;
+import com.helger.math.graph.IBaseGraphRelation;
 import com.helger.math.graph.IDirectedGraph;
-import com.helger.math.graph.IGraph;
+import com.helger.math.graph.IDirectedGraphNode;
+import com.helger.math.graph.IDirectedGraphRelation;
 
 /**
  * Utility class to export a graph to something else
@@ -82,9 +82,9 @@ public final class GraphVizUtils
    * @return The string representation to be used as input for DOT.
    */
   @Nonnull
-  public static String getAsGraphVizDot (@Nonnull final IGraph aGraph,
-                                         @Nullable final String sNodeLabelAttr,
-                                         @Nullable final String sRelationLabelAttr)
+  public static <N extends IBaseGraphNode <N, R>, R extends IBaseGraphRelation <N, R>> String getAsGraphVizDot (@Nonnull final IBaseGraph <N, R> aGraph,
+                                                                                                                @Nullable final String sNodeLabelAttr,
+                                                                                                                @Nullable final String sRelationLabelAttr)
   {
     if (aGraph == null)
       throw new NullPointerException ("graph");
@@ -93,7 +93,7 @@ public final class GraphVizUtils
     // It's a directed graph
     aSB.append ("graph ").append (aGraph.getID ()).append ("{\n");
     aSB.append ("node[shape=box];");
-    for (final IMutableGraphNode aGraphNode : aGraph.getAllNodes ().values ())
+    for (final N aGraphNode : aGraph.getAllNodes ().values ())
     {
       aSB.append (aGraphNode.getID ());
       if (StringHelper.hasText (sNodeLabelAttr))
@@ -104,9 +104,9 @@ public final class GraphVizUtils
       aSB.append (';');
     }
     aSB.append ('\n');
-    for (final IMutableGraphRelation aGraphRelation : aGraph.getAllRelations ().values ())
+    for (final R aGraphRelation : aGraph.getAllRelations ().values ())
     {
-      final Iterator <IMutableGraphNode> it = aGraphRelation.getAllConnectedNodes ().iterator ();
+      final Iterator <N> it = aGraphRelation.getAllConnectedNodes ().iterator ();
       aSB.append (it.next ().getID ()).append ("--").append (it.next ().getID ());
       if (StringHelper.hasText (sRelationLabelAttr))
       {
@@ -137,9 +137,9 @@ public final class GraphVizUtils
    * @return The string representation to be used as input for DOT.
    */
   @Nonnull
-  public static String getAsGraphVizDot (@Nonnull final IDirectedGraph aGraph,
-                                         @Nullable final String sNodeLabelAttr,
-                                         @Nullable final String sRelationLabelAttr)
+  public static <N extends IDirectedGraphNode <N, R>, R extends IDirectedGraphRelation <N, R>> String getAsGraphVizDot (@Nonnull final IDirectedGraph <N, R> aGraph,
+                                                                                                                        @Nullable final String sNodeLabelAttr,
+                                                                                                                        @Nullable final String sRelationLabelAttr)
   {
     if (aGraph == null)
       throw new NullPointerException ("graph");
@@ -148,7 +148,7 @@ public final class GraphVizUtils
     // It's a directed graph
     aSB.append ("digraph ").append (aGraph.getID ()).append ("{\n");
     aSB.append ("node[shape=box];");
-    for (final IMutableDirectedGraphNode aGraphNode : aGraph.getAllNodes ().values ())
+    for (final N aGraphNode : aGraph.getAllNodes ().values ())
     {
       aSB.append (aGraphNode.getID ());
       if (StringHelper.hasText (sNodeLabelAttr))
@@ -164,7 +164,7 @@ public final class GraphVizUtils
       aSB.append (';');
     }
     aSB.append ('\n');
-    for (final IMutableDirectedGraphRelation aGraphRelation : aGraph.getAllRelations ().values ())
+    for (final R aGraphRelation : aGraph.getAllRelations ().values ())
     {
       aSB.append (aGraphRelation.getFromID ()).append ("->").append (aGraphRelation.getToID ());
       if (StringHelper.hasText (sRelationLabelAttr))
@@ -204,7 +204,7 @@ public final class GraphVizUtils
   @Nonnull
   public static NonBlockingByteArrayOutputStream getGraphAsImageWithGraphVizNeato (@Nonnull @Nonempty final String sFileType,
                                                                                    @Nonnull final String sDOT) throws IOException,
-                                                                                                              InterruptedException
+                                                                                                               InterruptedException
   {
     ValueEnforcer.notEmpty (sFileType, "FileType");
     ValueEnforcer.notEmpty (sDOT, "DOT");

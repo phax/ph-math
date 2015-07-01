@@ -22,7 +22,7 @@ package com.helger.math.graph;
  * 
  * @author Philip Helger
  */
-public interface IGraphObjectFactory extends IGraphNodeFactory, IGraphRelationFactory
+public interface IMutableDirectedGraphObjectFactory extends IMutableDirectedGraphNodeFactory, IMutableDirectedGraphRelationFactory
 {
   /* empty */
 }

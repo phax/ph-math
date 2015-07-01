@@ -53,7 +53,9 @@ public class BisectionRootFinder extends AbstractRootFinder
    * @throws AbstractRootFinder.InvalidIntervalException
    *         in checkInterval
    */
-  public BisectionRootFinder (final AbstractFunction function, final float xMin, final float xMax) throws AbstractRootFinder.InvalidIntervalException
+  public BisectionRootFinder (final AbstractFunction function,
+                              final float xMin,
+                              final float xMax) throws AbstractRootFinder.InvalidIntervalException
   {
     super (function, MAX_ITERS);
     checkInterval (xMin, xMax);

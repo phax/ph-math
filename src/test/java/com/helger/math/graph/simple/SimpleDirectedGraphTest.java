@@ -28,7 +28,6 @@ import org.junit.Test;
 import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.math.graph.AbstractGraphTestCase;
 import com.helger.math.graph.IMutableDirectedGraphNode;
-import com.helger.math.graph.IDirectedGraph;
 import com.helger.math.graph.impl.DirectedGraphNode;
 
 /**
@@ -41,7 +40,7 @@ public final class SimpleDirectedGraphTest extends AbstractGraphTestCase
   @Test
   public void testCtor ()
   {
-    final IDirectedGraph sg = new SimpleDirectedGraph ();
+    final SimpleDirectedGraph sg = new SimpleDirectedGraph ();
     assertTrue (sg.getAllStartNodes ().isEmpty ());
     assertTrue (sg.getAllEndNodes ().isEmpty ());
     assertFalse (sg.containsCycles ());

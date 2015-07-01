@@ -21,7 +21,7 @@ import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.annotation.Nonempty;
 import com.helger.math.graph.IMutableGraphNode;
-import com.helger.math.graph.IGraphObjectFactory;
+import com.helger.math.graph.IMutableGraphObjectFactory;
 import com.helger.math.graph.IMutableGraphRelation;
 import com.helger.math.graph.impl.Graph;
 
@@ -38,7 +38,7 @@ public class SimpleGraph extends Graph implements ISimpleGraph
     this (new SimpleGraphObjectFactory ());
   }
 
-  public SimpleGraph (@Nonnull final IGraphObjectFactory aFactory)
+  public SimpleGraph (@Nonnull final IMutableGraphObjectFactory aFactory)
   {
     super (null, aFactory);
   }
@@ -57,8 +57,8 @@ public class SimpleGraph extends Graph implements ISimpleGraph
 
   @Nonnull
   public IMutableGraphRelation createRelation (@Nonnull @Nonempty final String sRelationID,
-                                        @Nonnull final String sFromNodeID,
-                                        @Nonnull final String sToNodeID)
+                                               @Nonnull final String sFromNodeID,
+                                               @Nonnull final String sToNodeID)
   {
     final IMutableGraphNode aFromNode = getNodeOfID (sFromNodeID);
     if (aFromNode == null)

@@ -16,15 +16,43 @@
  */
 package com.helger.math.graph;
 
+import javax.annotation.Nonnull;
+
 import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
 
 /**
  * Base interface for a single directed graph relation.
  *
  * @author Philip Helger
+ * @param <N>
+ *        Directed node class
+ * @param <R>
+ *        Directed relation class
  */
 @MustImplementEqualsAndHashcode
-public interface IMutableDirectedGraphRelation extends IMutableBaseGraphRelation <IMutableDirectedGraphNode, IMutableDirectedGraphRelation>, IDirectedGraphRelation <IMutableDirectedGraphNode, IMutableDirectedGraphRelation>
+public interface IDirectedGraphRelation <N extends IDirectedGraphNode <N, R>, R extends IDirectedGraphRelation <N, R>> extends IBaseGraphRelation <N, R>
 {
-  /* empty */
+  /**
+   * @return The from-node of this relation. Never <code>null</code>.
+   */
+  @Nonnull
+  N getFrom ();
+
+  /**
+   * @return The ID of the from-node of this relation. Never <code>null</code>.
+   */
+  @Nonnull
+  String getFromID ();
+
+  /**
+   * @return The to-node of this relation. Never <code>null</code>.
+   */
+  @Nonnull
+  N getTo ();
+
+  /**
+   * @return The ID of the to-node of this relation. Never <code>null</code>.
+   */
+  @Nonnull
+  String getToID ();
 }

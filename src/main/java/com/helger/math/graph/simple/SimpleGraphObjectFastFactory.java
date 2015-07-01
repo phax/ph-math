@@ -20,18 +20,18 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.math.graph.IMutableGraphNode;
-import com.helger.math.graph.IGraphObjectFactory;
+import com.helger.math.graph.IMutableGraphObjectFactory;
 import com.helger.math.graph.IMutableGraphRelation;
 import com.helger.math.graph.impl.GraphNodeFast;
 import com.helger.math.graph.impl.GraphRelationFast;
 
 /**
- * Default implementation of the {@link IGraphObjectFactory} with
+ * Default implementation of the {@link IMutableGraphObjectFactory} with
  * {@link GraphNodeFast} and {@link GraphRelationFast}.
  * 
  * @author Philip Helger
  */
-public class SimpleGraphObjectFastFactory implements IGraphObjectFactory
+public class SimpleGraphObjectFastFactory implements IMutableGraphObjectFactory
 {
   @Nonnull
   public IMutableGraphNode createNode ()
@@ -46,15 +46,16 @@ public class SimpleGraphObjectFastFactory implements IGraphObjectFactory
   }
 
   @Nonnull
-  public IMutableGraphRelation createRelation (@Nonnull final IMutableGraphNode aFrom, @Nonnull final IMutableGraphNode aTo)
+  public IMutableGraphRelation createRelation (@Nonnull final IMutableGraphNode aFrom,
+                                               @Nonnull final IMutableGraphNode aTo)
   {
     return new GraphRelationFast (aFrom, aTo);
   }
 
   @Nonnull
   public IMutableGraphRelation createRelation (@Nullable final String sID,
-                                        @Nonnull final IMutableGraphNode aFrom,
-                                        @Nonnull final IMutableGraphNode aTo)
+                                               @Nonnull final IMutableGraphNode aFrom,
+                                               @Nonnull final IMutableGraphNode aTo)
   {
     return new GraphRelationFast (sID, aFrom, aTo);
   }

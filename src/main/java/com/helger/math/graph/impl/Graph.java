@@ -32,7 +32,7 @@ import com.helger.commons.state.EChange;
 import com.helger.commons.state.ETriState;
 import com.helger.math.graph.IMutableGraph;
 import com.helger.math.graph.IMutableGraphNode;
-import com.helger.math.graph.IGraphObjectFactory;
+import com.helger.math.graph.IMutableGraphObjectFactory;
 import com.helger.math.graph.IMutableGraphRelation;
 import com.helger.math.graph.iterate.GraphIterator;
 import com.helger.math.matrix.Matrix;
@@ -43,12 +43,12 @@ import com.helger.math.matrix.Matrix;
  * @author Philip Helger
  */
 @NotThreadSafe
-public class Graph extends AbstractBaseGraph <IMutableGraphNode, IMutableGraphRelation> implements IMutableGraph
+public class Graph extends AbstractBaseGraph <IMutableGraphNode, IMutableGraphRelation>implements IMutableGraph
 {
-  private final IGraphObjectFactory m_aFactory;
+  private final IMutableGraphObjectFactory m_aFactory;
   private ETriState m_eCacheHasCycles = ETriState.UNDEFINED;
 
-  public Graph (@Nullable final String sID, @Nonnull final IGraphObjectFactory aFactory)
+  public Graph (@Nullable final String sID, @Nonnull final IMutableGraphObjectFactory aFactory)
   {
     super (sID);
     if (aFactory == null)
@@ -150,15 +150,16 @@ public class Graph extends AbstractBaseGraph <IMutableGraphNode, IMutableGraphRe
   }
 
   @Nonnull
-  public IMutableGraphRelation createRelation (@Nonnull final IMutableGraphNode aFrom, @Nonnull final IMutableGraphNode aTo)
+  public IMutableGraphRelation createRelation (@Nonnull final IMutableGraphNode aFrom,
+                                               @Nonnull final IMutableGraphNode aTo)
   {
     return _connect (m_aFactory.createRelation (aFrom, aTo));
   }
 
   @Nonnull
   public IMutableGraphRelation createRelation (@Nullable final String sID,
-                                        @Nonnull final IMutableGraphNode aFrom,
-                                        @Nonnull final IMutableGraphNode aTo)
+                                               @Nonnull final IMutableGraphNode aFrom,
+                                               @Nonnull final IMutableGraphNode aTo)
   {
     return _connect (m_aFactory.createRelation (sID, aFrom, aTo));
   }

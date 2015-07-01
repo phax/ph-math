@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * 
  * @author Philip Helger
  */
-public interface IDirectedGraphRelationFactory
+public interface IMutableDirectedGraphRelationFactory
 {
   /**
    * Create a new relation from the passed from-node to the to-node.
@@ -36,7 +36,8 @@ public interface IDirectedGraphRelationFactory
    * @return The created graph relation and never <code>null</code>.
    */
   @Nonnull
-  IMutableDirectedGraphRelation createRelation (@Nonnull IMutableDirectedGraphNode aFrom, @Nonnull IMutableDirectedGraphNode aTo);
+  IMutableDirectedGraphRelation createRelation (@Nonnull IMutableDirectedGraphNode aFrom,
+                                                @Nonnull IMutableDirectedGraphNode aTo);
 
   /**
    * Create a new relation from the passed from-node to the to-node using a
@@ -53,6 +54,6 @@ public interface IDirectedGraphRelationFactory
    */
   @Nonnull
   IMutableDirectedGraphRelation createRelation (@Nullable String sID,
-                                         @Nonnull IMutableDirectedGraphNode aFrom,
-                                         @Nonnull IMutableDirectedGraphNode aTo);
+                                                @Nonnull IMutableDirectedGraphNode aFrom,
+                                                @Nonnull IMutableDirectedGraphNode aTo);
 }

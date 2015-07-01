@@ -28,7 +28,7 @@ public class InterpolationPolynomial implements IEvaluatable
   /** array of data points */
   private final DataPoint [] m_aData;
   /** divided difference table */
-  private final float [][] m_aDivDiff;
+  private final float [] [] m_aDivDiff;
 
   /**
    * Constructor.
@@ -77,7 +77,7 @@ public class InterpolationPolynomial implements IEvaluatable
    * @return the table
    */
   @SuppressFBWarnings ("EI_EXPOSE_REP")
-  public float [][] getDividedDifferenceTable ()
+  public float [] [] getDividedDifferenceTable ()
   {
     return m_aDivDiff;
   }

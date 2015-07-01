@@ -27,12 +27,12 @@ import java.util.NoSuchElementException;
 import org.junit.Test;
 
 import com.helger.math.graph.AbstractGraphTestCase;
+import com.helger.math.graph.IMutableDirectedGraph;
 import com.helger.math.graph.IMutableDirectedGraphNode;
-import com.helger.math.graph.IDirectedGraph;
 
 /**
  * Test class for class {@link DirectedGraphIteratorForward}.
- * 
+ *
  * @author Philip Helger
  */
 public final class DirectedGraphIteratorForwardTest extends AbstractGraphTestCase
@@ -58,7 +58,7 @@ public final class DirectedGraphIteratorForwardTest extends AbstractGraphTestCas
     catch (final NullPointerException ex)
     {}
 
-    final IDirectedGraph aGraph = _buildDirectedGraph ();
+    final IMutableDirectedGraph aGraph = _buildDirectedGraph ();
     final IMutableDirectedGraphNode aStart = aGraph.getSingleStartNode ();
     assertEquals (aStart.getID (), "0");
     final DirectedGraphIteratorForward it = new DirectedGraphIteratorForward (aStart);
@@ -98,7 +98,7 @@ public final class DirectedGraphIteratorForwardTest extends AbstractGraphTestCas
   @Test
   public void testStartIteratingInTheMiddleOneWay ()
   {
-    final IDirectedGraph aGraph = _buildDirectedGraph ();
+    final IMutableDirectedGraph aGraph = _buildDirectedGraph ();
     final IMutableDirectedGraphNode aStartNode = aGraph.getNodeOfID ("1");
     final DirectedGraphIteratorForward it = new DirectedGraphIteratorForward (aStartNode);
     assertTrue (it.hasNext ());
@@ -115,7 +115,7 @@ public final class DirectedGraphIteratorForwardTest extends AbstractGraphTestCas
   @Test
   public void testStartIteratingInTheMiddleTwoWays ()
   {
-    final IDirectedGraph aGraph = _buildDirectedGraph ();
+    final IMutableDirectedGraph aGraph = _buildDirectedGraph ();
     final IMutableDirectedGraphNode aStartNode = aGraph.getNodeOfID ("5");
     final DirectedGraphIteratorForward it = new DirectedGraphIteratorForward (aStartNode);
     assertTrue (it.hasNext ());
@@ -132,7 +132,7 @@ public final class DirectedGraphIteratorForwardTest extends AbstractGraphTestCas
   @Test
   public void testCycleIterate1 ()
   {
-    final IDirectedGraph aGraph = _buildSimpleDirectedGraphCycle ();
+    final IMutableDirectedGraph aGraph = _buildSimpleDirectedGraphCycle ();
     final DirectedGraphIteratorForward it = new DirectedGraphIteratorForward (aGraph.getNodeOfID ("0"));
     assertTrue (it.hasNext ());
     // first item has ID 0 and value 1
@@ -146,7 +146,7 @@ public final class DirectedGraphIteratorForwardTest extends AbstractGraphTestCas
   @Test
   public void testCycleIterate2 ()
   {
-    final IDirectedGraph aGraph = _buildSimpleDirectedGraphCycle2 ();
+    final IMutableDirectedGraph aGraph = _buildSimpleDirectedGraphCycle2 ();
     final DirectedGraphIteratorForward it = new DirectedGraphIteratorForward (aGraph.getNodeOfID ("0"));
     assertNotNull (it.iterator ());
     assertTrue (it.hasNext ());

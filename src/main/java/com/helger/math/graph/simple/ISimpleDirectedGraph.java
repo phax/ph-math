@@ -58,6 +58,6 @@ public interface ISimpleDirectedGraph extends IMutableDirectedGraph
    */
   @Nonnull
   IMutableDirectedGraphRelation createRelation (@Nonnull @Nonempty String sRelationID,
-                                         @Nonnull String sFromNodeID,
-                                         @Nonnull String sToNodeID);
+                                                @Nonnull String sFromNodeID,
+                                                @Nonnull String sToNodeID);
 }

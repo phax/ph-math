@@ -24,8 +24,8 @@ import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.math.graph.IMutableGraphNode;
 
 /**
- * Implementation of {@link com.helger.math.graph.IMutableGraphRelation} interface with
- * quick and dirty equals and hashCode (on ID only)
+ * Implementation of {@link com.helger.math.graph.IMutableGraphRelation}
+ * interface with quick and dirty equals and hashCode (on ID only)
  * 
  * @author Philip Helger
  */
@@ -39,7 +39,9 @@ public class GraphRelationFast extends GraphRelation
     super (aFrom, aTo);
   }
 
-  public GraphRelationFast (@Nullable final String sID, @Nonnull final IMutableGraphNode aFrom, @Nonnull final IMutableGraphNode aTo)
+  public GraphRelationFast (@Nullable final String sID,
+                            @Nonnull final IMutableGraphNode aFrom,
+                            @Nonnull final IMutableGraphNode aTo)
   {
     super (sID, aFrom, aTo);
   }

@@ -28,7 +28,6 @@ import org.junit.Test;
 import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.math.graph.AbstractGraphTestCase;
 import com.helger.math.graph.IMutableGraphNode;
-import com.helger.math.graph.IGraph;
 import com.helger.math.graph.impl.GraphNode;
 import com.helger.math.matrix.Matrix;
 
@@ -42,7 +41,7 @@ public final class SimpleGraphTest extends AbstractGraphTestCase
   @Test
   public void testCtor ()
   {
-    final IGraph sg = new SimpleGraph ();
+    final SimpleGraph sg = new SimpleGraph ();
     assertTrue (sg.getAllNodes ().isEmpty ());
     assertTrue (sg.getAllRelations ().isEmpty ());
     assertNotNull (sg.toString ());

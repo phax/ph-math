@@ -53,7 +53,7 @@ public class SquareMatrix extends Matrix
    * @param values
    *        the array of values
    */
-  public SquareMatrix (final float values [][])
+  public SquareMatrix (final float values[][])
   {
     set (values);
   }
@@ -84,7 +84,7 @@ public class SquareMatrix extends Matrix
    *        the 2-d array of values
    */
   @Override
-  protected void set (final float values [][])
+  protected void set (final float values[][])
   {
     super.set (values);
     m_nRows = m_nCols = Math.min (m_nRows, m_nCols);

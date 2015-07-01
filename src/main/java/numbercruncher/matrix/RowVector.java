@@ -39,7 +39,7 @@ public class RowVector extends Matrix
    * @param values
    *        the array of values
    */
-  public RowVector (final float values [])
+  public RowVector (final float values[])
   {
     set (values);
   }
@@ -72,7 +72,7 @@ public class RowVector extends Matrix
   @ReturnsMutableCopy
   public float [] copyValues1D ()
   {
-    final float v [] = new float [m_nCols];
+    final float v[] = new float [m_nCols];
     for (int c = 0; c < m_nCols; ++c)
       v[c] = m_aValues[0][c];
     return v;
@@ -113,7 +113,7 @@ public class RowVector extends Matrix
    * @param values
    *        the array of values
    */
-  protected void set (final float values [])
+  protected void set (final float values[])
   {
     m_nRows = 1;
     m_nCols = values.length;

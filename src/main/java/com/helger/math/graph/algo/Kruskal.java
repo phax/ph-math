@@ -108,14 +108,14 @@ public final class Kruskal
     if (GlobalDebug.isDebugMode ())
       s_aLogger.info ("Starting Kruskal on " + aAllRelations.size () + " relations");
     final List <IMutableGraphRelation> aSortedRelations = CollectionHelper.getSorted (aAllRelations,
-                                                                               new AbstractDoubleComparator <IMutableGraphRelation> ()
-                                                                               {
-                                                                                 @Override
-                                                                                 protected double getAsDouble (final IMutableGraphRelation aObject)
-                                                                                 {
-                                                                                   return aObject.getAttributeAsInt (sRelationCostAttr);
-                                                                                 }
-                                                                               });
+                                                                                      new AbstractDoubleComparator <IMutableGraphRelation> ()
+                                                                                      {
+                                                                                        @Override
+                                                                                        protected double getAsDouble (final IMutableGraphRelation aObject)
+                                                                                        {
+                                                                                          return aObject.getAttributeAsInt (sRelationCostAttr);
+                                                                                        }
+                                                                                      });
 
     if (GlobalDebug.isDebugMode ())
     {

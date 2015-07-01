@@ -34,7 +34,8 @@ public class DirectedGraphRelationFast extends DirectedGraphRelation
 {
   private Integer m_aHashCode;
 
-  public DirectedGraphRelationFast (@Nonnull final IMutableDirectedGraphNode aFrom, @Nonnull final IMutableDirectedGraphNode aTo)
+  public DirectedGraphRelationFast (@Nonnull final IMutableDirectedGraphNode aFrom,
+                                    @Nonnull final IMutableDirectedGraphNode aTo)
   {
     super (aFrom, aTo);
   }

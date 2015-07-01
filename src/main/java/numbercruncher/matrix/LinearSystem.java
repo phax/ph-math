@@ -28,6 +28,7 @@ public class LinearSystem extends SquareMatrix
 
   /** max iters for improvement = twice # of significant digits */
   private static final int MAX_ITER;
+
   static
   {
     int i = 0;
@@ -65,7 +66,7 @@ public class LinearSystem extends SquareMatrix
    * @param values
    *        the array of values
    */
-  public LinearSystem (final float values [][])
+  public LinearSystem (final float values[][])
   {
     super (values);
   }
@@ -77,7 +78,7 @@ public class LinearSystem extends SquareMatrix
    *        the 2-d array of values
    */
   @Override
-  protected void set (final float values [][])
+  protected void set (final float values[][])
   {
     super.set (values);
     reset ();
@@ -226,7 +227,7 @@ public class LinearSystem extends SquareMatrix
     m_aLU = new SquareMatrix (this.copyValues2D ());
     m_aPermutation = new int [m_nRows];
 
-    final float scales [] = new float [m_nRows];
+    final float scales[] = new float [m_nRows];
 
     // Loop to initialize the permutation vector and scales.
     for (int r = 0; r < m_nRows; ++r)
@@ -270,7 +271,7 @@ public class LinearSystem extends SquareMatrix
    * @throws MatrixException
    *         for a singular matrix
    */
-  private void _forwardElimination (final float scales []) throws MatrixException
+  private void _forwardElimination (final float scales[]) throws MatrixException
   {
     // Loop once per pivot row 0..nRows-1.
     for (int rPivot = 0; rPivot < m_nRows - 1; ++rPivot)

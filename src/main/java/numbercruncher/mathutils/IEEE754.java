@@ -74,7 +74,7 @@ public class IEEE754
   public IEEE754 (final float value)
   {
     // Convert the value to a character array of '0' and '1'.
-    final char bits [] = _toCharBitArray (Float.floatToIntBits (value), 32);
+    final char bits[] = _toCharBitArray (Float.floatToIntBits (value), 32);
 
     m_fFloatValue = value;
     m_bIsDouble = false;
@@ -99,7 +99,7 @@ public class IEEE754
   public IEEE754 (final double value)
   {
     // Convert the value to a character array of '0' and '1'.
-    final char bits [] = _toCharBitArray (Double.doubleToLongBits (value), 64);
+    final char bits[] = _toCharBitArray (Double.doubleToLongBits (value), 64);
 
     m_dDoubleValue = value;
     m_bIsDouble = true;
@@ -152,7 +152,7 @@ public class IEEE754
     m_bIsDouble = false;
 
     // Convert the value to a character array of '0' and '1'.
-    final char bits [] = _toCharBitArray (intBits, 32);
+    final char bits[] = _toCharBitArray (intBits, 32);
 
     _decompose (bits,
                 IEEE754Constants.FLOAT_EXPONENT_BIAS,
@@ -202,7 +202,7 @@ public class IEEE754
     m_bIsDouble = true;
 
     // Convert the value to a character array of '0' and '1'.
-    final char bits [] = _toCharBitArray (longBits, 64);
+    final char bits[] = _toCharBitArray (longBits, 64);
 
     _decompose (bits,
                 IEEE754Constants.DOUBLE_EXPONENT_BIAS,
@@ -356,7 +356,7 @@ public class IEEE754
   private static char [] _toCharBitArray (final long pvalue, final int size)
   {
     long value = pvalue;
-    final char bits [] = new char [size];
+    final char bits[] = new char [size];
 
     // Convert each bit from right to left.
     for (int i = size - 1; i >= 0; --i)

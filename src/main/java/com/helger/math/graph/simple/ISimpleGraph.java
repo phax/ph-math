@@ -58,6 +58,6 @@ public interface ISimpleGraph extends IMutableGraph
    */
   @Nonnull
   IMutableGraphRelation createRelation (@Nonnull @Nonempty String sRelationID,
-                                 @Nonnull String sFromNodeID,
-                                 @Nonnull String sToNodeID);
+                                        @Nonnull String sFromNodeID,
+                                        @Nonnull String sToNodeID);
 }

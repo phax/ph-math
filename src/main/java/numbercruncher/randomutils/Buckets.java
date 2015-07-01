@@ -30,7 +30,7 @@ public class Buckets
   /** number of intervals */
   private final int m_n;
   /** counters per interval */
-  private final int m_aCounters [];
+  private final int m_aCounters[];
 
   /** minimum random value */
   private float m_fMin;

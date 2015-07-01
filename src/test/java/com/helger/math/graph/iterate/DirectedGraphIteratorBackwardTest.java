@@ -27,12 +27,12 @@ import java.util.NoSuchElementException;
 import org.junit.Test;
 
 import com.helger.math.graph.AbstractGraphTestCase;
+import com.helger.math.graph.IMutableDirectedGraph;
 import com.helger.math.graph.IMutableDirectedGraphNode;
-import com.helger.math.graph.IDirectedGraph;
 
 /**
  * Test class for class {@link DirectedGraphIteratorBackward}.
- * 
+ *
  * @author Philip Helger
  */
 public final class DirectedGraphIteratorBackwardTest extends AbstractGraphTestCase
@@ -49,7 +49,7 @@ public final class DirectedGraphIteratorBackwardTest extends AbstractGraphTestCa
     catch (final NullPointerException ex)
     {}
 
-    final IDirectedGraph aGraph = _buildDirectedGraph ();
+    final IMutableDirectedGraph aGraph = _buildDirectedGraph ();
     final IMutableDirectedGraphNode aEnd = aGraph.getSingleEndNode ();
     assertEquals (aEnd.getID (), "4");
     final DirectedGraphIteratorBackward it = new DirectedGraphIteratorBackward (aEnd);
@@ -89,7 +89,7 @@ public final class DirectedGraphIteratorBackwardTest extends AbstractGraphTestCa
   @Test
   public void testStartIteratingInTheMiddleOneWay ()
   {
-    final IDirectedGraph aGraph = _buildDirectedGraph ();
+    final IMutableDirectedGraph aGraph = _buildDirectedGraph ();
     final IMutableDirectedGraphNode aEndNode = aGraph.getNodeOfID ("5");
     final DirectedGraphIteratorBackward it = new DirectedGraphIteratorBackward (aEndNode);
     assertTrue (it.hasNext ());
@@ -102,7 +102,7 @@ public final class DirectedGraphIteratorBackwardTest extends AbstractGraphTestCa
   @Test
   public void testStartIteratingInTheMiddleTwoWays ()
   {
-    final IDirectedGraph aGraph = _buildDirectedGraph ();
+    final IMutableDirectedGraph aGraph = _buildDirectedGraph ();
     final IMutableDirectedGraphNode aStartNode = aGraph.getNodeOfID ("3");
     final DirectedGraphIteratorBackward it = new DirectedGraphIteratorBackward (aStartNode);
     assertTrue (it.hasNext ());
@@ -123,7 +123,7 @@ public final class DirectedGraphIteratorBackwardTest extends AbstractGraphTestCa
   @Test
   public void testCycleIterate1 ()
   {
-    final IDirectedGraph aGraph = _buildSimpleDirectedGraphCycle ();
+    final IMutableDirectedGraph aGraph = _buildSimpleDirectedGraphCycle ();
     final DirectedGraphIteratorBackward it = new DirectedGraphIteratorBackward (aGraph.getNodeOfID ("0"));
     assertTrue (it.hasNext ());
     // first item has ID 0 and value 1
@@ -137,7 +137,7 @@ public final class DirectedGraphIteratorBackwardTest extends AbstractGraphTestCa
   @Test
   public void testCycleIterate2 ()
   {
-    final IDirectedGraph aGraph = _buildSimpleDirectedGraphCycle2 ();
+    final IMutableDirectedGraph aGraph = _buildSimpleDirectedGraphCycle2 ();
     final DirectedGraphIteratorBackward it = new DirectedGraphIteratorBackward (aGraph.getNodeOfID ("3"));
     assertNotNull (it.iterator ());
     assertTrue (it.hasNext ());

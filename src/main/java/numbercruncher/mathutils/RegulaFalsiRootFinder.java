@@ -52,7 +52,9 @@ public class RegulaFalsiRootFinder extends AbstractRootFinder
    *        the initial x-value where the function is positive
    * @throws AbstractRootFinder.InvalidIntervalException
    */
-  public RegulaFalsiRootFinder (final AbstractFunction function, final float xMin, final float xMax) throws AbstractRootFinder.InvalidIntervalException
+  public RegulaFalsiRootFinder (final AbstractFunction function,
+                                final float xMin,
+                                final float xMax) throws AbstractRootFinder.InvalidIntervalException
   {
     super (function, MAX_ITERS);
     checkInterval (xMin, xMax);

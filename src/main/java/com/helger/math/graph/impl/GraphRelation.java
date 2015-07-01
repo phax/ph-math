@@ -45,7 +45,9 @@ public class GraphRelation extends AbstractBaseGraphObject implements IMutableGr
     this (null, aNode1, aNode2);
   }
 
-  public GraphRelation (@Nullable final String sID, @Nonnull final IMutableGraphNode aNode1, @Nonnull final IMutableGraphNode aNode2)
+  public GraphRelation (@Nullable final String sID,
+                        @Nonnull final IMutableGraphNode aNode1,
+                        @Nonnull final IMutableGraphNode aNode2)
   {
     super (sID);
     if (aNode1 == null)

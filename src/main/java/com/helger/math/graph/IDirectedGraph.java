@@ -23,51 +23,55 @@ import javax.annotation.Nonnull;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 
 /**
- * Base interface for a read-only directed graph.
- * 
+ * Interface for a directed graph.
+ *
  * @author Philip Helger
+ * @param <N>
+ *        Directed node class
+ * @param <R>
+ *        Directed relation class
  */
-public interface IDirectedGraph extends IBaseGraph <IMutableDirectedGraphNode, IMutableDirectedGraphRelation>
+public interface IDirectedGraph <N extends IDirectedGraphNode <N, R>, R extends IDirectedGraphRelation <N, R>> extends IBaseGraph <N, R>
 {
   /**
    * Try to retrieve the single start node of this graph. A start node is
    * identified by having no incoming relations.
-   * 
+   *
    * @return The single start node and never <code>null</code>.
    * @throws IllegalStateException
    *         In case the graph has no or more than one start node.
    */
   @Nonnull
-  IMutableDirectedGraphNode getSingleStartNode () throws IllegalStateException;
+  N getSingleStartNode () throws IllegalStateException;
 
   /**
    * Get all start nodes of this graph. Start nodes are identified by having no
    * incoming relations.
-   * 
+   *
    * @return A set with all start nodes. Never <code>null</code>.
    */
   @Nonnull
   @ReturnsMutableCopy
-  Set <IMutableDirectedGraphNode> getAllStartNodes ();
+  Set <N> getAllStartNodes ();
 
   /**
    * Try to retrieve the single end node of this graph. An end node is
    * identified by having no outgoing relations.
-   * 
+   *
    * @return The single end node and never <code>null</code>.
    * @throws IllegalStateException
    *         In case the graph has no or more than one end node.
    */
   @Nonnull
-  IMutableDirectedGraphNode getSingleEndNode () throws IllegalStateException;
+  N getSingleEndNode () throws IllegalStateException;
 
   /**
    * Get all end nodes of this graph. End nodes are identified by having no
    * outgoing relations.
-   * 
+   *
    * @return A set with all end nodes. Never <code>null</code>.
    */
   @Nonnull
   @ReturnsMutableCopy
-  Set <IMutableDirectedGraphNode> getAllEndNodes ();
+  Set <N> getAllEndNodes ();
 }

@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * 
  * @author Philip Helger
  */
-public interface IGraphRelationFactory
+public interface IMutableGraphRelationFactory
 {
   /**
    * Create a new relation from the passed from-node to the to-node.
@@ -52,5 +52,7 @@ public interface IGraphRelationFactory
    * @return The created graph relation and never <code>null</code>.
    */
   @Nonnull
-  IMutableGraphRelation createRelation (@Nullable String sID, @Nonnull IMutableGraphNode aFrom, @Nonnull IMutableGraphNode aTo);
+  IMutableGraphRelation createRelation (@Nullable String sID,
+                                        @Nonnull IMutableGraphNode aFrom,
+                                        @Nonnull IMutableGraphNode aTo);
 }

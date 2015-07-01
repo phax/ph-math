@@ -16,15 +16,9 @@
  */
 package com.helger.math.graph;
 
-import java.util.List;
-import java.util.Set;
-
-import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
-import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.state.EChange;
 
 /**
@@ -33,7 +27,7 @@ import com.helger.commons.state.EChange;
  * @author Philip Helger
  */
 @MustImplementEqualsAndHashcode
-public interface IMutableDirectedGraphNode extends IMutableBaseGraphNode <IMutableDirectedGraphNode, IMutableDirectedGraphRelation>
+public interface IMutableDirectedGraphNode extends IMutableBaseGraphNode <IMutableDirectedGraphNode, IMutableDirectedGraphRelation>, IDirectedGraphNode <IMutableDirectedGraphNode, IMutableDirectedGraphRelation>
 {
   /**
    * Add a new incoming relation to this node
@@ -42,34 +36,6 @@ public interface IMutableDirectedGraphNode extends IMutableBaseGraphNode <IMutab
    *        The relation to be added. May not be <code>null</code>.
    */
   void addIncomingRelation (@Nonnull IMutableDirectedGraphRelation aRelation);
-
-  /**
-   * @return <code>true</code> if this node has at least one incoming relation.
-   */
-  boolean hasIncomingRelations ();
-
-  /**
-   * @return The number of incoming relations. Always &ge; 0.
-   */
-  @Nonnegative
-  int getIncomingRelationCount ();
-
-  /**
-   * Check if this node has the passed relation as an incoming relations.
-   *
-   * @param aRelation
-   *        The relation to be checked. May be <code>null</code>.
-   * @return <code>true</code> if the passed relation is an incoming relation,
-   *         <code>false</code> if not
-   */
-  boolean isIncomingRelation (@Nullable IMutableDirectedGraphRelation aRelation);
-
-  /**
-   * @return All incoming relations and never <code>null</code>.
-   */
-  @Nonnull
-  @ReturnsMutableCopy
-  List <IMutableDirectedGraphRelation> getAllIncomingRelations ();
 
   /**
    * Remove the passed relation from the set of incoming relations.
@@ -91,34 +57,6 @@ public interface IMutableDirectedGraphNode extends IMutableBaseGraphNode <IMutab
   @Nonnull
   EChange removeAllIncomingRelations ();
 
-  /**
-   * Check if this graph node is directly connected to the passed node via an
-   * incoming relation.
-   *
-   * @param aNode
-   *        The node to be checked. May be <code>null</code>.
-   * @return <code>true</code> if is connected, <code>false</code> if not
-   */
-  boolean isFromNode (@Nullable IMutableDirectedGraphNode aNode);
-
-  /**
-   * @return All nodes that are connected via incoming relations.
-   */
-  @Nonnull
-  @ReturnsMutableCopy
-  Set <IMutableDirectedGraphNode> getAllFromNodes ();
-
-  /**
-   * Find the incoming relation from the passed node to this node.
-   *
-   * @param aFromNode
-   *        The from node to use. May be <code>null</code>.
-   * @return <code>null</code> if there exists no incoming relation from the
-   *         passed node to this node.
-   */
-  @Nullable
-  IMutableDirectedGraphRelation getIncomingRelationFrom (@Nullable IMutableDirectedGraphNode aFromNode);
-
   // --- outgoing ---
 
   /**
@@ -128,34 +66,6 @@ public interface IMutableDirectedGraphNode extends IMutableBaseGraphNode <IMutab
    *        The relation to be added. May not be <code>null</code>.
    */
   void addOutgoingRelation (@Nonnull IMutableDirectedGraphRelation aRelation);
-
-  /**
-   * @return <code>true</code> if this node has at least one outgoing relation.
-   */
-  boolean hasOutgoingRelations ();
-
-  /**
-   * @return The number of outgoing relations. Always &ge; 0.
-   */
-  @Nonnegative
-  int getOutgoingRelationCount ();
-
-  /**
-   * Check if this node has the passed relation as an outgoing relations.
-   *
-   * @param aRelation
-   *        The relation to be checked. May be <code>null</code>.
-   * @return <code>true</code> if the passed relation is an outgoing relation,
-   *         <code>false</code> if not
-   */
-  boolean isOutgoingRelation (@Nullable IMutableDirectedGraphRelation aRelation);
-
-  /**
-   * @return All outgoing relations and never <code>null</code>.
-   */
-  @Nonnull
-  @ReturnsMutableCopy
-  List <IMutableDirectedGraphRelation> getAllOutgoingRelations ();
 
   /**
    * Remove the passed relation from the set of outgoing relations.
@@ -177,52 +87,6 @@ public interface IMutableDirectedGraphNode extends IMutableBaseGraphNode <IMutab
   @Nonnull
   EChange removeAllOutgoingRelations ();
 
-  /**
-   * Check if this graph node is directly connected to the passed node via an
-   * outgoing relation.
-   *
-   * @param aNode
-   *        The node to be checked. May be <code>null</code>.
-   * @return <code>true</code> if is connected, <code>false</code> if not
-   */
-  boolean isToNode (@Nullable IMutableDirectedGraphNode aNode);
-
-  /**
-   * @return All nodes that are connected via outgoing relations.
-   */
-  @Nonnull
-  @ReturnsMutableCopy
-  Set <IMutableDirectedGraphNode> getAllToNodes ();
-
-  /**
-   * Find the incoming relation from this node to the passed node.
-   *
-   * @param aToNode
-   *        The to node to use. May be <code>null</code>.
-   * @return <code>null</code> if there exists no incoming relation from this
-   *         node to the passed node.
-   */
-  @Nullable
-  IMutableDirectedGraphRelation getOutgoingRelationTo (@Nullable IMutableDirectedGraphNode aToNode);
-
   // --- incoming and/or outgoing
 
-  /**
-   * Check if this node has incoming <b>or</b> outgoing relations. This is equal
-   * to calling <code>hasIncomingRelations() || hasOutgoingRelations()</code>
-   *
-   * @return <code>true</code> if this node has at least one incoming or
-   *         outgoing relation.
-   */
-  boolean hasIncomingOrOutgoingRelations ();
-
-  /**
-   * Check if this node has incoming <b>and</b> outgoing relations. This is
-   * equal to calling
-   * <code>hasIncomingRelations() &amp;&amp; hasOutgoingRelations()</code>
-   *
-   * @return <code>true</code> if this node has at least one incoming and at
-   *         least one outgoing relation.
-   */
-  boolean hasIncomingAndOutgoingRelations ();
 }

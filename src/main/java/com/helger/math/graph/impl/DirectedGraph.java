@@ -33,7 +33,7 @@ import com.helger.commons.state.EChange;
 import com.helger.commons.state.ETriState;
 import com.helger.math.graph.IMutableDirectedGraph;
 import com.helger.math.graph.IMutableDirectedGraphNode;
-import com.helger.math.graph.IDirectedGraphObjectFactory;
+import com.helger.math.graph.IMutableDirectedGraphObjectFactory;
 import com.helger.math.graph.IMutableDirectedGraphRelation;
 import com.helger.math.graph.iterate.DirectedGraphIteratorForward;
 import com.helger.math.matrix.Matrix;
@@ -44,12 +44,12 @@ import com.helger.math.matrix.Matrix;
  * @author Philip Helger
  */
 @NotThreadSafe
-public class DirectedGraph extends AbstractBaseGraph <IMutableDirectedGraphNode, IMutableDirectedGraphRelation> implements IMutableDirectedGraph
+public class DirectedGraph extends AbstractBaseGraph <IMutableDirectedGraphNode, IMutableDirectedGraphRelation>implements IMutableDirectedGraph
 {
-  private final IDirectedGraphObjectFactory m_aFactory;
+  private final IMutableDirectedGraphObjectFactory m_aFactory;
   private ETriState m_eCacheHasCycles = ETriState.UNDEFINED;
 
-  public DirectedGraph (@Nullable final String sID, @Nonnull final IDirectedGraphObjectFactory aFactory)
+  public DirectedGraph (@Nullable final String sID, @Nonnull final IMutableDirectedGraphObjectFactory aFactory)
   {
     super (sID);
     ValueEnforcer.notNull (aFactory, "Factory");
@@ -147,15 +147,15 @@ public class DirectedGraph extends AbstractBaseGraph <IMutableDirectedGraphNode,
 
   @Nonnull
   public IMutableDirectedGraphRelation createRelation (@Nonnull final IMutableDirectedGraphNode aFrom,
-                                                @Nonnull final IMutableDirectedGraphNode aTo)
+                                                       @Nonnull final IMutableDirectedGraphNode aTo)
   {
     return _connect (m_aFactory.createRelation (aFrom, aTo));
   }
 
   @Nonnull
   public IMutableDirectedGraphRelation createRelation (@Nullable final String sID,
-                                                @Nonnull final IMutableDirectedGraphNode aFrom,
-                                                @Nonnull final IMutableDirectedGraphNode aTo)
+                                                       @Nonnull final IMutableDirectedGraphNode aFrom,
+                                                       @Nonnull final IMutableDirectedGraphNode aTo)
   {
     return _connect (m_aFactory.createRelation (sID, aFrom, aTo));
   }

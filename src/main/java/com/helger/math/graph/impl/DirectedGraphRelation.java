@@ -41,7 +41,8 @@ public class DirectedGraphRelation extends AbstractBaseGraphObject implements IM
   private final IMutableDirectedGraphNode m_aFrom;
   private final IMutableDirectedGraphNode m_aTo;
 
-  public DirectedGraphRelation (@Nonnull final IMutableDirectedGraphNode aFrom, @Nonnull final IMutableDirectedGraphNode aTo)
+  public DirectedGraphRelation (@Nonnull final IMutableDirectedGraphNode aFrom,
+                                @Nonnull final IMutableDirectedGraphNode aTo)
   {
     this (null, aFrom, aTo);
   }

@@ -73,14 +73,14 @@ public class EigenvalueDecomposition implements Serializable
    *
    * @serial internal storage of eigenvectors.
    */
-  private final double [][] m_aEigenVector;
+  private final double [] [] m_aEigenVector;
 
   /**
    * Array for internal storage of nonsymmetric Hessenberg form.
    *
    * @serial internal storage of nonsymmetric Hessenberg form.
    */
-  private double [][] m_aHessenBerg;
+  private double [] [] m_aHessenBerg;
 
   /**
    * Working storage for nonsymmetric algorithm.
@@ -678,9 +678,13 @@ public class EigenvalueDecomposition implements Serializable
             r /= s;
             if (m == l)
               break;
-            if (MathHelper.abs (m_aHessenBerg[m][m - 1]) * (MathHelper.abs (q) + MathHelper.abs (r)) < EPSILON *
-                                                                                                       (MathHelper.abs (p) * (MathHelper.abs (m_aHessenBerg[m - 1][m - 1]) +
-                                                                                                                              MathHelper.abs (z) + MathHelper.abs (m_aHessenBerg[m + 1][m + 1]))))
+            if (MathHelper.abs (m_aHessenBerg[m][m - 1]) *
+                (MathHelper.abs (q) +
+                 MathHelper.abs (r)) < EPSILON *
+                                       (MathHelper.abs (p) *
+                                        (MathHelper.abs (m_aHessenBerg[m - 1][m - 1]) +
+                                         MathHelper.abs (z) +
+                                         MathHelper.abs (m_aHessenBerg[m + 1][m + 1]))))
             {
               break;
             }
@@ -926,7 +930,11 @@ public class EigenvalueDecomposition implements Serializable
                 {
                   vr = EPSILON *
                        norm *
-                       (MathHelper.abs (w) + MathHelper.abs (q) + MathHelper.abs (x) + MathHelper.abs (y) + MathHelper.abs (z));
+                       (MathHelper.abs (w) +
+                        MathHelper.abs (q) +
+                        MathHelper.abs (x) +
+                        MathHelper.abs (y) +
+                        MathHelper.abs (z));
                 }
                 _cdiv (x * r - z * ra + q * sa, x * s - z * sa - q * ra, vr, vi);
                 m_aHessenBerg[i][n - 1] = m_dCdivr;
@@ -998,7 +1006,7 @@ public class EigenvalueDecomposition implements Serializable
    */
   public EigenvalueDecomposition (@Nonnull final Matrix aMatrix)
   {
-    final double [][] aArray = aMatrix.internalGetArray ();
+    final double [] [] aArray = aMatrix.internalGetArray ();
     m_nDim = aMatrix.getColumnDimension ();
     m_aEigenVector = new double [m_nDim] [m_nDim];
     m_aEVd = new double [m_nDim];
@@ -1108,7 +1116,7 @@ public class EigenvalueDecomposition implements Serializable
   public Matrix getD ()
   {
     final Matrix aNewMatrix = new Matrix (m_nDim, m_nDim);
-    final double [][] aNewArray = aNewMatrix.internalGetArray ();
+    final double [] [] aNewArray = aNewMatrix.internalGetArray ();
     for (int nRow = 0; nRow < m_nDim; nRow++)
     {
       final double [] aDstRow = aNewArray[nRow];

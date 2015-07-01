@@ -21,7 +21,7 @@ import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.annotation.Nonempty;
 import com.helger.math.graph.IMutableDirectedGraphNode;
-import com.helger.math.graph.IDirectedGraphObjectFactory;
+import com.helger.math.graph.IMutableDirectedGraphObjectFactory;
 import com.helger.math.graph.IMutableDirectedGraphRelation;
 import com.helger.math.graph.impl.DirectedGraph;
 
@@ -38,13 +38,14 @@ public class SimpleDirectedGraph extends DirectedGraph implements ISimpleDirecte
     this (new SimpleDirectedGraphObjectFactory ());
   }
 
-  public SimpleDirectedGraph (@Nonnull final IDirectedGraphObjectFactory aFactory)
+  public SimpleDirectedGraph (@Nonnull final IMutableDirectedGraphObjectFactory aFactory)
   {
     super (null, aFactory);
   }
 
   @Nonnull
-  public IMutableDirectedGraphRelation createRelation (@Nonnull final String sFromNodeID, @Nonnull final String sToNodeID)
+  public IMutableDirectedGraphRelation createRelation (@Nonnull final String sFromNodeID,
+                                                       @Nonnull final String sToNodeID)
   {
     final IMutableDirectedGraphNode aFromNode = getNodeOfID (sFromNodeID);
     if (aFromNode == null)
@@ -57,8 +58,8 @@ public class SimpleDirectedGraph extends DirectedGraph implements ISimpleDirecte
 
   @Nonnull
   public IMutableDirectedGraphRelation createRelation (@Nonnull @Nonempty final String sRelationID,
-                                                @Nonnull final String sFromNodeID,
-                                                @Nonnull final String sToNodeID)
+                                                       @Nonnull final String sFromNodeID,
+                                                       @Nonnull final String sToNodeID)
   {
     final IMutableDirectedGraphNode aFromNode = getNodeOfID (sFromNodeID);
     if (aFromNode == null)

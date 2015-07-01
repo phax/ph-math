@@ -76,7 +76,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  * <DD>Solve a linear system A x = b and compute the residual norm, ||b - A x||.
  *
  * <PRE>
- * double [][] vals = { { 1., 2., 3 }, { 4., 5., 6. }, { 7., 8., 10. } };
+ * double [] [] vals = { { 1., 2., 3 }, { 4., 5., 6. }, { 7., 8., 10. } };
  * Matrix A = new Matrix (vals);
  * Matrix b = Matrix.random (3, 1);
  * Matrix x = A.solve (b);
@@ -98,7 +98,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
    *
    * @serial internal array storage.
    */
-  private final double [][] m_aData;
+  private final double [] [] m_aData;
 
   /**
    * Row dimensions.
@@ -160,7 +160,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
    * @see #constructWithCopy
    */
   @SuppressFBWarnings ("EI_EXPOSE_REP")
-  Matrix (@Nonnull final double [][] aOther)
+  Matrix (@Nonnull final double [] [] aOther)
   {
     if (aOther == null)
       throw new NullPointerException ("other");
@@ -188,7 +188,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
    *        Number of columns.
    */
   @SuppressFBWarnings ("EI_EXPOSE_REP")
-  Matrix (@Nonnull final double [][] aOther, @Nonnegative final int nRows, @Nonnegative final int nCols)
+  Matrix (@Nonnull final double [] [] aOther, @Nonnegative final int nRows, @Nonnegative final int nCols)
   {
     if (aOther == null)
       throw new NullPointerException ("other");
@@ -243,12 +243,12 @@ public class Matrix implements Serializable, ICloneable <Matrix>
    *            All rows must have the same length
    */
   @Nonnull
-  public static Matrix constructWithCopy (@Nonnull final double [][] aArray)
+  public static Matrix constructWithCopy (@Nonnull final double [] [] aArray)
   {
     final int nRows = aArray.length;
     final int nCols = aArray[0].length;
     final Matrix aCopy = new Matrix (nRows, nCols);
-    final double [][] aCopyArray = aCopy.internalGetArray ();
+    final double [] [] aCopyArray = aCopy.internalGetArray ();
     for (int nRow = 0; nRow < nRows; nRow++)
     {
       final double [] aSrcRow = aArray[nRow];
@@ -268,7 +268,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
   public Matrix getClone ()
   {
     final Matrix aCopy = new Matrix (m_nRows, m_nCols);
-    final double [][] aCopyArray = aCopy.m_aData;
+    final double [] [] aCopyArray = aCopy.m_aData;
     for (int nRow = 0; nRow < m_nRows; nRow++)
     {
       final double [] aSrcRow = m_aData[nRow];
@@ -285,7 +285,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
    */
   @SuppressFBWarnings ("EI_EXPOSE_REP")
   @Nonnull
-  public double [][] internalGetArray ()
+  public double [] [] internalGetArray ()
   {
     return m_aData;
   }
@@ -297,9 +297,9 @@ public class Matrix implements Serializable, ICloneable <Matrix>
    */
   @Nonnull
   @ReturnsMutableCopy
-  public double [][] getArrayCopy ()
+  public double [] [] getArrayCopy ()
   {
-    final double [][] aArray = new double [m_nRows] [m_nCols];
+    final double [] [] aArray = new double [m_nRows] [m_nCols];
     for (int nRow = 0; nRow < m_nRows; nRow++)
     {
       final double [] aSrcRow = m_aData[nRow];
@@ -401,9 +401,8 @@ public class Matrix implements Serializable, ICloneable <Matrix>
    *        Initial column index
    * @param nEndColumnIndex
    *        Final column index
-   * @return
-   *         Matrix(nStartRowIndex:nEndRowIndex,nStartColumnIndex:nEndColumnIndex
-   *         )
+   * @return Matrix(nStartRowIndex:nEndRowIndex,nStartColumnIndex:
+   *         nEndColumnIndex )
    * @exception ArrayIndexOutOfBoundsException
    *            Submatrix indices
    */
@@ -415,7 +414,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
                            @Nonnegative final int nEndColumnIndex)
   {
     final Matrix aNewMatrix = new Matrix (nEndRowIndex - nStartRowIndex + 1, nEndColumnIndex - nStartColumnIndex + 1);
-    final double [][] aNewArray = aNewMatrix.internalGetArray ();
+    final double [] [] aNewArray = aNewMatrix.internalGetArray ();
     for (int nRow = nStartRowIndex; nRow <= nEndRowIndex; nRow++)
     {
       final double [] aSrcRow = m_aData[nRow];
@@ -442,7 +441,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
   public Matrix getMatrix (@Nonnull final int [] aRows, @Nonnull final int [] aCols)
   {
     final Matrix aNewMatrix = new Matrix (aRows.length, aCols.length);
-    final double [][] aNewArray = aNewMatrix.internalGetArray ();
+    final double [] [] aNewArray = aNewMatrix.internalGetArray ();
     for (int nRow = 0; nRow < aRows.length; nRow++)
     {
       final int nRowIndex = aRows[nRow];
@@ -474,7 +473,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
                            @Nonnull final int [] aCols)
   {
     final Matrix aNewMatrix = new Matrix (nEndRowIndex - nStartRowIndex + 1, aCols.length);
-    final double [][] aNewArray = aNewMatrix.internalGetArray ();
+    final double [] [] aNewArray = aNewMatrix.internalGetArray ();
     for (int nCol = 0; nCol < aCols.length; nCol++)
     {
       final int nColIndex = aCols[nCol];
@@ -504,7 +503,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
                            @Nonnegative final int nEndColumnIndex)
   {
     final Matrix aNewMatrix = new Matrix (aRows.length, nEndColumnIndex - nStartColumnIndex + 1);
-    final double [][] aNewArray = aNewMatrix.internalGetArray ();
+    final double [] [] aNewArray = aNewMatrix.internalGetArray ();
     for (int nRow = 0; nRow < aRows.length; nRow++)
     {
       final int nRowIndex = aRows[nRow];
@@ -653,7 +652,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
   public Matrix transpose ()
   {
     final Matrix aNewMatrix = new Matrix (m_nCols, m_nRows);
-    final double [][] aNewArray = aNewMatrix.internalGetArray ();
+    final double [] [] aNewArray = aNewMatrix.internalGetArray ();
     for (int nRow = 0; nRow < m_nRows; nRow++)
     {
       final double [] aSrcRow = m_aData[nRow];
@@ -737,7 +736,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
   public Matrix uminus ()
   {
     final Matrix aNewMatrix = new Matrix (m_nRows, m_nCols);
-    final double [][] aNewArray = aNewMatrix.internalGetArray ();
+    final double [] [] aNewArray = aNewMatrix.internalGetArray ();
     for (int nRow = 0; nRow < m_nRows; nRow++)
     {
       final double [] aSrcRow = m_aData[nRow];
@@ -775,7 +774,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
   {
     _checkMatrixDimensions (aMatrix);
     final Matrix aNewMatrix = new Matrix (m_nRows, m_nCols);
-    final double [][] aNewArray = aNewMatrix.internalGetArray ();
+    final double [] [] aNewArray = aNewMatrix.internalGetArray ();
     for (int nRow = 0; nRow < m_nRows; nRow++)
     {
       final double [] aSrcRow1 = m_aData[nRow];
@@ -821,7 +820,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
   {
     _checkMatrixDimensions (aMatrix);
     final Matrix aNewMatrix = new Matrix (m_nRows, m_nCols);
-    final double [][] aNewArray = aNewMatrix.internalGetArray ();
+    final double [] [] aNewArray = aNewMatrix.internalGetArray ();
     for (int nRow = 0; nRow < m_nRows; nRow++)
     {
       final double [] aSrcRow1 = m_aData[nRow];
@@ -867,7 +866,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
   {
     _checkMatrixDimensions (aMatrix);
     final Matrix aNewMatrix = new Matrix (m_nRows, m_nCols);
-    final double [][] aNewArray = aNewMatrix.internalGetArray ();
+    final double [] [] aNewArray = aNewMatrix.internalGetArray ();
     for (int nRow = 0; nRow < m_nRows; nRow++)
     {
       final double [] aSrcRow1 = m_aData[nRow];
@@ -913,7 +912,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
   {
     _checkMatrixDimensions (aMatrix);
     final Matrix aNewMatrix = new Matrix (m_nRows, m_nCols);
-    final double [][] aNewArray = aNewMatrix.internalGetArray ();
+    final double [] [] aNewArray = aNewMatrix.internalGetArray ();
     for (int nRow = 0; nRow < m_nRows; nRow++)
     {
       final double [] aSrcRow1 = m_aData[nRow];
@@ -959,7 +958,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
   {
     _checkMatrixDimensions (aMatrix);
     final Matrix aNewMatrix = new Matrix (m_nRows, m_nCols);
-    final double [][] aNewArray = aNewMatrix.internalGetArray ();
+    final double [] [] aNewArray = aNewMatrix.internalGetArray ();
     for (int nRow = 0; nRow < m_nRows; nRow++)
     {
       final double [] aSrcRow1 = aMatrix.m_aData[nRow];
@@ -1005,7 +1004,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
   public Matrix times (final double s)
   {
     final Matrix aNewMatrix = new Matrix (m_nRows, m_nCols);
-    final double [][] aNewArray = aNewMatrix.internalGetArray ();
+    final double [] [] aNewArray = aNewMatrix.internalGetArray ();
     for (int nRow = 0; nRow < m_nRows; nRow++)
     {
       final double [] aSrcRow = m_aData[nRow];
@@ -1052,7 +1051,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
       throw new IllegalArgumentException ("Matrix inner dimensions must agree.");
 
     final Matrix aNewMatrix = new Matrix (m_nRows, aMatrix.m_nCols);
-    final double [][] aNewArray = aNewMatrix.internalGetArray ();
+    final double [] [] aNewArray = aNewMatrix.internalGetArray ();
     final double [] aRhsCol = new double [m_nCols];
     for (int nCol = 0; nCol < aMatrix.m_nCols; nCol++)
     {
@@ -1238,7 +1237,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
   public static Matrix random (@Nonnegative final int nRows, @Nonnegative final int nCols)
   {
     final Matrix aNewMatrix = new Matrix (nRows, nCols);
-    final double [][] aNewArray = aNewMatrix.internalGetArray ();
+    final double [] [] aNewArray = aNewMatrix.internalGetArray ();
     for (int nRow = 0; nRow < nRows; nRow++)
     {
       final double [] aDstRow = aNewArray[nRow];
@@ -1263,7 +1262,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
   public static Matrix identity (@Nonnegative final int nRows, @Nonnegative final int nCols)
   {
     final Matrix aNewMatrix = new Matrix (nRows, nCols);
-    final double [][] aNewArray = aNewMatrix.internalGetArray ();
+    final double [] [] aNewArray = aNewMatrix.internalGetArray ();
     for (int nRow = 0; nRow < nRows; nRow++)
     {
       final double [] aRow = aNewArray[nRow];
