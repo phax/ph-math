@@ -16,7 +16,7 @@
  */
 package numbercruncher.program4_2;
 
-import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.SystemOutAlignRight;
 
 /**
  * PROGRAM 4-2: Fraction Sum 100M Compute the sum 1/d + 2/d + 3/d + ... + n/d =
@@ -30,7 +30,7 @@ public class FractionSum100M
 
   public static void main (final String args[])
   {
-    final AlignRight ar = new AlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight ();
 
     ar.print ("i", 9);
     ar.print ("Fraction", 15);

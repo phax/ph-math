@@ -21,10 +21,10 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.hashcode.HashCodeGenerator;
-import com.helger.math.graph.IGraphNode;
+import com.helger.math.graph.IMutableGraphNode;
 
 /**
- * Implementation of {@link com.helger.math.graph.IGraphRelation} interface with
+ * Implementation of {@link com.helger.math.graph.IMutableGraphRelation} interface with
  * quick and dirty equals and hashCode (on ID only)
  * 
  * @author Philip Helger
@@ -34,12 +34,12 @@ public class GraphRelationFast extends GraphRelation
 {
   private Integer m_aHashCode;
 
-  public GraphRelationFast (@Nonnull final IGraphNode aFrom, @Nonnull final IGraphNode aTo)
+  public GraphRelationFast (@Nonnull final IMutableGraphNode aFrom, @Nonnull final IMutableGraphNode aTo)
   {
     super (aFrom, aTo);
   }
 
-  public GraphRelationFast (@Nullable final String sID, @Nonnull final IGraphNode aFrom, @Nonnull final IGraphNode aTo)
+  public GraphRelationFast (@Nullable final String sID, @Nonnull final IMutableGraphNode aFrom, @Nonnull final IMutableGraphNode aTo)
   {
     super (sID, aFrom, aTo);
   }

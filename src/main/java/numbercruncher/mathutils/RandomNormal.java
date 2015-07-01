@@ -85,7 +85,8 @@ public class RandomNormal
       return m_fNextPolar;
     }
 
-    float u1, u2, r; // point coordinates and their radius
+    // point coordinates and their radius
+    float u1, u2, r;
 
     do
     {
@@ -135,14 +136,16 @@ public class RandomNormal
       }
       v = GENERATOR.nextFloat ();
 
-      final float y = C1 * (v - 0.5f); // y coord of point (u, y)
-      x = y / u; // ratio of point's coords
+      // y coord of point (u, y)
+      final float y = C1 * (v - 0.5f);
+
+      // ratio of point's coords
+      x = y / u;
 
       xx = x * x;
-    } while ((xx > 5f - C2 * u) // quick acceptance
-             &&
+    } while ((xx > 5f - C2 * u) && // quick acceptance
              ((xx >= C3 / u + 1.4f) || // quick rejection
-             (xx > (float) (-4 * Math.log (u)))) // final test
+              (xx > (float) (-4 * Math.log (u)))) // final test
     );
 
     return m_fStddev * x + m_fMean;

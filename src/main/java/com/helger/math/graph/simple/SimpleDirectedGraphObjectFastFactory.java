@@ -19,9 +19,9 @@ package com.helger.math.graph.simple;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.math.graph.IDirectedGraphNode;
+import com.helger.math.graph.IMutableDirectedGraphNode;
 import com.helger.math.graph.IDirectedGraphObjectFactory;
-import com.helger.math.graph.IDirectedGraphRelation;
+import com.helger.math.graph.IMutableDirectedGraphRelation;
 import com.helger.math.graph.impl.DirectedGraphNodeFast;
 import com.helger.math.graph.impl.DirectedGraphRelationFast;
 
@@ -34,28 +34,28 @@ import com.helger.math.graph.impl.DirectedGraphRelationFast;
 public class SimpleDirectedGraphObjectFastFactory implements IDirectedGraphObjectFactory
 {
   @Nonnull
-  public IDirectedGraphNode createNode ()
+  public IMutableDirectedGraphNode createNode ()
   {
     return new DirectedGraphNodeFast ();
   }
 
   @Nonnull
-  public IDirectedGraphNode createNode (@Nullable final String sID)
+  public IMutableDirectedGraphNode createNode (@Nullable final String sID)
   {
     return new DirectedGraphNodeFast (sID);
   }
 
   @Nonnull
-  public IDirectedGraphRelation createRelation (@Nonnull final IDirectedGraphNode aFrom,
-                                                @Nonnull final IDirectedGraphNode aTo)
+  public IMutableDirectedGraphRelation createRelation (@Nonnull final IMutableDirectedGraphNode aFrom,
+                                                @Nonnull final IMutableDirectedGraphNode aTo)
   {
     return new DirectedGraphRelationFast (aFrom, aTo);
   }
 
   @Nonnull
-  public IDirectedGraphRelation createRelation (@Nullable final String sID,
-                                                @Nonnull final IDirectedGraphNode aFrom,
-                                                @Nonnull final IDirectedGraphNode aTo)
+  public IMutableDirectedGraphRelation createRelation (@Nullable final String sID,
+                                                @Nonnull final IMutableDirectedGraphNode aFrom,
+                                                @Nonnull final IMutableDirectedGraphNode aTo)
   {
     return new DirectedGraphRelationFast (sID, aFrom, aTo);
   }

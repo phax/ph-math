@@ -36,7 +36,7 @@ public interface IDirectedGraphRelationFactory
    * @return The created graph relation and never <code>null</code>.
    */
   @Nonnull
-  IDirectedGraphRelation createRelation (@Nonnull IDirectedGraphNode aFrom, @Nonnull IDirectedGraphNode aTo);
+  IMutableDirectedGraphRelation createRelation (@Nonnull IMutableDirectedGraphNode aFrom, @Nonnull IMutableDirectedGraphNode aTo);
 
   /**
    * Create a new relation from the passed from-node to the to-node using a
@@ -52,7 +52,7 @@ public interface IDirectedGraphRelationFactory
    * @return The created graph relation and never <code>null</code>.
    */
   @Nonnull
-  IDirectedGraphRelation createRelation (@Nullable String sID,
-                                         @Nonnull IDirectedGraphNode aFrom,
-                                         @Nonnull IDirectedGraphNode aTo);
+  IMutableDirectedGraphRelation createRelation (@Nullable String sID,
+                                         @Nonnull IMutableDirectedGraphNode aFrom,
+                                         @Nonnull IMutableDirectedGraphNode aTo);
 }

@@ -20,9 +20,9 @@ import javax.annotation.Nonnull;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.annotation.Nonempty;
-import com.helger.math.graph.IDirectedGraphNode;
+import com.helger.math.graph.IMutableDirectedGraphNode;
 import com.helger.math.graph.IDirectedGraphObjectFactory;
-import com.helger.math.graph.IDirectedGraphRelation;
+import com.helger.math.graph.IMutableDirectedGraphRelation;
 import com.helger.math.graph.impl.DirectedGraph;
 
 /**
@@ -44,26 +44,26 @@ public class SimpleDirectedGraph extends DirectedGraph implements ISimpleDirecte
   }
 
   @Nonnull
-  public IDirectedGraphRelation createRelation (@Nonnull final String sFromNodeID, @Nonnull final String sToNodeID)
+  public IMutableDirectedGraphRelation createRelation (@Nonnull final String sFromNodeID, @Nonnull final String sToNodeID)
   {
-    final IDirectedGraphNode aFromNode = getNodeOfID (sFromNodeID);
+    final IMutableDirectedGraphNode aFromNode = getNodeOfID (sFromNodeID);
     if (aFromNode == null)
       throw new IllegalArgumentException ("Failed to resolve from node ID '" + sFromNodeID + "'");
-    final IDirectedGraphNode aToNode = getNodeOfID (sToNodeID);
+    final IMutableDirectedGraphNode aToNode = getNodeOfID (sToNodeID);
     if (aToNode == null)
       throw new IllegalArgumentException ("Failed to resolve to node ID '" + sToNodeID + "'");
     return createRelation (aFromNode, aToNode);
   }
 
   @Nonnull
-  public IDirectedGraphRelation createRelation (@Nonnull @Nonempty final String sRelationID,
+  public IMutableDirectedGraphRelation createRelation (@Nonnull @Nonempty final String sRelationID,
                                                 @Nonnull final String sFromNodeID,
                                                 @Nonnull final String sToNodeID)
   {
-    final IDirectedGraphNode aFromNode = getNodeOfID (sFromNodeID);
+    final IMutableDirectedGraphNode aFromNode = getNodeOfID (sFromNodeID);
     if (aFromNode == null)
       throw new IllegalArgumentException ("Failed to resolve from node ID '" + sFromNodeID + "'");
-    final IDirectedGraphNode aToNode = getNodeOfID (sToNodeID);
+    final IMutableDirectedGraphNode aToNode = getNodeOfID (sToNodeID);
     if (aToNode == null)
       throw new IllegalArgumentException ("Failed to resolve to node ID '" + sToNodeID + "'");
     return createRelation (sRelationID, aFromNode, aToNode);

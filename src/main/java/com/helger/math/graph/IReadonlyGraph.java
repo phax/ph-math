@@ -21,7 +21,7 @@ package com.helger.math.graph;
  * 
  * @author Philip Helger
  */
-public interface IReadonlyGraph extends IReadonlyBaseGraph <IGraphNode, IGraphRelation>
+public interface IReadonlyGraph extends IReadonlyBaseGraph <IMutableGraphNode, IMutableGraphRelation>
 {
   /* empty */
 }

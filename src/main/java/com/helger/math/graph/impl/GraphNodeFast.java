@@ -22,7 +22,7 @@ import javax.annotation.concurrent.NotThreadSafe;
 import com.helger.commons.hashcode.HashCodeGenerator;
 
 /**
- * Implementation of {@link com.helger.math.graph.IGraphNode} interface with
+ * Implementation of {@link com.helger.math.graph.IMutableGraphNode} interface with
  * quick and dirty equals and hashCode (on ID only)
  * 
  * @author Philip Helger

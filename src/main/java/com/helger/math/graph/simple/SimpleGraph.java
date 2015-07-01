@@ -20,9 +20,9 @@ import javax.annotation.Nonnull;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.annotation.Nonempty;
-import com.helger.math.graph.IGraphNode;
+import com.helger.math.graph.IMutableGraphNode;
 import com.helger.math.graph.IGraphObjectFactory;
-import com.helger.math.graph.IGraphRelation;
+import com.helger.math.graph.IMutableGraphRelation;
 import com.helger.math.graph.impl.Graph;
 
 /**
@@ -44,26 +44,26 @@ public class SimpleGraph extends Graph implements ISimpleGraph
   }
 
   @Nonnull
-  public IGraphRelation createRelation (@Nonnull final String sFromNodeID, @Nonnull final String sToNodeID)
+  public IMutableGraphRelation createRelation (@Nonnull final String sFromNodeID, @Nonnull final String sToNodeID)
   {
-    final IGraphNode aFromNode = getNodeOfID (sFromNodeID);
+    final IMutableGraphNode aFromNode = getNodeOfID (sFromNodeID);
     if (aFromNode == null)
       throw new IllegalArgumentException ("Failed to resolve from node ID '" + sFromNodeID + "'");
-    final IGraphNode aToNode = getNodeOfID (sToNodeID);
+    final IMutableGraphNode aToNode = getNodeOfID (sToNodeID);
     if (aToNode == null)
       throw new IllegalArgumentException ("Failed to resolve to node ID '" + sToNodeID + "'");
     return createRelation (aFromNode, aToNode);
   }
 
   @Nonnull
-  public IGraphRelation createRelation (@Nonnull @Nonempty final String sRelationID,
+  public IMutableGraphRelation createRelation (@Nonnull @Nonempty final String sRelationID,
                                         @Nonnull final String sFromNodeID,
                                         @Nonnull final String sToNodeID)
   {
-    final IGraphNode aFromNode = getNodeOfID (sFromNodeID);
+    final IMutableGraphNode aFromNode = getNodeOfID (sFromNodeID);
     if (aFromNode == null)
       throw new IllegalArgumentException ("Failed to resolve from node ID '" + sFromNodeID + "'");
-    final IGraphNode aToNode = getNodeOfID (sToNodeID);
+    final IMutableGraphNode aToNode = getNodeOfID (sToNodeID);
     if (aToNode == null)
       throw new IllegalArgumentException ("Failed to resolve to node ID '" + sToNodeID + "'");
     return createRelation (sRelationID, aFromNode, aToNode);

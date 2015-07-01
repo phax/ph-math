@@ -19,9 +19,9 @@ package com.helger.math.graph.simple;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.math.graph.IDirectedGraphNode;
+import com.helger.math.graph.IMutableDirectedGraphNode;
 import com.helger.math.graph.IDirectedGraphObjectFactory;
-import com.helger.math.graph.IDirectedGraphRelation;
+import com.helger.math.graph.IMutableDirectedGraphRelation;
 import com.helger.math.graph.impl.DirectedGraphNode;
 import com.helger.math.graph.impl.DirectedGraphRelation;
 
@@ -34,28 +34,28 @@ import com.helger.math.graph.impl.DirectedGraphRelation;
 public class SimpleDirectedGraphObjectFactory implements IDirectedGraphObjectFactory
 {
   @Nonnull
-  public IDirectedGraphNode createNode ()
+  public IMutableDirectedGraphNode createNode ()
   {
     return new DirectedGraphNode ();
   }
 
   @Nonnull
-  public IDirectedGraphNode createNode (@Nullable final String sID)
+  public IMutableDirectedGraphNode createNode (@Nullable final String sID)
   {
     return new DirectedGraphNode (sID);
   }
 
   @Nonnull
-  public IDirectedGraphRelation createRelation (@Nonnull final IDirectedGraphNode aFrom,
-                                                @Nonnull final IDirectedGraphNode aTo)
+  public IMutableDirectedGraphRelation createRelation (@Nonnull final IMutableDirectedGraphNode aFrom,
+                                                @Nonnull final IMutableDirectedGraphNode aTo)
   {
     return new DirectedGraphRelation (aFrom, aTo);
   }
 
   @Nonnull
-  public IDirectedGraphRelation createRelation (@Nullable final String sID,
-                                                @Nonnull final IDirectedGraphNode aFrom,
-                                                @Nonnull final IDirectedGraphNode aTo)
+  public IMutableDirectedGraphRelation createRelation (@Nullable final String sID,
+                                                @Nonnull final IMutableDirectedGraphNode aFrom,
+                                                @Nonnull final IMutableDirectedGraphNode aTo)
   {
     return new DirectedGraphRelation (sID, aFrom, aTo);
   }

@@ -34,7 +34,7 @@ public interface IDirectedGraphNodeFactory
    * @return The created graph node. Never <code>null</code>.
    */
   @Nonnull
-  IDirectedGraphNode createNode ();
+  IMutableDirectedGraphNode createNode ();
 
   /**
    * Create a new graph node with a known ID.
@@ -45,5 +45,5 @@ public interface IDirectedGraphNodeFactory
    * @return The created graph node. May not be <code>null</code>.
    */
   @Nonnull
-  IDirectedGraphNode createNode (@Nullable String sID);
+  IMutableDirectedGraphNode createNode (@Nullable String sID);
 }

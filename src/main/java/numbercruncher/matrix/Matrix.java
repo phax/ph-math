@@ -16,8 +16,8 @@
  */
 package numbercruncher.matrix;
 
-import numbercruncher.mathutils.AlignRight;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import numbercruncher.mathutils.SystemOutAlignRight;
 
 /**
  * The matrix class.
@@ -43,7 +43,7 @@ public class Matrix
 
   /**
    * Constructor.
-   * 
+   *
    * @param rowCount
    *        the number of rows
    * @param colCount
@@ -58,11 +58,11 @@ public class Matrix
 
   /**
    * Constructor.
-   * 
+   *
    * @param values
    *        the 2-d array of values
    */
-  public Matrix (final float [][] values)
+  public Matrix (final float [] [] values)
   {
     set (values);
   }
@@ -73,7 +73,7 @@ public class Matrix
 
   /**
    * Get the row count.
-   * 
+   *
    * @return the row count
    */
   public int rowCount ()
@@ -83,7 +83,7 @@ public class Matrix
 
   /**
    * Get the column count.
-   * 
+   *
    * @return the column count
    */
   public int columnCount ()
@@ -93,7 +93,7 @@ public class Matrix
 
   /**
    * Get the value of element [r,c] in the matrix.
-   * 
+   *
    * @param r
    *        the row index
    * @param c
@@ -114,7 +114,7 @@ public class Matrix
 
   /**
    * Get a row of this matrix.
-   * 
+   *
    * @param r
    *        the row index
    * @return the row as a row vector
@@ -131,7 +131,7 @@ public class Matrix
     final RowVector rv = new RowVector (m_nCols);
     for (int c = 0; c < m_nCols; ++c)
     {
-      rv.m_aValues[0][c] = this.m_aValues[r][c];
+      rv.m_aValues[0][c] = m_aValues[r][c];
     }
 
     return rv;
@@ -139,7 +139,7 @@ public class Matrix
 
   /**
    * Get a column of this matrix.
-   * 
+   *
    * @param c
    *        the column index
    * @return the column as a column vector
@@ -156,7 +156,7 @@ public class Matrix
     final ColumnVector cv = new ColumnVector (m_nRows);
     for (int r = 0; r < m_nRows; ++r)
     {
-      cv.m_aValues[r][0] = this.m_aValues[r][c];
+      cv.m_aValues[r][0] = m_aValues[r][c];
     }
 
     return cv;
@@ -164,21 +164,21 @@ public class Matrix
 
   /**
    * Copy the values of this matrix.
-   * 
+   *
    * @return the values
    */
   @SuppressFBWarnings ("EI_EXPOSE_REP")
-  public float [][] values ()
+  public float [] [] values ()
   {
     return m_aValues;
   }
 
   /**
    * Copy the values of this matrix.
-   * 
+   *
    * @return the copied values
    */
-  public float [][] copyValues2D ()
+  public float [] [] copyValues2D ()
   {
     final float v[][] = new float [m_nRows] [m_nCols];
 
@@ -199,7 +199,7 @@ public class Matrix
 
   /**
    * Set the value of element [r,c].
-   * 
+   *
    * @param r
    *        the row index
    * @param c
@@ -223,15 +223,15 @@ public class Matrix
    * Set this matrix from a 2-d array of values. If the rows do not have the
    * same length, then the matrix column count is the length of the shortest
    * row.
-   * 
+   *
    * @param values
    *        the 2-d array of values
    */
   protected void set (final float values[][])
   {
-    this.m_nRows = values.length;
-    this.m_nCols = values[0].length;
-    this.m_aValues = values;
+    m_nRows = values.length;
+    m_nCols = values[0].length;
+    m_aValues = values;
 
     for (int r = 1; r < m_nRows; ++r)
     {
@@ -241,7 +241,7 @@ public class Matrix
 
   /**
    * Set a row of this matrix from a row vector.
-   * 
+   *
    * @param rv
    *        the row vector
    * @param r
@@ -262,13 +262,13 @@ public class Matrix
 
     for (int c = 0; c < m_nCols; ++c)
     {
-      this.m_aValues[r][c] = rv.m_aValues[0][c];
+      m_aValues[r][c] = rv.m_aValues[0][c];
     }
   }
 
   /**
    * Set a column of this matrix from a column vector.
-   * 
+   *
    * @param cv
    *        the column vector
    * @param c
@@ -289,7 +289,7 @@ public class Matrix
 
     for (int r = 0; r < m_nRows; ++r)
     {
-      this.m_aValues[r][c] = cv.m_aValues[r][0];
+      m_aValues[r][c] = cv.m_aValues[r][0];
     }
   }
 
@@ -299,7 +299,7 @@ public class Matrix
 
   /**
    * Return the transpose of this matrix.
-   * 
+   *
    * @return the transposed matrix
    */
   public Matrix transpose ()
@@ -320,7 +320,7 @@ public class Matrix
 
   /**
    * Add another matrix to this matrix.
-   * 
+   *
    * @param m
    *        the matrix addend
    * @return the sum matrix
@@ -351,7 +351,7 @@ public class Matrix
 
   /**
    * Subtract another matrix from this matrix.
-   * 
+   *
    * @param m
    *        the matrix subrrahend
    * @return the difference matrix
@@ -382,7 +382,7 @@ public class Matrix
 
   /**
    * Multiply this matrix by a constant.
-   * 
+   *
    * @param k
    *        the constant
    * @return the product matrix
@@ -405,7 +405,7 @@ public class Matrix
 
   /**
    * Multiply this matrix by another matrix.
-   * 
+   *
    * @param m
    *        the matrix multiplier
    * @return the product matrix
@@ -441,7 +441,7 @@ public class Matrix
 
   /**
    * Multiply this matrix by a column vector: this*cv
-   * 
+   *
    * @param cv
    *        the column vector
    * @return the product column vector
@@ -474,7 +474,7 @@ public class Matrix
 
   /**
    * Multiply a row vector by this matrix: rv*this
-   * 
+   *
    * @param rv
    *        the row vector
    * @return the product row vector
@@ -507,13 +507,13 @@ public class Matrix
 
   /**
    * Print the matrix values.
-   * 
+   *
    * @param width
    *        the column width
    */
   public void print (final int width)
   {
-    final AlignRight ar = new AlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight ();
 
     for (int r = 0; r < m_nRows; ++r)
     {

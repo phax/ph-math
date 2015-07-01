@@ -31,10 +31,10 @@ import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.state.EChange;
 import com.helger.commons.state.ETriState;
-import com.helger.math.graph.IDirectedGraph;
-import com.helger.math.graph.IDirectedGraphNode;
+import com.helger.math.graph.IMutableDirectedGraph;
+import com.helger.math.graph.IMutableDirectedGraphNode;
 import com.helger.math.graph.IDirectedGraphObjectFactory;
-import com.helger.math.graph.IDirectedGraphRelation;
+import com.helger.math.graph.IMutableDirectedGraphRelation;
 import com.helger.math.graph.iterate.DirectedGraphIteratorForward;
 import com.helger.math.matrix.Matrix;
 
@@ -44,7 +44,7 @@ import com.helger.math.matrix.Matrix;
  * @author Philip Helger
  */
 @NotThreadSafe
-public class DirectedGraph extends AbstractBaseGraph <IDirectedGraphNode, IDirectedGraphRelation> implements IDirectedGraph
+public class DirectedGraph extends AbstractBaseGraph <IMutableDirectedGraphNode, IMutableDirectedGraphRelation> implements IMutableDirectedGraph
 {
   private final IDirectedGraphObjectFactory m_aFactory;
   private ETriState m_eCacheHasCycles = ETriState.UNDEFINED;
@@ -68,24 +68,24 @@ public class DirectedGraph extends AbstractBaseGraph <IDirectedGraphNode, IDirec
   }
 
   @Nonnull
-  public IDirectedGraphNode createNode ()
+  public IMutableDirectedGraphNode createNode ()
   {
     // Create node with new ID
-    final IDirectedGraphNode aNode = m_aFactory.createNode ();
+    final IMutableDirectedGraphNode aNode = m_aFactory.createNode ();
     if (addNode (aNode).isUnchanged ())
       throw new IllegalStateException ("The ID factory created the ID '" + aNode.getID () + "' that is already in use");
     return aNode;
   }
 
   @Nullable
-  public IDirectedGraphNode createNode (@Nullable final String sID)
+  public IMutableDirectedGraphNode createNode (@Nullable final String sID)
   {
-    final IDirectedGraphNode aNode = m_aFactory.createNode (sID);
+    final IMutableDirectedGraphNode aNode = m_aFactory.createNode (sID);
     return addNode (aNode).isChanged () ? aNode : null;
   }
 
   @Nonnull
-  public EChange addNode (@Nonnull final IDirectedGraphNode aNode)
+  public EChange addNode (@Nonnull final IMutableDirectedGraphNode aNode)
   {
     ValueEnforcer.notNull (aNode, "Node");
 
@@ -102,7 +102,7 @@ public class DirectedGraph extends AbstractBaseGraph <IDirectedGraphNode, IDirec
   }
 
   @Nonnull
-  public EChange removeNode (@Nonnull final IDirectedGraphNode aNode)
+  public EChange removeNode (@Nonnull final IMutableDirectedGraphNode aNode)
   {
     ValueEnforcer.notNull (aNode, "Node");
 
@@ -117,7 +117,7 @@ public class DirectedGraph extends AbstractBaseGraph <IDirectedGraphNode, IDirec
   }
 
   @Nonnull
-  public EChange removeNodeAndAllRelations (@Nonnull final IDirectedGraphNode aNode)
+  public EChange removeNodeAndAllRelations (@Nonnull final IMutableDirectedGraphNode aNode)
   {
     ValueEnforcer.notNull (aNode, "Node");
 
@@ -125,9 +125,9 @@ public class DirectedGraph extends AbstractBaseGraph <IDirectedGraphNode, IDirec
       return EChange.UNCHANGED;
 
     // Remove all affected relations from all nodes
-    for (final IDirectedGraphRelation aRelation : aNode.getAllOutgoingRelations ())
+    for (final IMutableDirectedGraphRelation aRelation : aNode.getAllOutgoingRelations ())
       aRelation.getTo ().removeIncomingRelation (aRelation);
-    for (final IDirectedGraphRelation aRelation : aNode.getAllIncomingRelations ())
+    for (final IMutableDirectedGraphRelation aRelation : aNode.getAllIncomingRelations ())
       aRelation.getFrom ().removeOutgoingRelation (aRelation);
 
     aNode.removeAllRelations ();
@@ -137,7 +137,7 @@ public class DirectedGraph extends AbstractBaseGraph <IDirectedGraphNode, IDirec
   }
 
   @Nonnull
-  private IDirectedGraphRelation _connect (@Nonnull final IDirectedGraphRelation aRelation)
+  private IMutableDirectedGraphRelation _connect (@Nonnull final IMutableDirectedGraphRelation aRelation)
   {
     aRelation.getFrom ().addOutgoingRelation (aRelation);
     aRelation.getTo ().addIncomingRelation (aRelation);
@@ -146,22 +146,22 @@ public class DirectedGraph extends AbstractBaseGraph <IDirectedGraphNode, IDirec
   }
 
   @Nonnull
-  public IDirectedGraphRelation createRelation (@Nonnull final IDirectedGraphNode aFrom,
-                                                @Nonnull final IDirectedGraphNode aTo)
+  public IMutableDirectedGraphRelation createRelation (@Nonnull final IMutableDirectedGraphNode aFrom,
+                                                @Nonnull final IMutableDirectedGraphNode aTo)
   {
     return _connect (m_aFactory.createRelation (aFrom, aTo));
   }
 
   @Nonnull
-  public IDirectedGraphRelation createRelation (@Nullable final String sID,
-                                                @Nonnull final IDirectedGraphNode aFrom,
-                                                @Nonnull final IDirectedGraphNode aTo)
+  public IMutableDirectedGraphRelation createRelation (@Nullable final String sID,
+                                                @Nonnull final IMutableDirectedGraphNode aFrom,
+                                                @Nonnull final IMutableDirectedGraphNode aTo)
   {
     return _connect (m_aFactory.createRelation (sID, aFrom, aTo));
   }
 
   @Nonnull
-  public EChange removeRelation (@Nullable final IDirectedGraphRelation aRelation)
+  public EChange removeRelation (@Nullable final IMutableDirectedGraphRelation aRelation)
   {
     EChange ret = EChange.UNCHANGED;
     if (aRelation != null)
@@ -175,9 +175,9 @@ public class DirectedGraph extends AbstractBaseGraph <IDirectedGraphNode, IDirec
   }
 
   @Nonnull
-  public IDirectedGraphNode getSingleStartNode () throws IllegalStateException
+  public IMutableDirectedGraphNode getSingleStartNode () throws IllegalStateException
   {
-    final Set <IDirectedGraphNode> aStartNodes = getAllStartNodes ();
+    final Set <IMutableDirectedGraphNode> aStartNodes = getAllStartNodes ();
     if (aStartNodes.size () > 1)
       throw new IllegalStateException ("Graph has more than one starting node");
     if (aStartNodes.isEmpty ())
@@ -187,19 +187,19 @@ public class DirectedGraph extends AbstractBaseGraph <IDirectedGraphNode, IDirec
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <IDirectedGraphNode> getAllStartNodes ()
+  public Set <IMutableDirectedGraphNode> getAllStartNodes ()
   {
-    final Set <IDirectedGraphNode> aResult = new HashSet <IDirectedGraphNode> ();
-    for (final IDirectedGraphNode aNode : m_aNodes.values ())
+    final Set <IMutableDirectedGraphNode> aResult = new HashSet <IMutableDirectedGraphNode> ();
+    for (final IMutableDirectedGraphNode aNode : m_aNodes.values ())
       if (!aNode.hasIncomingRelations ())
         aResult.add (aNode);
     return aResult;
   }
 
   @Nonnull
-  public IDirectedGraphNode getSingleEndNode () throws IllegalStateException
+  public IMutableDirectedGraphNode getSingleEndNode () throws IllegalStateException
   {
-    final Set <IDirectedGraphNode> aEndNodes = getAllEndNodes ();
+    final Set <IMutableDirectedGraphNode> aEndNodes = getAllEndNodes ();
     if (aEndNodes.size () > 1)
       throw new IllegalStateException ("Graph has more than one ending node");
     if (aEndNodes.isEmpty ())
@@ -209,10 +209,10 @@ public class DirectedGraph extends AbstractBaseGraph <IDirectedGraphNode, IDirec
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <IDirectedGraphNode> getAllEndNodes ()
+  public Set <IMutableDirectedGraphNode> getAllEndNodes ()
   {
-    final Set <IDirectedGraphNode> aResult = new HashSet <IDirectedGraphNode> ();
-    for (final IDirectedGraphNode aNode : m_aNodes.values ())
+    final Set <IMutableDirectedGraphNode> aResult = new HashSet <IMutableDirectedGraphNode> ();
+    for (final IMutableDirectedGraphNode aNode : m_aNodes.values ())
       if (!aNode.hasOutgoingRelations ())
         aResult.add (aNode);
     return aResult;
@@ -220,11 +220,11 @@ public class DirectedGraph extends AbstractBaseGraph <IDirectedGraphNode, IDirec
 
   @Nonnull
   @ReturnsMutableCopy
-  public Map <String, IDirectedGraphRelation> getAllRelations ()
+  public Map <String, IMutableDirectedGraphRelation> getAllRelations ()
   {
-    final Map <String, IDirectedGraphRelation> ret = new LinkedHashMap <String, IDirectedGraphRelation> ();
-    for (final IDirectedGraphNode aNode : m_aNodes.values ())
-      for (final IDirectedGraphRelation aRelation : aNode.getAllRelations ())
+    final Map <String, IMutableDirectedGraphRelation> ret = new LinkedHashMap <String, IMutableDirectedGraphRelation> ();
+    for (final IMutableDirectedGraphNode aNode : m_aNodes.values ())
+      for (final IMutableDirectedGraphRelation aRelation : aNode.getAllRelations ())
         ret.put (aRelation.getID (), aRelation);
     return ret;
   }
@@ -234,7 +234,7 @@ public class DirectedGraph extends AbstractBaseGraph <IDirectedGraphNode, IDirec
   public Set <String> getAllRelationIDs ()
   {
     final Set <String> ret = new LinkedHashSet <String> ();
-    for (final IDirectedGraphNode aNode : m_aNodes.values ())
+    for (final IMutableDirectedGraphNode aNode : m_aNodes.values ())
       ret.addAll (aNode.getAllRelationIDs ());
     return ret;
   }
@@ -259,7 +259,7 @@ public class DirectedGraph extends AbstractBaseGraph <IDirectedGraphNode, IDirec
       m_eCacheHasCycles = ETriState.FALSE;
       // Check all nodes, in case we a small cycle and a set of other nodes (see
       // test case testCycles2)
-      for (final IDirectedGraphNode aCurNode : m_aNodes.values ())
+      for (final IMutableDirectedGraphNode aCurNode : m_aNodes.values ())
       {
         final DirectedGraphIteratorForward it = new DirectedGraphIteratorForward (aCurNode);
         while (it.hasNext () && !it.hasCycles ())
@@ -279,12 +279,12 @@ public class DirectedGraph extends AbstractBaseGraph <IDirectedGraphNode, IDirec
   @Override
   public boolean isSelfContained ()
   {
-    for (final IDirectedGraphNode aNode : m_aNodes.values ())
+    for (final IMutableDirectedGraphNode aNode : m_aNodes.values ())
     {
-      for (final IDirectedGraphRelation aRelation : aNode.getAllIncomingRelations ())
+      for (final IMutableDirectedGraphRelation aRelation : aNode.getAllIncomingRelations ())
         if (!m_aNodes.containsKey (aRelation.getFromID ()))
           return false;
-      for (final IDirectedGraphRelation aRelation : aNode.getAllOutgoingRelations ())
+      for (final IMutableDirectedGraphRelation aRelation : aNode.getAllOutgoingRelations ())
         if (!m_aNodes.containsKey (aRelation.getToID ()))
           return false;
     }
@@ -296,10 +296,10 @@ public class DirectedGraph extends AbstractBaseGraph <IDirectedGraphNode, IDirec
   {
     final int nNodeCount = getNodeCount ();
     final Matrix ret = new Matrix (nNodeCount, nNodeCount, 0);
-    final IDirectedGraphNode [] aNodes = m_aNodes.values ().toArray (new IDirectedGraphNode [nNodeCount]);
+    final IMutableDirectedGraphNode [] aNodes = m_aNodes.values ().toArray (new IMutableDirectedGraphNode [nNodeCount]);
     for (int nRow = 0; nRow < nNodeCount; ++nRow)
     {
-      final IDirectedGraphNode aNodeRow = aNodes[nRow];
+      final IMutableDirectedGraphNode aNodeRow = aNodes[nRow];
       for (int nCol = 0; nCol < nNodeCount; ++nCol)
         if (nRow != nCol)
           if (aNodeRow.isToNode (aNodes[nCol]))

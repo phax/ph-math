@@ -34,10 +34,10 @@ import com.helger.commons.xml.serialize.write.EXMLCharMode;
 import com.helger.commons.xml.serialize.write.EXMLIncorrectCharacterHandling;
 import com.helger.commons.xml.serialize.write.EXMLSerializeVersion;
 import com.helger.commons.xml.serialize.write.XMLMaskHelper;
-import com.helger.math.graph.IDirectedGraphNode;
-import com.helger.math.graph.IDirectedGraphRelation;
-import com.helger.math.graph.IGraphNode;
-import com.helger.math.graph.IGraphRelation;
+import com.helger.math.graph.IMutableDirectedGraphNode;
+import com.helger.math.graph.IMutableDirectedGraphRelation;
+import com.helger.math.graph.IMutableGraphNode;
+import com.helger.math.graph.IMutableGraphRelation;
 import com.helger.math.graph.IReadonlyDirectedGraph;
 import com.helger.math.graph.IReadonlyGraph;
 
@@ -93,7 +93,7 @@ public final class GraphVizUtils
     // It's a directed graph
     aSB.append ("graph ").append (aGraph.getID ()).append ("{\n");
     aSB.append ("node[shape=box];");
-    for (final IGraphNode aGraphNode : aGraph.getAllNodes ().values ())
+    for (final IMutableGraphNode aGraphNode : aGraph.getAllNodes ().values ())
     {
       aSB.append (aGraphNode.getID ());
       if (StringHelper.hasText (sNodeLabelAttr))
@@ -104,9 +104,9 @@ public final class GraphVizUtils
       aSB.append (';');
     }
     aSB.append ('\n');
-    for (final IGraphRelation aGraphRelation : aGraph.getAllRelations ().values ())
+    for (final IMutableGraphRelation aGraphRelation : aGraph.getAllRelations ().values ())
     {
-      final Iterator <IGraphNode> it = aGraphRelation.getAllConnectedNodes ().iterator ();
+      final Iterator <IMutableGraphNode> it = aGraphRelation.getAllConnectedNodes ().iterator ();
       aSB.append (it.next ().getID ()).append ("--").append (it.next ().getID ());
       if (StringHelper.hasText (sRelationLabelAttr))
       {
@@ -148,7 +148,7 @@ public final class GraphVizUtils
     // It's a directed graph
     aSB.append ("digraph ").append (aGraph.getID ()).append ("{\n");
     aSB.append ("node[shape=box];");
-    for (final IDirectedGraphNode aGraphNode : aGraph.getAllNodes ().values ())
+    for (final IMutableDirectedGraphNode aGraphNode : aGraph.getAllNodes ().values ())
     {
       aSB.append (aGraphNode.getID ());
       if (StringHelper.hasText (sNodeLabelAttr))
@@ -164,7 +164,7 @@ public final class GraphVizUtils
       aSB.append (';');
     }
     aSB.append ('\n');
-    for (final IDirectedGraphRelation aGraphRelation : aGraph.getAllRelations ().values ())
+    for (final IMutableDirectedGraphRelation aGraphRelation : aGraph.getAllRelations ().values ())
     {
       aSB.append (aGraphRelation.getFromID ()).append ("->").append (aGraphRelation.getToID ());
       if (StringHelper.hasText (sRelationLabelAttr))

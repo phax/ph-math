@@ -16,7 +16,7 @@
  */
 package numbercruncher.program4_7;
 
-import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.SystemOutAlignRight;
 
 /**
  * Program 4-7: Sum Numbers with Mixed Signs Sum a sequence numbers with
@@ -24,7 +24,7 @@ import numbercruncher.mathutils.AlignRight;
  */
 public class SumMixedSigns
 {
-  private static AlignRight ar = new AlignRight ();
+  private static SystemOutAlignRight ar = new SystemOutAlignRight ();
 
   public static void main (final String args[])
   {

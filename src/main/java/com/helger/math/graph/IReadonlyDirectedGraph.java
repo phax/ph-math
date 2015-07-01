@@ -27,7 +27,7 @@ import com.helger.commons.annotation.ReturnsMutableCopy;
  * 
  * @author Philip Helger
  */
-public interface IReadonlyDirectedGraph extends IReadonlyBaseGraph <IDirectedGraphNode, IDirectedGraphRelation>
+public interface IReadonlyDirectedGraph extends IReadonlyBaseGraph <IMutableDirectedGraphNode, IMutableDirectedGraphRelation>
 {
   /**
    * Try to retrieve the single start node of this graph. A start node is
@@ -38,7 +38,7 @@ public interface IReadonlyDirectedGraph extends IReadonlyBaseGraph <IDirectedGra
    *         In case the graph has no or more than one start node.
    */
   @Nonnull
-  IDirectedGraphNode getSingleStartNode () throws IllegalStateException;
+  IMutableDirectedGraphNode getSingleStartNode () throws IllegalStateException;
 
   /**
    * Get all start nodes of this graph. Start nodes are identified by having no
@@ -48,7 +48,7 @@ public interface IReadonlyDirectedGraph extends IReadonlyBaseGraph <IDirectedGra
    */
   @Nonnull
   @ReturnsMutableCopy
-  Set <IDirectedGraphNode> getAllStartNodes ();
+  Set <IMutableDirectedGraphNode> getAllStartNodes ();
 
   /**
    * Try to retrieve the single end node of this graph. An end node is
@@ -59,7 +59,7 @@ public interface IReadonlyDirectedGraph extends IReadonlyBaseGraph <IDirectedGra
    *         In case the graph has no or more than one end node.
    */
   @Nonnull
-  IDirectedGraphNode getSingleEndNode () throws IllegalStateException;
+  IMutableDirectedGraphNode getSingleEndNode () throws IllegalStateException;
 
   /**
    * Get all end nodes of this graph. End nodes are identified by having no
@@ -69,5 +69,5 @@ public interface IReadonlyDirectedGraph extends IReadonlyBaseGraph <IDirectedGra
    */
   @Nonnull
   @ReturnsMutableCopy
-  Set <IDirectedGraphNode> getAllEndNodes ();
+  Set <IMutableDirectedGraphNode> getAllEndNodes ();
 }

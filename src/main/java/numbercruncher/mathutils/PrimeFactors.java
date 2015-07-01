@@ -106,7 +106,7 @@ public class PrimeFactors
    */
   public static void main (final String args[])
   {
-    final AlignRight ar = new AlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight ();
 
     // Test Sieve of Eratosthenes.
     System.out.println ("The Sieve of Eratosthenes:\n");

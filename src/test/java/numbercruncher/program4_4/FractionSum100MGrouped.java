@@ -16,7 +16,7 @@
  */
 package numbercruncher.program4_4;
 
-import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.SystemOutAlignRight;
 
 /**
  * PROGRAM 4-4: Fraction Sum 100M Using Group Subtotals Compute the sum 1/d +
@@ -31,7 +31,7 @@ public class FractionSum100MGrouped
 
   public static void main (final String args[])
   {
-    final AlignRight ar = new AlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight ();
 
     ar.print ("i", 9);
     ar.print ("Group sum", 15);

@@ -16,7 +16,7 @@
  */
 package numbercruncher.program14_3;
 
-import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.SystemOutAlignRight;
 
 /**
  * PROGRAM 14-3: Buffon's Needle Demonstrate how we can calculate the value of
@@ -36,7 +36,7 @@ public class Buffon
   public static void main (final String args[])
   {
     final Needles needles = new Needles (0, 0, 0, 10.5f);
-    final AlignRight ar = new AlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight ();
 
     ar.print ("Needles", 15);
     ar.print ("Crossings", 15);

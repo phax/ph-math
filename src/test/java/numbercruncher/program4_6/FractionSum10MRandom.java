@@ -18,7 +18,7 @@ package numbercruncher.program4_6;
 
 import java.util.Random;
 
-import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.KahanSummation;
 
 /**
@@ -37,7 +37,7 @@ public class FractionSum10MRandom
     final int counting[] = new int [MAX + 1]; // array of counting #s
     final Random random = new Random (0); // random # generator
 
-    final AlignRight ar = new AlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight ();
 
     // Initialize the array of counting numbers.
     for (int i = 1; i <= MAX; ++i)

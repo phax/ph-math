@@ -27,22 +27,22 @@ public abstract class AbstractGraphTestCase extends AbstractCommonsTestCase
   protected static final String ATTR_VALUE = "value";
 
   @Nonnull
-  private static final IDirectedGraphNode _createDGN (final SimpleDirectedGraph aGraph, final int i)
+  private static final IMutableDirectedGraphNode _createDGN (final SimpleDirectedGraph aGraph, final int i)
   {
-    final IDirectedGraphNode aNode = aGraph.createNode (Integer.toString (i));
+    final IMutableDirectedGraphNode aNode = aGraph.createNode (Integer.toString (i));
     aNode.setAttribute (ATTR_VALUE, Integer.valueOf (i + 1));
     return aNode;
   }
 
   @Nonnull
-  private static final IGraphNode _createGN (final SimpleGraph aGraph, final int i)
+  private static final IMutableGraphNode _createGN (final SimpleGraph aGraph, final int i)
   {
-    final IGraphNode aNode = aGraph.createNode (Integer.toString (i));
+    final IMutableGraphNode aNode = aGraph.createNode (Integer.toString (i));
     aNode.setAttribute (ATTR_VALUE, Integer.valueOf (i + 1));
     return aNode;
   }
 
-  protected static final int _getNodeValue (@Nonnull final IBaseGraphNode <?, ?> aGN)
+  protected static final int _getNodeValue (@Nonnull final IMutableBaseGraphNode <?, ?> aGN)
   {
     return aGN.getAttributeAsInt (ATTR_VALUE);
   }
@@ -52,13 +52,13 @@ public abstract class AbstractGraphTestCase extends AbstractCommonsTestCase
   {
     final SimpleDirectedGraph aGraph = new SimpleDirectedGraph ();
 
-    final IDirectedGraphNode node0 = _createDGN (aGraph, 0);
-    final IDirectedGraphNode node1 = _createDGN (aGraph, 1);
-    final IDirectedGraphNode node2 = _createDGN (aGraph, 2);
-    final IDirectedGraphNode node3 = _createDGN (aGraph, 3);
-    final IDirectedGraphNode node4 = _createDGN (aGraph, 4);
-    final IDirectedGraphNode node5 = _createDGN (aGraph, 5);
-    final IDirectedGraphNode node6 = _createDGN (aGraph, 6);
+    final IMutableDirectedGraphNode node0 = _createDGN (aGraph, 0);
+    final IMutableDirectedGraphNode node1 = _createDGN (aGraph, 1);
+    final IMutableDirectedGraphNode node2 = _createDGN (aGraph, 2);
+    final IMutableDirectedGraphNode node3 = _createDGN (aGraph, 3);
+    final IMutableDirectedGraphNode node4 = _createDGN (aGraph, 4);
+    final IMutableDirectedGraphNode node5 = _createDGN (aGraph, 5);
+    final IMutableDirectedGraphNode node6 = _createDGN (aGraph, 6);
     aGraph.createRelation (node0.getID (), node1.getID ());
     aGraph.createRelation (node1, node2);
     aGraph.createRelation (node2, node3);
@@ -76,13 +76,13 @@ public abstract class AbstractGraphTestCase extends AbstractCommonsTestCase
   {
     final SimpleGraph aGraph = new SimpleGraph ();
 
-    final IGraphNode node0 = _createGN (aGraph, 0);
-    final IGraphNode node1 = _createGN (aGraph, 1);
-    final IGraphNode node2 = _createGN (aGraph, 2);
-    final IGraphNode node3 = _createGN (aGraph, 3);
-    final IGraphNode node4 = _createGN (aGraph, 4);
-    final IGraphNode node5 = _createGN (aGraph, 5);
-    final IGraphNode node6 = _createGN (aGraph, 6);
+    final IMutableGraphNode node0 = _createGN (aGraph, 0);
+    final IMutableGraphNode node1 = _createGN (aGraph, 1);
+    final IMutableGraphNode node2 = _createGN (aGraph, 2);
+    final IMutableGraphNode node3 = _createGN (aGraph, 3);
+    final IMutableGraphNode node4 = _createGN (aGraph, 4);
+    final IMutableGraphNode node5 = _createGN (aGraph, 5);
+    final IMutableGraphNode node6 = _createGN (aGraph, 6);
     aGraph.createRelation (node0.getID (), node1.getID ());
     aGraph.createRelation (node0, node5);
     aGraph.createRelation (node1, node2);
@@ -99,8 +99,8 @@ public abstract class AbstractGraphTestCase extends AbstractCommonsTestCase
   protected IReadonlyDirectedGraph _buildSimpleDirectedGraphCycle ()
   {
     final SimpleDirectedGraph aGraph = new SimpleDirectedGraph ();
-    final IDirectedGraphNode node0 = _createDGN (aGraph, 0);
-    final IDirectedGraphNode node1 = _createDGN (aGraph, 1);
+    final IMutableDirectedGraphNode node0 = _createDGN (aGraph, 0);
+    final IMutableDirectedGraphNode node1 = _createDGN (aGraph, 1);
     aGraph.createRelation (node0, node1);
     aGraph.createRelation (node1, node0);
     return aGraph;
@@ -110,10 +110,10 @@ public abstract class AbstractGraphTestCase extends AbstractCommonsTestCase
   protected IReadonlyDirectedGraph _buildSimpleDirectedGraphCycle2 ()
   {
     final SimpleDirectedGraph aGraph = new SimpleDirectedGraph ();
-    final IDirectedGraphNode node0 = _createDGN (aGraph, 0);
-    final IDirectedGraphNode node1 = _createDGN (aGraph, 1);
-    final IDirectedGraphNode node2 = _createDGN (aGraph, 2);
-    final IDirectedGraphNode node3 = _createDGN (aGraph, 3);
+    final IMutableDirectedGraphNode node0 = _createDGN (aGraph, 0);
+    final IMutableDirectedGraphNode node1 = _createDGN (aGraph, 1);
+    final IMutableDirectedGraphNode node2 = _createDGN (aGraph, 2);
+    final IMutableDirectedGraphNode node3 = _createDGN (aGraph, 3);
     aGraph.createRelation (node0, node1);
     aGraph.createRelation (node1, node2);
     aGraph.createRelation (node2, node3);
@@ -125,8 +125,8 @@ public abstract class AbstractGraphTestCase extends AbstractCommonsTestCase
   protected IReadonlyGraph _buildSimpleGraphCycle ()
   {
     final SimpleGraph aGraph = new SimpleGraph ();
-    final IGraphNode node0 = _createGN (aGraph, 0);
-    final IGraphNode node1 = _createGN (aGraph, 1);
+    final IMutableGraphNode node0 = _createGN (aGraph, 0);
+    final IMutableGraphNode node1 = _createGN (aGraph, 1);
     aGraph.createRelation (node0, node1);
     aGraph.createRelation (node1, node0);
     return aGraph;
@@ -136,10 +136,10 @@ public abstract class AbstractGraphTestCase extends AbstractCommonsTestCase
   protected IReadonlyGraph _buildSimpleGraphCycle2 ()
   {
     final SimpleGraph aGraph = new SimpleGraph ();
-    final IGraphNode node0 = _createGN (aGraph, 0);
-    final IGraphNode node1 = _createGN (aGraph, 1);
-    final IGraphNode node2 = _createGN (aGraph, 2);
-    final IGraphNode node3 = _createGN (aGraph, 3);
+    final IMutableGraphNode node0 = _createGN (aGraph, 0);
+    final IMutableGraphNode node1 = _createGN (aGraph, 1);
+    final IMutableGraphNode node2 = _createGN (aGraph, 2);
+    final IMutableGraphNode node3 = _createGN (aGraph, 3);
     aGraph.createRelation (node0, node1);
     aGraph.createRelation (node1, node2);
     aGraph.createRelation (node2, node3);

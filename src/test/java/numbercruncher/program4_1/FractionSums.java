@@ -16,7 +16,7 @@
  */
 package numbercruncher.program4_1;
 
-import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.SystemOutAlignRight;
 
 /**
  * PROGRAM 4-1: Fraction Sums For each n, compute the sum 1/d + 2/d + 3/d + ...
@@ -27,7 +27,7 @@ public class FractionSums
 {
   public static void main (final String args[])
   {
-    final AlignRight ar = new AlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight ();
 
     ar.print ("n", 9);
     ar.print ("Denom", 14);

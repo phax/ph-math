@@ -21,34 +21,34 @@ import javax.annotation.Nonnull;
 import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
 
 /**
- * Base interface for a single directed graph relation.
+ * Base interface for a single undirected graph relation.
  * 
  * @author Philip Helger
  */
 @MustImplementEqualsAndHashcode
-public interface IDirectedGraphRelation extends IBaseGraphRelation <IDirectedGraphNode, IDirectedGraphRelation>
+public interface IMutableGraphRelation extends IMutableBaseGraphRelation <IMutableGraphNode, IMutableGraphRelation>
 {
   /**
-   * @return The from-node of this relation. Never <code>null</code>.
+   * @return Node1 of this relation. Never <code>null</code>.
    */
   @Nonnull
-  IDirectedGraphNode getFrom ();
+  IMutableGraphNode getNode1 ();
 
   /**
-   * @return The ID of the from-node of this relation. Never <code>null</code>.
+   * @return The ID of node1 of this relation. Never <code>null</code>.
    */
   @Nonnull
-  String getFromID ();
+  String getNode1ID ();
 
   /**
-   * @return The to-node of this relation. Never <code>null</code>.
+   * @return Node2 of this relation. Never <code>null</code>.
    */
   @Nonnull
-  IDirectedGraphNode getTo ();
+  IMutableGraphNode getNode2 ();
 
   /**
-   * @return The ID of the to-node of this relation. Never <code>null</code>.
+   * @return The ID of node2 of this relation. Never <code>null</code>.
    */
   @Nonnull
-  String getToID ();
+  String getNode2ID ();
 }

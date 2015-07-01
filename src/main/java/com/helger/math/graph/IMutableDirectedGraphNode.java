@@ -33,7 +33,7 @@ import com.helger.commons.state.EChange;
  * @author Philip Helger
  */
 @MustImplementEqualsAndHashcode
-public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, IDirectedGraphRelation>
+public interface IMutableDirectedGraphNode extends IMutableBaseGraphNode <IMutableDirectedGraphNode, IMutableDirectedGraphRelation>
 {
   /**
    * Add a new incoming relation to this node
@@ -41,7 +41,7 @@ public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, 
    * @param aRelation
    *        The relation to be added. May not be <code>null</code>.
    */
-  void addIncomingRelation (@Nonnull IDirectedGraphRelation aRelation);
+  void addIncomingRelation (@Nonnull IMutableDirectedGraphRelation aRelation);
 
   /**
    * @return <code>true</code> if this node has at least one incoming relation.
@@ -62,14 +62,14 @@ public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, 
    * @return <code>true</code> if the passed relation is an incoming relation,
    *         <code>false</code> if not
    */
-  boolean isIncomingRelation (@Nullable IDirectedGraphRelation aRelation);
+  boolean isIncomingRelation (@Nullable IMutableDirectedGraphRelation aRelation);
 
   /**
    * @return All incoming relations and never <code>null</code>.
    */
   @Nonnull
   @ReturnsMutableCopy
-  List <IDirectedGraphRelation> getAllIncomingRelations ();
+  List <IMutableDirectedGraphRelation> getAllIncomingRelations ();
 
   /**
    * Remove the passed relation from the set of incoming relations.
@@ -80,7 +80,7 @@ public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, 
    *         removed from the incoming relations.
    */
   @Nonnull
-  EChange removeIncomingRelation (@Nonnull IDirectedGraphRelation aRelation);
+  EChange removeIncomingRelation (@Nonnull IMutableDirectedGraphRelation aRelation);
 
   /**
    * Remove all incoming relations.
@@ -99,14 +99,14 @@ public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, 
    *        The node to be checked. May be <code>null</code>.
    * @return <code>true</code> if is connected, <code>false</code> if not
    */
-  boolean isFromNode (@Nullable IDirectedGraphNode aNode);
+  boolean isFromNode (@Nullable IMutableDirectedGraphNode aNode);
 
   /**
    * @return All nodes that are connected via incoming relations.
    */
   @Nonnull
   @ReturnsMutableCopy
-  Set <IDirectedGraphNode> getAllFromNodes ();
+  Set <IMutableDirectedGraphNode> getAllFromNodes ();
 
   /**
    * Find the incoming relation from the passed node to this node.
@@ -117,7 +117,7 @@ public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, 
    *         passed node to this node.
    */
   @Nullable
-  IDirectedGraphRelation getIncomingRelationFrom (@Nullable IDirectedGraphNode aFromNode);
+  IMutableDirectedGraphRelation getIncomingRelationFrom (@Nullable IMutableDirectedGraphNode aFromNode);
 
   // --- outgoing ---
 
@@ -127,7 +127,7 @@ public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, 
    * @param aRelation
    *        The relation to be added. May not be <code>null</code>.
    */
-  void addOutgoingRelation (@Nonnull IDirectedGraphRelation aRelation);
+  void addOutgoingRelation (@Nonnull IMutableDirectedGraphRelation aRelation);
 
   /**
    * @return <code>true</code> if this node has at least one outgoing relation.
@@ -148,14 +148,14 @@ public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, 
    * @return <code>true</code> if the passed relation is an outgoing relation,
    *         <code>false</code> if not
    */
-  boolean isOutgoingRelation (@Nullable IDirectedGraphRelation aRelation);
+  boolean isOutgoingRelation (@Nullable IMutableDirectedGraphRelation aRelation);
 
   /**
    * @return All outgoing relations and never <code>null</code>.
    */
   @Nonnull
   @ReturnsMutableCopy
-  List <IDirectedGraphRelation> getAllOutgoingRelations ();
+  List <IMutableDirectedGraphRelation> getAllOutgoingRelations ();
 
   /**
    * Remove the passed relation from the set of outgoing relations.
@@ -166,7 +166,7 @@ public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, 
    *         removed from the outgoing relations.
    */
   @Nonnull
-  EChange removeOutgoingRelation (@Nonnull IDirectedGraphRelation aRelation);
+  EChange removeOutgoingRelation (@Nonnull IMutableDirectedGraphRelation aRelation);
 
   /**
    * Remove all outgoing relations.
@@ -185,14 +185,14 @@ public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, 
    *        The node to be checked. May be <code>null</code>.
    * @return <code>true</code> if is connected, <code>false</code> if not
    */
-  boolean isToNode (@Nullable IDirectedGraphNode aNode);
+  boolean isToNode (@Nullable IMutableDirectedGraphNode aNode);
 
   /**
    * @return All nodes that are connected via outgoing relations.
    */
   @Nonnull
   @ReturnsMutableCopy
-  Set <IDirectedGraphNode> getAllToNodes ();
+  Set <IMutableDirectedGraphNode> getAllToNodes ();
 
   /**
    * Find the incoming relation from this node to the passed node.
@@ -203,7 +203,7 @@ public interface IDirectedGraphNode extends IBaseGraphNode <IDirectedGraphNode, 
    *         node to the passed node.
    */
   @Nullable
-  IDirectedGraphRelation getOutgoingRelationTo (@Nullable IDirectedGraphNode aToNode);
+  IMutableDirectedGraphRelation getOutgoingRelationTo (@Nullable IMutableDirectedGraphNode aToNode);
 
   // --- incoming and/or outgoing
 

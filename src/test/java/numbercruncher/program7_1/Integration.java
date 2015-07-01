@@ -17,7 +17,7 @@
 package numbercruncher.program7_1;
 
 import numbercruncher.mathutils.AbstractFunction;
-import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.Epsilon;
 import numbercruncher.mathutils.IIntegrator;
 import numbercruncher.mathutils.SimpsonsIntegrator;
@@ -94,7 +94,7 @@ public class Integration
     final IIntegrator integrator = (algorithm == TRAPEZOIDAL) ? (IIntegrator) new TrapezoidalIntegrator (integrand)
                                                              : (IIntegrator) new SimpsonsIntegrator (integrand);
 
-    final AlignRight ar = new AlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight ();
 
     ar.print ("n", 5);
     ar.print ("pi", 15);

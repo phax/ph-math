@@ -16,7 +16,7 @@
  */
 package numbercruncher.program4_8;
 
-import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.SystemOutAlignRight;
 
 /**
  * Program 4-8: Sum Numbers with Mixed Signs, Positive and Negative Subtotals
@@ -27,7 +27,7 @@ public class SumMixedSignsPosNeg
 {
   public static void main (final String args[])
   {
-    final AlignRight ar = new AlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight ();
 
     int k = 0;
     int odd = 1; // odd number

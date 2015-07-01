@@ -22,8 +22,8 @@ package numbercruncher.mathutils;
 public abstract class AbstractFunction implements IEvaluatable
 {
   /**
-   * Return the value of the function at x. (Implementation of Evaluatable.)
-   * 
+   * Return the value of the function at x.
+   *
    * @param x
    *        the value of x
    * @return the function value
@@ -32,7 +32,7 @@ public abstract class AbstractFunction implements IEvaluatable
 
   /**
    * Return the value of the function's derivative at x.
-   * 
+   *
    * @param x
    *        the value of x
    * @return the derivative value

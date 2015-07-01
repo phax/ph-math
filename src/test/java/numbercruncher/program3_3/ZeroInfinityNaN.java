@@ -16,7 +16,7 @@
  */
 package numbercruncher.program3_3;
 
-import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.SystemOutAlignRight;
 
 /**
  * PROGRAM 3-3: Zero, Infinity, and Not-a-Number Investigate the results of
@@ -26,7 +26,7 @@ public class ZeroInfinityNaN
 {
   public static void main (final String args[])
   {
-    final AlignRight ar = new AlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight ();
 
     final float operands[] = { -0f, +0f, -1f, 1f, Float.NEGATIVE_INFINITY, Float.POSITIVE_INFINITY, Float.NaN, };
 

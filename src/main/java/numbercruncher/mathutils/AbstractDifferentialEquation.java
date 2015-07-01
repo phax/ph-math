@@ -29,7 +29,7 @@ public abstract class AbstractDifferentialEquation implements IEvaluatable
 
   /**
    * Constructor.
-   * 
+   *
    * @param initialCondition
    *        the initial condition data point
    * @param solutionLabel
@@ -37,13 +37,13 @@ public abstract class AbstractDifferentialEquation implements IEvaluatable
    */
   public AbstractDifferentialEquation (final DataPoint initialCondition, final String solutionLabel)
   {
-    this.m_aInitialCondition = initialCondition;
-    this.m_sSolutionLabel = solutionLabel;
+    m_aInitialCondition = initialCondition;
+    m_sSolutionLabel = solutionLabel;
   }
 
   /**
    * Return the initial condition data point.
-   * 
+   *
    * @return the initial condition
    */
   public DataPoint getInitialCondition ()
@@ -53,7 +53,7 @@ public abstract class AbstractDifferentialEquation implements IEvaluatable
 
   /**
    * Return the solution label.
-   * 
+   *
    * @return the label
    */
   public String getSolutionLabel ()
@@ -64,7 +64,7 @@ public abstract class AbstractDifferentialEquation implements IEvaluatable
   /**
    * Return the value of the differential equation at x. (Implementation of
    * {@link IEvaluatable}.)
-   * 
+   *
    * @param x
    *        the value of x
    * @return the solution value
@@ -73,7 +73,7 @@ public abstract class AbstractDifferentialEquation implements IEvaluatable
 
   /**
    * Return the value of the differential equation at (x, y).
-   * 
+   *
    * @param x
    * @param y
    * @return the solution value
@@ -85,7 +85,7 @@ public abstract class AbstractDifferentialEquation implements IEvaluatable
 
   /**
    * Return the value of the solution at x.
-   * 
+   *
    * @return the solution value
    */
   public abstract float solutionAt (float x);

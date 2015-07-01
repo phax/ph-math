@@ -28,8 +28,8 @@ import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.annotation.UnsupportedOperation;
 import com.helger.commons.collection.iterate.IIterableIterator;
-import com.helger.math.graph.IGraphNode;
-import com.helger.math.graph.IGraphRelation;
+import com.helger.math.graph.IMutableGraphNode;
+import com.helger.math.graph.IMutableGraphRelation;
 
 /**
  * A simple iterator for undirected graphs.
@@ -37,39 +37,39 @@ import com.helger.math.graph.IGraphRelation;
  * @author Philip Helger
  */
 @NotThreadSafe
-public final class GraphIterator implements IIterableIterator <IGraphNode>
+public final class GraphIterator implements IIterableIterator <IMutableGraphNode>
 {
   /**
    * Maps node IDs to node states
    */
   private final Set <String> m_aHandledObjects = new HashSet <String> ();
 
-  private final Iterator <IGraphNode> m_aIter;
+  private final Iterator <IMutableGraphNode> m_aIter;
 
   /**
    * Does the graph have cycles?
    */
   private boolean m_bHasCycles = false;
 
-  public GraphIterator (@Nonnull final IGraphNode aStartNode)
+  public GraphIterator (@Nonnull final IMutableGraphNode aStartNode)
   {
     if (aStartNode == null)
       throw new NullPointerException ("startNode");
 
     // Collect all nodes, depth first
-    final List <IGraphNode> aList = new ArrayList <IGraphNode> ();
+    final List <IMutableGraphNode> aList = new ArrayList <IMutableGraphNode> ();
     _traverseDFS (aStartNode, aList);
     m_aIter = aList.iterator ();
   }
 
-  private void _traverseDFS (@Nonnull final IGraphNode aStartNode, @Nonnull final List <IGraphNode> aList)
+  private void _traverseDFS (@Nonnull final IMutableGraphNode aStartNode, @Nonnull final List <IMutableGraphNode> aList)
   {
     m_aHandledObjects.add (aStartNode.getID ());
     aList.add (aStartNode);
-    for (final IGraphRelation aRelation : aStartNode.getAllRelations ())
+    for (final IMutableGraphRelation aRelation : aStartNode.getAllRelations ())
     {
       final boolean bNewRelation = m_aHandledObjects.add (aRelation.getID ());
-      for (final IGraphNode aNode : aRelation.getAllConnectedNodes ())
+      for (final IMutableGraphNode aNode : aRelation.getAllConnectedNodes ())
         if (aNode != aStartNode)
         {
           if (!m_aHandledObjects.contains (aNode.getID ()))
@@ -91,7 +91,7 @@ public final class GraphIterator implements IIterableIterator <IGraphNode>
   }
 
   @Nullable
-  public IGraphNode next ()
+  public IMutableGraphNode next ()
   {
     return m_aIter.next ();
   }
@@ -116,7 +116,7 @@ public final class GraphIterator implements IIterableIterator <IGraphNode>
   }
 
   @Nonnull
-  public Iterator <IGraphNode> iterator ()
+  public Iterator <IMutableGraphNode> iterator ()
   {
     return this;
   }

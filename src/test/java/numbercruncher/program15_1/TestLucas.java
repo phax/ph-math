@@ -16,7 +16,7 @@
  */
 package numbercruncher.program15_1;
 
-import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.primeutils.ILucasCaller;
 import numbercruncher.primeutils.LucasFuncTest;
 import numbercruncher.primeutils.LucasStatus;
@@ -28,7 +28,7 @@ import numbercruncher.primeutils.LucasStatus;
 public class TestLucas implements ILucasCaller
 {
   private int prevA = 0;
-  private final AlignRight ar = new AlignRight ();
+  private final SystemOutAlignRight ar = new SystemOutAlignRight ();
 
   /**
    * Test an integer p for primality.

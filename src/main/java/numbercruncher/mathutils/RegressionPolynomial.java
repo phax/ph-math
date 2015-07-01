@@ -16,10 +16,10 @@
  */
 package numbercruncher.mathutils;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import numbercruncher.matrix.ColumnVector;
 import numbercruncher.matrix.LinearSystem;
 import numbercruncher.matrix.MatrixException;
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 /**
  * A least-squares regression polynomial function.
@@ -57,9 +57,9 @@ public class RegressionPolynomial implements IEvaluatable
    */
   public RegressionPolynomial (final int degree, final int maxPoints)
   {
-    this.m_nDegree = degree;
-    this.m_nMaxPoints = maxPoints;
-    this.m_aData = new DataPoint [maxPoints];
+    m_nDegree = degree;
+    m_nMaxPoints = maxPoints;
+    m_aData = new DataPoint [maxPoints];
   }
 
   /**
@@ -73,10 +73,10 @@ public class RegressionPolynomial implements IEvaluatable
   @SuppressFBWarnings ("EI_EXPOSE_REP2")
   public RegressionPolynomial (final int degree, final DataPoint [] data)
   {
-    this.m_nDegree = degree;
-    this.m_nMaxPoints = data.length;
-    this.m_aData = data;
-    this.m_n = data.length;
+    m_nDegree = degree;
+    m_nMaxPoints = data.length;
+    m_aData = data;
+    m_n = data.length;
   }
 
   /**

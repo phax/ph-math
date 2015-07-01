@@ -17,36 +17,38 @@
 package com.helger.math.graph;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
-import com.helger.commons.state.EChange;
 
 /**
- * Base interface for a single graph node.
+ * Base interface for a single directed graph relation.
  * 
  * @author Philip Helger
  */
 @MustImplementEqualsAndHashcode
-public interface IGraphNode extends IBaseGraphNode <IGraphNode, IGraphRelation>
+public interface IMutableDirectedGraphRelation extends IMutableBaseGraphRelation <IMutableDirectedGraphNode, IMutableDirectedGraphRelation>
 {
   /**
-   * Add a new relation.
-   * 
-   * @param aRelation
-   *        The relation to be added to this node. May be <code>null</code>.
-   * @return {@link EChange#CHANGED} if something changed
+   * @return The from-node of this relation. Never <code>null</code>.
    */
   @Nonnull
-  EChange addRelation (@Nullable IGraphRelation aRelation);
+  IMutableDirectedGraphNode getFrom ();
 
   /**
-   * Remove a new relation.
-   * 
-   * @param aRelation
-   *        The relation to be removed from this node. May be <code>null</code>.
-   * @return {@link EChange#CHANGED} if something changed
+   * @return The ID of the from-node of this relation. Never <code>null</code>.
    */
   @Nonnull
-  EChange removeRelation (@Nullable IGraphRelation aRelation);
+  String getFromID ();
+
+  /**
+   * @return The to-node of this relation. Never <code>null</code>.
+   */
+  @Nonnull
+  IMutableDirectedGraphNode getTo ();
+
+  /**
+   * @return The ID of the to-node of this relation. Never <code>null</code>.
+   */
+  @Nonnull
+  String getToID ();
 }

@@ -27,7 +27,7 @@ import java.util.NoSuchElementException;
 import org.junit.Test;
 
 import com.helger.math.graph.AbstractGraphTestCase;
-import com.helger.math.graph.IDirectedGraphNode;
+import com.helger.math.graph.IMutableDirectedGraphNode;
 import com.helger.math.graph.IReadonlyDirectedGraph;
 
 /**
@@ -50,7 +50,7 @@ public final class DirectedGraphIteratorBackwardTest extends AbstractGraphTestCa
     {}
 
     final IReadonlyDirectedGraph aGraph = _buildDirectedGraph ();
-    final IDirectedGraphNode aEnd = aGraph.getSingleEndNode ();
+    final IMutableDirectedGraphNode aEnd = aGraph.getSingleEndNode ();
     assertEquals (aEnd.getID (), "4");
     final DirectedGraphIteratorBackward it = new DirectedGraphIteratorBackward (aEnd);
 
@@ -90,7 +90,7 @@ public final class DirectedGraphIteratorBackwardTest extends AbstractGraphTestCa
   public void testStartIteratingInTheMiddleOneWay ()
   {
     final IReadonlyDirectedGraph aGraph = _buildDirectedGraph ();
-    final IDirectedGraphNode aEndNode = aGraph.getNodeOfID ("5");
+    final IMutableDirectedGraphNode aEndNode = aGraph.getNodeOfID ("5");
     final DirectedGraphIteratorBackward it = new DirectedGraphIteratorBackward (aEndNode);
     assertTrue (it.hasNext ());
     assertEquals (6, _getNodeValue (it.next ()));
@@ -103,7 +103,7 @@ public final class DirectedGraphIteratorBackwardTest extends AbstractGraphTestCa
   public void testStartIteratingInTheMiddleTwoWays ()
   {
     final IReadonlyDirectedGraph aGraph = _buildDirectedGraph ();
-    final IDirectedGraphNode aStartNode = aGraph.getNodeOfID ("3");
+    final IMutableDirectedGraphNode aStartNode = aGraph.getNodeOfID ("3");
     final DirectedGraphIteratorBackward it = new DirectedGraphIteratorBackward (aStartNode);
     assertTrue (it.hasNext ());
     assertEquals (4, _getNodeValue (it.next ()));

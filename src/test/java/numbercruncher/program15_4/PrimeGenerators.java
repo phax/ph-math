@@ -19,7 +19,7 @@ package numbercruncher.program15_4;
 import java.util.HashSet;
 import java.util.Set;
 
-import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.primeutils.PrimalityFuncTest;
 
 /**
@@ -32,7 +32,7 @@ public class PrimeGenerators
   private static final String GREENWOOD = "41n^2 - 4641n + 88007";
   private static final int WIDTH = GREENWOOD.length () + 5;
 
-  private static AlignRight ar = new AlignRight ();
+  private static SystemOutAlignRight ar = new SystemOutAlignRight ();
 
   public static void main (final String args[])
   {

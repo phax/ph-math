@@ -29,8 +29,8 @@ import com.helger.commons.annotation.UnsupportedOperation;
 import com.helger.commons.collection.impl.NonBlockingStack;
 import com.helger.commons.collection.iterate.IIterableIterator;
 import com.helger.commons.filter.IFilter;
-import com.helger.math.graph.IDirectedGraphNode;
-import com.helger.math.graph.IDirectedGraphRelation;
+import com.helger.math.graph.IMutableDirectedGraphNode;
+import com.helger.math.graph.IMutableDirectedGraphRelation;
 
 /**
  * A simple backward iterator for directed graphs (following the incoming
@@ -39,7 +39,7 @@ import com.helger.math.graph.IDirectedGraphRelation;
  * @author Philip Helger
  */
 @NotThreadSafe
-public final class DirectedGraphIteratorBackward implements IIterableIterator <IDirectedGraphNode>
+public final class DirectedGraphIteratorBackward implements IIterableIterator <IMutableDirectedGraphNode>
 {
   /**
    * This class represents a node in the current iteration process. It is
@@ -49,10 +49,10 @@ public final class DirectedGraphIteratorBackward implements IIterableIterator <I
    */
   private static final class IterationNode
   {
-    private final IDirectedGraphNode m_aNode;
-    private final Iterator <IDirectedGraphRelation> m_aIncomingIt;
+    private final IMutableDirectedGraphNode m_aNode;
+    private final Iterator <IMutableDirectedGraphRelation> m_aIncomingIt;
 
-    private IterationNode (@Nonnull final IDirectedGraphNode aNode)
+    private IterationNode (@Nonnull final IMutableDirectedGraphNode aNode)
     {
       if (aNode == null)
         throw new NullPointerException ("node");
@@ -61,13 +61,13 @@ public final class DirectedGraphIteratorBackward implements IIterableIterator <I
     }
 
     @Nonnull
-    public IDirectedGraphNode getNode ()
+    public IMutableDirectedGraphNode getNode ()
     {
       return m_aNode;
     }
 
     @Nonnull
-    public Iterator <IDirectedGraphRelation> getIncomingRelationIterator ()
+    public Iterator <IMutableDirectedGraphRelation> getIncomingRelationIterator ()
     {
       return m_aIncomingIt;
     }
@@ -83,7 +83,7 @@ public final class DirectedGraphIteratorBackward implements IIterableIterator <I
    * Optional filter for graph relations to defined whether thy should be
    * followed or not. May be <code>null</code>.
    */
-  private final IFilter <IDirectedGraphRelation> m_aRelationFilter;
+  private final IFilter <IMutableDirectedGraphRelation> m_aRelationFilter;
 
   /**
    * This set keeps track of all the nodes we already visited. This is important
@@ -96,13 +96,13 @@ public final class DirectedGraphIteratorBackward implements IIterableIterator <I
    */
   private boolean m_bHasCycles = false;
 
-  public DirectedGraphIteratorBackward (@Nonnull final IDirectedGraphNode aStartNode)
+  public DirectedGraphIteratorBackward (@Nonnull final IMutableDirectedGraphNode aStartNode)
   {
     this (aStartNode, null);
   }
 
-  public DirectedGraphIteratorBackward (@Nonnull final IDirectedGraphNode aStartNode,
-                                        @Nullable final IFilter <IDirectedGraphRelation> aRelationFilter)
+  public DirectedGraphIteratorBackward (@Nonnull final IMutableDirectedGraphNode aStartNode,
+                                        @Nullable final IFilter <IMutableDirectedGraphRelation> aRelationFilter)
   {
     if (aStartNode == null)
       throw new NullPointerException ("startNode");
@@ -119,14 +119,14 @@ public final class DirectedGraphIteratorBackward implements IIterableIterator <I
   }
 
   @Nullable
-  public IDirectedGraphNode next ()
+  public IMutableDirectedGraphNode next ()
   {
     // If no nodes are left, there ain't no next!
     if (!hasNext ())
       throw new NoSuchElementException ();
 
     // get the node to return
-    final IDirectedGraphNode ret = m_aNodeStack.peek ().getNode ();
+    final IMutableDirectedGraphNode ret = m_aNodeStack.peek ().getNode ();
     m_aHandledNodes.add (ret.getID ());
 
     // find next node
@@ -135,10 +135,10 @@ public final class DirectedGraphIteratorBackward implements IIterableIterator <I
       while (!m_aNodeStack.isEmpty () && !bFoundNewNode)
       {
         // check all incoming relations
-        final Iterator <IDirectedGraphRelation> itPeek = m_aNodeStack.peek ().getIncomingRelationIterator ();
+        final Iterator <IMutableDirectedGraphRelation> itPeek = m_aNodeStack.peek ().getIncomingRelationIterator ();
         while (itPeek.hasNext ())
         {
-          final IDirectedGraphRelation aCurrentRelation = itPeek.next ();
+          final IMutableDirectedGraphRelation aCurrentRelation = itPeek.next ();
 
           // Callback to check whether the current relation should be followed
           // or not
@@ -146,7 +146,7 @@ public final class DirectedGraphIteratorBackward implements IIterableIterator <I
             continue;
 
           // from-node of the current relation
-          final IDirectedGraphNode aCurrentIncomingNode = aCurrentRelation.getFrom ();
+          final IMutableDirectedGraphNode aCurrentIncomingNode = aCurrentRelation.getFrom ();
 
           // check if the current node is already contained in the stack
           // If so, we have a cycle
@@ -197,7 +197,7 @@ public final class DirectedGraphIteratorBackward implements IIterableIterator <I
   }
 
   @Nonnull
-  public Iterator <IDirectedGraphNode> iterator ()
+  public Iterator <IMutableDirectedGraphNode> iterator ()
   {
     return this;
   }

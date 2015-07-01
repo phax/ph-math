@@ -16,10 +16,14 @@
  */
 package numbercruncher.mathutils;
 
+import javax.annotation.Nonnull;
+
+import com.helger.commons.string.StringHelper;
+
 /**
  * Print text and numbers right-aligned in columns.
  */
-public class AlignRight
+public class SystemOutAlignRight
 {
   /** line size */
   private int m_nLineSize;
@@ -27,7 +31,7 @@ public class AlignRight
   /**
    * Constructor.
    */
-  public AlignRight ()
+  public SystemOutAlignRight ()
   {}
 
   /**
@@ -38,12 +42,10 @@ public class AlignRight
    * @param width
    *        the column width
    */
-  public void print (final String text, final int width)
+  public void print (@Nonnull final String text, final int width)
   {
-    int padding = width - text.length ();
-    while (--padding >= 0)
-      System.out.print (" ");
-    System.out.print (text);
+    final int padding = width - text.length ();
+    System.out.print (StringHelper.getRepeated (' ', padding) + text);
 
     m_nLineSize += width;
   }

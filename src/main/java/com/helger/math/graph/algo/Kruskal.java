@@ -31,8 +31,8 @@ import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.compare.AbstractDoubleComparator;
 import com.helger.commons.debug.GlobalDebug;
 import com.helger.commons.string.StringHelper;
-import com.helger.math.graph.IGraphNode;
-import com.helger.math.graph.IGraphRelation;
+import com.helger.math.graph.IMutableGraphNode;
+import com.helger.math.graph.IMutableGraphRelation;
 import com.helger.math.graph.simple.ISimpleGraph;
 import com.helger.math.graph.simple.SimpleGraph;
 import com.helger.math.graph.simple.SimpleGraphObjectFastFactory;
@@ -80,7 +80,7 @@ public final class Kruskal
       final StringBuilder aSB = new StringBuilder ();
       aSB.append ("Total weight ").append (m_nTotalWeight).append (" for nodes {");
       int nIndex = 0;
-      for (final IGraphNode aNode : m_aGraph.getAllNodes ().values ())
+      for (final IMutableGraphNode aNode : m_aGraph.getAllNodes ().values ())
       {
         if (nIndex++ > 0)
           aSB.append (',');
@@ -90,7 +90,7 @@ public final class Kruskal
     }
   }
 
-  private static String _getWeightInfo (@Nonnull final IGraphRelation aRel,
+  private static String _getWeightInfo (@Nonnull final IMutableGraphRelation aRel,
                                         @Nonnull @Nonempty final String sRelationCostAttr)
   {
     return "{" +
@@ -104,14 +104,14 @@ public final class Kruskal
   public static Kruskal.Result applyKruskal (@Nonnull final ISimpleGraph aGraph,
                                              @Nonnull @Nonempty final String sRelationCostAttr)
   {
-    final Collection <IGraphRelation> aAllRelations = aGraph.getAllRelations ().values ();
+    final Collection <IMutableGraphRelation> aAllRelations = aGraph.getAllRelations ().values ();
     if (GlobalDebug.isDebugMode ())
       s_aLogger.info ("Starting Kruskal on " + aAllRelations.size () + " relations");
-    final List <IGraphRelation> aSortedRelations = CollectionHelper.getSorted (aAllRelations,
-                                                                               new AbstractDoubleComparator <IGraphRelation> ()
+    final List <IMutableGraphRelation> aSortedRelations = CollectionHelper.getSorted (aAllRelations,
+                                                                               new AbstractDoubleComparator <IMutableGraphRelation> ()
                                                                                {
                                                                                  @Override
-                                                                                 protected double getAsDouble (final IGraphRelation aObject)
+                                                                                 protected double getAsDouble (final IMutableGraphRelation aObject)
                                                                                  {
                                                                                    return aObject.getAttributeAsInt (sRelationCostAttr);
                                                                                  }
@@ -120,26 +120,26 @@ public final class Kruskal
     if (GlobalDebug.isDebugMode ())
     {
       final List <String> aSortedRelationsText = new ArrayList <String> ();
-      for (final IGraphRelation aRel : aSortedRelations)
+      for (final IMutableGraphRelation aRel : aSortedRelations)
         aSortedRelationsText.add (_getWeightInfo (aRel, sRelationCostAttr));
       s_aLogger.info ("Sorted relations: " + StringHelper.getImploded (';', aSortedRelationsText));
     }
 
     final SimpleGraph ret = new SimpleGraph (new SimpleGraphObjectFastFactory ());
     // Duplicate all nodes from source graph
-    for (final IGraphNode aNode : aGraph.getAllNodes ().values ())
+    for (final IMutableGraphNode aNode : aGraph.getAllNodes ().values ())
     {
-      final IGraphNode aNewNode = ret.createNode (aNode.getID ());
+      final IMutableGraphNode aNewNode = ret.createNode (aNode.getID ());
       aNewNode.setAttributes (aNode.getAllAttributes ());
     }
 
     // Now start adding the relations (undirected!)
     int nRemainingRelations = aGraph.getNodeCount () - 1;
     int nTotalWeight = 0;
-    for (final IGraphRelation aRelation : aSortedRelations)
+    for (final IMutableGraphRelation aRelation : aSortedRelations)
     {
       final int nWeight = aRelation.getAttributeAsInt (sRelationCostAttr);
-      final IGraphRelation aNewRelation = ret.createRelation (aRelation.getNode1ID (), aRelation.getNode2ID ());
+      final IMutableGraphRelation aNewRelation = ret.createRelation (aRelation.getNode1ID (), aRelation.getNode2ID ());
       aNewRelation.setAttributes (aRelation.getAllAttributes ());
       if (ret.containsCycles ())
       {

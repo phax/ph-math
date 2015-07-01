@@ -24,14 +24,14 @@ import com.helger.commons.id.IHasID;
  *
  * @author Philip Helger
  */
-public interface IBaseGraphObject extends IHasID <String>, IMutableAttributeContainerAny <Object>
+public interface IMutableBaseGraphObject extends IHasID <String>, IMutableAttributeContainerAny <Object>
 {
   /**
    * Check if the object is directed or undirected. Directed nodes must
-   * implement {@link IDirectedGraphNode} whereas undirected relations must
-   * implement {@link IGraphNode}. Directed relations must implement
-   * {@link IDirectedGraphRelation} whereas undirected relations must implement
-   * {@link IGraphRelation}.
+   * implement {@link IMutableDirectedGraphNode} whereas undirected relations must
+   * implement {@link IMutableGraphNode}. Directed relations must implement
+   * {@link IMutableDirectedGraphRelation} whereas undirected relations must implement
+   * {@link IMutableGraphRelation}.
    *
    * @return <code>true</code> if it is a directed object "from" and "to"),
    *         <code>false</code> if it is an undirected object.

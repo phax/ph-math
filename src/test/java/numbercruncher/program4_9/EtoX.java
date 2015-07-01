@@ -16,7 +16,7 @@
  */
 package numbercruncher.program4_9;
 
-import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.SystemOutAlignRight;
 
 /**
  * PROGRAM 4-9: e to x Compute e^x using the Taylor series with x = -19.5 The
@@ -28,7 +28,7 @@ public class EtoX
 
   public static void main (final String args[])
   {
-    final AlignRight ar = new AlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight ();
 
     int k = 0;
     double numerator = 1;

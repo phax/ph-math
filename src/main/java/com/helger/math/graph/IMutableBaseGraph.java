@@ -22,17 +22,21 @@ import javax.annotation.Nullable;
 import com.helger.commons.state.EChange;
 
 /**
- * Interface for a modifiable undirected graph.
- * 
+ * Interface for a modifiable graph.
+ *
  * @author Philip Helger
+ * @param <N>
+ *        Node class
+ * @param <R>
+ *        Relation class
  */
-public interface IGraph extends IBaseGraph <IGraphNode, IGraphRelation>, IReadonlyGraph, IGraphObjectFactory
+public interface IMutableBaseGraph <N extends IMutableBaseGraphNode <N, R>, R extends IMutableBaseGraphRelation <N, R>> extends IReadonlyBaseGraph <N, R>
 {
   /**
-   * Allow or disallow that {@link #addNode(IGraphNode)} and
-   * {@link #removeNode(IGraphNode)} can handle graph nodes that are already
+   * Allow or disallow that {@link #addNode(IMutableBaseGraphNode)} and
+   * {@link #removeNode(IMutableBaseGraphNode)} can handle graph nodes that are already
    * connected.
-   * 
+   *
    * @param bAllow
    *        if <code>true</code> it is allowed to add and remove nodes that
    *        already have incoming or outgoing relations.
@@ -49,7 +53,7 @@ public interface IGraph extends IBaseGraph <IGraphNode, IGraphRelation>, IReadon
 
   /**
    * Add an existing node to this graph.
-   * 
+   *
    * @param aNode
    *        The node to be added. May not be <code>null</code>.
    * @return {@link EChange}
@@ -60,14 +64,14 @@ public interface IGraph extends IBaseGraph <IGraphNode, IGraphRelation>, IReadon
    * @see #setChangingConnectedObjectsAllowed(boolean)
    */
   @Nonnull
-  EChange addNode (@Nonnull IGraphNode aNode) throws IllegalArgumentException;
+  EChange addNode (@Nonnull N aNode) throws IllegalArgumentException;
 
   /**
    * Remove an existing node from the graph. <br>
    * Important note: existing relations are not altered when this method is
    * called, so it may be possible that existing relations pointing to that
    * object therefore reference a node that is no longer in the graph!
-   * 
+   *
    * @param aNode
    *        The node to be removed. May not be <code>null</code>.
    * @return {@link EChange}
@@ -78,16 +82,26 @@ public interface IGraph extends IBaseGraph <IGraphNode, IGraphRelation>, IReadon
    * @see #setChangingConnectedObjectsAllowed(boolean)
    */
   @Nonnull
-  EChange removeNode (@Nonnull IGraphNode aNode) throws IllegalArgumentException;
+  EChange removeNode (@Nonnull N aNode) throws IllegalArgumentException;
+
+  /**
+   * Remove an existing node and all connected relations from the graph.
+   *
+   * @param aNode
+   *        The node to be removed. May not be <code>null</code>.
+   * @return {@link EChange}
+   */
+  @Nonnull
+  EChange removeNodeAndAllRelations (@Nonnull N aNode);
 
   /**
    * Remove the passed relation from the graph.
-   * 
+   *
    * @param aRelation
    *        The relation to be removed. May be <code>null</code>.
    * @return {@link EChange#CHANGED} if the relation was at least removed from
    *         the from- or the to-node
    */
   @Nonnull
-  EChange removeRelation (@Nullable IGraphRelation aRelation);
+  EChange removeRelation (@Nullable R aRelation);
 }

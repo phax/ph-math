@@ -34,7 +34,7 @@ public interface IGraphNodeFactory
    * @return The created graph node. Never <code>null</code>.
    */
   @Nonnull
-  IGraphNode createNode ();
+  IMutableGraphNode createNode ();
 
   /**
    * Create a new graph node with a known ID.
@@ -45,5 +45,5 @@ public interface IGraphNodeFactory
    * @return The created graph node. May not be <code>null</code>.
    */
   @Nonnull
-  IGraphNode createNode (@Nullable String sID);
+  IMutableGraphNode createNode (@Nullable String sID);
 }

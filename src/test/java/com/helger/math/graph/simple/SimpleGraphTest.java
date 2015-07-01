@@ -27,7 +27,7 @@ import org.junit.Test;
 
 import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.math.graph.AbstractGraphTestCase;
-import com.helger.math.graph.IGraphNode;
+import com.helger.math.graph.IMutableGraphNode;
 import com.helger.math.graph.IReadonlyGraph;
 import com.helger.math.graph.impl.GraphNode;
 import com.helger.math.matrix.Matrix;
@@ -119,8 +119,8 @@ public final class SimpleGraphTest extends AbstractGraphTestCase
     assertTrue (sg.isSelfContained ());
 
     sg = new SimpleGraph ();
-    final IGraphNode n1 = sg.createNode (null);
-    final IGraphNode n2 = sg.createNode (null);
+    final IMutableGraphNode n1 = sg.createNode (null);
+    final IMutableGraphNode n2 = sg.createNode (null);
     sg.createRelation (n1, n2);
     sg.createRelation (n2, n1);
 
@@ -170,11 +170,11 @@ public final class SimpleGraphTest extends AbstractGraphTestCase
     assertTrue (sg.isSelfContained ());
 
     // n1 belongs to the graph
-    IGraphNode n1 = sg.createNode ("any");
+    IMutableGraphNode n1 = sg.createNode ("any");
     assertTrue (sg.isSelfContained ());
 
     // n2 does not belong to the graph
-    IGraphNode n2 = new GraphNode ("other");
+    IMutableGraphNode n2 = new GraphNode ("other");
     sg.createRelation (n1, n2);
     assertFalse (sg.isSelfContained ());
 

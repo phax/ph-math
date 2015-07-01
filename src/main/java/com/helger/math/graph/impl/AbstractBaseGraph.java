@@ -29,9 +29,9 @@ import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
-import com.helger.math.graph.IBaseGraph;
-import com.helger.math.graph.IBaseGraphNode;
-import com.helger.math.graph.IBaseGraphRelation;
+import com.helger.math.graph.IMutableBaseGraph;
+import com.helger.math.graph.IMutableBaseGraphNode;
+import com.helger.math.graph.IMutableBaseGraphRelation;
 
 /**
  * A simple graph object that bidirectionally links graph nodes.
@@ -43,7 +43,7 @@ import com.helger.math.graph.IBaseGraphRelation;
  *        Relation class
  */
 @NotThreadSafe
-public abstract class AbstractBaseGraph <N extends IBaseGraphNode <N, R>, R extends IBaseGraphRelation <N, R>> extends AbstractBaseGraphObject implements IBaseGraph <N, R>
+public abstract class AbstractBaseGraph <N extends IMutableBaseGraphNode <N, R>, R extends IMutableBaseGraphRelation <N, R>> extends AbstractBaseGraphObject implements IMutableBaseGraph <N, R>
 {
   /** By default this is allowed */
   public static final boolean DEFAULT_CHANGING_CONNECTED_OBJECTS_ALLOWED = true;

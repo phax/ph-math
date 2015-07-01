@@ -30,18 +30,18 @@ import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
-import com.helger.math.graph.IGraphNode;
-import com.helger.math.graph.IGraphRelation;
+import com.helger.math.graph.IMutableGraphNode;
+import com.helger.math.graph.IMutableGraphRelation;
 
 /**
- * Default implementation if the {@link IGraphNode} interface
+ * Default implementation if the {@link IMutableGraphNode} interface
  *
  * @author Philip Helger
  */
 @NotThreadSafe
-public class GraphNode extends AbstractBaseGraphObject implements IGraphNode
+public class GraphNode extends AbstractBaseGraphObject implements IMutableGraphNode
 {
-  private Map <String, IGraphRelation> m_aRelations;
+  private Map <String, IMutableGraphRelation> m_aRelations;
 
   public GraphNode ()
   {
@@ -59,7 +59,7 @@ public class GraphNode extends AbstractBaseGraphObject implements IGraphNode
   }
 
   @Nonnull
-  public EChange addRelation (@Nullable final IGraphRelation aRelation)
+  public EChange addRelation (@Nullable final IMutableGraphRelation aRelation)
   {
     if (aRelation == null)
       return EChange.UNCHANGED;
@@ -68,7 +68,7 @@ public class GraphNode extends AbstractBaseGraphObject implements IGraphNode
 
     final String sRelationID = aRelation.getID ();
     if (m_aRelations == null)
-      m_aRelations = new LinkedHashMap <String, IGraphRelation> ();
+      m_aRelations = new LinkedHashMap <String, IMutableGraphRelation> ();
     else
       if (m_aRelations.containsKey (sRelationID))
         return EChange.UNCHANGED;
@@ -78,7 +78,7 @@ public class GraphNode extends AbstractBaseGraphObject implements IGraphNode
   }
 
   @Nonnull
-  public EChange removeRelation (@Nullable final IGraphRelation aRelation)
+  public EChange removeRelation (@Nullable final IMutableGraphRelation aRelation)
   {
     if (aRelation == null || m_aRelations == null)
       return EChange.UNCHANGED;
@@ -94,17 +94,17 @@ public class GraphNode extends AbstractBaseGraphObject implements IGraphNode
     return EChange.CHANGED;
   }
 
-  public boolean isConnectedWith (@Nullable final IGraphNode aNode)
+  public boolean isConnectedWith (@Nullable final IMutableGraphNode aNode)
   {
     return getRelation (aNode) != null;
   }
 
   @Nullable
-  public IGraphRelation getRelation (@Nullable final IGraphNode aNode)
+  public IMutableGraphRelation getRelation (@Nullable final IMutableGraphNode aNode)
   {
     if (m_aRelations != null && aNode != null && aNode != this)
     {
-      for (final IGraphRelation aRelation : m_aRelations.values ())
+      for (final IMutableGraphRelation aRelation : m_aRelations.values ())
         if (aRelation.isRelatedTo (aNode))
           return aRelation;
     }
@@ -124,9 +124,9 @@ public class GraphNode extends AbstractBaseGraphObject implements IGraphNode
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <IGraphRelation> getAllRelations ()
+  public Set <IMutableGraphRelation> getAllRelations ()
   {
-    final Set <IGraphRelation> ret = new LinkedHashSet <IGraphRelation> ();
+    final Set <IMutableGraphRelation> ret = new LinkedHashSet <IMutableGraphRelation> ();
     if (m_aRelations != null)
       ret.addAll (m_aRelations.values ());
     return ret;
@@ -144,11 +144,11 @@ public class GraphNode extends AbstractBaseGraphObject implements IGraphNode
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <IGraphNode> getAllRelatedNodes ()
+  public Set <IMutableGraphNode> getAllRelatedNodes ()
   {
-    final Set <IGraphNode> ret = new LinkedHashSet <IGraphNode> ();
+    final Set <IMutableGraphNode> ret = new LinkedHashSet <IMutableGraphNode> ();
     if (m_aRelations != null)
-      for (final IGraphRelation aRelation : m_aRelations.values ())
+      for (final IMutableGraphRelation aRelation : m_aRelations.values ())
       {
         ret.add (aRelation.getNode1 ());
         ret.add (aRelation.getNode2 ());
@@ -162,7 +162,7 @@ public class GraphNode extends AbstractBaseGraphObject implements IGraphNode
   {
     final Set <String> ret = new LinkedHashSet <String> ();
     if (m_aRelations != null)
-      for (final IGraphRelation aRelation : m_aRelations.values ())
+      for (final IMutableGraphRelation aRelation : m_aRelations.values ())
       {
         ret.add (aRelation.getNode1ID ());
         ret.add (aRelation.getNode2ID ());

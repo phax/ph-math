@@ -19,15 +19,15 @@ package com.helger.math.graph.simple;
 import javax.annotation.Nonnull;
 
 import com.helger.commons.annotation.Nonempty;
-import com.helger.math.graph.IDirectedGraph;
-import com.helger.math.graph.IDirectedGraphRelation;
+import com.helger.math.graph.IMutableDirectedGraph;
+import com.helger.math.graph.IMutableDirectedGraphRelation;
 
 /**
  * Interface for a modifiable simple graph.
  * 
  * @author Philip Helger
  */
-public interface ISimpleDirectedGraph extends IDirectedGraph
+public interface ISimpleDirectedGraph extends IMutableDirectedGraph
 {
   /**
    * Create a new relation from the passed fromNode to the toNode. Internally
@@ -41,7 +41,7 @@ public interface ISimpleDirectedGraph extends IDirectedGraph
    * @return The created graph relation and never <code>null</code>.
    */
   @Nonnull
-  IDirectedGraphRelation createRelation (@Nonnull String sFromNodeID, @Nonnull String sToNodeID);
+  IMutableDirectedGraphRelation createRelation (@Nonnull String sFromNodeID, @Nonnull String sToNodeID);
 
   /**
    * Create a new relation from the passed fromNode to the toNode. Internally
@@ -57,7 +57,7 @@ public interface ISimpleDirectedGraph extends IDirectedGraph
    * @return The created graph relation and never <code>null</code>.
    */
   @Nonnull
-  IDirectedGraphRelation createRelation (@Nonnull @Nonempty String sRelationID,
+  IMutableDirectedGraphRelation createRelation (@Nonnull @Nonempty String sRelationID,
                                          @Nonnull String sFromNodeID,
                                          @Nonnull String sToNodeID);
 }

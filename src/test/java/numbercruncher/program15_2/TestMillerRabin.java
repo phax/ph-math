@@ -16,7 +16,7 @@
  */
 package numbercruncher.program15_2;
 
-import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.primeutils.IMillerRabinCaller;
 import numbercruncher.primeutils.MillerRabinFuncTest;
 import numbercruncher.primeutils.MillerRabinStatus;
@@ -31,7 +31,7 @@ public class TestMillerRabin implements IMillerRabinCaller
 
   private static final String CODE_LABELS[] = { "???", "composite", "prime?" };
 
-  private final AlignRight ar = new AlignRight ();
+  private final SystemOutAlignRight ar = new SystemOutAlignRight ();
 
   /**
    * Test an integer p for primality.

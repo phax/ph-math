@@ -17,38 +17,36 @@
 package com.helger.math.graph;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
+import com.helger.commons.state.EChange;
 
 /**
- * Base interface for a single undirected graph relation.
+ * Base interface for a single graph node.
  * 
  * @author Philip Helger
  */
 @MustImplementEqualsAndHashcode
-public interface IGraphRelation extends IBaseGraphRelation <IGraphNode, IGraphRelation>
+public interface IMutableGraphNode extends IMutableBaseGraphNode <IMutableGraphNode, IMutableGraphRelation>
 {
   /**
-   * @return Node1 of this relation. Never <code>null</code>.
+   * Add a new relation.
+   * 
+   * @param aRelation
+   *        The relation to be added to this node. May be <code>null</code>.
+   * @return {@link EChange#CHANGED} if something changed
    */
   @Nonnull
-  IGraphNode getNode1 ();
+  EChange addRelation (@Nullable IMutableGraphRelation aRelation);
 
   /**
-   * @return The ID of node1 of this relation. Never <code>null</code>.
+   * Remove a new relation.
+   * 
+   * @param aRelation
+   *        The relation to be removed from this node. May be <code>null</code>.
+   * @return {@link EChange#CHANGED} if something changed
    */
   @Nonnull
-  String getNode1ID ();
-
-  /**
-   * @return Node2 of this relation. Never <code>null</code>.
-   */
-  @Nonnull
-  IGraphNode getNode2 ();
-
-  /**
-   * @return The ID of node2 of this relation. Never <code>null</code>.
-   */
-  @Nonnull
-  String getNode2ID ();
+  EChange removeRelation (@Nullable IMutableGraphRelation aRelation);
 }

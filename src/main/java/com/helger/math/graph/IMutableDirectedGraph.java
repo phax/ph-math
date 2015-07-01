@@ -21,7 +21,7 @@ package com.helger.math.graph;
  * 
  * @author Philip Helger
  */
-public interface IDirectedGraph extends IBaseGraph <IDirectedGraphNode, IDirectedGraphRelation>, IReadonlyDirectedGraph, IDirectedGraphObjectFactory
+public interface IMutableDirectedGraph extends IMutableBaseGraph <IMutableDirectedGraphNode, IMutableDirectedGraphRelation>, IReadonlyDirectedGraph, IDirectedGraphObjectFactory
 {
   /* empty */
 }

@@ -25,7 +25,7 @@ import com.helger.commons.collection.attr.MapBasedAttributeContainerAny;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
-import com.helger.math.graph.IBaseGraphObject;
+import com.helger.math.graph.IMutableBaseGraphObject;
 
 /**
  * Base class for graph nodes and graph relations.
@@ -33,7 +33,7 @@ import com.helger.math.graph.IBaseGraphObject;
  * @author Philip Helger
  */
 @NotThreadSafe
-public abstract class AbstractBaseGraphObject extends MapBasedAttributeContainerAny <Object> implements IBaseGraphObject
+public abstract class AbstractBaseGraphObject extends MapBasedAttributeContainerAny <Object> implements IMutableBaseGraphObject
 {
   private final String m_sID;
 

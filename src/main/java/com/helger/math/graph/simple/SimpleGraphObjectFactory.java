@@ -19,9 +19,9 @@ package com.helger.math.graph.simple;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.helger.math.graph.IGraphNode;
+import com.helger.math.graph.IMutableGraphNode;
 import com.helger.math.graph.IGraphObjectFactory;
-import com.helger.math.graph.IGraphRelation;
+import com.helger.math.graph.IMutableGraphRelation;
 import com.helger.math.graph.impl.GraphNode;
 import com.helger.math.graph.impl.GraphRelation;
 
@@ -34,27 +34,27 @@ import com.helger.math.graph.impl.GraphRelation;
 public class SimpleGraphObjectFactory implements IGraphObjectFactory
 {
   @Nonnull
-  public IGraphNode createNode ()
+  public IMutableGraphNode createNode ()
   {
     return new GraphNode ();
   }
 
   @Nonnull
-  public IGraphNode createNode (@Nullable final String sID)
+  public IMutableGraphNode createNode (@Nullable final String sID)
   {
     return new GraphNode (sID);
   }
 
   @Nonnull
-  public IGraphRelation createRelation (@Nonnull final IGraphNode aFrom, @Nonnull final IGraphNode aTo)
+  public IMutableGraphRelation createRelation (@Nonnull final IMutableGraphNode aFrom, @Nonnull final IMutableGraphNode aTo)
   {
     return new GraphRelation (aFrom, aTo);
   }
 
   @Nonnull
-  public IGraphRelation createRelation (@Nullable final String sID,
-                                        @Nonnull final IGraphNode aFrom,
-                                        @Nonnull final IGraphNode aTo)
+  public IMutableGraphRelation createRelation (@Nullable final String sID,
+                                        @Nonnull final IMutableGraphNode aFrom,
+                                        @Nonnull final IMutableGraphNode aTo)
   {
     return new GraphRelation (sID, aFrom, aTo);
   }

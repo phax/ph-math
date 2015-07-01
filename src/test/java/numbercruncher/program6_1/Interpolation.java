@@ -16,7 +16,7 @@
  */
 package numbercruncher.program6_1;
 
-import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.DataPoint;
 import numbercruncher.mathutils.InterpolationPolynomial;
 
@@ -29,7 +29,7 @@ public class Interpolation
 {
   private static final int MAX_POINTS = 10;
 
-  private static AlignRight ar = new AlignRight ();
+  private static SystemOutAlignRight ar = new SystemOutAlignRight ();
 
   /**
    * Main program.

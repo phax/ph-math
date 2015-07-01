@@ -34,19 +34,19 @@ import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
-import com.helger.math.graph.IDirectedGraphNode;
-import com.helger.math.graph.IDirectedGraphRelation;
+import com.helger.math.graph.IMutableDirectedGraphNode;
+import com.helger.math.graph.IMutableDirectedGraphRelation;
 
 /**
- * Default implementation if the {@link IDirectedGraphNode} interface
+ * Default implementation if the {@link IMutableDirectedGraphNode} interface
  *
  * @author Philip Helger
  */
 @NotThreadSafe
-public class DirectedGraphNode extends AbstractBaseGraphObject implements IDirectedGraphNode
+public class DirectedGraphNode extends AbstractBaseGraphObject implements IMutableDirectedGraphNode
 {
-  private Map <String, IDirectedGraphRelation> m_aIncoming;
-  private Map <String, IDirectedGraphRelation> m_aOutgoing;
+  private Map <String, IMutableDirectedGraphRelation> m_aIncoming;
+  private Map <String, IMutableDirectedGraphRelation> m_aOutgoing;
 
   public DirectedGraphNode ()
   {
@@ -63,7 +63,7 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IDirec
     return true;
   }
 
-  public void addIncomingRelation (@Nonnull final IDirectedGraphRelation aNewRelation)
+  public void addIncomingRelation (@Nonnull final IMutableDirectedGraphRelation aNewRelation)
   {
     ValueEnforcer.notNull (aNewRelation, "NewRelation");
     ValueEnforcer.isTrue (aNewRelation.getTo () == this, "Passed incoming relation is not based on this node");
@@ -75,7 +75,7 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IDirec
                                             ") is already contained as an incoming relation");
 
       // check if the relation from-node is already contained
-      for (final IDirectedGraphRelation aRelation : m_aIncoming.values ())
+      for (final IMutableDirectedGraphRelation aRelation : m_aIncoming.values ())
         if (aRelation.getFrom () == aNewRelation.getFrom ())
           throw new IllegalArgumentException ("The from-node of the passed relation (" +
                                               aNewRelation +
@@ -83,7 +83,7 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IDirec
     }
     else
     {
-      m_aIncoming = new LinkedHashMap <String, IDirectedGraphRelation> ();
+      m_aIncoming = new LinkedHashMap <String, IMutableDirectedGraphRelation> ();
     }
 
     // Add!
@@ -101,21 +101,21 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IDirec
     return CollectionHelper.getSize (m_aIncoming);
   }
 
-  public boolean isIncomingRelation (@Nullable final IDirectedGraphRelation aRelation)
+  public boolean isIncomingRelation (@Nullable final IMutableDirectedGraphRelation aRelation)
   {
     return m_aIncoming != null && aRelation != null && aRelation.equals (m_aIncoming.get (aRelation.getID ()));
   }
 
   @Nonnull
   @ReturnsMutableCopy
-  public List <IDirectedGraphRelation> getAllIncomingRelations ()
+  public List <IMutableDirectedGraphRelation> getAllIncomingRelations ()
   {
-    return m_aIncoming == null ? new ArrayList <IDirectedGraphRelation> ()
+    return m_aIncoming == null ? new ArrayList <IMutableDirectedGraphRelation> ()
                               : CollectionHelper.newList (m_aIncoming.values ());
   }
 
   @Nonnull
-  public EChange removeIncomingRelation (@Nonnull final IDirectedGraphRelation aRelation)
+  public EChange removeIncomingRelation (@Nonnull final IMutableDirectedGraphRelation aRelation)
   {
     return aRelation == null || m_aIncoming == null ? EChange.UNCHANGED
                                                    : EChange.valueOf (m_aIncoming.remove (aRelation.getID ()) != null);
@@ -130,33 +130,33 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IDirec
     return EChange.CHANGED;
   }
 
-  public boolean isFromNode (@Nullable final IDirectedGraphNode aNode)
+  public boolean isFromNode (@Nullable final IMutableDirectedGraphNode aNode)
   {
     return getIncomingRelationFrom (aNode) != null;
   }
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <IDirectedGraphNode> getAllFromNodes ()
+  public Set <IMutableDirectedGraphNode> getAllFromNodes ()
   {
-    final Set <IDirectedGraphNode> ret = new HashSet <IDirectedGraphNode> ();
+    final Set <IMutableDirectedGraphNode> ret = new HashSet <IMutableDirectedGraphNode> ();
     if (m_aIncoming != null)
-      for (final IDirectedGraphRelation aRelation : m_aIncoming.values ())
+      for (final IMutableDirectedGraphRelation aRelation : m_aIncoming.values ())
         ret.add (aRelation.getFrom ());
     return ret;
   }
 
   @Nullable
-  public IDirectedGraphRelation getIncomingRelationFrom (@Nullable final IDirectedGraphNode aFromNode)
+  public IMutableDirectedGraphRelation getIncomingRelationFrom (@Nullable final IMutableDirectedGraphNode aFromNode)
   {
     if (m_aIncoming != null && aFromNode != null)
-      for (final IDirectedGraphRelation aRelation : m_aIncoming.values ())
+      for (final IMutableDirectedGraphRelation aRelation : m_aIncoming.values ())
         if (aRelation.getFrom ().equals (aFromNode))
           return aRelation;
     return null;
   }
 
-  public void addOutgoingRelation (@Nonnull final IDirectedGraphRelation aNewRelation)
+  public void addOutgoingRelation (@Nonnull final IMutableDirectedGraphRelation aNewRelation)
   {
     ValueEnforcer.notNull (aNewRelation, "NewRelation");
     ValueEnforcer.isTrue (aNewRelation.getFrom () == this, "Passed outgoing relation is not based on this node");
@@ -167,7 +167,7 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IDirec
                                             aNewRelation +
                                             " is already contained as an outgoing relation");
       // check if the relation to-node is already contained
-      for (final IDirectedGraphRelation aRelation : m_aOutgoing.values ())
+      for (final IMutableDirectedGraphRelation aRelation : m_aOutgoing.values ())
         if (aRelation.getTo () == aNewRelation.getTo ())
           throw new IllegalArgumentException ("The to-node of the passed relation " +
                                               aNewRelation +
@@ -175,7 +175,7 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IDirec
     }
     else
     {
-      m_aOutgoing = new LinkedHashMap <String, IDirectedGraphRelation> ();
+      m_aOutgoing = new LinkedHashMap <String, IMutableDirectedGraphRelation> ();
     }
 
     // Add!
@@ -193,32 +193,32 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IDirec
     return CollectionHelper.getSize (m_aOutgoing);
   }
 
-  public boolean isOutgoingRelation (@Nullable final IDirectedGraphRelation aRelation)
+  public boolean isOutgoingRelation (@Nullable final IMutableDirectedGraphRelation aRelation)
   {
     return m_aOutgoing != null && aRelation != null && aRelation.equals (m_aOutgoing.get (aRelation.getID ()));
   }
 
   @Nonnull
   @ReturnsMutableCopy
-  public List <IDirectedGraphRelation> getAllOutgoingRelations ()
+  public List <IMutableDirectedGraphRelation> getAllOutgoingRelations ()
   {
-    return m_aOutgoing == null ? new ArrayList <IDirectedGraphRelation> ()
+    return m_aOutgoing == null ? new ArrayList <IMutableDirectedGraphRelation> ()
                               : CollectionHelper.newList (m_aOutgoing.values ());
   }
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <IDirectedGraphNode> getAllToNodes ()
+  public Set <IMutableDirectedGraphNode> getAllToNodes ()
   {
-    final Set <IDirectedGraphNode> ret = new HashSet <IDirectedGraphNode> ();
+    final Set <IMutableDirectedGraphNode> ret = new HashSet <IMutableDirectedGraphNode> ();
     if (m_aOutgoing != null)
-      for (final IDirectedGraphRelation aRelation : m_aOutgoing.values ())
+      for (final IMutableDirectedGraphRelation aRelation : m_aOutgoing.values ())
         ret.add (aRelation.getTo ());
     return ret;
   }
 
   @Nonnull
-  public EChange removeOutgoingRelation (@Nonnull final IDirectedGraphRelation aRelation)
+  public EChange removeOutgoingRelation (@Nonnull final IMutableDirectedGraphRelation aRelation)
   {
     return aRelation == null || m_aOutgoing == null ? EChange.UNCHANGED
                                                    : EChange.valueOf (m_aOutgoing.remove (aRelation.getID ()) != null);
@@ -233,22 +233,22 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IDirec
     return EChange.CHANGED;
   }
 
-  public boolean isToNode (@Nullable final IDirectedGraphNode aNode)
+  public boolean isToNode (@Nullable final IMutableDirectedGraphNode aNode)
   {
     return getOutgoingRelationTo (aNode) != null;
   }
 
   @Nullable
-  public IDirectedGraphRelation getOutgoingRelationTo (@Nullable final IDirectedGraphNode aToNode)
+  public IMutableDirectedGraphRelation getOutgoingRelationTo (@Nullable final IMutableDirectedGraphNode aToNode)
   {
     if (m_aOutgoing != null && aToNode != null)
-      for (final IDirectedGraphRelation aRelation : m_aOutgoing.values ())
+      for (final IMutableDirectedGraphRelation aRelation : m_aOutgoing.values ())
         if (aRelation.getTo ().equals (aToNode))
           return aRelation;
     return null;
   }
 
-  public boolean isConnectedWith (@Nullable final IDirectedGraphNode aNode)
+  public boolean isConnectedWith (@Nullable final IMutableDirectedGraphNode aNode)
   {
     if (aNode == null)
       return false;
@@ -256,12 +256,12 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IDirec
   }
 
   @Nullable
-  public IDirectedGraphRelation getRelation (@Nullable final IDirectedGraphNode aNode)
+  public IMutableDirectedGraphRelation getRelation (@Nullable final IMutableDirectedGraphNode aNode)
   {
     if (aNode == null)
       return null;
-    final IDirectedGraphRelation aIncoming = getIncomingRelationFrom (aNode);
-    final IDirectedGraphRelation aOutgoing = getOutgoingRelationTo (aNode);
+    final IMutableDirectedGraphRelation aIncoming = getIncomingRelationFrom (aNode);
+    final IMutableDirectedGraphRelation aOutgoing = getOutgoingRelationTo (aNode);
     if (aIncoming != null && aOutgoing != null)
       throw new IllegalStateException ("Both incoming and outgoing relations between node '" +
                                        getID () +
@@ -294,9 +294,9 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IDirec
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <IDirectedGraphRelation> getAllRelations ()
+  public Set <IMutableDirectedGraphRelation> getAllRelations ()
   {
-    final Set <IDirectedGraphRelation> ret = new LinkedHashSet <IDirectedGraphRelation> ();
+    final Set <IMutableDirectedGraphRelation> ret = new LinkedHashSet <IMutableDirectedGraphRelation> ();
     if (m_aIncoming != null)
       ret.addAll (m_aIncoming.values ());
     if (m_aOutgoing != null)
@@ -318,14 +318,14 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IDirec
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <IDirectedGraphNode> getAllRelatedNodes ()
+  public Set <IMutableDirectedGraphNode> getAllRelatedNodes ()
   {
-    final Set <IDirectedGraphNode> ret = new LinkedHashSet <IDirectedGraphNode> ();
+    final Set <IMutableDirectedGraphNode> ret = new LinkedHashSet <IMutableDirectedGraphNode> ();
     if (m_aIncoming != null)
-      for (final IDirectedGraphRelation aRelation : m_aIncoming.values ())
+      for (final IMutableDirectedGraphRelation aRelation : m_aIncoming.values ())
         ret.add (aRelation.getFrom ());
     if (m_aOutgoing != null)
-      for (final IDirectedGraphRelation aRelation : m_aOutgoing.values ())
+      for (final IMutableDirectedGraphRelation aRelation : m_aOutgoing.values ())
         ret.add (aRelation.getTo ());
     return ret;
   }
@@ -336,10 +336,10 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IDirec
   {
     final Set <String> ret = new LinkedHashSet <String> ();
     if (m_aIncoming != null)
-      for (final IDirectedGraphRelation aRelation : m_aIncoming.values ())
+      for (final IMutableDirectedGraphRelation aRelation : m_aIncoming.values ())
         ret.add (aRelation.getFromID ());
     if (m_aOutgoing != null)
-      for (final IDirectedGraphRelation aRelation : m_aOutgoing.values ())
+      for (final IMutableDirectedGraphRelation aRelation : m_aOutgoing.values ())
         ret.add (aRelation.getToID ());
     return ret;
   }

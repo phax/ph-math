@@ -36,7 +36,7 @@ import com.helger.commons.state.EChange;
  *        Relation class
  */
 @MustImplementEqualsAndHashcode
-public interface IBaseGraphNode <N extends IBaseGraphNode <N, R>, R extends IBaseGraphRelation <N, R>> extends IBaseGraphObject
+public interface IMutableBaseGraphNode <N extends IMutableBaseGraphNode <N, R>, R extends IMutableBaseGraphRelation <N, R>> extends IMutableBaseGraphObject
 {
   /**
    * Check if this graph node is directly connected to the passed node, either

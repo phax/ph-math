@@ -18,7 +18,7 @@ package numbercruncher.program8_1;
 
 import numbercruncher.mathutils.AbstractDiffEqSolver;
 import numbercruncher.mathutils.AbstractDifferentialEquation;
-import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.DataPoint;
 import numbercruncher.mathutils.EulersDiffEqSolver;
 import numbercruncher.mathutils.PredictorCorrectorDiffEqSolver;
@@ -103,7 +103,7 @@ public class SolveDiffEq
       }
     }
 
-    final AlignRight ar = new AlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight ();
 
     ar.print ("n", 8);
     ar.print ("h", 15);

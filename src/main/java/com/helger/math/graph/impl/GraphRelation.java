@@ -26,26 +26,26 @@ import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
-import com.helger.math.graph.IGraphNode;
-import com.helger.math.graph.IGraphRelation;
+import com.helger.math.graph.IMutableGraphNode;
+import com.helger.math.graph.IMutableGraphRelation;
 
 /**
- * Default implementation of the {@link IGraphRelation} interface
+ * Default implementation of the {@link IMutableGraphRelation} interface
  *
  * @author Philip Helger
  */
 @NotThreadSafe
-public class GraphRelation extends AbstractBaseGraphObject implements IGraphRelation
+public class GraphRelation extends AbstractBaseGraphObject implements IMutableGraphRelation
 {
-  private final IGraphNode m_aNode1;
-  private final IGraphNode m_aNode2;
+  private final IMutableGraphNode m_aNode1;
+  private final IMutableGraphNode m_aNode2;
 
-  public GraphRelation (@Nonnull final IGraphNode aNode1, @Nonnull final IGraphNode aNode2)
+  public GraphRelation (@Nonnull final IMutableGraphNode aNode1, @Nonnull final IMutableGraphNode aNode2)
   {
     this (null, aNode1, aNode2);
   }
 
-  public GraphRelation (@Nullable final String sID, @Nonnull final IGraphNode aNode1, @Nonnull final IGraphNode aNode2)
+  public GraphRelation (@Nullable final String sID, @Nonnull final IMutableGraphNode aNode1, @Nonnull final IMutableGraphNode aNode2)
   {
     super (sID);
     if (aNode1 == null)
@@ -61,14 +61,14 @@ public class GraphRelation extends AbstractBaseGraphObject implements IGraphRela
     return false;
   }
 
-  public boolean isRelatedTo (@Nullable final IGraphNode aNode)
+  public boolean isRelatedTo (@Nullable final IMutableGraphNode aNode)
   {
     return aNode != null && (m_aNode1.equals (aNode) || m_aNode2.equals (aNode));
   }
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <IGraphNode> getAllConnectedNodes ()
+  public Set <IMutableGraphNode> getAllConnectedNodes ()
   {
     return CollectionHelper.newSet (m_aNode1, m_aNode2);
   }
@@ -81,7 +81,7 @@ public class GraphRelation extends AbstractBaseGraphObject implements IGraphRela
   }
 
   @Nonnull
-  public IGraphNode getNode1 ()
+  public IMutableGraphNode getNode1 ()
   {
     return m_aNode1;
   }
@@ -93,7 +93,7 @@ public class GraphRelation extends AbstractBaseGraphObject implements IGraphRela
   }
 
   @Nonnull
-  public IGraphNode getNode2 ()
+  public IMutableGraphNode getNode2 ()
   {
     return m_aNode2;
   }

@@ -16,7 +16,7 @@
  */
 package numbercruncher.program4_10;
 
-import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.SystemOutAlignRight;
 
 /**
  * PROGRAM 4-10: e to x Inverse Compute e^x at x = -19.5 by using the Taylor
@@ -29,7 +29,7 @@ public class EtoXInverse
 
   public static void main (final String args[])
   {
-    final AlignRight ar = new AlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight ();
 
     int k = 0;
     double numerator = 1;

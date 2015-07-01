@@ -34,14 +34,14 @@ public abstract class AbstractDiffEqSolver
 
   /**
    * Constructor.
-   * 
+   *
    * @param equation
    *        the differential equation to solve
    */
   public AbstractDiffEqSolver (final AbstractDifferentialEquation equation)
   {
-    this.m_aEquation = equation;
-    this.m_aInitialCondition = equation.getInitialCondition ();
+    m_aEquation = equation;
+    m_aInitialCondition = equation.getInitialCondition ();
 
     reset ();
   }
@@ -51,13 +51,13 @@ public abstract class AbstractDiffEqSolver
    */
   public void reset ()
   {
-    this.m_fX = m_aInitialCondition.getX ();
-    this.m_fY = m_aInitialCondition.getY ();
+    m_fX = m_aInitialCondition.getX ();
+    m_fY = m_aInitialCondition.getY ();
   }
 
   /**
    * Return the next data point in the approximation of the solution.
-   * 
+   *
    * @param h
    *        the width of the interval
    */

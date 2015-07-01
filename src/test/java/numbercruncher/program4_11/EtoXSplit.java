@@ -16,7 +16,7 @@
  */
 package numbercruncher.program4_11;
 
-import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.IntPower;
 
 /**
@@ -28,7 +28,7 @@ public class EtoXSplit
 {
   private static final double X = -19.5;
 
-  private static AlignRight ar = new AlignRight ();
+  private static SystemOutAlignRight ar = new SystemOutAlignRight ();
 
   public static void main (final String args[])
   {

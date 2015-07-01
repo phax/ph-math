@@ -16,7 +16,7 @@
  */
 package numbercruncher.program5_6;
 
-import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.FixedPointRootFinder;
 import numbercruncher.rootutils.RootFunctions;
 
@@ -51,7 +51,7 @@ public class FixedPointIteration
     try
     {
       FixedPointRootFinder finder;
-      final AlignRight ar = new AlignRight ();
+      final SystemOutAlignRight ar = new SystemOutAlignRight ();
 
       System.out.println ("\ng(x) = " + key + "\n");
       finder = new FixedPointRootFinder (RootFunctions.function (key));

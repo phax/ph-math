@@ -27,7 +27,7 @@ import java.util.NoSuchElementException;
 import org.junit.Test;
 
 import com.helger.math.graph.AbstractGraphTestCase;
-import com.helger.math.graph.IGraphNode;
+import com.helger.math.graph.IMutableGraphNode;
 import com.helger.math.graph.IReadonlyGraph;
 
 /**
@@ -88,7 +88,7 @@ public final class GraphIteratorTest extends AbstractGraphTestCase
   public void testStartIteratingInTheMiddleOneWay ()
   {
     final IReadonlyGraph aGraph = _buildGraph ();
-    final IGraphNode aStartNode = aGraph.getNodeOfID ("1");
+    final IMutableGraphNode aStartNode = aGraph.getNodeOfID ("1");
     final GraphIterator it = new GraphIterator (aStartNode);
     assertTrue (it.hasNext ());
     assertEquals ("1", it.next ().getID ());
@@ -111,7 +111,7 @@ public final class GraphIteratorTest extends AbstractGraphTestCase
   public void testStartIteratingInTheMiddleTwoWays ()
   {
     final IReadonlyGraph aGraph = _buildGraph ();
-    final IGraphNode aStartNode = aGraph.getNodeOfID ("5");
+    final IMutableGraphNode aStartNode = aGraph.getNodeOfID ("5");
     final GraphIterator it = new GraphIterator (aStartNode);
     assertTrue (it.hasNext ());
     assertEquals ("5", it.next ().getID ());

@@ -150,8 +150,7 @@ public class RegressionLine implements IEvaluatable
   }
 
   /**
-   * Return the value of the regression line function at x. (Implementation of
-   * Evaluatable.)
+   * Return the value of the regression line function at x.
    *
    * @param x
    *        the value of x

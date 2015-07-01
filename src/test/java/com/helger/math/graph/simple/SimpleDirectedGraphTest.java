@@ -27,7 +27,7 @@ import org.junit.Test;
 
 import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.math.graph.AbstractGraphTestCase;
-import com.helger.math.graph.IDirectedGraphNode;
+import com.helger.math.graph.IMutableDirectedGraphNode;
 import com.helger.math.graph.IReadonlyDirectedGraph;
 import com.helger.math.graph.impl.DirectedGraphNode;
 
@@ -175,8 +175,8 @@ public final class SimpleDirectedGraphTest extends AbstractGraphTestCase
     assertFalse (sg.containsCycles ());
 
     sg = new SimpleDirectedGraph ();
-    final IDirectedGraphNode n1 = sg.createNode (null);
-    final IDirectedGraphNode n2 = sg.createNode (null);
+    final IMutableDirectedGraphNode n1 = sg.createNode (null);
+    final IMutableDirectedGraphNode n2 = sg.createNode (null);
     sg.createRelation (n1, n2);
     sg.createRelation (n2, n1);
 
@@ -242,11 +242,11 @@ public final class SimpleDirectedGraphTest extends AbstractGraphTestCase
     assertTrue (sg.isSelfContained ());
 
     // n1 belongs to the graph
-    IDirectedGraphNode n1 = sg.createNode ("any");
+    IMutableDirectedGraphNode n1 = sg.createNode ("any");
     assertTrue (sg.isSelfContained ());
 
     // n2 does not belong to the graph
-    IDirectedGraphNode n2 = new DirectedGraphNode ("other");
+    IMutableDirectedGraphNode n2 = new DirectedGraphNode ("other");
     sg.createRelation (n1, n2);
     assertFalse (sg.isSelfContained ());
 

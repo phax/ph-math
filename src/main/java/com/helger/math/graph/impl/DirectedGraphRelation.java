@@ -27,28 +27,28 @@ import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
-import com.helger.math.graph.IDirectedGraphNode;
-import com.helger.math.graph.IDirectedGraphRelation;
+import com.helger.math.graph.IMutableDirectedGraphNode;
+import com.helger.math.graph.IMutableDirectedGraphRelation;
 
 /**
- * Default implementation of the {@link IDirectedGraphRelation} interface
+ * Default implementation of the {@link IMutableDirectedGraphRelation} interface
  *
  * @author Philip Helger
  */
 @NotThreadSafe
-public class DirectedGraphRelation extends AbstractBaseGraphObject implements IDirectedGraphRelation
+public class DirectedGraphRelation extends AbstractBaseGraphObject implements IMutableDirectedGraphRelation
 {
-  private final IDirectedGraphNode m_aFrom;
-  private final IDirectedGraphNode m_aTo;
+  private final IMutableDirectedGraphNode m_aFrom;
+  private final IMutableDirectedGraphNode m_aTo;
 
-  public DirectedGraphRelation (@Nonnull final IDirectedGraphNode aFrom, @Nonnull final IDirectedGraphNode aTo)
+  public DirectedGraphRelation (@Nonnull final IMutableDirectedGraphNode aFrom, @Nonnull final IMutableDirectedGraphNode aTo)
   {
     this (null, aFrom, aTo);
   }
 
   public DirectedGraphRelation (@Nullable final String sID,
-                                @Nonnull final IDirectedGraphNode aFrom,
-                                @Nonnull final IDirectedGraphNode aTo)
+                                @Nonnull final IMutableDirectedGraphNode aFrom,
+                                @Nonnull final IMutableDirectedGraphNode aTo)
   {
     super (sID);
     ValueEnforcer.notNull (aFrom, "From");
@@ -62,14 +62,14 @@ public class DirectedGraphRelation extends AbstractBaseGraphObject implements ID
     return true;
   }
 
-  public boolean isRelatedTo (@Nullable final IDirectedGraphNode aNode)
+  public boolean isRelatedTo (@Nullable final IMutableDirectedGraphNode aNode)
   {
     return m_aFrom.equals (aNode) || m_aTo.equals (aNode);
   }
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <IDirectedGraphNode> getAllConnectedNodes ()
+  public Set <IMutableDirectedGraphNode> getAllConnectedNodes ()
   {
     return CollectionHelper.newSet (m_aFrom, m_aTo);
   }
@@ -82,7 +82,7 @@ public class DirectedGraphRelation extends AbstractBaseGraphObject implements ID
   }
 
   @Nonnull
-  public IDirectedGraphNode getFrom ()
+  public IMutableDirectedGraphNode getFrom ()
   {
     return m_aFrom;
   }
@@ -94,7 +94,7 @@ public class DirectedGraphRelation extends AbstractBaseGraphObject implements ID
   }
 
   @Nonnull
-  public IDirectedGraphNode getTo ()
+  public IMutableDirectedGraphNode getTo ()
   {
     return m_aTo;
   }

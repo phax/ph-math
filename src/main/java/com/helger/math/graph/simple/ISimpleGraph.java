@@ -19,15 +19,15 @@ package com.helger.math.graph.simple;
 import javax.annotation.Nonnull;
 
 import com.helger.commons.annotation.Nonempty;
-import com.helger.math.graph.IGraph;
-import com.helger.math.graph.IGraphRelation;
+import com.helger.math.graph.IMutableGraph;
+import com.helger.math.graph.IMutableGraphRelation;
 
 /**
  * Interface for a modifiable simple graph.
  * 
  * @author Philip Helger
  */
-public interface ISimpleGraph extends IGraph
+public interface ISimpleGraph extends IMutableGraph
 {
   /**
    * Create a new relation from the passed fromNode to the toNode. Internally
@@ -41,7 +41,7 @@ public interface ISimpleGraph extends IGraph
    * @return The created graph relation and never <code>null</code>.
    */
   @Nonnull
-  IGraphRelation createRelation (@Nonnull String sFromNodeID, @Nonnull String sToNodeID);
+  IMutableGraphRelation createRelation (@Nonnull String sFromNodeID, @Nonnull String sToNodeID);
 
   /**
    * Create a new relation from the passed fromNode to the toNode. Internally
@@ -57,7 +57,7 @@ public interface ISimpleGraph extends IGraph
    * @return The created graph relation and never <code>null</code>.
    */
   @Nonnull
-  IGraphRelation createRelation (@Nonnull @Nonempty String sRelationID,
+  IMutableGraphRelation createRelation (@Nonnull @Nonempty String sRelationID,
                                  @Nonnull String sFromNodeID,
                                  @Nonnull String sToNodeID);
 }

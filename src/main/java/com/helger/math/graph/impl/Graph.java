@@ -30,10 +30,10 @@ import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.state.EChange;
 import com.helger.commons.state.ETriState;
-import com.helger.math.graph.IGraph;
-import com.helger.math.graph.IGraphNode;
+import com.helger.math.graph.IMutableGraph;
+import com.helger.math.graph.IMutableGraphNode;
 import com.helger.math.graph.IGraphObjectFactory;
-import com.helger.math.graph.IGraphRelation;
+import com.helger.math.graph.IMutableGraphRelation;
 import com.helger.math.graph.iterate.GraphIterator;
 import com.helger.math.matrix.Matrix;
 
@@ -43,7 +43,7 @@ import com.helger.math.matrix.Matrix;
  * @author Philip Helger
  */
 @NotThreadSafe
-public class Graph extends AbstractBaseGraph <IGraphNode, IGraphRelation> implements IGraph
+public class Graph extends AbstractBaseGraph <IMutableGraphNode, IMutableGraphRelation> implements IMutableGraph
 {
   private final IGraphObjectFactory m_aFactory;
   private ETriState m_eCacheHasCycles = ETriState.UNDEFINED;
@@ -68,24 +68,24 @@ public class Graph extends AbstractBaseGraph <IGraphNode, IGraphRelation> implem
   }
 
   @Nonnull
-  public IGraphNode createNode ()
+  public IMutableGraphNode createNode ()
   {
     // Create node with new ID
-    final IGraphNode aNode = m_aFactory.createNode ();
+    final IMutableGraphNode aNode = m_aFactory.createNode ();
     if (addNode (aNode).isUnchanged ())
       throw new IllegalStateException ("The ID factory created the ID '" + aNode.getID () + "' that is already in use");
     return aNode;
   }
 
   @Nullable
-  public IGraphNode createNode (@Nullable final String sID)
+  public IMutableGraphNode createNode (@Nullable final String sID)
   {
-    final IGraphNode aNode = m_aFactory.createNode (sID);
+    final IMutableGraphNode aNode = m_aFactory.createNode (sID);
     return addNode (aNode).isChanged () ? aNode : null;
   }
 
   @Nonnull
-  public EChange addNode (@Nonnull final IGraphNode aNode)
+  public EChange addNode (@Nonnull final IMutableGraphNode aNode)
   {
     if (aNode == null)
       throw new NullPointerException ("node");
@@ -103,7 +103,7 @@ public class Graph extends AbstractBaseGraph <IGraphNode, IGraphRelation> implem
   }
 
   @Nonnull
-  public EChange removeNode (@Nonnull final IGraphNode aNode)
+  public EChange removeNode (@Nonnull final IMutableGraphNode aNode)
   {
     if (aNode == null)
       throw new NullPointerException ("node");
@@ -119,7 +119,7 @@ public class Graph extends AbstractBaseGraph <IGraphNode, IGraphRelation> implem
   }
 
   @Nonnull
-  public EChange removeNodeAndAllRelations (@Nonnull final IGraphNode aNode)
+  public EChange removeNodeAndAllRelations (@Nonnull final IMutableGraphNode aNode)
   {
     if (aNode == null)
       throw new NullPointerException ("node");
@@ -128,8 +128,8 @@ public class Graph extends AbstractBaseGraph <IGraphNode, IGraphRelation> implem
       return EChange.UNCHANGED;
 
     // Remove all affected relations from all nodes
-    for (final IGraphRelation aRelation : aNode.getAllRelations ())
-      for (final IGraphNode aNode2 : aRelation.getAllConnectedNodes ())
+    for (final IMutableGraphRelation aRelation : aNode.getAllRelations ())
+      for (final IMutableGraphNode aNode2 : aRelation.getAllConnectedNodes ())
         aNode2.removeRelation (aRelation);
 
     // Remove the node itself
@@ -139,10 +139,10 @@ public class Graph extends AbstractBaseGraph <IGraphNode, IGraphRelation> implem
   }
 
   @Nonnull
-  private IGraphRelation _connect (@Nonnull final IGraphRelation aRelation)
+  private IMutableGraphRelation _connect (@Nonnull final IMutableGraphRelation aRelation)
   {
     EChange eChange = EChange.UNCHANGED;
-    for (final IGraphNode aNode : aRelation.getAllConnectedNodes ())
+    for (final IMutableGraphNode aNode : aRelation.getAllConnectedNodes ())
       eChange = eChange.or (aNode.addRelation (aRelation));
     if (eChange.isChanged ())
       _invalidateCache ();
@@ -150,26 +150,26 @@ public class Graph extends AbstractBaseGraph <IGraphNode, IGraphRelation> implem
   }
 
   @Nonnull
-  public IGraphRelation createRelation (@Nonnull final IGraphNode aFrom, @Nonnull final IGraphNode aTo)
+  public IMutableGraphRelation createRelation (@Nonnull final IMutableGraphNode aFrom, @Nonnull final IMutableGraphNode aTo)
   {
     return _connect (m_aFactory.createRelation (aFrom, aTo));
   }
 
   @Nonnull
-  public IGraphRelation createRelation (@Nullable final String sID,
-                                        @Nonnull final IGraphNode aFrom,
-                                        @Nonnull final IGraphNode aTo)
+  public IMutableGraphRelation createRelation (@Nullable final String sID,
+                                        @Nonnull final IMutableGraphNode aFrom,
+                                        @Nonnull final IMutableGraphNode aTo)
   {
     return _connect (m_aFactory.createRelation (sID, aFrom, aTo));
   }
 
   @Nonnull
-  public EChange removeRelation (@Nullable final IGraphRelation aRelation)
+  public EChange removeRelation (@Nullable final IMutableGraphRelation aRelation)
   {
     EChange ret = EChange.UNCHANGED;
     if (aRelation != null)
     {
-      for (final IGraphNode aNode : aRelation.getAllConnectedNodes ())
+      for (final IMutableGraphNode aNode : aRelation.getAllConnectedNodes ())
         ret = ret.or (aNode.removeRelation (aRelation));
       if (ret.isChanged ())
         _invalidateCache ();
@@ -179,11 +179,11 @@ public class Graph extends AbstractBaseGraph <IGraphNode, IGraphRelation> implem
 
   @Nonnull
   @ReturnsMutableCopy
-  public Map <String, IGraphRelation> getAllRelations ()
+  public Map <String, IMutableGraphRelation> getAllRelations ()
   {
-    final Map <String, IGraphRelation> ret = new LinkedHashMap <String, IGraphRelation> ();
-    for (final IGraphNode aNode : m_aNodes.values ())
-      for (final IGraphRelation aRelation : aNode.getAllRelations ())
+    final Map <String, IMutableGraphRelation> ret = new LinkedHashMap <String, IMutableGraphRelation> ();
+    for (final IMutableGraphNode aNode : m_aNodes.values ())
+      for (final IMutableGraphRelation aRelation : aNode.getAllRelations ())
         ret.put (aRelation.getID (), aRelation);
     return ret;
   }
@@ -193,7 +193,7 @@ public class Graph extends AbstractBaseGraph <IGraphNode, IGraphRelation> implem
   public Set <String> getAllRelationIDs ()
   {
     final Set <String> ret = new LinkedHashSet <String> ();
-    for (final IGraphNode aNode : m_aNodes.values ())
+    for (final IMutableGraphNode aNode : m_aNodes.values ())
       ret.addAll (aNode.getAllRelationIDs ());
     return ret;
   }
@@ -218,7 +218,7 @@ public class Graph extends AbstractBaseGraph <IGraphNode, IGraphRelation> implem
       m_eCacheHasCycles = ETriState.FALSE;
       // Check all nodes, in case we a small cycle and a set of other nodes (see
       // test case testCycles2)
-      final List <IGraphNode> aAllNodes = CollectionHelper.newList (m_aNodes.values ());
+      final List <IMutableGraphNode> aAllNodes = CollectionHelper.newList (m_aNodes.values ());
       while (!aAllNodes.isEmpty ())
       {
         // Iterate from the first node
@@ -243,9 +243,9 @@ public class Graph extends AbstractBaseGraph <IGraphNode, IGraphRelation> implem
 
   public boolean isSelfContained ()
   {
-    for (final IGraphNode aNode : m_aNodes.values ())
-      for (final IGraphRelation aRelation : aNode.getAllRelations ())
-        for (final IGraphNode aRelNode : aRelation.getAllConnectedNodes ())
+    for (final IMutableGraphNode aNode : m_aNodes.values ())
+      for (final IMutableGraphRelation aRelation : aNode.getAllRelations ())
+        for (final IMutableGraphNode aRelNode : aRelation.getAllConnectedNodes ())
           if (!m_aNodes.containsKey (aRelNode.getID ()))
             return false;
     return true;
@@ -256,10 +256,10 @@ public class Graph extends AbstractBaseGraph <IGraphNode, IGraphRelation> implem
   {
     final int nNodeCount = getNodeCount ();
     final Matrix ret = new Matrix (nNodeCount, nNodeCount, 0);
-    final IGraphNode [] aNodes = m_aNodes.values ().toArray (new IGraphNode [nNodeCount]);
+    final IMutableGraphNode [] aNodes = m_aNodes.values ().toArray (new IMutableGraphNode [nNodeCount]);
     for (int nRow = 0; nRow < nNodeCount; ++nRow)
     {
-      final IGraphNode aNodeRow = aNodes[nRow];
+      final IMutableGraphNode aNodeRow = aNodes[nRow];
       for (int nCol = 0; nCol < nNodeCount; ++nCol)
         if (nRow != nCol)
           if (aNodeRow.isConnectedWith (aNodes[nCol]))

@@ -16,7 +16,7 @@
  */
 package numbercruncher.randomutils;
 
-import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.SystemOutAlignRight;
 
 /**
  * Counters of random values that fall within each interval.
@@ -25,7 +25,7 @@ public class Buckets
 {
   private static final int MAX_BAR_SIZE = 50;
 
-  private final AlignRight m_aAlignRight = new AlignRight ();
+  private final SystemOutAlignRight m_aAlignRight = new SystemOutAlignRight ();
 
   /** number of intervals */
   private final int m_n;

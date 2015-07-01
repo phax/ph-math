@@ -36,11 +36,11 @@ import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.debug.GlobalDebug;
 import com.helger.commons.lang.GenericReflection;
 import com.helger.commons.lang.IHasStringRepresentation;
-import com.helger.math.graph.IBaseGraph;
-import com.helger.math.graph.IBaseGraphNode;
-import com.helger.math.graph.IBaseGraphRelation;
-import com.helger.math.graph.IDirectedGraphNode;
-import com.helger.math.graph.IDirectedGraphRelation;
+import com.helger.math.graph.IMutableBaseGraph;
+import com.helger.math.graph.IMutableBaseGraphNode;
+import com.helger.math.graph.IMutableBaseGraphRelation;
+import com.helger.math.graph.IMutableDirectedGraphNode;
+import com.helger.math.graph.IMutableDirectedGraphRelation;
 
 /**
  * Find the shortest path between 2 graph nodes, using Dijsktra's algorithm
@@ -51,7 +51,7 @@ public final class Dijkstra
 {
   private static final Logger s_aLogger = LoggerFactory.getLogger (Dijkstra.class);
 
-  private static final class WorkElement <N extends IBaseGraphNode <N, ?>> implements IHasStringRepresentation
+  private static final class WorkElement <N extends IMutableBaseGraphNode <N, ?>> implements IHasStringRepresentation
   {
     private final N m_aFromNode;
     private final int m_nDistance;
@@ -124,7 +124,7 @@ public final class Dijkstra
     }
   }
 
-  private static final class WorkRow <N extends IBaseGraphNode <N, ?>>
+  private static final class WorkRow <N extends IMutableBaseGraphNode <N, ?>>
   {
     private final Map <String, WorkElement <N>> m_aElements;
 
@@ -173,7 +173,7 @@ public final class Dijkstra
   }
 
   @Immutable
-  public static final class Result <N extends IBaseGraphNode <N, ?>> implements IHasStringRepresentation
+  public static final class Result <N extends IMutableBaseGraphNode <N, ?>> implements IHasStringRepresentation
   {
     private final List <N> m_aResultNodes;
     private final int m_nResultDistance;
@@ -228,7 +228,7 @@ public final class Dijkstra
   {}
 
   @Nullable
-  private static <N extends IBaseGraphNode <N, R>, R extends IBaseGraphRelation <N, R>> R _getRelationFromLastMatch (@Nonnull final WorkElement <N> aLastMatch,
+  private static <N extends IMutableBaseGraphNode <N, R>, R extends IMutableBaseGraphRelation <N, R>> R _getRelationFromLastMatch (@Nonnull final WorkElement <N> aLastMatch,
                                                                                                                      @Nonnull final N aNode)
   {
     if (aNode.isDirected ())
@@ -238,8 +238,8 @@ public final class Dijkstra
       // Cast to Object required for JDK command line compiler
       final Object aDirectedFromNode = aLastMatch.getToNode ();
       final Object aDirectedToNode = aNode;
-      final IDirectedGraphRelation r = ((IDirectedGraphNode) aDirectedFromNode).getOutgoingRelationTo ((IDirectedGraphNode) aDirectedToNode);
-      return GenericReflection.<IDirectedGraphRelation, R> uncheckedCast (r);
+      final IMutableDirectedGraphRelation r = ((IMutableDirectedGraphNode) aDirectedFromNode).getOutgoingRelationTo ((IMutableDirectedGraphNode) aDirectedToNode);
+      return GenericReflection.<IMutableDirectedGraphRelation, R> uncheckedCast (r);
     }
 
     // Undirected
@@ -247,7 +247,7 @@ public final class Dijkstra
   }
 
   @Nonnull
-  public static <N extends IBaseGraphNode <N, R>, R extends IBaseGraphRelation <N, R>> Dijkstra.Result <N> applyDijkstra (@Nonnull final IBaseGraph <N, R> aGraph,
+  public static <N extends IMutableBaseGraphNode <N, R>, R extends IMutableBaseGraphRelation <N, R>> Dijkstra.Result <N> applyDijkstra (@Nonnull final IMutableBaseGraph <N, R> aGraph,
                                                                                                                           @Nonnull @Nonempty final String sFromID,
                                                                                                                           @Nonnull @Nonempty final String sToID,
                                                                                                                           @Nonnull @Nonempty final String sRelationCostAttr)

@@ -16,7 +16,7 @@
  */
 package numbercruncher.program4_5;
 
-import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.KahanSummation;
 
 /**
@@ -32,7 +32,7 @@ public class FractionSum100MKahan
 
   public static void main (final String args[])
   {
-    final AlignRight ar = new AlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight ();
 
     ar.print ("i", 9);
     ar.print ("Running sum", 16);

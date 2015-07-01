@@ -36,7 +36,7 @@ public interface IGraphRelationFactory
    * @return The created graph relation and never <code>null</code>.
    */
   @Nonnull
-  IGraphRelation createRelation (@Nonnull IGraphNode aFrom, @Nonnull IGraphNode aTo);
+  IMutableGraphRelation createRelation (@Nonnull IMutableGraphNode aFrom, @Nonnull IMutableGraphNode aTo);
 
   /**
    * Create a new relation from the passed from-node to the to-node using a
@@ -52,5 +52,5 @@ public interface IGraphRelationFactory
    * @return The created graph relation and never <code>null</code>.
    */
   @Nonnull
-  IGraphRelation createRelation (@Nullable String sID, @Nonnull IGraphNode aFrom, @Nonnull IGraphNode aTo);
+  IMutableGraphRelation createRelation (@Nullable String sID, @Nonnull IMutableGraphNode aFrom, @Nonnull IMutableGraphNode aTo);
 }

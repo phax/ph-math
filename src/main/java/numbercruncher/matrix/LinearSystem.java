@@ -16,7 +16,7 @@
  */
 package numbercruncher.matrix;
 
-import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.Epsilon;
 
 /**
@@ -190,7 +190,7 @@ public class LinearSystem extends SquareMatrix
   {
     decompose ();
 
-    final AlignRight ar = new AlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight ();
 
     for (int r = 0; r < m_nRows; ++r)
     {

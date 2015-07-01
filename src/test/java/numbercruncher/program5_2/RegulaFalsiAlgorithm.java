@@ -16,7 +16,7 @@
  */
 package numbercruncher.program5_2;
 
-import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.RegulaFalsiRootFinder;
 import numbercruncher.rootutils.RootFunctions;
 
@@ -38,7 +38,7 @@ public class RegulaFalsiAlgorithm
     {
       final RegulaFalsiRootFinder finder = new RegulaFalsiRootFinder (RootFunctions.function ("x^2 - 4"), -0.25f, 3.25f);
 
-      final AlignRight ar = new AlignRight ();
+      final SystemOutAlignRight ar = new SystemOutAlignRight ();
 
       ar.print ("n", 2);
       ar.print ("xNeg", 11);

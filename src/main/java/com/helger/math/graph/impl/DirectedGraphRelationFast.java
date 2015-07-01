@@ -21,10 +21,10 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.hashcode.HashCodeGenerator;
-import com.helger.math.graph.IDirectedGraphNode;
+import com.helger.math.graph.IMutableDirectedGraphNode;
 
 /**
- * Implementation of {@link com.helger.math.graph.IDirectedGraphRelation}
+ * Implementation of {@link com.helger.math.graph.IMutableDirectedGraphRelation}
  * interface with quick and dirty equals and hashCode (on ID only)
  *
  * @author Philip Helger
@@ -34,14 +34,14 @@ public class DirectedGraphRelationFast extends DirectedGraphRelation
 {
   private Integer m_aHashCode;
 
-  public DirectedGraphRelationFast (@Nonnull final IDirectedGraphNode aFrom, @Nonnull final IDirectedGraphNode aTo)
+  public DirectedGraphRelationFast (@Nonnull final IMutableDirectedGraphNode aFrom, @Nonnull final IMutableDirectedGraphNode aTo)
   {
     super (aFrom, aTo);
   }
 
   public DirectedGraphRelationFast (@Nullable final String sID,
-                                    @Nonnull final IDirectedGraphNode aFrom,
-                                    @Nonnull final IDirectedGraphNode aTo)
+                                    @Nonnull final IMutableDirectedGraphNode aFrom,
+                                    @Nonnull final IMutableDirectedGraphNode aTo)
   {
     super (sID, aFrom, aTo);
   }

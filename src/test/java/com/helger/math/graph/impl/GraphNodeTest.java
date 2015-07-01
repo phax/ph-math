@@ -26,7 +26,7 @@ import org.junit.Test;
 
 import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.commons.string.StringHelper;
-import com.helger.math.graph.IGraphRelation;
+import com.helger.math.graph.IMutableGraphRelation;
 
 /**
  * Test class for class {@link GraphNode}.
@@ -57,7 +57,7 @@ public final class GraphNodeTest
   {
     final GraphNode nf = new GraphNode ();
     final GraphNode nt = new GraphNode ();
-    final IGraphRelation gr = new GraphRelation (nf, nt);
+    final IMutableGraphRelation gr = new GraphRelation (nf, nt);
     nf.addRelation (gr);
 
     assertTrue (nf.isConnectedWith (nt));
@@ -96,7 +96,7 @@ public final class GraphNodeTest
   {
     GraphNode n = new GraphNode ();
     // null not allowed
-    assertFalse (n.addRelation ((IGraphRelation) null).isChanged ());
+    assertFalse (n.addRelation ((IMutableGraphRelation) null).isChanged ());
 
     try
     {

@@ -16,7 +16,7 @@
  */
 package numbercruncher.program5_3;
 
-import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.ImprovedRegulaFalsiRootFinder;
 import numbercruncher.rootutils.RootFunctions;
 
@@ -40,7 +40,7 @@ public class ImprovedRegulaFalsiAlgorithm
                                                                                       -0.25f,
                                                                                       3.25f);
 
-      final AlignRight ar = new AlignRight ();
+      final SystemOutAlignRight ar = new SystemOutAlignRight ();
 
       ar.print ("n", 2);
       ar.print ("xNeg", 10);

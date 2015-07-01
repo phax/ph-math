@@ -16,7 +16,7 @@
  */
 package numbercruncher.program5_5;
 
-import numbercruncher.mathutils.AlignRight;
+import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.NewtonsRootFinder;
 import numbercruncher.rootutils.RootFunctions;
 
@@ -38,7 +38,7 @@ public class NewtonsAlgorithm
       final NewtonsRootFinder finder = new NewtonsRootFinder (RootFunctions.function ("x^2 - 4"));
       finder.reset (5.130833f);
 
-      final AlignRight ar = new AlignRight ();
+      final SystemOutAlignRight ar = new SystemOutAlignRight ();
 
       ar.print ("n", 2);
       ar.print ("x[n]", 11);
