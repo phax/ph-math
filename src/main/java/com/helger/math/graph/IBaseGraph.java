@@ -35,7 +35,7 @@ import com.helger.math.matrix.Matrix;
  * @param <R>
  *        Relation class
  */
-public interface IReadonlyBaseGraph <N extends IMutableBaseGraphNode <N, R>, R extends IMutableBaseGraphRelation <N, R>> extends IMutableBaseGraphObject
+public interface IBaseGraph <N extends IBaseGraphNode <N, R>, R extends IBaseGraphRelation <N, R>> extends IBaseGraphObject
 {
   /**
    * @return The number of nodes currently in the graph. Always &ge; 0.

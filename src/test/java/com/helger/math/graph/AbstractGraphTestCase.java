@@ -96,7 +96,7 @@ public abstract class AbstractGraphTestCase extends AbstractCommonsTestCase
   }
 
   @Nonnull
-  protected IReadonlyDirectedGraph _buildSimpleDirectedGraphCycle ()
+  protected IDirectedGraph _buildSimpleDirectedGraphCycle ()
   {
     final SimpleDirectedGraph aGraph = new SimpleDirectedGraph ();
     final IMutableDirectedGraphNode node0 = _createDGN (aGraph, 0);
@@ -107,7 +107,7 @@ public abstract class AbstractGraphTestCase extends AbstractCommonsTestCase
   }
 
   @Nonnull
-  protected IReadonlyDirectedGraph _buildSimpleDirectedGraphCycle2 ()
+  protected IDirectedGraph _buildSimpleDirectedGraphCycle2 ()
   {
     final SimpleDirectedGraph aGraph = new SimpleDirectedGraph ();
     final IMutableDirectedGraphNode node0 = _createDGN (aGraph, 0);
@@ -122,7 +122,7 @@ public abstract class AbstractGraphTestCase extends AbstractCommonsTestCase
   }
 
   @Nonnull
-  protected IReadonlyGraph _buildSimpleGraphCycle ()
+  protected IGraph _buildSimpleGraphCycle ()
   {
     final SimpleGraph aGraph = new SimpleGraph ();
     final IMutableGraphNode node0 = _createGN (aGraph, 0);
@@ -133,7 +133,7 @@ public abstract class AbstractGraphTestCase extends AbstractCommonsTestCase
   }
 
   @Nonnull
-  protected IReadonlyGraph _buildSimpleGraphCycle2 ()
+  protected IGraph _buildSimpleGraphCycle2 ()
   {
     final SimpleGraph aGraph = new SimpleGraph ();
     final IMutableGraphNode node0 = _createGN (aGraph, 0);

@@ -16,7 +16,13 @@
  */
 package com.helger.math.graph;
 
+import java.util.Set;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
+import com.helger.commons.annotation.ReturnsMutableCopy;
 
 /**
  * Base interface for a single undirected graph relation.
@@ -28,7 +34,29 @@ import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
  *        Relation class
  */
 @MustImplementEqualsAndHashcode
-public interface IMutableBaseGraphRelation <N extends IMutableBaseGraphNode <N, R>, R extends IMutableBaseGraphRelation <N, R>> extends IBaseGraphRelation <N, R>, IMutableBaseGraphObject
+public interface IBaseGraphRelation <N extends IBaseGraphNode <N, R>, R extends IBaseGraphRelation <N, R>> extends IBaseGraphObject
 {
-  /* empty */
+  /**
+   * Check if this relation is connected to the passed node.
+   *
+   * @param aNode
+   *        The node to be checked. May be <code>null</code>.
+   * @return <code>true</code> if the passed node is related via this relation,
+   *         <code>false</code> if not.
+   */
+  boolean isRelatedTo (@Nullable N aNode);
+
+  /**
+   * @return A list with all connected nodes. Usually 2 elements.
+   */
+  @Nonnull
+  @ReturnsMutableCopy
+  Set <N> getAllConnectedNodes ();
+
+  /**
+   * @return A list with the ID of all connected nodes. Usually 2 elements.
+   */
+  @Nonnull
+  @ReturnsMutableCopy
+  Set <String> getAllConnectedNodeIDs ();
 }

@@ -27,7 +27,7 @@ import com.helger.commons.annotation.ReturnsMutableCopy;
  * 
  * @author Philip Helger
  */
-public interface IReadonlyDirectedGraph extends IReadonlyBaseGraph <IMutableDirectedGraphNode, IMutableDirectedGraphRelation>
+public interface IDirectedGraph extends IBaseGraph <IMutableDirectedGraphNode, IMutableDirectedGraphRelation>
 {
   /**
    * Try to retrieve the single start node of this graph. A start node is

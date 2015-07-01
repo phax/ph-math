@@ -30,12 +30,12 @@ import com.helger.commons.state.EChange;
  * @param <R>
  *        Relation class
  */
-public interface IMutableBaseGraph <N extends IMutableBaseGraphNode <N, R>, R extends IMutableBaseGraphRelation <N, R>> extends IReadonlyBaseGraph <N, R>
+public interface IMutableBaseGraph <N extends IMutableBaseGraphNode <N, R>, R extends IMutableBaseGraphRelation <N, R>> extends IBaseGraph <N, R>, IMutableBaseGraphObject
 {
   /**
    * Allow or disallow that {@link #addNode(IMutableBaseGraphNode)} and
-   * {@link #removeNode(IMutableBaseGraphNode)} can handle graph nodes that are already
-   * connected.
+   * {@link #removeNode(IMutableBaseGraphNode)} can handle graph nodes that are
+   * already connected.
    *
    * @param bAllow
    *        if <code>true</code> it is allowed to add and remove nodes that

@@ -16,14 +16,9 @@
  */
 package com.helger.math.graph;
 
-import java.util.Set;
-
-import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
-import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.state.EChange;
 
 /**
@@ -36,78 +31,8 @@ import com.helger.commons.state.EChange;
  *        Relation class
  */
 @MustImplementEqualsAndHashcode
-public interface IMutableBaseGraphNode <N extends IMutableBaseGraphNode <N, R>, R extends IMutableBaseGraphRelation <N, R>> extends IMutableBaseGraphObject
+public interface IMutableBaseGraphNode <N extends IMutableBaseGraphNode <N, R>, R extends IMutableBaseGraphRelation <N, R>> extends IBaseGraphNode <N, R>, IMutableBaseGraphObject
 {
-  /**
-   * Check if this graph node is directly connected to the passed node, either
-   * via an incoming or via an outgoing relation.<br>
-   * This is the same as calling
-   * <code>isFromNode(aNode) || isToNode(aNode)</code>
-   *
-   * @param aNode
-   *        The node to be checked. May be <code>null</code>.
-   * @return <code>true</code> if is connected, <code>false</code> if not
-   */
-  boolean isConnectedWith (@Nullable N aNode);
-
-  /**
-   * Find the relation from this node to the passed node.
-   *
-   * @param aNode
-   *        The to node to use. May be <code>null</code>.
-   * @return <code>null</code> if there exists no relation between this node and
-   *         the passed node.
-   */
-  @Nullable
-  R getRelation (@Nullable N aNode);
-
-  /**
-   * Check if this node has any relations.
-   *
-   * @return <code>true</code> if this node has at least one incoming or
-   *         outgoing relation.
-   */
-  boolean hasRelations ();
-
-  /**
-   * @return A non-negative amount of all incoming and outgoing relations.
-   *         Always &ge; 0.
-   */
-  @Nonnegative
-  int getRelationCount ();
-
-  /**
-   * @return A container with all incoming and outgoing relations. Never
-   *         <code>null</code>.
-   */
-  @Nonnull
-  @ReturnsMutableCopy
-  Set <R> getAllRelations ();
-
-  /**
-   * @return A container with the IDs of all incoming and outgoing relations.
-   *         Never <code>null</code>.
-   */
-  @Nonnull
-  @ReturnsMutableCopy
-  Set <String> getAllRelationIDs ();
-
-  /**
-   * @return A container with all nodes directly connected to this node's
-   *         relations. Never <code>null</code>.
-   */
-  @Nonnull
-  @ReturnsMutableCopy
-  Set <N> getAllRelatedNodes ();
-
-  /**
-   * @return A container with the IDs of all nodes directly connected to this
-   *         node's relations. Never <code>null</code>.
-   */
-  @Nonnull
-  @ReturnsMutableCopy
-  Set <String> getAllRelatedNodeIDs ();
-
   /**
    * Remove all relations of this node.
    *

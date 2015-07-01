@@ -28,7 +28,7 @@ import org.junit.Test;
 
 import com.helger.math.graph.AbstractGraphTestCase;
 import com.helger.math.graph.IMutableGraphNode;
-import com.helger.math.graph.IReadonlyGraph;
+import com.helger.math.graph.IGraph;
 
 /**
  * Test class for class {@link GraphIterator}.
@@ -49,7 +49,7 @@ public final class GraphIteratorTest extends AbstractGraphTestCase
     catch (final NullPointerException ex)
     {}
 
-    final IReadonlyGraph aGraph = _buildGraph ();
+    final IGraph aGraph = _buildGraph ();
     final GraphIterator it = new GraphIterator (aGraph.getNodeOfID ("0"));
 
     try
@@ -87,7 +87,7 @@ public final class GraphIteratorTest extends AbstractGraphTestCase
   @Test
   public void testStartIteratingInTheMiddleOneWay ()
   {
-    final IReadonlyGraph aGraph = _buildGraph ();
+    final IGraph aGraph = _buildGraph ();
     final IMutableGraphNode aStartNode = aGraph.getNodeOfID ("1");
     final GraphIterator it = new GraphIterator (aStartNode);
     assertTrue (it.hasNext ());
@@ -110,7 +110,7 @@ public final class GraphIteratorTest extends AbstractGraphTestCase
   @Test
   public void testStartIteratingInTheMiddleTwoWays ()
   {
-    final IReadonlyGraph aGraph = _buildGraph ();
+    final IGraph aGraph = _buildGraph ();
     final IMutableGraphNode aStartNode = aGraph.getNodeOfID ("5");
     final GraphIterator it = new GraphIterator (aStartNode);
     assertTrue (it.hasNext ());
@@ -133,7 +133,7 @@ public final class GraphIteratorTest extends AbstractGraphTestCase
   @Test
   public void testCycleIterate1 ()
   {
-    final IReadonlyGraph aGraph = _buildSimpleGraphCycle ();
+    final IGraph aGraph = _buildSimpleGraphCycle ();
     final GraphIterator it = new GraphIterator (aGraph.getNodeOfID ("0"));
     assertTrue (it.hasNext ());
     // first item has ID 0 and value 1
@@ -147,7 +147,7 @@ public final class GraphIteratorTest extends AbstractGraphTestCase
   @Test
   public void testCycleIterate2 ()
   {
-    final IReadonlyGraph aGraph = _buildSimpleGraphCycle2 ();
+    final IGraph aGraph = _buildSimpleGraphCycle2 ();
     final GraphIterator it = new GraphIterator (aGraph.getNodeOfID ("0"));
     assertNotNull (it.iterator ());
     assertTrue (it.hasNext ());

@@ -38,8 +38,8 @@ import com.helger.math.graph.IMutableDirectedGraphNode;
 import com.helger.math.graph.IMutableDirectedGraphRelation;
 import com.helger.math.graph.IMutableGraphNode;
 import com.helger.math.graph.IMutableGraphRelation;
-import com.helger.math.graph.IReadonlyDirectedGraph;
-import com.helger.math.graph.IReadonlyGraph;
+import com.helger.math.graph.IDirectedGraph;
+import com.helger.math.graph.IGraph;
 
 /**
  * Utility class to export a graph to something else
@@ -82,7 +82,7 @@ public final class GraphVizUtils
    * @return The string representation to be used as input for DOT.
    */
   @Nonnull
-  public static String getAsGraphVizDot (@Nonnull final IReadonlyGraph aGraph,
+  public static String getAsGraphVizDot (@Nonnull final IGraph aGraph,
                                          @Nullable final String sNodeLabelAttr,
                                          @Nullable final String sRelationLabelAttr)
   {
@@ -137,7 +137,7 @@ public final class GraphVizUtils
    * @return The string representation to be used as input for DOT.
    */
   @Nonnull
-  public static String getAsGraphVizDot (@Nonnull final IReadonlyDirectedGraph aGraph,
+  public static String getAsGraphVizDot (@Nonnull final IDirectedGraph aGraph,
                                          @Nullable final String sNodeLabelAttr,
                                          @Nullable final String sRelationLabelAttr)
   {
