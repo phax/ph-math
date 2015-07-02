@@ -24,7 +24,7 @@ import com.helger.commons.hashcode.HashCodeGenerator;
 /**
  * Implementation of {@link com.helger.math.graph.IMutableGraphNode} interface
  * with quick and dirty equals and hashCode (on ID only)
- * 
+ *
  * @author Philip Helger
  */
 @NotThreadSafe
@@ -47,7 +47,7 @@ public class GraphNodeFast extends GraphNode
   {
     if (o == this)
       return true;
-    if (!(o instanceof GraphNodeFast))
+    if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final GraphNodeFast rhs = (GraphNodeFast) o;
     return getID ().equals (rhs.getID ());

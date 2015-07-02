@@ -26,7 +26,7 @@ import com.helger.math.graph.IMutableGraphNode;
 /**
  * Implementation of {@link com.helger.math.graph.IMutableGraphRelation}
  * interface with quick and dirty equals and hashCode (on ID only)
- * 
+ *
  * @author Philip Helger
  */
 @NotThreadSafe
@@ -51,7 +51,7 @@ public class GraphRelationFast extends GraphRelation
   {
     if (o == this)
       return true;
-    if (!(o instanceof GraphRelationFast))
+    if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final GraphRelationFast rhs = (GraphRelationFast) o;
     return getID ().equals (rhs.getID ());
