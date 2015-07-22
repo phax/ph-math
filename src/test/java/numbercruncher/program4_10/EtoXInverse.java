@@ -16,6 +16,8 @@
  */
 package numbercruncher.program4_10;
 
+import com.helger.commons.equals.EqualsHelper;
+
 import numbercruncher.mathutils.SystemOutAlignRight;
 
 /**
@@ -63,7 +65,7 @@ public final class EtoXInverse
       ar.print (fraction, 24);
       ar.print (sum, 23);
       ar.println ();
-    } while (prevSum != sum);
+    } while (!EqualsHelper.equals (prevSum, sum));
 
     final double result = 1 / sum;
     final double correct = Math.exp (x);

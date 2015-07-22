@@ -18,6 +18,8 @@ package numbercruncher.program1_4;
 
 import java.util.Random;
 
+import com.helger.commons.equals.EqualsHelper;
+
 /**
  * PROGRAM 1-4: Not Associative Percentage Figure out what percentage of
  * floating-point additions and multiplications fail their associative laws.
@@ -51,9 +53,9 @@ public final class NotAssocPercentage
       final float p2 = a * (b * c);
 
       // Compare sums and products and count the failures.
-      if (s1 != s2)
+      if (!EqualsHelper.equals (s1, s2))
         ++addCount;
-      if (p1 != p2)
+      if (!EqualsHelper.equals (p1, p2))
         ++multCount;
     }
 

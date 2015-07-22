@@ -16,6 +16,8 @@
  */
 package numbercruncher.program4_8;
 
+import com.helger.commons.equals.EqualsHelper;
+
 import numbercruncher.mathutils.SystemOutAlignRight;
 
 /**
@@ -79,7 +81,7 @@ public final class MainSumMixedSignsPosNeg
       ++k;
       kFactorial *= k;
       odd += 2;
-    } while ((posSum != prevPosSum) || (negSum != prevNegSum));
+    } while (!EqualsHelper.equals (posSum, prevPosSum) || !EqualsHelper.equals (negSum, prevNegSum));
 
     System.out.println ("\nFinal sum = " + (posSum + negSum));
   }

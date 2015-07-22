@@ -16,6 +16,8 @@
  */
 package numbercruncher.program4_7;
 
+import com.helger.commons.equals.EqualsHelper;
+
 import numbercruncher.mathutils.SystemOutAlignRight;
 
 /**
@@ -67,7 +69,7 @@ public final class MainSumMixedSigns
       kFactorial *= k;
       odd += 2;
       subtract = !subtract;
-    } while (sum != prevSum);
+    } while (!EqualsHelper.equals (sum, prevSum));
   }
 }
 /*

@@ -388,7 +388,7 @@ public final class RandomNormalPanel extends AbstractGraphPanel
     plotProps = getPlotProperties ();
 
     w = plotProps.getWidth ();
-    bWidth = Math.round (w / BUCKET_COUNT);
+    bWidth = w / BUCKET_COUNT;
     xAxisRow = plotProps.getXAxisRow ();
     xMin = plotProps.getXMin ();
     xMax = plotProps.getXMax ();

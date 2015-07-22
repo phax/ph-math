@@ -434,7 +434,7 @@ public final class RandomExponentialPanel extends AbstractGraphPanel
     switch (xAlgorithm)
     {
       case LOG:
-        bWidth = Math.round (w / bucketCount);
+        bWidth = w / bucketCount;
         break;
       case VON_NEUMANN:
         bWidth = Math.round (1 / xDelta);

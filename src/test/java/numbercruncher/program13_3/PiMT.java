@@ -27,8 +27,6 @@ import numbercruncher.piutils.AbstractPiFormula;
  */
 public final class PiMT extends AbstractPiFormula implements IPiBorweinParent
 {
-  private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat ("HH:mm:ss.SSS");
-
   private long m_nStartTime;
   private long m_nMarkTime;
   /** number of digits to compute */
@@ -143,6 +141,7 @@ public final class PiMT extends AbstractPiFormula implements IPiBorweinParent
    */
   public void notifyTask (final String task)
   {
+    final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat ("HH:mm:ss.SSS");
     final String tString = TIME_FORMAT.format (new Date ());
     System.out.println (tString + " " + task);
   }

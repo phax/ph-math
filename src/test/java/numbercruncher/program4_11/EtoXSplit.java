@@ -16,6 +16,8 @@
  */
 package numbercruncher.program4_11;
 
+import com.helger.commons.equals.EqualsHelper;
+
 import numbercruncher.mathutils.IntPower;
 import numbercruncher.mathutils.SystemOutAlignRight;
 
@@ -105,7 +107,7 @@ public final class EtoXSplit
       ar.print (fraction, 24);
       ar.print (sum, 20);
       ar.println ();
-    } while (prevSum != sum);
+    } while (!EqualsHelper.equals (prevSum, sum));
 
     return sum;
   }
