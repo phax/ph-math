@@ -18,13 +18,13 @@ package numbercruncher.program6_1;
 
 import java.awt.Frame;
 
-import numbercruncher.graphutils.DemoFrame;
+import numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
  * PROGRAM 6-1d: Polynomial Interpolation (Interactive Standalone Demo)
  * Interactively demonstrate polynomial interpolation.
  */
-public class InterpolationDemo extends DemoFrame
+public final class InterpolationDemo extends AbstractDemoFrame
 {
   private static final String TITLE = "Polynomial Interpolation Demo";
 

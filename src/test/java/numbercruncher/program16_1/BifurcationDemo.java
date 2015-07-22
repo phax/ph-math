@@ -18,7 +18,7 @@ package numbercruncher.program16_1;
 
 import java.awt.Frame;
 
-import numbercruncher.graphutils.DemoFrame;
+import numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
  * PROGRAM 16-1: Newton's Fractal Graph the application of Newton's Method on
@@ -30,7 +30,7 @@ import numbercruncher.graphutils.DemoFrame;
  * number of iterations. The resulting graph is a Julia set fractal. You can
  * zoom into any rectangular region of the graph by using the mouse.
  */
-public class BifurcationDemo extends DemoFrame
+public final class BifurcationDemo extends AbstractDemoFrame
 {
   private static final String TITLE = "Julia Set Demo";
 

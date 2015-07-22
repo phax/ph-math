@@ -16,18 +16,18 @@
  */
 package numbercruncher.program5_5;
 
-import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.NewtonsRootFinder;
+import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.rootutils.RootFunctions;
 
 /**
  * PROGRAM 5-5: Newton's Algorithm Demonstrate Newton's Algorithm on a function.
  */
-public class NewtonsAlgorithm
+public final class NewtonsAlgorithm
 {
   /**
    * Main program.
-   * 
+   *
    * @param args
    *        the array of runtime arguments
    */

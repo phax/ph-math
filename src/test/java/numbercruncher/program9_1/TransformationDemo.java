@@ -18,13 +18,13 @@ package numbercruncher.program9_1;
 
 import java.awt.Frame;
 
-import numbercruncher.graphutils.DemoFrame;
+import numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
  * PROGRAM 9-1d: Graphic Transformations (Interactive Standalone Demo)
  * Interactively demonstrate the use of graphic transformation matrices.
  */
-public class TransformationDemo extends DemoFrame
+public final class TransformationDemo extends AbstractDemoFrame
 {
   private static final String TITLE = "Graphic Transformations";
 

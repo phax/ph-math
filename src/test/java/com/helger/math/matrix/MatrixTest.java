@@ -72,7 +72,7 @@ import com.helger.commons.string.StringHelper;
  * anticipated in the test design. The stopping point should give an indication
  * of where the problem exists.
  **/
-public class MatrixTest
+public final class MatrixTest
 {
   private static final String FILENAME_JAMA_TEST_MATRIX_OUT = "Jamaout";
   private static final double EPSILON = Math.pow (2.0, -52.0);
@@ -86,22 +86,25 @@ public class MatrixTest
     double tmp;
     final double [] columnwise = { 1., 2., 3., 4., 5., 6., 7., 8., 9., 10., 11., 12. };
     final double [] rowwise = { 1., 4., 7., 10., 2., 5., 8., 11., 3., 6., 9., 12. };
-    final double [][] avals = { { 1., 4., 7., 10. }, { 2., 5., 8., 11. }, { 3., 6., 9., 12. } };
-    final double [][] rankdef = avals;
-    final double [][] tvals = { { 1., 2., 3. }, { 4., 5., 6. }, { 7., 8., 9. }, { 10., 11., 12. } };
-    final double [][] subavals = { { 5., 8., 11. }, { 6., 9., 12. } };
-    final double [][] rvals = { { 1., 4., 7. }, { 2., 5., 8., 11. }, { 3., 6., 9., 12. } };
-    final double [][] pvals = { { 4., 1., 1. }, { 1., 2., 3. }, { 1., 3., 6. } };
-    final double [][] ivals = { { 1., 0., 0., 0. }, { 0., 1., 0., 0. }, { 0., 0., 1., 0. } };
-    final double [][] evals = { { 0., 1., 0., 0. }, { 1., 0., 2.e-7, 0. }, { 0., -2.e-7, 0., 1. }, { 0., 0., 1., 0. } };
-    final double [][] square = { { 166., 188., 210. }, { 188., 214., 240. }, { 210., 240., 270. } };
-    final double [][] sqSolution = { { 13. }, { 15. } };
-    final double [][] condmat = { { 1., 3. }, { 7., 9. } };
-    final double [][] badeigs = { { 0, 0, 0, 0, 0 },
-                                 { 0, 0, 0, 0, 1 },
-                                 { 0, 0, 0, 1, 0 },
-                                 { 1, 1, 0, 0, 1 },
-                                 { 1, 0, 1, 0, 1 } };
+    final double [] [] avals = { { 1., 4., 7., 10. }, { 2., 5., 8., 11. }, { 3., 6., 9., 12. } };
+    final double [] [] rankdef = avals;
+    final double [] [] tvals = { { 1., 2., 3. }, { 4., 5., 6. }, { 7., 8., 9. }, { 10., 11., 12. } };
+    final double [] [] subavals = { { 5., 8., 11. }, { 6., 9., 12. } };
+    final double [] [] rvals = { { 1., 4., 7. }, { 2., 5., 8., 11. }, { 3., 6., 9., 12. } };
+    final double [] [] pvals = { { 4., 1., 1. }, { 1., 2., 3. }, { 1., 3., 6. } };
+    final double [] [] ivals = { { 1., 0., 0., 0. }, { 0., 1., 0., 0. }, { 0., 0., 1., 0. } };
+    final double [] [] evals = { { 0., 1., 0., 0. },
+                                 { 1., 0., 2.e-7, 0. },
+                                 { 0., -2.e-7, 0., 1. },
+                                 { 0., 0., 1., 0. } };
+    final double [] [] square = { { 166., 188., 210. }, { 188., 214., 240. }, { 210., 240., 270. } };
+    final double [] [] sqSolution = { { 13. }, { 15. } };
+    final double [] [] condmat = { { 1., 3. }, { 7., 9. } };
+    final double [] [] badeigs = { { 0, 0, 0, 0, 0 },
+                                   { 0, 0, 0, 0, 1 },
+                                   { 0, 0, 0, 1, 0 },
+                                   { 1, 1, 0, 0, 1 },
+                                   { 1, 0, 1, 0, 1 } };
     final int rows = 3, cols = 4;
     /*
      * should trigger bad shape for construction with val
@@ -247,7 +250,7 @@ public class MatrixTest
       _try_success ("getColumnDimension... ", "");
     }
     B = new Matrix (avals);
-    double [][] barray = B.internalGetArray ();
+    double [] [] barray = B.internalGetArray ();
     if (barray != avals)
     {
       fail ();
@@ -313,7 +316,9 @@ public class MatrixTest
     }
     try
     {
-      if (B.get (B.getRowDimension () - 1, B.getColumnDimension () - 1) != avals[B.getRowDimension () - 1][B.getColumnDimension () - 1])
+      if (B.get (B.getRowDimension () -
+                 1,
+                 B.getColumnDimension () - 1) != avals[B.getRowDimension () - 1][B.getColumnDimension () - 1])
       {
         fail ("Matrix entry (i,j) not successfully retreived");
       }
@@ -1124,8 +1129,8 @@ public class MatrixTest
     final double [] singularvalues = SVD.getSingularValues ();
     try
     {
-      _check (B.cond (), singularvalues[0] /
-                         singularvalues[Math.min (B.getRowDimension (), B.getColumnDimension ()) - 1]);
+      _check (B.cond (),
+              singularvalues[0] / singularvalues[Math.min (B.getRowDimension (), B.getColumnDimension ()) - 1]);
       _try_success ("cond()...", "");
     }
     catch (final RuntimeException e)
@@ -1276,7 +1281,7 @@ public class MatrixTest
 
   /** Check norm of difference of arrays. **/
 
-  private static void _check (@Nonnull final double [][] x, @Nonnull final double [][] y)
+  private static void _check (@Nonnull final double [] [] x, @Nonnull final double [] [] y)
   {
     final Matrix A = new Matrix (x);
     final Matrix B = new Matrix (y);

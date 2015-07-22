@@ -23,11 +23,11 @@ import java.awt.Label;
 import java.awt.Panel;
 import java.awt.event.MouseEvent;
 
-import numbercruncher.graphutils.GraphPanel;
+import numbercruncher.graphutils.AbstractGraphPanel;
 import numbercruncher.graphutils.PlotProperties;
 import numbercruncher.mathutils.Complex;
 
-public class MandelbrotSetPanel extends GraphPanel
+public final class MandelbrotSetPanel extends AbstractGraphPanel
 {
   /** control panel */
   private final Panel fractalControlPanel = new Panel ();

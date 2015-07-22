@@ -24,7 +24,7 @@ import numbercruncher.mathutils.SystemOutAlignRight;
  * (n/2)(n + 1) Compute the sum by adding the group subtotals. See if the final
  * sum is closer to 1.
  */
-public class FractionSum100MGrouped
+public final class FractionSum100MGrouped
 {
   private static final int GROUPS = 20;
   private static final int MAX = 100000000; // 100M

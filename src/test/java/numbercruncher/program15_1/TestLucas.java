@@ -25,14 +25,14 @@ import numbercruncher.primeutils.LucasStatus;
  * PROGRAM 15-1: Lucas Test for Primality Demonstrate the Lucas test for
  * primality.
  */
-public class TestLucas implements ILucasCaller
+public final class TestLucas implements ILucasCaller
 {
   private int prevA = 0;
   private final SystemOutAlignRight ar = new SystemOutAlignRight ();
 
   /**
    * Test an integer p for primality.
-   * 
+   *
    * @param p
    *        the value of p
    */
@@ -56,7 +56,7 @@ public class TestLucas implements ILucasCaller
 
   /**
    * Report on the test status.
-   * 
+   *
    * @param status
    *        the test status
    */
@@ -79,7 +79,7 @@ public class TestLucas implements ILucasCaller
 
   /**
    * Main.
-   * 
+   *
    * @param args
    *        the commandline arguments (ignored)
    */

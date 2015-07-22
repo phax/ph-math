@@ -18,13 +18,13 @@ package numbercruncher.program13_3;
 
 import java.awt.Frame;
 
-import numbercruncher.graphutils.DemoFrame;
+import numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
  * PROGRAM 13-3d: The Borwein Pi Algorithm (Interactive Standalone Demo) Compute
  * digits of pi by the Borwein algorithm.
  */
-public class PiBorweinDemo extends DemoFrame
+public final class PiBorweinDemo extends AbstractDemoFrame
 {
   private static final String TITLE = "Computing pi";
 

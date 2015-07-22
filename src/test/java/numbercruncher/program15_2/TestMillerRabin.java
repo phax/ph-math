@@ -25,7 +25,7 @@ import numbercruncher.primeutils.MillerRabinStatus;
  * PROGRAM 15-2: Miller-Rabin Test for Primality Demonstrate the Miller-Rabin
  * test for primality.
  */
-public class TestMillerRabin implements IMillerRabinCaller
+public final class TestMillerRabin implements IMillerRabinCaller
 {
   private static final int ITERATIONS = 5;
 
@@ -35,7 +35,7 @@ public class TestMillerRabin implements IMillerRabinCaller
 
   /**
    * Test an integer p for primality.
-   * 
+   *
    * @param p
    *        the value of p
    */
@@ -60,7 +60,7 @@ public class TestMillerRabin implements IMillerRabinCaller
 
   /**
    * Report on the test status.
-   * 
+   *
    * @param status
    *        the test status
    */
@@ -78,7 +78,7 @@ public class TestMillerRabin implements IMillerRabinCaller
 
   /**
    * Main.
-   * 
+   *
    * @param args
    *        the commandline arguments (ignored)
    */

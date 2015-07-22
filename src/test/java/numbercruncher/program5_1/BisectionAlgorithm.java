@@ -16,19 +16,19 @@
  */
 package numbercruncher.program5_1;
 
-import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.BisectionRootFinder;
+import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.rootutils.RootFunctions;
 
 /**
  * PROGRAM 5-1: Bisection Algorithm Demonstrate the Bisection Algorithm on a
  * function.
  */
-public class BisectionAlgorithm
+public final class BisectionAlgorithm
 {
   /**
    * Main program.
-   * 
+   *
    * @param args
    *        the array of runtime arguments
    */

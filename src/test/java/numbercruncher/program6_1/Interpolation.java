@@ -16,16 +16,16 @@
  */
 package numbercruncher.program6_1;
 
-import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.DataPoint;
 import numbercruncher.mathutils.InterpolationPolynomial;
+import numbercruncher.mathutils.SystemOutAlignRight;
 
 /**
  * PROGRAM 6-1: Polynomial Interpolation Demonstrate polynomial interpolation by
  * using a divided difference table to construct an interpolation function for a
  * set of data points. Use the function to estimate new values.
  */
-public class Interpolation
+public final class Interpolation
 {
   private static final int MAX_POINTS = 10;
 
@@ -33,7 +33,7 @@ public class Interpolation
 
   /**
    * Main program.
-   * 
+   *
    * @param args
    *        the array of runtime arguments
    */
@@ -61,7 +61,7 @@ public class Interpolation
 
   /**
    * Print the value of p(x).
-   * 
+   *
    * @param p
    *        the polynomial interpolation function
    * @param x

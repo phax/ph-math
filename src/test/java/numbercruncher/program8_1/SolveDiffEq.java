@@ -18,17 +18,17 @@ package numbercruncher.program8_1;
 
 import numbercruncher.mathutils.AbstractDiffEqSolver;
 import numbercruncher.mathutils.AbstractDifferentialEquation;
-import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.DataPoint;
 import numbercruncher.mathutils.EulersDiffEqSolver;
 import numbercruncher.mathutils.PredictorCorrectorDiffEqSolver;
 import numbercruncher.mathutils.RungeKuttaDiffEqSolver;
+import numbercruncher.mathutils.SystemOutAlignRight;
 
 /**
  * PROGRAM 8-1: Solve Differential Equations Demonstrate algorithms for solving
  * differential equations.
  */
-public class SolveDiffEq
+public final class SolveDiffEq
 {
   private static final int MAX_INTERVALS = Integer.MAX_VALUE / 2;
 
@@ -40,7 +40,7 @@ public class SolveDiffEq
 
   /**
    * Main program.
-   * 
+   *
    * @param args
    *        the array of runtime arguments
    */

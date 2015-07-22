@@ -26,7 +26,7 @@ import java.awt.Rectangle;
  * The panel that represents the enclosed 3-D space for the tumbling wire-frame
  * cube.
  */
-public class CubePanel extends Panel
+public final class CubePanel extends Panel
 {
   private static final float MAX_TRANSLATE = 5;
   private static final float MAX_SCALING = 3;
@@ -55,7 +55,7 @@ public class CubePanel extends Panel
 
   /**
    * Constructor.
-   * 
+   *
    * @param transformation
    *        the graphics transformation
    * @param parent
@@ -108,7 +108,7 @@ public class CubePanel extends Panel
 
   /**
    * Paint without first clearing.
-   * 
+   *
    * @param g
    *        the graphics context
    */
@@ -120,7 +120,7 @@ public class CubePanel extends Panel
 
   /**
    * Paint the contents of the image buffer.
-   * 
+   *
    * @param g
    *        the graphics context
    */

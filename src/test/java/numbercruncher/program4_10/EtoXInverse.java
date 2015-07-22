@@ -23,7 +23,7 @@ import numbercruncher.mathutils.SystemOutAlignRight;
  * series with x = 19.5 and then taking the inverse of the result. The final
  * value should be approximately 3.4e-9
  */
-public class EtoXInverse
+public final class EtoXInverse
 {
   private static final double x = -19.5;
 

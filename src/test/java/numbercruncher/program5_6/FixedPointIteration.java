@@ -16,19 +16,19 @@
  */
 package numbercruncher.program5_6;
 
-import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.FixedPointRootFinder;
+import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.rootutils.RootFunctions;
 
 /**
  * PROGRAM 5-6: Fixed-Point Iteration Demonstrate Fixed-Point Iteration on a
  * function.
  */
-public class FixedPointIteration
+public final class FixedPointIteration
 {
   /**
    * Main program.
-   * 
+   *
    * @param args
    *        the array of runtime arguments
    */
@@ -40,7 +40,7 @@ public class FixedPointIteration
 
   /**
    * Apply fixed-point iteration to a function.
-   * 
+   *
    * @param key
    *        the function key
    * @param x0

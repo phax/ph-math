@@ -22,14 +22,14 @@ import numbercruncher.mathutils.SystemOutAlignRight;
  * PROGRAM 14-3: Buffon's Needle Demonstrate how we can calculate the value of
  * pi using the Monte Carlo technique and Buffon's needle algorithm.
  */
-public class Buffon
+public final class Buffon
 {
   private static final int MAX_NEEDLES = 10000000; // 10 million
   private static final int GROUP_SIZE = MAX_NEEDLES / 20;
 
   /**
    * Main.
-   * 
+   *
    * @param args
    *        the array of program arguments
    */

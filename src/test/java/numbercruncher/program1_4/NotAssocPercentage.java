@@ -22,7 +22,7 @@ import java.util.Random;
  * PROGRAM 1-4: Not Associative Percentage Figure out what percentage of
  * floating-point additions and multiplications fail their associative laws.
  */
-public class NotAssocPercentage
+public final class NotAssocPercentage
 {
   private static final int TRIALS = 1000000; // one million
 

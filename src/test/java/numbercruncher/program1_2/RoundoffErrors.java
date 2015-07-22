@@ -20,7 +20,7 @@ package numbercruncher.program1_2;
  * PROGRAM 1-2: Roundoff Errors Demonstrate how a tiny roundoff error can
  * explode into a much larger one.
  */
-public class RoundoffErrors
+public final class RoundoffErrors
 {
   public static void main (final String args[])
   {

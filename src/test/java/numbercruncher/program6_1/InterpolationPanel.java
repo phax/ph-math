@@ -19,17 +19,17 @@ package numbercruncher.program6_1;
 import numbercruncher.graphutils.PlotProperties;
 import numbercruncher.mathutils.DataPoint;
 import numbercruncher.mathutils.InterpolationPolynomial;
-import numbercruncher.pointutils.InterRegressPanel;
+import numbercruncher.pointutils.AbstractInterRegressPanel;
 
 /**
  * The demo panel for the Polynomial Interpolation demo and applet.
  */
-public class InterpolationPanel extends InterRegressPanel
+public final class InterpolationPanel extends AbstractInterRegressPanel
 {
   private static final int MAX_POINTS = 10;
 
   /** interpolation polynomnial function */
-  InterpolationPolynomial p = new InterpolationPolynomial (MAX_POINTS);
+  private final InterpolationPolynomial p = new InterpolationPolynomial (MAX_POINTS);
 
   /**
    * Constructor.
@@ -41,7 +41,7 @@ public class InterpolationPanel extends InterRegressPanel
 
   /**
    * The user has added a data point.
-   * 
+   *
    * @param r
    *        the dot's row
    * @param c
@@ -93,7 +93,7 @@ public class InterpolationPanel extends InterRegressPanel
 
   /**
    * Return the value of the polynomial interpolation function at x.
-   * 
+   *
    * @param x
    *        the value of x
    * @return the value of the function

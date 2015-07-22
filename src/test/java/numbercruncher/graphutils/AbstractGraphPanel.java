@@ -28,7 +28,7 @@ import java.awt.event.MouseEvent;
 /**
  * The base panel for all graph demo panels.
  */
-public abstract class GraphPanel extends Panel implements IDemoPanel
+public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 {
   public static final Color MAROON = new Color (128, 0, 0);
 
@@ -68,7 +68,7 @@ public abstract class GraphPanel extends Panel implements IDemoPanel
    * @param drawXequalsY
    *        if true, draw the X=Y line
    */
-  protected GraphPanel (final IPlottable functions[],
+  protected AbstractGraphPanel (final IPlottable functions[],
                         final PlotProperties plotProps,
                         final boolean xorMode,
                         final boolean drawXequalsY)
@@ -94,7 +94,7 @@ public abstract class GraphPanel extends Panel implements IDemoPanel
    * @param drawAxes
    *        if true, draw axes
    */
-  protected GraphPanel (final String headerText, final PlotProperties plotProps, final boolean drawAxes)
+  protected AbstractGraphPanel (final String headerText, final PlotProperties plotProps, final boolean drawAxes)
   {
     this.m_aPlotProps = plotProps;
     this.m_bXorMode = false;
@@ -113,7 +113,7 @@ public abstract class GraphPanel extends Panel implements IDemoPanel
    * @param plotProps
    *        the plot properties
    */
-  protected GraphPanel (final String headerText, final PlotProperties plotProps)
+  protected AbstractGraphPanel (final String headerText, final PlotProperties plotProps)
   {
     this.m_aPlotProps = plotProps;
     this.m_bXorMode = false;
@@ -131,7 +131,7 @@ public abstract class GraphPanel extends Panel implements IDemoPanel
    * @param plotProps
    *        the plot properties
    */
-  protected GraphPanel (final PlotProperties plotProps)
+  protected AbstractGraphPanel (final PlotProperties plotProps)
   {
     this.m_aPlotProps = plotProps;
     this.m_bXorMode = false;

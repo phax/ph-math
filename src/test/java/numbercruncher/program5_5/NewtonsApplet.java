@@ -16,13 +16,13 @@
  */
 package numbercruncher.program5_5;
 
-import numbercruncher.graphutils.DemoApplet;
+import numbercruncher.graphutils.AbstractDemoApplet;
 
 /**
  * PROGRAM 5-5a: Newton's Algorithm (Interactive Applet) Interactively
  * demonstrate Newton's Algorithm on various functions.
  */
-public class NewtonsApplet extends DemoApplet
+public final class NewtonsApplet extends AbstractDemoApplet
 {
   /**
    * Constructor.

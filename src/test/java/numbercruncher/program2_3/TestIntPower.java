@@ -21,7 +21,7 @@ import numbercruncher.mathutils.IntPower;
 /**
  * PROGRAM 2-3: Test Class IntPower Test the IntPower class.
  */
-public class TestIntPower
+public final class TestIntPower
 {
   public static void main (final String args[])
   {

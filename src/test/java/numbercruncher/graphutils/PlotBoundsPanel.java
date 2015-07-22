@@ -31,7 +31,7 @@ import java.awt.event.FocusEvent;
  * The panel that contains the x-min, x-max, y-min, and y-max text controls for
  * the function plot bounds.
  */
-class PlotBoundsPanel extends Panel
+final class PlotBoundsPanel extends Panel
 {
   /**
    * x-min label
@@ -70,15 +70,15 @@ class PlotBoundsPanel extends Panel
   private final Font labelFont = new Font ("Dialog", 1, 12);
 
   /** parent graph panel */
-  GraphPanel m_aGraphPanel;
+  AbstractGraphPanel m_aGraphPanel;
 
   /**
    * Constructor.
-   * 
+   *
    * @param graphPanel
    *        the parent graph panel
    */
-  PlotBoundsPanel (final GraphPanel graphPanel)
+  PlotBoundsPanel (final AbstractGraphPanel graphPanel)
   {
     this.m_aGraphPanel = graphPanel;
 
@@ -107,7 +107,7 @@ class PlotBoundsPanel extends Panel
 
   /**
    * Set the text fields from the plot properties.
-   * 
+   *
    * @param plotProps
    *        the plot properties
    */
@@ -121,7 +121,7 @@ class PlotBoundsPanel extends Panel
 
   /**
    * Update the plot properties from the text fields.
-   * 
+   *
    * @param plotProps
    *        the plot properties
    */
@@ -138,7 +138,7 @@ class PlotBoundsPanel extends Panel
 
   /**
    * Check the bounds.
-   * 
+   *
    * @return true if bounds are OK, else return false
    */
   private boolean boundsOK ()

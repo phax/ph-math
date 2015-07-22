@@ -18,14 +18,14 @@ package numbercruncher.program5_6;
 
 import java.awt.Frame;
 
-import numbercruncher.graphutils.DemoFrame;
+import numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
  * PROGRAM 5-6d: Fixed-Point Iteration (Interactive Standalone Demo)
  * Interactively demonstrate Fixed-Point Iteration Algorithm on various
  * functions.
  */
-public class FixedPointDemo extends DemoFrame
+public final class FixedPointDemo extends AbstractDemoFrame
 {
   private static final String TITLE = "Fixed-Point Iteration Demo";
 

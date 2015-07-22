@@ -22,7 +22,7 @@ import numbercruncher.mathutils.PrimeFactors;
 /**
  * An implemention of the the Lucas test for primality.
  */
-public class LucasFuncTest
+public final class LucasFuncTest
 {
   private static LucasStatus status = new LucasStatus ();
 
@@ -35,7 +35,7 @@ public class LucasFuncTest
 
   /**
    * Constructor.
-   * 
+   *
    * @param p
    *        the number to test for primality
    * @param caller
@@ -51,7 +51,7 @@ public class LucasFuncTest
 
   /**
    * Perform the Lucas test.
-   * 
+   *
    * @return true if p is prime, false if p is composite
    */
   public boolean test ()
@@ -68,7 +68,7 @@ public class LucasFuncTest
 
   /**
    * Test if integer a passes the first part of the test.
-   * 
+   *
    * @param a
    *        the value of a
    * @return true if [a^(p-1)]%p == 1, else false
@@ -95,7 +95,7 @@ public class LucasFuncTest
 
   /**
    * Test if integer a passes the second part of the test.
-   * 
+   *
    * @param a
    *        the value of a
    * @return true if [a^(p-1)/q]%p != 1 for all prime factors q, else false

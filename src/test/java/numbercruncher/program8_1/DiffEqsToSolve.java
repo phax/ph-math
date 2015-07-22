@@ -25,7 +25,7 @@ import numbercruncher.mathutils.DataPoint;
 /**
  * Load into a global table the differential equations we want to solve.
  */
-public class DiffEqsToSolve
+public final class DiffEqsToSolve
 {
   /** global function table */
   private static Map <String, AbstractDifferentialEquation> TABLE = new Hashtable <String, AbstractDifferentialEquation> (32);
@@ -38,7 +38,7 @@ public class DiffEqsToSolve
 
   /**
    * Return the differential equation with the given hash key
-   * 
+   *
    * @param key
    *        the hash key
    * @return the differential equation
@@ -74,20 +74,21 @@ public class DiffEqsToSolve
     // Differential equation f(x, y) = 3x^2 + 6x - 9
     // Initial condition y(-4.5050397) = 0
     // Solution y = x^3 + 3x^2 - 9x - 10
-    TABLE.put ("3x^2 + 6x - 9", new AbstractDifferentialEquation (new DataPoint (-4.5050397f, 0), "x^3 + 3x^2 - 9x - 10")
-    {
-      @Override
-      public float at (final float x)
-      {
-        return 3 * x * x + 6 * x - 9;
-      }
+    TABLE.put ("3x^2 + 6x - 9",
+               new AbstractDifferentialEquation (new DataPoint (-4.5050397f, 0), "x^3 + 3x^2 - 9x - 10")
+               {
+                 @Override
+                 public float at (final float x)
+                 {
+                   return 3 * x * x + 6 * x - 9;
+                 }
 
-      @Override
-      public float solutionAt (final float x)
-      {
-        return x * x * x + 3 * x * x - 9 * x - 10;
-      }
-    });
+                 @Override
+                 public float solutionAt (final float x)
+                 {
+                   return x * x * x + 3 * x * x - 9 * x - 10;
+                 }
+               });
 
     // Differential equation f(x, y) = 6x^2 - 20x + 11
     // Initial condition y(0) = -5

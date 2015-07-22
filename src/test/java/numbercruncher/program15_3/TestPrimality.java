@@ -18,11 +18,10 @@ package numbercruncher.program15_3;
 
 import numbercruncher.primeutils.PrimalityFuncTest;
 
-
 /**
  * PROGRAM 15-3: Primality Testing Demonstrate the primality test.
  */
-public class TestPrimality
+public final class TestPrimality
 {
   public static void main (final String args[])
   {

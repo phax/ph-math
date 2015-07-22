@@ -23,7 +23,7 @@ import numbercruncher.mathutils.SystemOutAlignRight;
  * d/d where: n = 100,000,000 d = 1 + 2 + 3 + ... + n = (n/2)(n + 1) See why the
  * sum ends up being 0.5
  */
-public class FractionSum100M
+public final class FractionSum100M
 {
   private static final int GROUPS = 20;
   private static final int MAX = 100000000; // 100M

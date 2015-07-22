@@ -18,14 +18,14 @@ package numbercruncher.program14_2;
 
 import java.awt.Frame;
 
-import numbercruncher.graphutils.DemoFrame;
+import numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
  * PROGRAM 14-2d: Exponentially-Distributed Random Numbers (Standalone Demo)
  * Demonstrate algorithms for generating exponentially-distributed random
  * numbers.
  */
-public class GenerateRandomExponentialDemo extends DemoFrame
+public final class GenerateRandomExponentialDemo extends AbstractDemoFrame
 {
   private static final String TITLE = "Exponentially-Distributed Random Numbers";
 

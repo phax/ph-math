@@ -21,7 +21,7 @@ import java.awt.Dimension;
 /**
  * The properties of a function plot.
  */
-public class PlotProperties
+public final class PlotProperties
 {
   /** width */
   private int w;
@@ -46,7 +46,7 @@ public class PlotProperties
 
   /**
    * Constructor.
-   * 
+   *
    * @param xMin
    *        the minimum x value
    * @param xMax
@@ -66,7 +66,7 @@ public class PlotProperties
 
   /**
    * Return the minimum x value.
-   * 
+   *
    * @return the minimum x value
    */
   public float getXMin ()
@@ -76,7 +76,7 @@ public class PlotProperties
 
   /**
    * Return the maximum x value.
-   * 
+   *
    * @return the maximum x value
    */
   public float getXMax ()
@@ -86,7 +86,7 @@ public class PlotProperties
 
   /**
    * Return the minimum y value.
-   * 
+   *
    * @return the minimum y value
    */
   public float getYMin ()
@@ -96,7 +96,7 @@ public class PlotProperties
 
   /**
    * Return the maximum y value.
-   * 
+   *
    * @return the maximum y value
    */
   public float getYMax ()
@@ -106,7 +106,7 @@ public class PlotProperties
 
   /**
    * Return the x delta value.
-   * 
+   *
    * @return the x delta value
    */
   public float getXDelta ()
@@ -116,7 +116,7 @@ public class PlotProperties
 
   /**
    * Return the y delta value.
-   * 
+   *
    * @return the y delta value
    */
   public float getYDelta ()
@@ -126,7 +126,7 @@ public class PlotProperties
 
   /**
    * Return the width.
-   * 
+   *
    * @return the width
    */
   public int getWidth ()
@@ -136,7 +136,7 @@ public class PlotProperties
 
   /**
    * Return the height.
-   * 
+   *
    * @return the height
    */
   public int getHeight ()
@@ -146,7 +146,7 @@ public class PlotProperties
 
   /**
    * Return the x-axis row.
-   * 
+   *
    * @return the row
    */
   public int getXAxisRow ()
@@ -156,7 +156,7 @@ public class PlotProperties
 
   /**
    * Return the y-axis column.
-   * 
+   *
    * @return the column
    */
   public int getYAxisColumn ()
@@ -166,7 +166,7 @@ public class PlotProperties
 
   /**
    * Update the bounds values.
-   * 
+   *
    * @param xMin
    *        the minimum x value
    * @param xMax
@@ -186,7 +186,7 @@ public class PlotProperties
 
   /**
    * Compute property values.
-   * 
+   *
    * @param plotSize
    *        the plot panel size
    */

@@ -16,13 +16,13 @@
  */
 package numbercruncher.program5_6;
 
-import numbercruncher.graphutils.DemoApplet;
+import numbercruncher.graphutils.AbstractDemoApplet;
 
 /**
  * PROGRAM 5-6a: Fixed-Point Iteration (Interactive Applet) Interactively
  * demonstrate Fixed-Point Iteration Algorithm on various functions.
  */
-public class FixedPointApplet extends DemoApplet
+public final class FixedPointApplet extends AbstractDemoApplet
 {
   // Constructor
   public FixedPointApplet ()

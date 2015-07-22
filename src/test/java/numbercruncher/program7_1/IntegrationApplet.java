@@ -16,13 +16,13 @@
  */
 package numbercruncher.program7_1;
 
-import numbercruncher.graphutils.DemoApplet;
+import numbercruncher.graphutils.AbstractDemoApplet;
 
 /**
  * PROGRAM 7-1a: Integration (Interactive Applet) Interactively demonstrate
  * numerical integration algorithms.
  */
-public class IntegrationApplet extends DemoApplet
+public final class IntegrationApplet extends AbstractDemoApplet
 {
   /**
    * Constructor.

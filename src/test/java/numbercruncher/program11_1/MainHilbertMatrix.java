@@ -25,7 +25,7 @@ import numbercruncher.matrix.SquareMatrix;
  * matrix. Hilbert matrices are ill-conditioned and difficult to invert
  * accurately.
  */
-public class HilbertMatrix
+public final class MainHilbertMatrix
 {
   private static final int RANK = 4;
 
@@ -72,13 +72,13 @@ public class HilbertMatrix
 
   /**
    * Main.
-   * 
+   *
    * @param args
    *        the array of arguments
    */
   public static void main (final String args[])
   {
-    final HilbertMatrix test = new HilbertMatrix ();
+    final MainHilbertMatrix test = new MainHilbertMatrix ();
 
     try
     {

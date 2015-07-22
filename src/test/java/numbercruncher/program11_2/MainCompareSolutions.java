@@ -24,7 +24,7 @@ import numbercruncher.matrix.MatrixException;
  * PROGRAM 11-2: Compare Solution Algorithms Compare algorithms for solving a
  * system of linear equations.
  */
-public class CompareSolutions
+public final class MainCompareSolutions
 {
   /**
    * Run the test.
@@ -118,7 +118,7 @@ public class CompareSolutions
     // The known correct solution.
     final ColumnVector correct = new ColumnVector (new float [] { 1, -2, 3, -1 });
 
-    final CompareSolutions compare = new CompareSolutions ();
+    final MainCompareSolutions compare = new MainCompareSolutions ();
 
     try
     {

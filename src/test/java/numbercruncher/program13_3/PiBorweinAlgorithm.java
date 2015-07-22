@@ -23,7 +23,7 @@ import numbercruncher.mathutils.BigFunctions;
 /**
  * Implement the Borwein algorithm for pi.
  */
-class PiBorweinAlgorithm
+final class PiBorweinAlgorithm
 {
   /** number of pi digits */
   private final int m_nDigits;
@@ -39,7 +39,7 @@ class PiBorweinAlgorithm
 
   /**
    * Constructor.
-   * 
+   *
    * @param digits
    *        the number of digits to compute
    * @param parent
@@ -54,7 +54,7 @@ class PiBorweinAlgorithm
 
   /**
    * Get the number of iterations.
-   * 
+   *
    * @return the number of iterations
    */
   int getIterations ()
@@ -64,7 +64,7 @@ class PiBorweinAlgorithm
 
   /**
    * Get the value of pi as a string.
-   * 
+   *
    * @return the string
    */
   String getPi ()

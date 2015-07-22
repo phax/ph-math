@@ -29,11 +29,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-import numbercruncher.graphutils.GraphPanel;
+import numbercruncher.graphutils.AbstractGraphPanel;
 import numbercruncher.graphutils.PlotProperties;
 import numbercruncher.mathutils.PrimeFactors;
 
-public class PrimePatternsPanel extends GraphPanel
+public final class PrimePatternsPanel extends AbstractGraphPanel
 {
   private static final String TITLE = "Streaking Primes";
 
@@ -222,7 +222,7 @@ public class PrimePatternsPanel extends GraphPanel
 
   /**
    * Process the user-entered size and start textfields.
-   * 
+   *
    * @throws Exception
    *         if there was an error
    */
@@ -305,7 +305,7 @@ public class PrimePatternsPanel extends GraphPanel
 
     /**
      * Constructor.
-     * 
+     *
      * @param thread
      *        the path thread to monitor
      */

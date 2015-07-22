@@ -29,7 +29,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-import numbercruncher.graphutils.GraphPanel;
+import numbercruncher.graphutils.AbstractGraphPanel;
 import numbercruncher.graphutils.PlotProperties;
 import numbercruncher.mathutils.RandomExponential;
 import numbercruncher.randomutils.Buckets;
@@ -37,7 +37,7 @@ import numbercruncher.randomutils.Buckets;
 /**
  * The demo panel for the Random Exponential program and applet.
  */
-public class RandomExponentialPanel extends GraphPanel
+public final class RandomExponentialPanel extends AbstractGraphPanel
 {
   private static final String RUN = "Run";
   private static final String PAUSE = "Pause";
@@ -461,7 +461,7 @@ public class RandomExponentialPanel extends GraphPanel
 
   /**
    * Return the value of the selected equation at x.
-   * 
+   *
    * @param x
    *        the value of x
    * @return the value of the function

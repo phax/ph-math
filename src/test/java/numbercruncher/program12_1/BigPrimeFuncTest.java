@@ -18,11 +18,13 @@ package numbercruncher.program12_1;
 
 import java.math.BigInteger;
 
+import org.junit.Test;
+
 /**
  * PROGRAM 12-1: Big Prime Number Demonstrate BigInteger by computing the
  * Mersenne prime 2^11213 - 1.
  */
-public class BigPrime
+public final class BigPrimeFuncTest
 {
   private static final int EXPONENT = 11213;
 
@@ -32,7 +34,8 @@ public class BigPrime
   /**
    * Compute and print 2^EXPONENT - 1.
    */
-  private void compute () throws Exception
+  @Test
+  public void testCompute () throws Exception
   {
     // Compute the value.
     m_aPrime = BigInteger.valueOf (1);
@@ -49,7 +52,7 @@ public class BigPrime
 
   /**
    * Print the big prime number.
-   * 
+   *
    * @param prime
    *        the big prime number
    */
@@ -109,7 +112,7 @@ public class BigPrime
 
   /**
    * Print a group of digits followed by a comma.
-   * 
+   *
    * @param primeString
    *        the prime number as a string
    * @param pindex
@@ -129,28 +132,10 @@ public class BigPrime
 
     return index;
   }
-
-  /**
-   * Main.
-   * 
-   * @param args
-   *        the array of program arguments
-   */
-  public static void main (final String args[])
-  {
-    try
-    {
-      final BigPrime bp = new BigPrime ();
-      bp.compute ();
-    }
-    catch (final Exception ex)
-    {
-      System.out.println ("ERROR: " + ex.getMessage ());
-    }
-  }
 }
-/*
- * Output: 2^11213 - 1 = 2,814,112,013,697,373,
+/**
+ * Output: 2^11213 - 1 =<br>
+ * 2,814,112,013,697,373,
  * 133,393,152,975,842,584,191,818,662,382,013,600,787,892,419,349,
  * 345,515,176,682,276,313,810,715,094,745,633,257,074,198,789,308,
  * 535,071,537,342,445,016,418,881,801,789,390,548,709,414,391,857,
@@ -220,6 +205,8 @@ public class BigPrime
  * 360,863,669,327,157,635,983,045,447,971,816,718,801,639,869,547,
  * 525,146,305,655,571,843,717,916,875,669,140,320,724,978,568,586,
  * 718,527,586,602,439,602,335,283,513,944,980,064,327,030,278,104,
- * 224,144,971,883,680,541,689,784,796,267,391,476,087,696,392,191 Number of
- * digits = 3376 Number of bits = 11213
+ * 224,144,971,883,680,541,689,784,796,267,391,476,087,696,392,191<br>
+ * <br>
+ * Number of digits = 3376<br>
+ * Number of bits = 11213
  */

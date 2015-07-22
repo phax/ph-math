@@ -18,13 +18,13 @@ package numbercruncher.program5_5;
 
 import java.awt.Frame;
 
-import numbercruncher.graphutils.DemoFrame;
+import numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
  * PROGRAM 5-5d: Newton's Algorithm (Interactive Standalone Demo) Interactively
  * demonstrate Newton's Algorithm on various functions.
  */
-public class NewtonsDemo extends DemoFrame
+public final class NewtonsDemo extends AbstractDemoFrame
 {
   private static final String TITLE = "Newton's Demo";
 

@@ -16,13 +16,13 @@
  */
 package numbercruncher.program9_1;
 
-import numbercruncher.graphutils.DemoApplet;
+import numbercruncher.graphutils.AbstractDemoApplet;
 
 /**
  * PROGRAM 9-1a: Graphic Transformations (Interactive Applet) Interactively
  * demonstrate the use of graphic transformation matrices.
  */
-public class TransformationApplet extends DemoApplet
+public final class TransformationApplet extends AbstractDemoApplet
 {
   /**
    * Constructor.

@@ -30,9 +30,9 @@ import java.awt.event.ComponentEvent;
 import numbercruncher.graphutils.IDemoPanel;
 
 /**
- * The demo panel for the graphic tranformations program and applet.
+ * The demo panel for the graphic transformations program and applet.
  */
-public class TransformationPanel extends Panel implements IDemoPanel
+public final class TransformationPanel extends Panel implements IDemoPanel
 {
   /** cube panel */
   private final CubePanel cubePanel;

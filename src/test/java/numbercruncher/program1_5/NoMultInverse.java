@@ -22,7 +22,7 @@ import java.util.Random;
  * PROGRAM 1-5: No Multiplicative Inverse Figure out what percentage of
  * floating-point multiplicative inverses fail.
  */
-public class NoMultInverse
+public final class NoMultInverse
 {
   private static final int TRIALS = 1000000; // one million
 

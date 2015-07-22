@@ -16,19 +16,19 @@
  */
 package numbercruncher.program5_2;
 
-import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.RegulaFalsiRootFinder;
+import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.rootutils.RootFunctions;
 
 /**
  * PROGRAM 5-2: Regula Falsi Algorithm Demonstrate the Regula Falsi Algorithm on
  * a function.
  */
-public class RegulaFalsiAlgorithm
+public final class RegulaFalsiAlgorithm
 {
   /**
    * Main program.
-   * 
+   *
    * @param args
    *        the array of runtime arguments
    */
@@ -36,7 +36,9 @@ public class RegulaFalsiAlgorithm
   {
     try
     {
-      final RegulaFalsiRootFinder finder = new RegulaFalsiRootFinder (RootFunctions.function ("x^2 - 4"), -0.25f, 3.25f);
+      final RegulaFalsiRootFinder finder = new RegulaFalsiRootFinder (RootFunctions.function ("x^2 - 4"),
+                                                                      -0.25f,
+                                                                      3.25f);
 
       final SystemOutAlignRight ar = new SystemOutAlignRight ();
 

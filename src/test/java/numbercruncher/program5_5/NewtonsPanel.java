@@ -29,13 +29,13 @@ import numbercruncher.graphutils.PlotProperties;
 import numbercruncher.mathutils.AbstractFunction;
 import numbercruncher.mathutils.AbstractRootFinder;
 import numbercruncher.mathutils.NewtonsRootFinder;
+import numbercruncher.rootutils.AbstractRootFinderPanel;
 import numbercruncher.rootutils.PlotFunction;
-import numbercruncher.rootutils.RootFinderPanel;
 
 /**
  * The demo panel for the Newton's Algorithm program and applet.
  */
-class NewtonsPanel extends RootFinderPanel
+final class NewtonsPanel extends AbstractRootFinderPanel
 {
   private static final int MAX_ITERS = 50;
 
@@ -58,12 +58,12 @@ class NewtonsPanel extends RootFinderPanel
 
   /** Functions to plot. */
   private static PlotFunction FUNCTIONS[] = { new PlotFunction ("x^2 - 4", -3.25f, 5.25f, -5.5f, 25.25f),
-                                             new PlotFunction ("-x^2 + 4x + 5", -5.25f, 10.25f, -25.5f, 10.25f),
-                                             new PlotFunction ("x^3 + 3x^2 - 9x - 10", -6.25f, 4.25f, -20.5f, 20.25f),
-                                             new PlotFunction ("x^2 - 2x + 3", -7.25f, 9.25f, -1.5f, 25.25f),
-                                             new PlotFunction ("2x^3 - 10x^2 + 11x - 5", -0.5f, 5.25f, -10.5f, 25.25f),
-                                             new PlotFunction ("e^-x - x", -0.5f, 2.25f, -1.75f, 1.75f),
-                                             new PlotFunction ("x - e^(1/x)", -4.25f, 4.25f, -10.25f, 3.25f), };
+                                              new PlotFunction ("-x^2 + 4x + 5", -5.25f, 10.25f, -25.5f, 10.25f),
+                                              new PlotFunction ("x^3 + 3x^2 - 9x - 10", -6.25f, 4.25f, -20.5f, 20.25f),
+                                              new PlotFunction ("x^2 - 2x + 3", -7.25f, 9.25f, -1.5f, 25.25f),
+                                              new PlotFunction ("2x^3 - 10x^2 + 11x - 5", -0.5f, 5.25f, -10.5f, 25.25f),
+                                              new PlotFunction ("e^-x - x", -0.5f, 2.25f, -1.75f, 1.75f),
+                                              new PlotFunction ("x - e^(1/x)", -4.25f, 4.25f, -10.25f, 3.25f), };
 
   /**
    * array of plot endpoint columns #1
@@ -151,7 +151,7 @@ class NewtonsPanel extends RootFinderPanel
   /**
    * Mouse pressed event handler: Animate the Newton trace. (Callback from the
    * plot panel)
-   * 
+   *
    * @param ev
    *        the mouse event
    */
@@ -165,7 +165,7 @@ class NewtonsPanel extends RootFinderPanel
   /**
    * Mouse dragged event handler: Animate the Newton trace. (Callback from the
    * plot panel)
-   * 
+   *
    * @param ev
    *        the mouse event
    */
@@ -191,7 +191,7 @@ class NewtonsPanel extends RootFinderPanel
 
   /**
    * Animate a Newton trace starting at column c.
-   * 
+   *
    * @param c
    *        the column
    */
@@ -208,7 +208,7 @@ class NewtonsPanel extends RootFinderPanel
 
   /**
    * Return the starting value x0 at column c.
-   * 
+   *
    * @param c
    *        the column
    * @return the starting value
@@ -225,7 +225,7 @@ class NewtonsPanel extends RootFinderPanel
 
   /**
    * Iterate to create the graphic trace of Newton's algorithm starting at x0.
-   * 
+   *
    * @param x0
    *        the starting value
    */
@@ -343,7 +343,7 @@ class NewtonsPanel extends RootFinderPanel
 
   /**
    * Main for debugging.
-   * 
+   *
    * @param args
    *        the array of arguments
    */

@@ -25,11 +25,11 @@ import numbercruncher.piutils.AbstractPiFormula;
  * PROGRAM 13-2: Arctangent Formulas for pi Compute pi with two arctangent
  * formulas.
  */
-public class PiArctan extends AbstractPiFormula
+public final class PiArctan extends AbstractPiFormula
 {
   /**
    * Compute the digits of pi using two arctangent formulas.
-   * 
+   *
    * @param digits
    *        the number of digits of pi to compute
    */
@@ -124,7 +124,7 @@ public class PiArctan extends AbstractPiFormula
 
   /**
    * Main.
-   * 
+   *
    * @param args
    *        the array of program arguments
    */

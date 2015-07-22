@@ -16,7 +16,7 @@
  */
 package numbercruncher.program5_3;
 
-import numbercruncher.graphutils.DemoApplet;
+import numbercruncher.graphutils.AbstractDemoApplet;
 
 /**
  * PROGRAM 5-3a: Improved Regula Falsi Algorithm (Interactive Applet)
@@ -24,7 +24,7 @@ import numbercruncher.graphutils.DemoApplet;
  * functions. Either single-step or let the program automatically step once each
  * half second.
  */
-public class ImprovedRegulaFalsiApplet extends DemoApplet
+public final class ImprovedRegulaFalsiApplet extends AbstractDemoApplet
 {
   /**
    * Constructor.

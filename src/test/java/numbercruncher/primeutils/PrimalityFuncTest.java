@@ -19,7 +19,7 @@ package numbercruncher.primeutils;
 /**
  * Primality test that combines the Miller-Rabin and Lucas tests.
  */
-public class PrimalityFuncTest
+public final class PrimalityFuncTest
 {
   /** number to test for primality */
   private final int m_nP;
@@ -30,7 +30,7 @@ public class PrimalityFuncTest
 
   /**
    * Constructor.
-   * 
+   *
    * @param p
    *        the number to test for primality
    * @param iterations
@@ -44,7 +44,7 @@ public class PrimalityFuncTest
 
   /**
    * Perform the primality test.
-   * 
+   *
    * @return true if p is prime, false if p is composite
    */
   public boolean test ()

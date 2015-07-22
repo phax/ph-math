@@ -21,7 +21,7 @@ import numbercruncher.mathutils.IEEE754;
 /**
  * PROGRAM 3-4: One Third Investigate the floating-point representation of 1/3.
  */
-public class OneThird
+public final class OneThird
 {
   public static void main (final String args[])
   {

@@ -18,13 +18,13 @@ package numbercruncher.program14_1;
 
 import java.awt.Frame;
 
-import numbercruncher.graphutils.DemoFrame;
+import numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
  * PROGRAM 14-1d: Normally-Distributed Random Numbers (Standalone Demo)
  * Demonstrate algorithms for generating normally-distributed random numbers.
  */
-public class GenerateRandomNormalDemo extends DemoFrame
+public final class GenerateRandomNormalDemo extends AbstractDemoFrame
 {
   private static final String TITLE = "Normally-Distributed Random Numbers";
 

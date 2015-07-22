@@ -29,7 +29,7 @@ import numbercruncher.mathutils.IEvaluatable;
 /**
  * Wrapper class that makes differential equations plottable.
  */
-public class PlotDiffEq implements IPlottable
+public final class PlotDiffEq implements IPlottable
 {
   private static final int X1 = 1;
   private static final int X2 = 145;

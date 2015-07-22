@@ -18,7 +18,7 @@ package numbercruncher.program5_3;
 
 import java.awt.Frame;
 
-import numbercruncher.graphutils.DemoFrame;
+import numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
  * PROGRAM 5-3d: Improved Regula Falsi Algorithm (Interactive Standalone Demo)
@@ -26,7 +26,7 @@ import numbercruncher.graphutils.DemoFrame;
  * functions. Either single-step or let the program automatically step once each
  * half second.
  */
-public class ImprovedRegulaFalsiDemo extends DemoFrame
+public final class ImprovedRegulaFalsiDemo extends AbstractDemoFrame
 {
   private static final String TITLE = "Improved Regula Falsi Demo";
 

@@ -14,24 +14,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package numbercruncher.program12_2;
+package numbercruncher.mathutils;
 
 import java.math.BigDecimal;
+
+import org.junit.Test;
 
 import numbercruncher.mathutils.BigFunctions;
 
 /**
- * PROGRAM 12-2: Test BigFunctions Test the BigFunctions by comparing results
- * with class java.lang.Math.
+ * PROGRAM 12-2: Test BigFunctions Test the {@link BigFunctions} by comparing
+ * results with class java.lang.Math.
  */
-public class TestBigFunctions
+public final class BigFunctionsTest
 {
   private static final int SCALE = 40;
 
   /**
    * Run the test.
    */
-  private void run ()
+  @Test
+  public void testRun ()
   {
     System.out.println ("2^(-25) = " + Math.pow (2, -25));
     System.out.println ("        = " + BigFunctions.intPower (BigDecimal.valueOf (2), -25, SCALE));
@@ -61,33 +64,24 @@ public class TestBigFunctions
                                                                   BigDecimal.ROUND_HALF_EVEN),
                                              SCALE));
   }
-
-  /**
-   * Main.
-   * 
-   * @param args
-   *        the array of program arguments
-   */
-  public static void main (final String args[])
-  {
-    final TestBigFunctions test = new TestBigFunctions ();
-
-    try
-    {
-      test.run ();
-    }
-    catch (final Exception ex)
-    {
-      System.out.println ("ERROR: " + ex.getMessage ());
-    }
-  }
 }
-/*
- * Output: 2^(-25) = 2.9802322387695312E-8 =
- * 0.0000000298023223876953125000000000000000 sqrt 2 = 1.4142135623730951 =
- * 1.4142135623730950488016887242096980785696 2^(1/3) = 1.2599210498948732 =
- * 1.25992104989487316476721060727822835057024 e^(-19.5) = 3.398267819495071E-9
- * = 0.0000000033982678194950712251407378768109 ln 2 = 0.6931471805599453 =
- * 0.6931471805599453094172321214581765680755 arctan sqrt(3)/3 =
- * 0.5235987755982988 = 0.52359877559829887307710723054658381403285
+/**
+ * Output:<br>
+ * 2^(-25) = 2.9802322387695312E-8<br>
+ * = 0.0000000298023223876953125000000000000000<br>
+ * <br>
+ * sqrt 2 = 1.4142135623730951<br>
+ * = 1.4142135623730950488016887242096980785696<br>
+ * <br>
+ * 2^(1/3) = 1.2599210498948732<br>
+ * = 1.25992104989487316476721060727822835057024 <br>
+ * <br>
+ * e^(-19.5) = 3.398267819495071E-9<br>
+ * = 0.0000000033982678194950712251407378768109<br>
+ * <br>
+ * ln 2 = 0.6931471805599453<br>
+ * = 0.6931471805599453094172321214581765680755<br>
+ * <br>
+ * arctan sqrt(3)/3 = 0.5235987755982988<br>
+ * = 0.52359877559829887307710723054658381403285
  */

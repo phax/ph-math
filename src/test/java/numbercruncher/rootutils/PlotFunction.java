@@ -28,7 +28,7 @@ import numbercruncher.mathutils.IEvaluatable;
 /**
  * Wrapper class that makes functions plottable.
  */
-public class PlotFunction implements IPlottable
+public final class PlotFunction implements IPlottable
 {
   private static final int X1 = 1;
   private static final int X2 = 216;
@@ -169,7 +169,11 @@ public class PlotFunction implements IPlottable
    * @param yMax
    *        the maximum y value of the plot bounds
    */
-  public PlotFunction (final AbstractFunction function, final float xMin, final float xMax, final float yMin, final float yMax)
+  public PlotFunction (final AbstractFunction function,
+                       final float xMin,
+                       final float xMax,
+                       final float yMin,
+                       final float yMax)
   {
     this.m_aFunction = function;
     this.rectangle = null;

@@ -31,35 +31,35 @@ import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.util.Random;
 
-import numbercruncher.graphutils.GraphPanel;
+import numbercruncher.graphutils.AbstractGraphPanel;
 import numbercruncher.graphutils.PlotProperties;
 import numbercruncher.mathutils.Complex;
 
-public class JuliaSetPanel extends GraphPanel
+public final class JuliaSetPanel extends AbstractGraphPanel
 {
   private static final String PRESET_NAMES[] = { "",
-                                                "Claws",
-                                                "Snowflakes",
-                                                "Turtles",
-                                                "Serpents",
-                                                "Amoebas",
-                                                "Sparklers" };
+                                                 "Claws",
+                                                 "Snowflakes",
+                                                 "Turtles",
+                                                 "Serpents",
+                                                 "Amoebas",
+                                                 "Sparklers" };
 
   private static final float PRESET_REALS[] = { 0f,
-                                               0.30900264f,
-                                               0.33843684f,
-                                               -0.3985014f,
-                                               -0.8184639f,
-                                               -0.3346212f,
-                                               -0.5530404f };
+                                                0.30900264f,
+                                                0.33843684f,
+                                                -0.3985014f,
+                                                -0.8184639f,
+                                                -0.3346212f,
+                                                -0.5530404f };
 
   private static final float PRESET_IMAGINARIES[] = { 0f,
-                                                     -0.0339787f,
-                                                     -0.4211402f,
-                                                     0.5848901f,
-                                                     -0.2129812f,
-                                                     0.6340579f,
-                                                     0.5933997f };
+                                                      -0.0339787f,
+                                                      -0.4211402f,
+                                                      0.5848901f,
+                                                      -0.2129812f,
+                                                      0.6340579f,
+                                                      0.5933997f };
 
   /** control panel */
   private final Panel fractalControlPanel = new Panel ();
@@ -302,7 +302,7 @@ public class JuliaSetPanel extends GraphPanel
 
   /**
    * Process the real and imaginary text fields.
-   * 
+   *
    * @throws Exception
    *         if a field is invalid
    */

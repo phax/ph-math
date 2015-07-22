@@ -24,12 +24,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import numbercruncher.graphutils.FunctionFrame;
-import numbercruncher.graphutils.GraphPanel;
+import numbercruncher.graphutils.AbstractGraphPanel;
 
 /**
  * The base panel for all root finder demo panels.
  */
-public abstract class RootFinderPanel extends GraphPanel
+public abstract class AbstractRootFinderPanel extends AbstractGraphPanel
 {
   /** control panel */
   protected Panel controlPanel = new Panel ();
@@ -74,7 +74,7 @@ public abstract class RootFinderPanel extends GraphPanel
    * @param functionFrameTitle
    *        the function frame title
    */
-  protected RootFinderPanel (final PlotFunction plotFunctions[],
+  protected AbstractRootFinderPanel (final PlotFunction plotFunctions[],
                              final String functionImageFileName,
                              final String functionFrameTitle)
   {
@@ -93,7 +93,7 @@ public abstract class RootFinderPanel extends GraphPanel
    * @param functionFrameTitle
    *        the function frame title
    */
-  protected RootFinderPanel (final PlotFunction plotFunctions[],
+  protected AbstractRootFinderPanel (final PlotFunction plotFunctions[],
                              final boolean xorMode,
                              final String functionImageFileName,
                              final String functionFrameTitle)
@@ -115,7 +115,7 @@ public abstract class RootFinderPanel extends GraphPanel
    * @param functionFrameTitle
    *        the function frame title
    */
-  protected RootFinderPanel (final PlotFunction plotFunctions[],
+  protected AbstractRootFinderPanel (final PlotFunction plotFunctions[],
                              final boolean xorMode,
                              final boolean drawXequalsY,
                              final String functionImageFileName,

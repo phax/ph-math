@@ -24,7 +24,7 @@ import numbercruncher.mathutils.AbstractFunction;
 /**
  * Load into a global table the functions whose roots we want to find.
  */
-public class RootFunctions
+public final class RootFunctions
 {
   /** global function table */
   private static Map <String, AbstractFunction> TABLE = new Hashtable <String, AbstractFunction> (32);
@@ -37,7 +37,7 @@ public class RootFunctions
 
   /**
    * Return the function with the given hash key
-   * 
+   *
    * @param key
    *        the hash key
    * @return the function

@@ -26,7 +26,7 @@ import numbercruncher.primeutils.PrimalityFuncTest;
  * PROGRAM 15-4: Prime Number Generators Demonstrate two quadratic polynomials
  * that generate prime numbers.
  */
-public class PrimeGenerators
+public final class PrimeGenerators
 {
   private static final String EULER = "n^2 - 79n + 1601";
   private static final String GREENWOOD = "41n^2 - 4641n + 88007";

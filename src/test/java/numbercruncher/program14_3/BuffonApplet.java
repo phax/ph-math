@@ -16,13 +16,13 @@
  */
 package numbercruncher.program14_3;
 
-import numbercruncher.graphutils.DemoApplet;
+import numbercruncher.graphutils.AbstractDemoApplet;
 
 /**
  * PROGRAM 14-3a: Graphic Buffons (Interactive Applet) Interactively demonstrate
  * the use of graphic transformation matrices.
  */
-public class BuffonApplet extends DemoApplet
+public final class BuffonApplet extends AbstractDemoApplet
 {
   /**
    * Constructor.

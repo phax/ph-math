@@ -20,7 +20,7 @@ package numbercruncher.program1_3;
  * PROGRAM 1-3: Not Associative Demonstrate that floating-point addition and
  * multiplication are not associative operations.
  */
-public class NotAssociative
+public final class NotAssociative
 {
   public static void main (final String args[])
   {

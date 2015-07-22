@@ -16,8 +16,8 @@
  */
 package numbercruncher.program4_5;
 
-import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.KahanSummation;
+import numbercruncher.mathutils.SystemOutAlignRight;
 
 /**
  * PROGRAM 4-5: Fraction Sum 100M by the Kahan Summation Algorithm Use the Kahan
@@ -25,7 +25,7 @@ import numbercruncher.mathutils.KahanSummation;
  * where: n = 100,000,000 d = 1 + 2 + 3 + ... + n = (n/2)(n + 1) See if the sum
  * is closer to 1.
  */
-public class FractionSum100MKahan
+public final class FractionSum100MKahan
 {
   private static final int GROUPS = 20;
   private static final int MAX = 100000000; // 100M

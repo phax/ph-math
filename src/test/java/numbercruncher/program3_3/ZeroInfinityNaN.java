@@ -22,7 +22,7 @@ import numbercruncher.mathutils.SystemOutAlignRight;
  * PROGRAM 3-3: Zero, Infinity, and Not-a-Number Investigate the results of
  * floating-point arithmetic involving zero, infinity, and NaN.
  */
-public class ZeroInfinityNaN
+public final class ZeroInfinityNaN
 {
   public static void main (final String args[])
   {

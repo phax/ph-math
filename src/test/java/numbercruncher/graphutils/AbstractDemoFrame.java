@@ -30,7 +30,7 @@ import java.awt.event.WindowEvent;
 /**
  * The base frame for all standalone demo programs.
  */
-public abstract class DemoFrame extends Frame
+public abstract class AbstractDemoFrame extends Frame
 {
   private final String m_sTitle; // window title
   private final IDemoPanel m_aDemoPanel; // demo panel
@@ -43,7 +43,7 @@ public abstract class DemoFrame extends Frame
    * @param demoPanel
    *        the demo panel
    */
-  protected DemoFrame (final String title, final IDemoPanel demoPanel)
+  protected AbstractDemoFrame (final String title, final IDemoPanel demoPanel)
   {
     this (title, demoPanel, 600, 500);
   }
@@ -60,7 +60,7 @@ public abstract class DemoFrame extends Frame
    * @param height
    *        the frame height
    */
-  protected DemoFrame (final String title, final IDemoPanel demoPanel, final int width, final int height)
+  protected AbstractDemoFrame (final String title, final IDemoPanel demoPanel, final int width, final int height)
   {
     this.m_sTitle = title;
     this.m_aDemoPanel = demoPanel;

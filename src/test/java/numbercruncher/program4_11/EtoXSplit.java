@@ -16,15 +16,15 @@
  */
 package numbercruncher.program4_11;
 
-import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.IntPower;
+import numbercruncher.mathutils.SystemOutAlignRight;
 
 /**
  * PROGRAM 4-11: e to x with Split Exponent Compute e^x by splitting the
  * exponent x into its whole and fraction components before using the Taylor
  * series.
  */
-public class EtoXSplit
+public final class EtoXSplit
 {
   private static final double X = -19.5;
 
@@ -67,7 +67,7 @@ public class EtoXSplit
 
   /**
    * Compute e^x, x > 0 using the Taylor series.
-   * 
+   *
    * @param x
    *        the exponent
    * @return the value to which the series converged

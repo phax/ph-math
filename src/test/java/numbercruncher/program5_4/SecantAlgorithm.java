@@ -16,18 +16,18 @@
  */
 package numbercruncher.program5_4;
 
-import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.SecantRootFinder;
+import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.rootutils.RootFunctions;
 
 /**
  * PROGRAM 5-4: Secant Algorithm Demonstrate the Secant Algorithm on a function.
  */
-public class SecantAlgorithm
+public final class SecantAlgorithm
 {
   /**
    * Main program.
-   * 
+   *
    * @param args
    *        the array of runtime arguments
    */

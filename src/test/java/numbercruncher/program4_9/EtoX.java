@@ -22,7 +22,7 @@ import numbercruncher.mathutils.SystemOutAlignRight;
  * PROGRAM 4-9: e to x Compute e^x using the Taylor series with x = -19.5 The
  * final value should be approximately 3.4e-9
  */
-public class EtoX
+public final class EtoX
 {
   private static final double x = -19.5;
 

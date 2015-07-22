@@ -23,7 +23,7 @@ import numbercruncher.mathutils.SystemOutAlignRight;
  * (n-1)/d + (n-2)/d + ... + 2/d + 1/d = d/d where: n = 100,000,000 d = 1 + 2 +
  * 3 + ... + n = (n/2)(n + 1) See if the sum is closer to 1.
  */
-public class FractionSum100MReversed
+public final class FractionSum100MReversed
 {
   private static final int GROUPS = 20;
   private static final int MAX = 100000000; // 100M

@@ -20,7 +20,7 @@ package numbercruncher.program2_2;
  * PROGRAM 2-2: Integer Wrapper Classes Print the values of some of the
  * constants defined in the integer wrapper classes.
  */
-public class IntegerWrapperClasses
+public final class IntegerWrapperClasses
 {
   public static void main (final String args[])
   {

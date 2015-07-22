@@ -37,7 +37,7 @@ import numbercruncher.mathutils.IEEE754Constants;
 /**
  * The demo panel for the IEEE 754 program and applet.
  */
-class FPFormatsPanel extends Panel
+final class FPFormatsPanel extends Panel
 {
   private static final Color MAROON = new Color (128, 0, 0);
 
@@ -236,427 +236,465 @@ class FPFormatsPanel extends Panel
     mainPanel.add (doublePanel, null);
 
     // Float panel.
-    floatPanel.add (floatLabel, new GridBagConstraints (0,
-                                                        0,
-                                                        3,
-                                                        1,
-                                                        0.0,
-                                                        0.0,
-                                                        java.awt.GridBagConstraints.WEST,
-                                                        java.awt.GridBagConstraints.NONE,
-                                                        new Insets (10, 10, 0, 0),
-                                                        3,
-                                                        0));
-    floatPanel.add (fShowValueButton, new GridBagConstraints (3,
-                                                              0,
-                                                              3,
-                                                              1,
-                                                              1.0,
-                                                              0.0,
-                                                              java.awt.GridBagConstraints.EAST,
-                                                              java.awt.GridBagConstraints.NONE,
-                                                              new Insets (10, 0, 0, 10),
-                                                              0,
-                                                              0));
-    floatPanel.add (fSignBitLabel, new GridBagConstraints (0,
-                                                           1,
-                                                           1,
-                                                           1,
-                                                           0.0,
-                                                           0.0,
-                                                           java.awt.GridBagConstraints.EAST,
-                                                           java.awt.GridBagConstraints.NONE,
-                                                           new Insets (10, 10, 0, 0),
-                                                           0,
-                                                           0));
-    floatPanel.add (fSignBitText, new GridBagConstraints (1,
-                                                          1,
-                                                          1,
-                                                          1,
-                                                          0.0,
-                                                          0.0,
-                                                          java.awt.GridBagConstraints.WEST,
-                                                          java.awt.GridBagConstraints.NONE,
-                                                          new Insets (10, 0, 0, 0),
-                                                          0,
-                                                          0));
-    floatPanel.add (fMessageText, new GridBagConstraints (2,
-                                                          1,
-                                                          4,
-                                                          1,
-                                                          1.0,
-                                                          0.0,
-                                                          java.awt.GridBagConstraints.CENTER,
-                                                          java.awt.GridBagConstraints.HORIZONTAL,
-                                                          new Insets (10, 10, 0, 10),
-                                                          0,
-                                                          0));
+    floatPanel.add (floatLabel,
+                    new GridBagConstraints (0,
+                                            0,
+                                            3,
+                                            1,
+                                            0.0,
+                                            0.0,
+                                            java.awt.GridBagConstraints.WEST,
+                                            java.awt.GridBagConstraints.NONE,
+                                            new Insets (10, 10, 0, 0),
+                                            3,
+                                            0));
+    floatPanel.add (fShowValueButton,
+                    new GridBagConstraints (3,
+                                            0,
+                                            3,
+                                            1,
+                                            1.0,
+                                            0.0,
+                                            java.awt.GridBagConstraints.EAST,
+                                            java.awt.GridBagConstraints.NONE,
+                                            new Insets (10, 0, 0, 10),
+                                            0,
+                                            0));
+    floatPanel.add (fSignBitLabel,
+                    new GridBagConstraints (0,
+                                            1,
+                                            1,
+                                            1,
+                                            0.0,
+                                            0.0,
+                                            java.awt.GridBagConstraints.EAST,
+                                            java.awt.GridBagConstraints.NONE,
+                                            new Insets (10, 10, 0, 0),
+                                            0,
+                                            0));
+    floatPanel.add (fSignBitText,
+                    new GridBagConstraints (1,
+                                            1,
+                                            1,
+                                            1,
+                                            0.0,
+                                            0.0,
+                                            java.awt.GridBagConstraints.WEST,
+                                            java.awt.GridBagConstraints.NONE,
+                                            new Insets (10, 0, 0, 0),
+                                            0,
+                                            0));
+    floatPanel.add (fMessageText,
+                    new GridBagConstraints (2,
+                                            1,
+                                            4,
+                                            1,
+                                            1.0,
+                                            0.0,
+                                            java.awt.GridBagConstraints.CENTER,
+                                            java.awt.GridBagConstraints.HORIZONTAL,
+                                            new Insets (10, 10, 0, 10),
+                                            0,
+                                            0));
 
-    floatPanel.add (fExponentBitsLabel, new GridBagConstraints (0,
-                                                                2,
-                                                                1,
-                                                                1,
-                                                                0.0,
-                                                                0.0,
-                                                                java.awt.GridBagConstraints.EAST,
-                                                                java.awt.GridBagConstraints.NONE,
-                                                                new Insets (10, 10, 0, 0),
-                                                                0,
-                                                                0));
-    floatPanel.add (fExponentBitsText, new GridBagConstraints (1,
-                                                               2,
-                                                               1,
-                                                               1,
-                                                               1.0,
-                                                               0.0,
-                                                               java.awt.GridBagConstraints.WEST,
-                                                               java.awt.GridBagConstraints.HORIZONTAL,
-                                                               new Insets (10, 0, 0, 0),
-                                                               0,
-                                                               0));
-    floatPanel.add (fBiasedLabel, new GridBagConstraints (2,
-                                                          2,
-                                                          1,
-                                                          1,
-                                                          0.0,
-                                                          0.0,
-                                                          java.awt.GridBagConstraints.EAST,
-                                                          java.awt.GridBagConstraints.NONE,
-                                                          new Insets (10, 10, 0, 0),
-                                                          0,
-                                                          0));
-    floatPanel.add (fBiasedText, new GridBagConstraints (3,
-                                                         2,
-                                                         1,
-                                                         1,
-                                                         1.0,
-                                                         0.0,
-                                                         java.awt.GridBagConstraints.WEST,
-                                                         java.awt.GridBagConstraints.HORIZONTAL,
-                                                         new Insets (10, 0, 0, 0),
-                                                         0,
-                                                         0));
-    floatPanel.add (fUnbiasedLabel, new GridBagConstraints (4,
-                                                            2,
-                                                            1,
-                                                            1,
-                                                            0.0,
-                                                            0.0,
-                                                            java.awt.GridBagConstraints.EAST,
-                                                            java.awt.GridBagConstraints.NONE,
-                                                            new Insets (10, 10, 0, 0),
-                                                            0,
-                                                            0));
-    floatPanel.add (fUnbiasedText, new GridBagConstraints (5,
-                                                           2,
-                                                           1,
-                                                           1,
-                                                           1.0,
-                                                           0.0,
-                                                           java.awt.GridBagConstraints.WEST,
-                                                           java.awt.GridBagConstraints.HORIZONTAL,
-                                                           new Insets (10, 0, 0, 10),
-                                                           0,
-                                                           0));
-    floatPanel.add (fFractionBitsLabel, new GridBagConstraints (0,
-                                                                3,
-                                                                1,
-                                                                1,
-                                                                0.0,
-                                                                0.0,
-                                                                java.awt.GridBagConstraints.EAST,
-                                                                java.awt.GridBagConstraints.NONE,
-                                                                new Insets (10, 10, 0, 0),
-                                                                0,
-                                                                0));
-    floatPanel.add (fFractionBitsText, new GridBagConstraints (1,
-                                                               3,
-                                                               5,
-                                                               1,
-                                                               1.0,
-                                                               0.0,
-                                                               java.awt.GridBagConstraints.WEST,
-                                                               java.awt.GridBagConstraints.HORIZONTAL,
-                                                               new Insets (10, 0, 0, 10),
-                                                               0,
-                                                               0));
-    floatPanel.add (fSignificandLabel, new GridBagConstraints (0,
-                                                               4,
-                                                               1,
-                                                               1,
-                                                               0.0,
-                                                               0.0,
-                                                               java.awt.GridBagConstraints.EAST,
-                                                               java.awt.GridBagConstraints.NONE,
-                                                               new Insets (10, 10, 0, 0),
-                                                               0,
-                                                               0));
-    floatPanel.add (fSignificandText, new GridBagConstraints (1,
-                                                              4,
-                                                              5,
-                                                              1,
-                                                              1.0,
-                                                              0.0,
-                                                              java.awt.GridBagConstraints.WEST,
-                                                              java.awt.GridBagConstraints.HORIZONTAL,
-                                                              new Insets (10, 10, 0, 10),
-                                                              0,
-                                                              0));
-    floatPanel.add (fValuePanel, new GridBagConstraints (0,
-                                                         5,
-                                                         6,
-                                                         1,
-                                                         1.0,
-                                                         0.0,
-                                                         java.awt.GridBagConstraints.CENTER,
-                                                         java.awt.GridBagConstraints.HORIZONTAL,
-                                                         new Insets (10, 10, 10, 10),
-                                                         0,
-                                                         0));
-    fValuePanel.add (fValueLabel, new GridBagConstraints (0,
-                                                          0,
-                                                          1,
-                                                          1,
-                                                          0.0,
-                                                          0.0,
-                                                          java.awt.GridBagConstraints.EAST,
-                                                          java.awt.GridBagConstraints.NONE,
-                                                          new Insets (5, 5, 5, 0),
-                                                          0,
-                                                          0));
-    fValuePanel.add (fValueText, new GridBagConstraints (1,
-                                                         0,
-                                                         1,
-                                                         1,
-                                                         1.0,
-                                                         0.0,
-                                                         java.awt.GridBagConstraints.WEST,
-                                                         java.awt.GridBagConstraints.HORIZONTAL,
-                                                         new Insets (5, 0, 5, 0),
-                                                         0,
-                                                         0));
-    fValuePanel.add (fDecomposeButton, new GridBagConstraints (2,
-                                                               0,
-                                                               1,
-                                                               1,
-                                                               0.0,
-                                                               0.0,
-                                                               java.awt.GridBagConstraints.CENTER,
-                                                               java.awt.GridBagConstraints.NONE,
-                                                               new Insets (5, 5, 5, 5),
-                                                               0,
-                                                               0));
+    floatPanel.add (fExponentBitsLabel,
+                    new GridBagConstraints (0,
+                                            2,
+                                            1,
+                                            1,
+                                            0.0,
+                                            0.0,
+                                            java.awt.GridBagConstraints.EAST,
+                                            java.awt.GridBagConstraints.NONE,
+                                            new Insets (10, 10, 0, 0),
+                                            0,
+                                            0));
+    floatPanel.add (fExponentBitsText,
+                    new GridBagConstraints (1,
+                                            2,
+                                            1,
+                                            1,
+                                            1.0,
+                                            0.0,
+                                            java.awt.GridBagConstraints.WEST,
+                                            java.awt.GridBagConstraints.HORIZONTAL,
+                                            new Insets (10, 0, 0, 0),
+                                            0,
+                                            0));
+    floatPanel.add (fBiasedLabel,
+                    new GridBagConstraints (2,
+                                            2,
+                                            1,
+                                            1,
+                                            0.0,
+                                            0.0,
+                                            java.awt.GridBagConstraints.EAST,
+                                            java.awt.GridBagConstraints.NONE,
+                                            new Insets (10, 10, 0, 0),
+                                            0,
+                                            0));
+    floatPanel.add (fBiasedText,
+                    new GridBagConstraints (3,
+                                            2,
+                                            1,
+                                            1,
+                                            1.0,
+                                            0.0,
+                                            java.awt.GridBagConstraints.WEST,
+                                            java.awt.GridBagConstraints.HORIZONTAL,
+                                            new Insets (10, 0, 0, 0),
+                                            0,
+                                            0));
+    floatPanel.add (fUnbiasedLabel,
+                    new GridBagConstraints (4,
+                                            2,
+                                            1,
+                                            1,
+                                            0.0,
+                                            0.0,
+                                            java.awt.GridBagConstraints.EAST,
+                                            java.awt.GridBagConstraints.NONE,
+                                            new Insets (10, 10, 0, 0),
+                                            0,
+                                            0));
+    floatPanel.add (fUnbiasedText,
+                    new GridBagConstraints (5,
+                                            2,
+                                            1,
+                                            1,
+                                            1.0,
+                                            0.0,
+                                            java.awt.GridBagConstraints.WEST,
+                                            java.awt.GridBagConstraints.HORIZONTAL,
+                                            new Insets (10, 0, 0, 10),
+                                            0,
+                                            0));
+    floatPanel.add (fFractionBitsLabel,
+                    new GridBagConstraints (0,
+                                            3,
+                                            1,
+                                            1,
+                                            0.0,
+                                            0.0,
+                                            java.awt.GridBagConstraints.EAST,
+                                            java.awt.GridBagConstraints.NONE,
+                                            new Insets (10, 10, 0, 0),
+                                            0,
+                                            0));
+    floatPanel.add (fFractionBitsText,
+                    new GridBagConstraints (1,
+                                            3,
+                                            5,
+                                            1,
+                                            1.0,
+                                            0.0,
+                                            java.awt.GridBagConstraints.WEST,
+                                            java.awt.GridBagConstraints.HORIZONTAL,
+                                            new Insets (10, 0, 0, 10),
+                                            0,
+                                            0));
+    floatPanel.add (fSignificandLabel,
+                    new GridBagConstraints (0,
+                                            4,
+                                            1,
+                                            1,
+                                            0.0,
+                                            0.0,
+                                            java.awt.GridBagConstraints.EAST,
+                                            java.awt.GridBagConstraints.NONE,
+                                            new Insets (10, 10, 0, 0),
+                                            0,
+                                            0));
+    floatPanel.add (fSignificandText,
+                    new GridBagConstraints (1,
+                                            4,
+                                            5,
+                                            1,
+                                            1.0,
+                                            0.0,
+                                            java.awt.GridBagConstraints.WEST,
+                                            java.awt.GridBagConstraints.HORIZONTAL,
+                                            new Insets (10, 10, 0, 10),
+                                            0,
+                                            0));
+    floatPanel.add (fValuePanel,
+                    new GridBagConstraints (0,
+                                            5,
+                                            6,
+                                            1,
+                                            1.0,
+                                            0.0,
+                                            java.awt.GridBagConstraints.CENTER,
+                                            java.awt.GridBagConstraints.HORIZONTAL,
+                                            new Insets (10, 10, 10, 10),
+                                            0,
+                                            0));
+    fValuePanel.add (fValueLabel,
+                     new GridBagConstraints (0,
+                                             0,
+                                             1,
+                                             1,
+                                             0.0,
+                                             0.0,
+                                             java.awt.GridBagConstraints.EAST,
+                                             java.awt.GridBagConstraints.NONE,
+                                             new Insets (5, 5, 5, 0),
+                                             0,
+                                             0));
+    fValuePanel.add (fValueText,
+                     new GridBagConstraints (1,
+                                             0,
+                                             1,
+                                             1,
+                                             1.0,
+                                             0.0,
+                                             java.awt.GridBagConstraints.WEST,
+                                             java.awt.GridBagConstraints.HORIZONTAL,
+                                             new Insets (5, 0, 5, 0),
+                                             0,
+                                             0));
+    fValuePanel.add (fDecomposeButton,
+                     new GridBagConstraints (2,
+                                             0,
+                                             1,
+                                             1,
+                                             0.0,
+                                             0.0,
+                                             java.awt.GridBagConstraints.CENTER,
+                                             java.awt.GridBagConstraints.NONE,
+                                             new Insets (5, 5, 5, 5),
+                                             0,
+                                             0));
 
     // Double panel.
-    doublePanel.add (doubleLabel, new GridBagConstraints (0,
-                                                          0,
-                                                          3,
-                                                          1,
-                                                          0.0,
-                                                          0.0,
-                                                          java.awt.GridBagConstraints.WEST,
-                                                          java.awt.GridBagConstraints.NONE,
-                                                          new Insets (10, 10, 0, 0),
-                                                          0,
-                                                          0));
-    doublePanel.add (dShowValueButton, new GridBagConstraints (3,
-                                                               0,
-                                                               3,
-                                                               1,
-                                                               0.0,
-                                                               0.0,
-                                                               java.awt.GridBagConstraints.EAST,
-                                                               java.awt.GridBagConstraints.NONE,
-                                                               new Insets (10, 0, 0, 10),
-                                                               0,
-                                                               0));
-    doublePanel.add (dSignBitLabel, new GridBagConstraints (0,
-                                                            1,
-                                                            1,
-                                                            1,
-                                                            0.0,
-                                                            0.0,
-                                                            java.awt.GridBagConstraints.EAST,
-                                                            java.awt.GridBagConstraints.NONE,
-                                                            new Insets (10, 10, 0, 0),
-                                                            0,
-                                                            0));
-    doublePanel.add (dSignBitText, new GridBagConstraints (1,
-                                                           1,
-                                                           1,
-                                                           1,
-                                                           0.0,
-                                                           0.0,
-                                                           java.awt.GridBagConstraints.WEST,
-                                                           java.awt.GridBagConstraints.NONE,
-                                                           new Insets (10, 0, 0, 0),
-                                                           0,
-                                                           0));
-    doublePanel.add (dMessageText, new GridBagConstraints (2,
-                                                           1,
-                                                           4,
-                                                           1,
-                                                           1.0,
-                                                           0.0,
-                                                           java.awt.GridBagConstraints.CENTER,
-                                                           java.awt.GridBagConstraints.HORIZONTAL,
-                                                           new Insets (10, 10, 0, 10),
-                                                           0,
-                                                           0));
-    doublePanel.add (dExponentBitsLabel, new GridBagConstraints (0,
-                                                                 2,
-                                                                 1,
-                                                                 1,
-                                                                 0.0,
-                                                                 0.0,
-                                                                 java.awt.GridBagConstraints.EAST,
-                                                                 java.awt.GridBagConstraints.NONE,
-                                                                 new Insets (10, 10, 0, 0),
-                                                                 0,
-                                                                 0));
-    doublePanel.add (dExponentBitsText, new GridBagConstraints (1,
-                                                                2,
-                                                                1,
-                                                                1,
-                                                                1.0,
-                                                                0.0,
-                                                                java.awt.GridBagConstraints.WEST,
-                                                                java.awt.GridBagConstraints.HORIZONTAL,
-                                                                new Insets (10, 0, 0, 0),
-                                                                0,
-                                                                0));
-    doublePanel.add (dBiasedLabel, new GridBagConstraints (2,
-                                                           2,
-                                                           1,
-                                                           1,
-                                                           0.0,
-                                                           0.0,
-                                                           java.awt.GridBagConstraints.EAST,
-                                                           java.awt.GridBagConstraints.NONE,
-                                                           new Insets (10, 10, 0, 0),
-                                                           0,
-                                                           0));
-    doublePanel.add (dBiasedText, new GridBagConstraints (3,
-                                                          2,
-                                                          1,
-                                                          1,
-                                                          1.0,
-                                                          0.0,
-                                                          java.awt.GridBagConstraints.WEST,
-                                                          java.awt.GridBagConstraints.HORIZONTAL,
-                                                          new Insets (10, 0, 0, 0),
-                                                          0,
-                                                          0));
-    doublePanel.add (dUnbiasedLabel, new GridBagConstraints (4,
-                                                             2,
-                                                             1,
-                                                             1,
-                                                             0.0,
-                                                             0.0,
-                                                             java.awt.GridBagConstraints.EAST,
-                                                             java.awt.GridBagConstraints.NONE,
-                                                             new Insets (10, 10, 0, 0),
-                                                             0,
-                                                             0));
-    doublePanel.add (dUnbiasedText, new GridBagConstraints (5,
-                                                            2,
-                                                            1,
-                                                            1,
-                                                            1.0,
-                                                            0.0,
-                                                            java.awt.GridBagConstraints.WEST,
-                                                            java.awt.GridBagConstraints.HORIZONTAL,
-                                                            new Insets (10, 0, 0, 10),
-                                                            0,
-                                                            0));
-    doublePanel.add (dFractionBitsLabel, new GridBagConstraints (0,
-                                                                 3,
-                                                                 1,
-                                                                 1,
-                                                                 0.0,
-                                                                 0.0,
-                                                                 java.awt.GridBagConstraints.EAST,
-                                                                 java.awt.GridBagConstraints.NONE,
-                                                                 new Insets (10, 10, 0, 0),
-                                                                 0,
-                                                                 0));
-    doublePanel.add (dFractionBitsText, new GridBagConstraints (1,
-                                                                3,
-                                                                5,
-                                                                1,
-                                                                1.0,
-                                                                0.0,
-                                                                java.awt.GridBagConstraints.EAST,
-                                                                java.awt.GridBagConstraints.HORIZONTAL,
-                                                                new Insets (10, 0, 0, 10),
-                                                                0,
-                                                                0));
-    doublePanel.add (dSignificandLabel, new GridBagConstraints (0,
-                                                                4,
-                                                                1,
-                                                                1,
-                                                                0.0,
-                                                                0.0,
-                                                                java.awt.GridBagConstraints.EAST,
-                                                                java.awt.GridBagConstraints.NONE,
-                                                                new Insets (10, 10, 0, 0),
-                                                                0,
-                                                                0));
-    doublePanel.add (dSignificandText, new GridBagConstraints (1,
-                                                               4,
-                                                               5,
-                                                               1,
-                                                               0.0,
-                                                               0.0,
-                                                               java.awt.GridBagConstraints.EAST,
-                                                               java.awt.GridBagConstraints.HORIZONTAL,
-                                                               new Insets (10, 0, 0, 10),
-                                                               0,
-                                                               0));
-    doublePanel.add (dValuePanel, new GridBagConstraints (0,
-                                                          5,
-                                                          6,
-                                                          1,
-                                                          1.0,
-                                                          0.0,
-                                                          java.awt.GridBagConstraints.CENTER,
-                                                          java.awt.GridBagConstraints.HORIZONTAL,
-                                                          new Insets (10, 10, 10, 10),
-                                                          0,
-                                                          0));
-    dValuePanel.add (dvalueLabel, new GridBagConstraints (0,
-                                                          0,
-                                                          1,
-                                                          1,
-                                                          0.0,
-                                                          0.0,
-                                                          java.awt.GridBagConstraints.EAST,
-                                                          java.awt.GridBagConstraints.NONE,
-                                                          new Insets (5, 5, 5, 0),
-                                                          0,
-                                                          0));
-    dValuePanel.add (dValueText, new GridBagConstraints (1,
-                                                         0,
-                                                         1,
-                                                         1,
-                                                         1.0,
-                                                         0.0,
-                                                         java.awt.GridBagConstraints.EAST,
-                                                         java.awt.GridBagConstraints.HORIZONTAL,
-                                                         new Insets (5, 0, 5, 0),
-                                                         0,
-                                                         0));
-    dValuePanel.add (dDecomposeButton, new GridBagConstraints (2,
-                                                               0,
-                                                               1,
-                                                               1,
-                                                               0.0,
-                                                               0.0,
-                                                               java.awt.GridBagConstraints.CENTER,
-                                                               java.awt.GridBagConstraints.NONE,
-                                                               new Insets (5, 5, 5, 5),
-                                                               0,
-                                                               0));
+    doublePanel.add (doubleLabel,
+                     new GridBagConstraints (0,
+                                             0,
+                                             3,
+                                             1,
+                                             0.0,
+                                             0.0,
+                                             java.awt.GridBagConstraints.WEST,
+                                             java.awt.GridBagConstraints.NONE,
+                                             new Insets (10, 10, 0, 0),
+                                             0,
+                                             0));
+    doublePanel.add (dShowValueButton,
+                     new GridBagConstraints (3,
+                                             0,
+                                             3,
+                                             1,
+                                             0.0,
+                                             0.0,
+                                             java.awt.GridBagConstraints.EAST,
+                                             java.awt.GridBagConstraints.NONE,
+                                             new Insets (10, 0, 0, 10),
+                                             0,
+                                             0));
+    doublePanel.add (dSignBitLabel,
+                     new GridBagConstraints (0,
+                                             1,
+                                             1,
+                                             1,
+                                             0.0,
+                                             0.0,
+                                             java.awt.GridBagConstraints.EAST,
+                                             java.awt.GridBagConstraints.NONE,
+                                             new Insets (10, 10, 0, 0),
+                                             0,
+                                             0));
+    doublePanel.add (dSignBitText,
+                     new GridBagConstraints (1,
+                                             1,
+                                             1,
+                                             1,
+                                             0.0,
+                                             0.0,
+                                             java.awt.GridBagConstraints.WEST,
+                                             java.awt.GridBagConstraints.NONE,
+                                             new Insets (10, 0, 0, 0),
+                                             0,
+                                             0));
+    doublePanel.add (dMessageText,
+                     new GridBagConstraints (2,
+                                             1,
+                                             4,
+                                             1,
+                                             1.0,
+                                             0.0,
+                                             java.awt.GridBagConstraints.CENTER,
+                                             java.awt.GridBagConstraints.HORIZONTAL,
+                                             new Insets (10, 10, 0, 10),
+                                             0,
+                                             0));
+    doublePanel.add (dExponentBitsLabel,
+                     new GridBagConstraints (0,
+                                             2,
+                                             1,
+                                             1,
+                                             0.0,
+                                             0.0,
+                                             java.awt.GridBagConstraints.EAST,
+                                             java.awt.GridBagConstraints.NONE,
+                                             new Insets (10, 10, 0, 0),
+                                             0,
+                                             0));
+    doublePanel.add (dExponentBitsText,
+                     new GridBagConstraints (1,
+                                             2,
+                                             1,
+                                             1,
+                                             1.0,
+                                             0.0,
+                                             java.awt.GridBagConstraints.WEST,
+                                             java.awt.GridBagConstraints.HORIZONTAL,
+                                             new Insets (10, 0, 0, 0),
+                                             0,
+                                             0));
+    doublePanel.add (dBiasedLabel,
+                     new GridBagConstraints (2,
+                                             2,
+                                             1,
+                                             1,
+                                             0.0,
+                                             0.0,
+                                             java.awt.GridBagConstraints.EAST,
+                                             java.awt.GridBagConstraints.NONE,
+                                             new Insets (10, 10, 0, 0),
+                                             0,
+                                             0));
+    doublePanel.add (dBiasedText,
+                     new GridBagConstraints (3,
+                                             2,
+                                             1,
+                                             1,
+                                             1.0,
+                                             0.0,
+                                             java.awt.GridBagConstraints.WEST,
+                                             java.awt.GridBagConstraints.HORIZONTAL,
+                                             new Insets (10, 0, 0, 0),
+                                             0,
+                                             0));
+    doublePanel.add (dUnbiasedLabel,
+                     new GridBagConstraints (4,
+                                             2,
+                                             1,
+                                             1,
+                                             0.0,
+                                             0.0,
+                                             java.awt.GridBagConstraints.EAST,
+                                             java.awt.GridBagConstraints.NONE,
+                                             new Insets (10, 10, 0, 0),
+                                             0,
+                                             0));
+    doublePanel.add (dUnbiasedText,
+                     new GridBagConstraints (5,
+                                             2,
+                                             1,
+                                             1,
+                                             1.0,
+                                             0.0,
+                                             java.awt.GridBagConstraints.WEST,
+                                             java.awt.GridBagConstraints.HORIZONTAL,
+                                             new Insets (10, 0, 0, 10),
+                                             0,
+                                             0));
+    doublePanel.add (dFractionBitsLabel,
+                     new GridBagConstraints (0,
+                                             3,
+                                             1,
+                                             1,
+                                             0.0,
+                                             0.0,
+                                             java.awt.GridBagConstraints.EAST,
+                                             java.awt.GridBagConstraints.NONE,
+                                             new Insets (10, 10, 0, 0),
+                                             0,
+                                             0));
+    doublePanel.add (dFractionBitsText,
+                     new GridBagConstraints (1,
+                                             3,
+                                             5,
+                                             1,
+                                             1.0,
+                                             0.0,
+                                             java.awt.GridBagConstraints.EAST,
+                                             java.awt.GridBagConstraints.HORIZONTAL,
+                                             new Insets (10, 0, 0, 10),
+                                             0,
+                                             0));
+    doublePanel.add (dSignificandLabel,
+                     new GridBagConstraints (0,
+                                             4,
+                                             1,
+                                             1,
+                                             0.0,
+                                             0.0,
+                                             java.awt.GridBagConstraints.EAST,
+                                             java.awt.GridBagConstraints.NONE,
+                                             new Insets (10, 10, 0, 0),
+                                             0,
+                                             0));
+    doublePanel.add (dSignificandText,
+                     new GridBagConstraints (1,
+                                             4,
+                                             5,
+                                             1,
+                                             0.0,
+                                             0.0,
+                                             java.awt.GridBagConstraints.EAST,
+                                             java.awt.GridBagConstraints.HORIZONTAL,
+                                             new Insets (10, 0, 0, 10),
+                                             0,
+                                             0));
+    doublePanel.add (dValuePanel,
+                     new GridBagConstraints (0,
+                                             5,
+                                             6,
+                                             1,
+                                             1.0,
+                                             0.0,
+                                             java.awt.GridBagConstraints.CENTER,
+                                             java.awt.GridBagConstraints.HORIZONTAL,
+                                             new Insets (10, 10, 10, 10),
+                                             0,
+                                             0));
+    dValuePanel.add (dvalueLabel,
+                     new GridBagConstraints (0,
+                                             0,
+                                             1,
+                                             1,
+                                             0.0,
+                                             0.0,
+                                             java.awt.GridBagConstraints.EAST,
+                                             java.awt.GridBagConstraints.NONE,
+                                             new Insets (5, 5, 5, 0),
+                                             0,
+                                             0));
+    dValuePanel.add (dValueText,
+                     new GridBagConstraints (1,
+                                             0,
+                                             1,
+                                             1,
+                                             1.0,
+                                             0.0,
+                                             java.awt.GridBagConstraints.EAST,
+                                             java.awt.GridBagConstraints.HORIZONTAL,
+                                             new Insets (5, 0, 5, 0),
+                                             0,
+                                             0));
+    dValuePanel.add (dDecomposeButton,
+                     new GridBagConstraints (2,
+                                             0,
+                                             1,
+                                             1,
+                                             0.0,
+                                             0.0,
+                                             java.awt.GridBagConstraints.CENTER,
+                                             java.awt.GridBagConstraints.NONE,
+                                             new Insets (5, 5, 5, 5),
+                                             0,
+                                             0));
   }
 
   /**
@@ -1343,7 +1381,7 @@ class FPFormatsPanel extends Panel
 
   /**
    * Compute the float biased exponent value from its bitfield.
-   * 
+   *
    * @return the biased exponent value
    * @throws Exception
    *         if an error occurred
@@ -1372,7 +1410,7 @@ class FPFormatsPanel extends Panel
 
   /**
    * Compute the double biased exponent value from its bitfield.
-   * 
+   *
    * @return the biased exponent value
    * @throws Exception
    *         if an error occurred
@@ -1401,7 +1439,7 @@ class FPFormatsPanel extends Panel
 
   /**
    * Compute the float biased exponent value from the biased textfield.
-   * 
+   *
    * @return the biased exponent value
    * @throws Exception
    *         if an error occurred
@@ -1428,7 +1466,7 @@ class FPFormatsPanel extends Panel
 
   /**
    * Compute the double biased exponent value from the biased textfield.
-   * 
+   *
    * @return the biased exponent value
    * @throws Exception
    *         if an error occurred
@@ -1455,7 +1493,7 @@ class FPFormatsPanel extends Panel
 
   /**
    * Compute the float unbiased exponent value from the unbiased textfield.
-   * 
+   *
    * @return the unbiased exponent value
    * @throws Exception
    *         if an error occurred
@@ -1482,7 +1520,7 @@ class FPFormatsPanel extends Panel
 
   /**
    * Compute the double unbiased exponent value from the unbiased textfield.
-   * 
+   *
    * @return the unbiased exponent value
    * @throws Exception
    *         if an error occurred
@@ -1509,7 +1547,7 @@ class FPFormatsPanel extends Panel
 
   /**
    * Set the float biased and unbiased exponent fields from the bitfield.
-   * 
+   *
    * @throws Exception
    *         if an error occurred
    */
@@ -1523,7 +1561,7 @@ class FPFormatsPanel extends Panel
 
   /**
    * Set the double biased and unbiased exponent fields from the bitfield.
-   * 
+   *
    * @throws Exception
    *         if an error occurred
    */
@@ -1538,7 +1576,7 @@ class FPFormatsPanel extends Panel
 
   /**
    * Set the float unbiased exponent field and bitfield from the biased field.
-   * 
+   *
    * @throws Exception
    *         if an error occurred
    */
@@ -1552,7 +1590,7 @@ class FPFormatsPanel extends Panel
 
   /**
    * Set the double unbiased exponent field and bitfield from the biased field.
-   * 
+   *
    * @throws Exception
    *         if an error occurred
    */
@@ -1566,7 +1604,7 @@ class FPFormatsPanel extends Panel
 
   /**
    * Set the float biased exponent field and bitfield from the unbiased field.
-   * 
+   *
    * @throws Exception
    *         if an error occurred
    */
@@ -1582,7 +1620,7 @@ class FPFormatsPanel extends Panel
 
   /**
    * Set the double biased exponent field and bitfield from the unbiased field.
-   * 
+   *
    * @throws Exception
    *         if an error occurred
    */
@@ -1598,7 +1636,7 @@ class FPFormatsPanel extends Panel
 
   /**
    * Set the float unbiased exponent field from the biased value.
-   * 
+   *
    * @param biased
    *        the biased value
    */
@@ -1621,7 +1659,7 @@ class FPFormatsPanel extends Panel
 
   /**
    * Set the double unbiased exponent field from the biased value.
-   * 
+   *
    * @param biased
    *        the biased value
    */
@@ -1645,7 +1683,7 @@ class FPFormatsPanel extends Panel
   /**
    * Convert a long value into a string of '0' and '1' that represents the value
    * in base 2.
-   * 
+   *
    * @param pn
    *        the long value
    * @param size
@@ -1670,7 +1708,7 @@ class FPFormatsPanel extends Panel
 
   /**
    * Check an exponent bitstring.
-   * 
+   *
    * @param bits
    *        the exponent bits
    * @param size

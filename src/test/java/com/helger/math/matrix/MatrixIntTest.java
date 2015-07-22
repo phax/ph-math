@@ -71,7 +71,7 @@ import com.helger.commons.string.StringHelper;
  * anticipated in the test design. The stopping point should give an indication
  * of where the problem exists.
  **/
-public class MatrixIntTest
+public final class MatrixIntTest
 {
   private static final String FILENAME_JAMA_TEST_MATRIX_OUT = "Jamaout";
   private static final double EPSILON = Math.pow (2.0, -52.0);
@@ -85,12 +85,12 @@ public class MatrixIntTest
     int tmp;
     final int [] columnwise = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
     final int [] rowwise = { 1, 4, 7, 10, 2, 5, 8, 11, 3, 6, 9, 12 };
-    final int [][] avals = { { 1, 4, 7, 10 }, { 2, 5, 8, 11 }, { 3, 6, 9, 12 } };
-    final int [][] tvals = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 }, { 10, 11, 12 } };
-    final int [][] subavals = { { 5, 8, 11 }, { 6, 9, 12 } };
-    final int [][] rvals = { { 1, 4, 7 }, { 2, 5, 8, 11 }, { 3, 6, 9, 12 } };
-    final int [][] ivals = { { 1, 0, 0, 0 }, { 0, 1, 0, 0 }, { 0, 0, 1, 0 } };
-    final int [][] square = { { 166, 188, 210 }, { 188, 214, 240 }, { 210, 240, 270 } };
+    final int [] [] avals = { { 1, 4, 7, 10 }, { 2, 5, 8, 11 }, { 3, 6, 9, 12 } };
+    final int [] [] tvals = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 }, { 10, 11, 12 } };
+    final int [] [] subavals = { { 5, 8, 11 }, { 6, 9, 12 } };
+    final int [] [] rvals = { { 1, 4, 7 }, { 2, 5, 8, 11 }, { 3, 6, 9, 12 } };
+    final int [] [] ivals = { { 1, 0, 0, 0 }, { 0, 1, 0, 0 }, { 0, 0, 1, 0 } };
+    final int [] [] square = { { 166, 188, 210 }, { 188, 214, 240 }, { 210, 240, 270 } };
     final int rows = 3, cols = 4;
     /*
      * should trigger bad shape for construction with val
@@ -236,7 +236,7 @@ public class MatrixIntTest
       _try_success ("getColumnDimension... ", "");
     }
     B = new MatrixInt (avals);
-    int [][] barray = B.internalGetArray ();
+    int [] [] barray = B.internalGetArray ();
     if (barray != avals)
     {
       fail ();
@@ -302,7 +302,9 @@ public class MatrixIntTest
     }
     try
     {
-      if (B.get (B.getRowDimension () - 1, B.getColumnDimension () - 1) != avals[B.getRowDimension () - 1][B.getColumnDimension () - 1])
+      if (B.get (B.getRowDimension () -
+                 1,
+                 B.getColumnDimension () - 1) != avals[B.getRowDimension () - 1][B.getColumnDimension () - 1])
       {
         fail ("MatrixInt entry (i,j) not successfully retreived");
       }
@@ -1117,7 +1119,7 @@ public class MatrixIntTest
 
   /** Check norm of difference of arrays. **/
 
-  private static void _check (@Nonnull final int [][] x, @Nonnull final int [][] y)
+  private static void _check (@Nonnull final int [] [] x, @Nonnull final int [] [] y)
   {
     final MatrixInt A = new MatrixInt (x);
     final MatrixInt B = new MatrixInt (y);

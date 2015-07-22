@@ -29,13 +29,13 @@ import numbercruncher.graphutils.PlotProperties;
 import numbercruncher.mathutils.AbstractFunction;
 import numbercruncher.mathutils.AbstractRootFinder;
 import numbercruncher.mathutils.FixedPointRootFinder;
+import numbercruncher.rootutils.AbstractRootFinderPanel;
 import numbercruncher.rootutils.PlotFunction;
-import numbercruncher.rootutils.RootFinderPanel;
 
 /**
  * The demo panel for the Fixed Point Iteration Method program and applet.
  */
-public class FixedPointPanel extends RootFinderPanel
+public final class FixedPointPanel extends AbstractRootFinderPanel
 {
   private static final int MAX_ITERS = 50;
 
@@ -61,18 +61,18 @@ public class FixedPointPanel extends RootFinderPanel
 
   /** Functions to plot. */
   private static PlotFunction FUNCTIONS[] = { new PlotFunction ("(x + 4/x)/2", -10.5f, 10.5f, -10.5f, 10.5f),
-                                             new PlotFunction ("4/x", -10.5f, 10.5f, -10.5f, 10.5f),
-                                             new PlotFunction ("sqrt(x + 2)", -3.25f, 5.25f, -0.25f, 3.25f),
-                                             new PlotFunction ("2/x + 1", -3.25f, 5.25f, -5.25f, 5.25f),
-                                             new PlotFunction ("x*x - 2", -2.25f, 5.25f, -2.5f, 10.25f),
-                                             new PlotFunction ("exp(-x)", -0.5f, 2.5f, -0.25f, 1.25f),
-                                             new PlotFunction ("-log(x)", -0.25f, 1.5f, -0.25f, 1.5f),
-                                             new PlotFunction ("exp(1/x)", -3.25f, 4.25f, -0.5f, 5.25f),
-                                             new PlotFunction ("(x + exp(1/x))/2", -3.25f, 5.25f, -2.25f, 4.25f),
-                                             new PlotFunction ("1/log(x)", -0.25f, 4.25f, -3.25f, 3.25f),
-                                             new PlotFunction ("sin(x)/2 + 1", -4.25f, 7.25f, -0.25f, 1.6f),
-                                             new PlotFunction ("1 + 1/x + 1/(x*x)", -2.25f, 4.25f, -0.5f, 5.25f),
-                                             new PlotFunction ("20/(x*x + 2*x + 10)", -6.25f, 6.25f, -0.25f, 2.5f), };
+                                              new PlotFunction ("4/x", -10.5f, 10.5f, -10.5f, 10.5f),
+                                              new PlotFunction ("sqrt(x + 2)", -3.25f, 5.25f, -0.25f, 3.25f),
+                                              new PlotFunction ("2/x + 1", -3.25f, 5.25f, -5.25f, 5.25f),
+                                              new PlotFunction ("x*x - 2", -2.25f, 5.25f, -2.5f, 10.25f),
+                                              new PlotFunction ("exp(-x)", -0.5f, 2.5f, -0.25f, 1.25f),
+                                              new PlotFunction ("-log(x)", -0.25f, 1.5f, -0.25f, 1.5f),
+                                              new PlotFunction ("exp(1/x)", -3.25f, 4.25f, -0.5f, 5.25f),
+                                              new PlotFunction ("(x + exp(1/x))/2", -3.25f, 5.25f, -2.25f, 4.25f),
+                                              new PlotFunction ("1/log(x)", -0.25f, 4.25f, -3.25f, 3.25f),
+                                              new PlotFunction ("sin(x)/2 + 1", -4.25f, 7.25f, -0.25f, 1.6f),
+                                              new PlotFunction ("1 + 1/x + 1/(x*x)", -2.25f, 4.25f, -0.5f, 5.25f),
+                                              new PlotFunction ("20/(x*x + 2*x + 10)", -6.25f, 6.25f, -0.25f, 2.5f), };
 
   /**
    * array of plot endpoint columns #1
@@ -158,7 +158,7 @@ public class FixedPointPanel extends RootFinderPanel
   /**
    * Mouse pressed event handler: Animate the Newton trace. (Callback from the
    * plot panel)
-   * 
+   *
    * @param ev
    *        the mouse event
    */
@@ -172,7 +172,7 @@ public class FixedPointPanel extends RootFinderPanel
   /**
    * Mouse dragged event handler: Animate the Newton trace. (Callback from the
    * plot panel)
-   * 
+   *
    * @param ev
    *        the mouse event
    */
@@ -198,7 +198,7 @@ public class FixedPointPanel extends RootFinderPanel
 
   /**
    * Animate a fixed-point iteration trace starting at column c.
-   * 
+   *
    * @param c
    *        the column
    */
@@ -215,7 +215,7 @@ public class FixedPointPanel extends RootFinderPanel
 
   /**
    * Return the starting value x0 at column c.
-   * 
+   *
    * @param c
    *        the column
    * @return the starting value
@@ -233,7 +233,7 @@ public class FixedPointPanel extends RootFinderPanel
   /**
    * Iterate to create the graphic trace of fixed-point iteration starting at
    * x0.
-   * 
+   *
    * @param x0
    *        the starting value
    */
@@ -315,7 +315,7 @@ public class FixedPointPanel extends RootFinderPanel
 
   /**
    * Main for debugging.
-   * 
+   *
    * @param args
    *        the array of arguments
    */

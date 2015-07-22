@@ -29,7 +29,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-import numbercruncher.graphutils.GraphPanel;
+import numbercruncher.graphutils.AbstractGraphPanel;
 import numbercruncher.graphutils.PlotProperties;
 import numbercruncher.mathutils.RandomNormal;
 import numbercruncher.randomutils.Buckets;
@@ -37,7 +37,7 @@ import numbercruncher.randomutils.Buckets;
 /**
  * The demo panel for the Random Normal program and applet.
  */
-public class RandomNormalPanel extends GraphPanel
+public final class RandomNormalPanel extends AbstractGraphPanel
 {
   private static final String RUN = "Run";
   private static final String PAUSE = "Pause";
@@ -416,7 +416,7 @@ public class RandomNormalPanel extends GraphPanel
 
   /**
    * Return the value of the selected equation at x.
-   * 
+   *
    * @param x
    *        the value of x
    * @return the value of the function

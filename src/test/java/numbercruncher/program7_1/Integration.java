@@ -17,16 +17,16 @@
 package numbercruncher.program7_1;
 
 import numbercruncher.mathutils.AbstractFunction;
-import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.Epsilon;
 import numbercruncher.mathutils.IIntegrator;
 import numbercruncher.mathutils.SimpsonsIntegrator;
+import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.TrapezoidalIntegrator;
 
 /**
  * PROGRAM 7-1: Integration Demonstrate numerical integration algorithms.
  */
-public class Integration
+public final class Integration
 {
   private static final int MAX_INTERVALS = Integer.MAX_VALUE / 2;
   private static final float TOLERANCE = 100 * Epsilon.floatValue ();
@@ -41,7 +41,7 @@ public class Integration
 
   /**
    * Main program.
-   * 
+   *
    * @param args
    *        the array of runtime arguments
    */
@@ -75,7 +75,7 @@ public class Integration
   /**
    * Do the integration with either the trapezoidal algorithm or Simpson's
    * algorithm.
-   * 
+   *
    * @param algorithm
    *        0 for trapezoidal, 1 for Simpson's
    * @param integrand
@@ -92,7 +92,7 @@ public class Integration
     float prevErrorPct;
 
     final IIntegrator integrator = (algorithm == TRAPEZOIDAL) ? (IIntegrator) new TrapezoidalIntegrator (integrand)
-                                                             : (IIntegrator) new SimpsonsIntegrator (integrand);
+                                                              : (IIntegrator) new SimpsonsIntegrator (integrand);
 
     final SystemOutAlignRight ar = new SystemOutAlignRight ();
 

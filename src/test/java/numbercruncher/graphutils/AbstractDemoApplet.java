@@ -24,7 +24,7 @@ import java.awt.Panel;
 /**
  * The base applet for all demo applets.
  */
-public abstract class DemoApplet extends Applet
+public abstract class AbstractDemoApplet extends Applet
 {
   private final IDemoPanel m_aDemoPanel; // demo panel
 
@@ -34,7 +34,7 @@ public abstract class DemoApplet extends Applet
    * @param demoPanel
    *        the demo panel
    */
-  protected DemoApplet (final IDemoPanel demoPanel)
+  protected AbstractDemoApplet (final IDemoPanel demoPanel)
   {
     this.m_aDemoPanel = demoPanel;
   }

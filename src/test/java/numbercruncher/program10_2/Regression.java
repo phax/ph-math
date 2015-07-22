@@ -24,7 +24,7 @@ import numbercruncher.matrix.ColumnVector;
  * PROGRAM 10-2: Polynomial Regression Demonstrate polynomial regression by
  * fitting a polynomial to a set of data points.
  */
-public class Regression
+public final class Regression
 {
   private static final int MAX_POINTS = 20;
   private static final float TWO_PI = (float) (2 * Math.PI);
@@ -32,7 +32,7 @@ public class Regression
 
   /**
    * Main program.
-   * 
+   *
    * @param args
    *        the array of runtime arguments
    */

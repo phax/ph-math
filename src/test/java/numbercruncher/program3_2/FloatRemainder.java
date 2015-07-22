@@ -19,7 +19,7 @@ package numbercruncher.program3_2;
 /**
  * PROGRAM 3-2: Float Remainder Demonstrate the float remainder operation.
  */
-public class FloatRemainder
+public final class FloatRemainder
 {
   public static void main (final String args[])
   {

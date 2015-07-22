@@ -22,7 +22,7 @@ import java.awt.Graphics;
 /**
  * A wire-frame cube to transform and display.
  */
-class WireFrameCube
+final class WireFrameCube
 {
   /**
    * Represent each face of the cube.
@@ -34,7 +34,7 @@ class WireFrameCube
 
     /**
      * Constructor.
-     * 
+     *
      * @param v1
      *        the first vertex
      * @param v2
@@ -52,25 +52,25 @@ class WireFrameCube
 
   /** The cube's vertices. */
   private final Vertex vertices[] = { new Vertex (-0.5f, -0.5f, -0.5f),
-                                     new Vertex (+0.5f, -0.5f, -0.5f),
-                                     new Vertex (-0.5f, +0.5f, -0.5f),
-                                     new Vertex (+0.5f, +0.5f, -0.5f),
-                                     new Vertex (-0.5f, -0.5f, +0.5f),
-                                     new Vertex (+0.5f, -0.5f, +0.5f),
-                                     new Vertex (-0.5f, +0.5f, +0.5f),
-                                     new Vertex (+0.5f, +0.5f, +0.5f), };
+                                      new Vertex (+0.5f, -0.5f, -0.5f),
+                                      new Vertex (-0.5f, +0.5f, -0.5f),
+                                      new Vertex (+0.5f, +0.5f, -0.5f),
+                                      new Vertex (-0.5f, -0.5f, +0.5f),
+                                      new Vertex (+0.5f, -0.5f, +0.5f),
+                                      new Vertex (-0.5f, +0.5f, +0.5f),
+                                      new Vertex (+0.5f, +0.5f, +0.5f), };
 
   /** The cube's faces. */
   private final Face faces[] = { new Face (0, 1, 3, 2),
-                                new Face (0, 1, 5, 4),
-                                new Face (2, 3, 7, 6),
-                                new Face (0, 4, 6, 2),
-                                new Face (1, 5, 7, 3),
-                                new Face (4, 5, 7, 6), };
+                                 new Face (0, 1, 5, 4),
+                                 new Face (2, 3, 7, 6),
+                                 new Face (0, 4, 6, 2),
+                                 new Face (1, 5, 7, 3),
+                                 new Face (4, 5, 7, 6), };
 
   /**
    * Draw the transformed cube.
-   * 
+   *
    * @param g
    *        the graphics context
    * @param transformation
@@ -97,7 +97,7 @@ class WireFrameCube
 
         // Set the color based on the edge's position.
         final Color color = transformation.behindCenter (vertices[indices[j]], vertices[indices[k]]) ? Color.lightGray
-                                                                                                    : Color.black;
+                                                                                                     : Color.black;
 
         // Draw the edge.
         g.setColor (color);

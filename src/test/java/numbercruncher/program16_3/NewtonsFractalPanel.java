@@ -23,11 +23,11 @@ import java.awt.Label;
 import java.awt.Panel;
 import java.awt.event.MouseEvent;
 
-import numbercruncher.graphutils.GraphPanel;
+import numbercruncher.graphutils.AbstractGraphPanel;
 import numbercruncher.graphutils.PlotProperties;
 import numbercruncher.mathutils.Complex;
 
-public class NewtonsFractalPanel extends GraphPanel
+public final class NewtonsFractalPanel extends AbstractGraphPanel
 {
   private static final float INIT_X_MIN = -3.5f;
   private static final float INIT_X_MAX = 3.5f;

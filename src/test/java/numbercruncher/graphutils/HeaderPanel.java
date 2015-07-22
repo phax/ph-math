@@ -34,7 +34,7 @@ import java.awt.event.ActionListener;
 /**
  * The header panel that displays the current function or a text label.
  */
-class HeaderPanel extends Panel
+final class HeaderPanel extends Panel
 {
   private static final String FUNCTION = "function";
   private static final String MESSAGE = "message";
@@ -78,17 +78,17 @@ class HeaderPanel extends Panel
   /** function panel dimensions */
   private Dimension fpDimensions;
   /** parent graph panel */
-  private GraphPanel m_aGraphPanel;
+  private AbstractGraphPanel m_aGraphPanel;
 
   /**
    * Constructor.
-   * 
+   *
    * @param functions
    *        the array of functions to plot
    * @param graphPanel
    *        the parent graph panel
    */
-  HeaderPanel (final IPlottable functions[], final GraphPanel graphPanel)
+  HeaderPanel (final IPlottable functions[], final AbstractGraphPanel graphPanel)
   {
     this ();
     this.m_aGraphPanel = graphPanel;
@@ -117,7 +117,7 @@ class HeaderPanel extends Panel
 
   /**
    * Constructor.
-   * 
+   *
    * @param headerText
    *        the header label text
    */
@@ -155,7 +155,7 @@ class HeaderPanel extends Panel
 
   /**
    * Set the function image.
-   * 
+   *
    * @param image
    *        the image
    */
@@ -166,7 +166,7 @@ class HeaderPanel extends Panel
 
   /**
    * Set the header label text in the default black color.
-   * 
+   *
    * @param text
    *        the text
    */
@@ -177,7 +177,7 @@ class HeaderPanel extends Panel
 
   /**
    * Set the header label text in color.
-   * 
+   *
    * @param text
    *        the text
    * @param color
@@ -192,7 +192,7 @@ class HeaderPanel extends Panel
 
   /**
    * Set a function and repaint the function panel.
-   * 
+   *
    * @param function
    *        the selected function index
    */
@@ -205,7 +205,7 @@ class HeaderPanel extends Panel
 
   /**
    * Display an error message.
-   * 
+   *
    * @param message
    *        the error message
    */
@@ -220,7 +220,7 @@ class HeaderPanel extends Panel
    * Return the minimum size of the header panel. The height is either the
    * height of the tallest function in the image, or the height of the header
    * label.
-   * 
+   *
    * @return the minimum size
    */
   @Override
@@ -233,7 +233,7 @@ class HeaderPanel extends Panel
 
   /**
    * Return the preferred size of the header panel, which is its minimum size.
-   * 
+   *
    * @return the preferred size
    */
   @Override
@@ -244,7 +244,7 @@ class HeaderPanel extends Panel
 
   /**
    * Return the maximum display dimensions of the functions.
-   * 
+   *
    * @param functions
    *        the functions to find roots for
    * @return the dimensions

@@ -23,11 +23,11 @@ import numbercruncher.matrix.SquareMatrix;
 /**
  * Represent a vertex of the wire-frame cube in three dimensions.
  */
-class Vertex extends RowVector
+final class Vertex extends RowVector
 {
   /**
    * Constructor.
-   * 
+   *
    * @param x
    *        the x value
    * @param y
@@ -47,7 +47,7 @@ class Vertex extends RowVector
 
   /**
    * Return this vertex's x value.
-   * 
+   *
    * @return the x value
    */
   float x ()
@@ -57,7 +57,7 @@ class Vertex extends RowVector
 
   /**
    * Return this vertex's y value.
-   * 
+   *
    * @return the y value
    */
   float y ()
@@ -67,7 +67,7 @@ class Vertex extends RowVector
 
   /**
    * Return this vertex's z value.
-   * 
+   *
    * @return the z value
    */
   float z ()
@@ -77,7 +77,7 @@ class Vertex extends RowVector
 
   /**
    * Transform this vector by multiplying it by a transformation matrix.
-   * 
+   *
    * @param t
    *        the transformation matrix
    */

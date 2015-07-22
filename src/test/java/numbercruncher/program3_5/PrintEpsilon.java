@@ -23,7 +23,7 @@ import numbercruncher.mathutils.IEEE754;
  * PROGRAM 3-5: Print Machine Epsilon Decompose and print the machine epsilon
  * for the float and double types.
  */
-public class PrintEpsilon
+public final class PrintEpsilon
 {
   public static void main (final String args[])
   {

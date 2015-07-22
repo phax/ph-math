@@ -23,7 +23,7 @@ import numbercruncher.mathutils.SystemOutAlignRight;
  * + n/d = d/d where: n = 10, 100, 1000, ..., 100,000,000 d = 1 + 2 + 3 + ... +
  * n = (n/2)(n + 1) See how close each sum is to 1.
  */
-public class FractionSums
+public final class FractionSums
 {
   public static void main (final String args[])
   {

@@ -38,7 +38,7 @@ import java.net.URL;
  * The window that displays the image of all the functions to plot. The user
  * clicks on a function to select it.
  */
-public class FunctionFrame extends Frame
+public final class FunctionFrame extends Frame
 {
   /** image of functions */
   private Image image;
@@ -62,11 +62,11 @@ public class FunctionFrame extends Frame
   /** array of functions to plot */
   private final IPlottable m_aFunctions[];
   /** root finder panel */
-  private final GraphPanel m_aGraphPanel;
+  private final AbstractGraphPanel m_aGraphPanel;
 
   /**
    * Constructor.
-   * 
+   *
    * @param functions
    *        the array of functions to plot
    * @param functionImageFileName
@@ -79,7 +79,7 @@ public class FunctionFrame extends Frame
   public FunctionFrame (final IPlottable [] functions,
                         final String functionImageFileName,
                         final String title,
-                        final GraphPanel graphPanel)
+                        final AbstractGraphPanel graphPanel)
   {
     this.m_aFunctions = functions;
     this.m_aGraphPanel = graphPanel;
@@ -90,7 +90,7 @@ public class FunctionFrame extends Frame
 
   /**
    * Return the image.
-   * 
+   *
    * @return the image
    */
   public Image getImage ()
@@ -100,7 +100,7 @@ public class FunctionFrame extends Frame
 
   /**
    * Return the array of functions to plot.
-   * 
+   *
    * @return the function array
    */
   public IPlottable [] getFunctions ()
@@ -159,7 +159,7 @@ public class FunctionFrame extends Frame
 
   /**
    * Load the function image file.
-   * 
+   *
    * @param functionImageFileName
    *        the file name of the image file
    */
@@ -172,7 +172,7 @@ public class FunctionFrame extends Frame
     // working directory. For an applet, the file should be in
     // the images subdirectory in the code base.
     final String imageBase = (parent instanceof Frame) ? "file:///" + System.getProperty ("user.dir") + "/"
-                                                      : ((Applet) parent).getCodeBase () + "images/";
+                                                       : ((Applet) parent).getCodeBase () + "images/";
     final String urlString = imageBase + functionImageFileName;
 
     try
@@ -204,7 +204,7 @@ public class FunctionFrame extends Frame
       // Load the error message into the frame instead.
       errorText = new TextArea ("Error loading function image file:\n");
       errorText.append (ex.getMessage ());
-      errorText.setForeground (GraphPanel.MAROON);
+      errorText.setForeground (AbstractGraphPanel.MAROON);
       errorText.setEditable (false);
 
       setLayout (new BorderLayout ());
@@ -219,7 +219,7 @@ public class FunctionFrame extends Frame
 
   /**
    * Update the display without repainting the background.
-   * 
+   *
    * @param g
    *        the graphics context
    */
@@ -231,7 +231,7 @@ public class FunctionFrame extends Frame
 
   /**
    * Paint the function frame.
-   * 
+   *
    * @param g
    *        the graphics context
    */

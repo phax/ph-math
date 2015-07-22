@@ -25,13 +25,13 @@ import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import numbercruncher.graphutils.GraphPanel;
+import numbercruncher.graphutils.AbstractGraphPanel;
 import numbercruncher.graphutils.PlotProperties;
 
 /**
  * The demo panel for the Random Normal program and applet.
  */
-public class BuffonPanel extends GraphPanel
+public final class BuffonPanel extends AbstractGraphPanel
 {
   private static final String RUN = "Run";
   private static final String PAUSE = "Pause";

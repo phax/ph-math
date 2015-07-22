@@ -16,13 +16,13 @@
  */
 package numbercruncher.program6_1;
 
-import numbercruncher.graphutils.DemoApplet;
+import numbercruncher.graphutils.AbstractDemoApplet;
 
 /**
  * PROGRAM 6-1a: Polynomial Interpolation (Interactive Applet) Interactively
  * demonstrate polynomial interpolation.
  */
-public class InterpolationApplet extends DemoApplet
+public final class InterpolationApplet extends AbstractDemoApplet
 {
   /**
    * Constructor.

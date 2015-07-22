@@ -20,7 +20,7 @@ package numbercruncher.program1_1;
  * PROGRAM 1-1: Fractions Print and sum the values of the fractions 1/2, 1/3,
  * 1/4, and 1/5 to look for any roundoff errors.
  */
-public class Fractions
+public final class Fractions
 {
   private static final float HALF = 1 / 2f;
   private static final float THIRD = 1 / 3f;

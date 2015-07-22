@@ -16,14 +16,14 @@
  */
 package numbercruncher.program14_2;
 
-import numbercruncher.graphutils.DemoApplet;
+import numbercruncher.graphutils.AbstractDemoApplet;
 
 /**
  * PROGRAM 14-2a: Exponentially-Distributed Random Numbers (Interactive Applet)
  * Demonstrate algorithms for generating exponentially-distributed random
  * numbers.
  */
-public class GenerateRandomExponentialApplet extends DemoApplet
+public final class GenerateRandomExponentialApplet extends AbstractDemoApplet
 {
   /**
    * Constructor.

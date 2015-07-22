@@ -23,7 +23,7 @@ import numbercruncher.matrix.SquareMatrix;
 /**
  * Transformations of a graphic image.
  */
-class Transformation
+final class Transformation
 {
   /** translation matrix */
   private final SquareMatrix m_aTranslate = new IdentityMatrix (4);
@@ -71,7 +71,7 @@ class Transformation
 
   /**
    * Set the translation matrix.
-   * 
+   *
    * @param tx
    *        the change in the x direction
    * @param ty
@@ -93,7 +93,7 @@ class Transformation
 
   /**
    * Set the scaling matrix.
-   * 
+   *
    * @param sx
    *        the scaling factor in the x direction
    * @param sy
@@ -115,7 +115,7 @@ class Transformation
 
   /**
    * Set the rotation matrix.
-   * 
+   *
    * @param thetaX
    *        amount (in radians) to rotate around the x axis
    * @param thetaY
@@ -165,7 +165,7 @@ class Transformation
    * Transform a set of vertices based on previously-set translation, scaling,
    * and rotation. Concatenate the transformations in the order: scale, rotate,
    * translate.
-   * 
+   *
    * @param vertices
    *        the vertices to transform
    */
@@ -198,7 +198,7 @@ class Transformation
 
   /**
    * Check for a bounce against any wall of the space. Return true if bounced.
-   * 
+   *
    * @param width
    *        the width of the space
    * @param height
@@ -251,7 +251,7 @@ class Transformation
 
   /**
    * Check if a line is behind the center of rotation.
-   * 
+   *
    * @param v1
    *        the vertex of one end of the line
    * @param v2
@@ -265,7 +265,7 @@ class Transformation
 
   /**
    * Return a value from the concatenated transformation matrix.
-   * 
+   *
    * @param r
    *        the value's row
    * @param c
@@ -286,7 +286,7 @@ class Transformation
 
   /**
    * Concatenate a translation.
-   * 
+   *
    * @param translate
    *        the translation matrix to use
    */

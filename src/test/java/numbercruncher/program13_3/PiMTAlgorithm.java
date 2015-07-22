@@ -23,7 +23,7 @@ import numbercruncher.mathutils.BigFunctions;
 /**
  * Implement the multithreaded Borwein algorithm for pi.
  */
-class PiMTAlgorithm
+final class PiMTAlgorithm
 {
   private static final int MAX_ITERS = 20;
 
@@ -60,7 +60,7 @@ class PiMTAlgorithm
 
   /**
    * Constructor.
-   * 
+   *
    * @param digits
    *        the number of digits to compute
    * @param parent
@@ -75,7 +75,7 @@ class PiMTAlgorithm
 
   /**
    * Get the number of iterations.
-   * 
+   *
    * @return the number of iterations
    */
   int getIterations ()
@@ -85,7 +85,7 @@ class PiMTAlgorithm
 
   /**
    * Get the value of pi as a string.
-   * 
+   *
    * @return the string
    */
   String getPi ()

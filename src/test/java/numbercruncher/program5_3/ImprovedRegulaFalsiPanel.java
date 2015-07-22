@@ -26,12 +26,12 @@ import numbercruncher.mathutils.AbstractFunction;
 import numbercruncher.mathutils.AbstractRootFinder;
 import numbercruncher.mathutils.ImprovedRegulaFalsiRootFinder;
 import numbercruncher.rootutils.PlotFunction;
-import numbercruncher.rootutils.RootFinderPanel;
+import numbercruncher.rootutils.AbstractRootFinderPanel;
 
 /**
  * The demo panel for the Improved Regula Falsi Algorithm program and applet.
  */
-public class ImprovedRegulaFalsiPanel extends RootFinderPanel
+public final class ImprovedRegulaFalsiPanel extends AbstractRootFinderPanel
 {
   private static final int MAX_ITERS = 50;
 
@@ -56,12 +56,12 @@ public class ImprovedRegulaFalsiPanel extends RootFinderPanel
 
   /** Functions whose roots to find */
   private static PlotFunction FUNCTIONS[] = { new PlotFunction ("x^2 - 4", -0.25f, 5.25f, -5.5f, 25.25f),
-                                             new PlotFunction ("-x^2 + 4x + 5", -0.5f, 10.25f, -25.5f, 10.25f),
-                                             new PlotFunction ("x^3 + 3x^2 - 9x - 10", -6.25f, 4.25f, -20.5f, 20.25f),
-                                             new PlotFunction ("x^2 - 2x + 3", -7.25f, 9.25f, -1.5f, 25.25f),
-                                             new PlotFunction ("2x^3 - 10x^2 + 11x - 5", -0.5f, 5.25f, -10.5f, 25.25f),
-                                             new PlotFunction ("e^-x - x", -0.5f, 2.25f, -1.75f, 1.75f),
-                                             new PlotFunction ("x - e^(1/x)", -4.25f, 4.25f, -10.25f, 3.25f), };
+                                              new PlotFunction ("-x^2 + 4x + 5", -0.5f, 10.25f, -25.5f, 10.25f),
+                                              new PlotFunction ("x^3 + 3x^2 - 9x - 10", -6.25f, 4.25f, -20.5f, 20.25f),
+                                              new PlotFunction ("x^2 - 2x + 3", -7.25f, 9.25f, -1.5f, 25.25f),
+                                              new PlotFunction ("2x^3 - 10x^2 + 11x - 5", -0.5f, 5.25f, -10.5f, 25.25f),
+                                              new PlotFunction ("e^-x - x", -0.5f, 2.25f, -1.75f, 1.75f),
+                                              new PlotFunction ("x - e^(1/x)", -4.25f, 4.25f, -10.25f, 3.25f), };
 
   /** minimum x value */
   private float xMin;

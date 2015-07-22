@@ -18,13 +18,13 @@ package numbercruncher.program6_2;
 
 import java.awt.Frame;
 
-import numbercruncher.graphutils.DemoFrame;
+import numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
  * PROGRAM 6-2d: Linear Regression (Interactive Standalone Demo) Interactively
  * demonstrate linear regression.
  */
-public class LinearRegressionDemo extends DemoFrame
+public final class LinearRegressionDemo extends AbstractDemoFrame
 {
   private static final String TITLE = "Linear Regression Demo";
 

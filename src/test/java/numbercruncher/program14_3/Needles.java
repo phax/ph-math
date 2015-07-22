@@ -22,7 +22,7 @@ import java.util.Random;
  * Implementation of Buffon's needles, which are randomly dropped onto a ruled
  * sheet of paper.
  */
-class Needles
+final class Needles
 {
   /** x coord of one end of a needle */
   private float x1;
@@ -57,7 +57,7 @@ class Needles
 
   /**
    * Constructor.
-   * 
+   *
    * @param xMin
    *        the paper's left edge
    * @param xMax
@@ -77,7 +77,7 @@ class Needles
 
   /**
    * Return the x coordinate of one end of the needle.
-   * 
+   *
    * @return the coordinate
    */
   float getX1 ()
@@ -87,7 +87,7 @@ class Needles
 
   /**
    * Return the x coordinate of one end of the needle.
-   * 
+   *
    * @return the coordinate
    */
   float getX2 ()
@@ -97,7 +97,7 @@ class Needles
 
   /**
    * Return the y coordinate of one end of the needle.
-   * 
+   *
    * @return the coordinate
    */
   float getY1 ()
@@ -107,7 +107,7 @@ class Needles
 
   /**
    * Return the y coordinate of the other end of the needle.
-   * 
+   *
    * @return the coordinate
    */
   float getY2 ()
@@ -117,7 +117,7 @@ class Needles
 
   /**
    * Return the count of all the dropped needles.
-   * 
+   *
    * @return the count
    */
   int getCount ()
@@ -127,7 +127,7 @@ class Needles
 
   /**
    * Return the number of needles that crossed a line.
-   * 
+   *
    * @return the number of crossings
    */
   int getCrossings ()
@@ -137,7 +137,7 @@ class Needles
 
   /**
    * Return the current computed value of pi
-   * 
+   *
    * @return the value
    */
   float getPi ()
@@ -147,7 +147,7 @@ class Needles
 
   /**
    * Return the error of the current computed value of pi
-   * 
+   *
    * @return the error
    */
   float getError ()

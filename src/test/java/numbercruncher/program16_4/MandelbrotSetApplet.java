@@ -16,14 +16,14 @@
  */
 package numbercruncher.program16_4;
 
-import numbercruncher.graphutils.DemoApplet;
+import numbercruncher.graphutils.AbstractDemoApplet;
 
 /**
  * PROGRAM 16-4: Mandelbrot Set Fractal (Applet) Graph the Mandelbrot set
  * fractal. You can zoom into any rectangular region of the graph by using the
  * mouse.
  */
-public class MandelbrotSetApplet extends DemoApplet
+public final class MandelbrotSetApplet extends AbstractDemoApplet
 {
   /**
    * Constructor.

@@ -16,13 +16,13 @@
  */
 package numbercruncher.program6_2;
 
-import numbercruncher.graphutils.DemoApplet;
+import numbercruncher.graphutils.AbstractDemoApplet;
 
 /**
  * PROGRAM 6-2a: Linear Regression (Interactive Applet) Interactively
  * demonstrate linear regression.
  */
-public class LinearRegressionApplet extends DemoApplet
+public final class LinearRegressionApplet extends AbstractDemoApplet
 {
   /**
    * Constructor.

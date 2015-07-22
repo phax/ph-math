@@ -23,14 +23,14 @@ import numbercruncher.mathutils.RegressionLine;
  * PROGRAM 6-2: Linear Regression Demonstrate linear regression by constructing
  * the regression line for a set of data points.
  */
-public class LinearRegression
+public final class LinearRegression
 {
   @SuppressWarnings ("unused")
   private static final int MAX_POINTS = 10;
 
   /**
    * Main program.
-   * 
+   *
    * @param args
    *        the array of runtime arguments
    */
@@ -52,7 +52,7 @@ public class LinearRegression
 
   /**
    * Print the computed sums.
-   * 
+   *
    * @param line
    *        the regression line
    */
@@ -67,7 +67,7 @@ public class LinearRegression
 
   /**
    * Print the regression line function.
-   * 
+   *
    * @param line
    *        the regression line
    */

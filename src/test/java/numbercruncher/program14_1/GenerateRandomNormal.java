@@ -23,7 +23,7 @@ import numbercruncher.randomutils.Buckets;
  * PROGRAM 14-1: Normally-Distributed Random Numbers Demonstrate algorithms for
  * generating normally-distributed random numbers.
  */
-public class GenerateRandomNormal
+public final class GenerateRandomNormal
 {
   private static final int BUCKET_COUNT = 32;
   private static final int NUMBER_COUNT = 100000; // 100K
@@ -36,7 +36,7 @@ public class GenerateRandomNormal
 
   /**
    * Test the algorithms with a given mean and standard deviation.
-   * 
+   *
    * @param mean
    *        the mean
    * @param stddev
@@ -73,7 +73,7 @@ public class GenerateRandomNormal
 
   /**
    * Print the results of an algorithm with its elapsed time.
-   * 
+   *
    * @param label
    *        the algorithm label
    * @param startTime
@@ -122,7 +122,7 @@ public class GenerateRandomNormal
 
   /**
    * Main.
-   * 
+   *
    * @param args
    *        the array of program arguments
    */

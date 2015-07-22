@@ -23,10 +23,10 @@ import java.awt.Label;
 import java.awt.Panel;
 import java.awt.event.MouseEvent;
 
-import numbercruncher.graphutils.GraphPanel;
+import numbercruncher.graphutils.AbstractGraphPanel;
 import numbercruncher.graphutils.PlotProperties;
 
-public class BifurcationPanel extends GraphPanel
+public final class BifurcationPanel extends AbstractGraphPanel
 {
   /** control panel */
   private final Panel fractalControlPanel = new Panel ();

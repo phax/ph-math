@@ -19,12 +19,12 @@ package numbercruncher.program10_2;
 import numbercruncher.graphutils.PlotProperties;
 import numbercruncher.mathutils.DataPoint;
 import numbercruncher.mathutils.RegressionPolynomial;
-import numbercruncher.pointutils.InterRegressPanel;
+import numbercruncher.pointutils.AbstractInterRegressPanel;
 
 /**
  * The demo panel for the Polynomial Regression program and applet.
  */
-public class RegressionPanel extends InterRegressPanel
+public final class RegressionPanel extends AbstractInterRegressPanel
 {
   private static final int MAX_POINTS = 100;
 
@@ -44,7 +44,7 @@ public class RegressionPanel extends InterRegressPanel
 
   /**
    * The user has added a data point.
-   * 
+   *
    * @param r
    *        the dot's row
    * @param c
@@ -110,7 +110,7 @@ public class RegressionPanel extends InterRegressPanel
 
   /**
    * Return the value of the regression poly function at x.
-   * 
+   *
    * @param x
    *        the value of x
    * @return the value of the function
@@ -133,7 +133,7 @@ public class RegressionPanel extends InterRegressPanel
 
   /**
    * The degree has changed.
-   * 
+   *
    * @param degree
    *        the new degree
    */

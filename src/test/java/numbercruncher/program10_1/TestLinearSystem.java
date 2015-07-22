@@ -26,7 +26,7 @@ import numbercruncher.matrix.MatrixException;
  * PROGRAM 10-1: Test class LinearSystem by solving a "random" system of linear
  * equations.
  */
-public class TestLinearSystem
+public final class TestLinearSystem
 {
   /**
    * Run the test.
@@ -90,7 +90,7 @@ public class TestLinearSystem
    * @param args
    *        the array of arguments
    */
-  public static void main (final String args [])
+  public static void main (final String args[])
   {
     // The known correct solution.
     final ColumnVector correct = new ColumnVector (new float [] { 1, 2, 3, 4, 5 });

@@ -31,7 +31,7 @@ import java.awt.event.MouseMotionAdapter;
 /**
  * The panel that draws a set of axes, and plots points and lines.
  */
-class PlotPanel extends Panel
+final class PlotPanel extends Panel
 {
   private static final int TICK_SIZE = 5;
 
@@ -74,15 +74,15 @@ class PlotPanel extends Panel
   private int m_nK;
 
   /** parent graph panel */
-  private final GraphPanel m_aGraphPanel;
+  private final AbstractGraphPanel m_aGraphPanel;
 
   /**
    * Constructor.
-   * 
+   *
    * @param graphPanel
    *        the parent graph panel
    */
-  PlotPanel (final GraphPanel graphPanel)
+  PlotPanel (final AbstractGraphPanel graphPanel)
   {
     this.m_aGraphPanel = graphPanel;
     setBackground (Color.white);
@@ -120,7 +120,7 @@ class PlotPanel extends Panel
 
   /**
    * Initialize the plot with its properties.
-   * 
+   *
    * @param plotProps
    *        the plot properties
    */
@@ -251,7 +251,7 @@ class PlotPanel extends Panel
 
   /**
    * Start a function plot.
-   * 
+   *
    * @param color
    *        the plot color
    */
@@ -268,7 +268,7 @@ class PlotPanel extends Panel
 
   /**
    * Plot a function point at column c.
-   * 
+   *
    * @param c
    *        the column
    * @param y
@@ -313,7 +313,7 @@ class PlotPanel extends Panel
 
   /**
    * Plot a point.
-   * 
+   *
    * @param x
    *        the x-coordinate of the point
    * @param y
@@ -332,7 +332,7 @@ class PlotPanel extends Panel
 
   /**
    * Plot a line.
-   * 
+   *
    * @param x1
    *        the x-coordinate of one end of the line
    * @param y1
@@ -356,7 +356,7 @@ class PlotPanel extends Panel
 
   /**
    * Plot multiple lines.
-   * 
+   *
    * @param xs1
    *        the array of x-coordinates of one end of the lines
    * @param ys1
@@ -384,7 +384,7 @@ class PlotPanel extends Panel
 
   /**
    * Plot a rectangle.
-   * 
+   *
    * @param x
    *        the x-coordinate of the upper left corner
    * @param y
@@ -458,7 +458,7 @@ class PlotPanel extends Panel
 
   /**
    * Update the display without repainting the background.
-   * 
+   *
    * @param g
    *        the graphics context
    */
@@ -470,7 +470,7 @@ class PlotPanel extends Panel
 
   /**
    * Display the image buffer.
-   * 
+   *
    * @param g
    *        the graphics context
    */

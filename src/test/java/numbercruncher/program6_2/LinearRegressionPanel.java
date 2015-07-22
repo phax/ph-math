@@ -19,17 +19,17 @@ package numbercruncher.program6_2;
 import numbercruncher.graphutils.PlotProperties;
 import numbercruncher.mathutils.DataPoint;
 import numbercruncher.mathutils.RegressionLine;
-import numbercruncher.pointutils.InterRegressPanel;
+import numbercruncher.pointutils.AbstractInterRegressPanel;
 
 /**
  * The demo panel for the Linear Regression program and applet.
  */
-public class LinearRegressionPanel extends InterRegressPanel
+public final class LinearRegressionPanel extends AbstractInterRegressPanel
 {
   private static final int MAX_POINTS = 100;
 
   /** regression line function */
-  RegressionLine line = new RegressionLine ();
+  private final RegressionLine line = new RegressionLine ();
 
   /**
    * Constructor.
@@ -41,7 +41,7 @@ public class LinearRegressionPanel extends InterRegressPanel
 
   /**
    * The user has added a data point.
-   * 
+   *
    * @param r
    *        the dot's row
    * @param c
@@ -93,7 +93,7 @@ public class LinearRegressionPanel extends InterRegressPanel
 
   /**
    * Return the value of the regression line function at x.
-   * 
+   *
    * @param x
    *        the value of x
    * @return the value of the function

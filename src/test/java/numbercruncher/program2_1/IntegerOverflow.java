@@ -20,7 +20,7 @@ package numbercruncher.program2_1;
  * PROGRAM 2-1: Integer Overflow Show the effects of integer overflow and of
  * division by zero.
  */
-public class IntegerOverflow
+public final class IntegerOverflow
 {
   public static void main (final String args[])
   {

@@ -23,7 +23,7 @@ import numbercruncher.randomutils.Buckets;
  * PROGRAM 14-2: Exponentially-Distributed Random Numbers Demonstrate algorithms
  * for generating exponentially-distributed random numbers.
  */
-public class GenerateRandomExponential
+public final class GenerateRandomExponential
 {
   private static final int NUMBER_COUNT = 100000; // 100K
 
@@ -57,7 +57,7 @@ public class GenerateRandomExponential
 
   /**
    * Print the results of an algorithm with its elapsed time.
-   * 
+   *
    * @param label
    *        the algorithm label
    * @param startTime
@@ -95,7 +95,7 @@ public class GenerateRandomExponential
 
   /**
    * Main.
-   * 
+   *
    * @param args
    *        the array of program arguments
    */

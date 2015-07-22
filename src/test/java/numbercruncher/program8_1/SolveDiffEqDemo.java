@@ -18,13 +18,13 @@ package numbercruncher.program8_1;
 
 import java.awt.Frame;
 
-import numbercruncher.graphutils.DemoFrame;
+import numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
  * PROGRAM 8-1d: Differential Equation Solver (Interactive Standalone Demo)
  * Interactively demonstrate algorithms for solving differential equations.
  */
-public class SolveDiffEqDemo extends DemoFrame
+public final class SolveDiffEqDemo extends AbstractDemoFrame
 {
   private static final String TITLE = "Differential Equation Solver";
 

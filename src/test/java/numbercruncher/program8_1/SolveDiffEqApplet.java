@@ -16,13 +16,13 @@
  */
 package numbercruncher.program8_1;
 
-import numbercruncher.graphutils.DemoApplet;
+import numbercruncher.graphutils.AbstractDemoApplet;
 
 /**
  * PROGRAM 8_1a: Differential Equation Solver (Interactive Applet) Interactively
  * demonstrate algorithms for solving differential equations.
  */
-public class SolveDiffEqApplet extends DemoApplet
+public final class SolveDiffEqApplet extends AbstractDemoApplet
 {
   /**
    * Constructor.

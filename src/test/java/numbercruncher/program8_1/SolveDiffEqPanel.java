@@ -29,7 +29,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 import numbercruncher.graphutils.FunctionFrame;
-import numbercruncher.graphutils.GraphPanel;
+import numbercruncher.graphutils.AbstractGraphPanel;
 import numbercruncher.graphutils.PlotProperties;
 import numbercruncher.mathutils.AbstractDiffEqSolver;
 import numbercruncher.mathutils.AbstractDifferentialEquation;
@@ -41,7 +41,7 @@ import numbercruncher.mathutils.RungeKuttaDiffEqSolver;
 /**
  * The demo panel for the Differential Equation Solver program and applet.
  */
-public class SolveDiffEqPanel extends GraphPanel
+public final class SolveDiffEqPanel extends AbstractGraphPanel
 {
   private static final int MAX_STEPS = 10;
   private static final int MAX_LINES = 1 << (MAX_STEPS + 1);
@@ -152,11 +152,11 @@ public class SolveDiffEqPanel extends GraphPanel
 
   /** Differential equations to solve */
   private static PlotDiffEq EQUATIONS[] = { new PlotDiffEq ("2x", -5.25f, 5.25f, -10.5f, 20.25f),
-                                           new PlotDiffEq ("3x^2 + 6x - 9", -6.25f, 4.25f, -20.5f, 20.25f),
-                                           new PlotDiffEq ("6x^2 - 20x + 11", -0.5f, 5.25f, -10.5f, 25.25f),
-                                           new PlotDiffEq ("2xe^2x + y", -1.25f, 1.5f, -1.5f, 20.5f),
-                                           new PlotDiffEq ("8x - 2y + 8", -1.25f, 4.25f, -25f, 25f),
-                                           new PlotDiffEq ("xe^-2x - 2y", -1.25f, 1.25f, -1.25f, 1.25f), };
+                                            new PlotDiffEq ("3x^2 + 6x - 9", -6.25f, 4.25f, -20.5f, 20.25f),
+                                            new PlotDiffEq ("6x^2 - 20x + 11", -0.5f, 5.25f, -10.5f, 25.25f),
+                                            new PlotDiffEq ("2xe^2x + y", -1.25f, 1.5f, -1.5f, 20.5f),
+                                            new PlotDiffEq ("8x - 2y + 8", -1.25f, 4.25f, -25f, 25f),
+                                            new PlotDiffEq ("xe^-2x - 2y", -1.25f, 1.25f, -1.25f, 1.25f), };
 
   /**
    * Constructor.
@@ -531,7 +531,7 @@ public class SolveDiffEqPanel extends GraphPanel
 
   /**
    * Return the value of the selected equation at x.
-   * 
+   *
    * @param x
    *        the value of x
    * @return the value of the function

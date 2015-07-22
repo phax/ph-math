@@ -26,7 +26,7 @@ import java.awt.event.ItemListener;
 /**
  * The base panel for the interpolation and regression panels.
  */
-public abstract class InterRegressPanel extends UserPointPanel
+public abstract class AbstractInterRegressPanel extends AbstractUserPointPanel
 {
   /** true if OK to plot function */
   protected boolean plotOK = false;
@@ -41,7 +41,7 @@ public abstract class InterRegressPanel extends UserPointPanel
    * @param actionButton2Label
    *        the label for action button 2
    */
-  protected InterRegressPanel (final int maxPoints, final String actionButton1Label, final String actionButton2Label)
+  protected AbstractInterRegressPanel (final int maxPoints, final String actionButton1Label, final String actionButton2Label)
   {
     this (maxPoints, actionButton1Label, actionButton2Label, false);
   }
@@ -58,7 +58,7 @@ public abstract class InterRegressPanel extends UserPointPanel
    * @param showDegree
    *        true to enable the degree choice, false to disable
    */
-  protected InterRegressPanel (final int maxPoints,
+  protected AbstractInterRegressPanel (final int maxPoints,
                                final String actionButton1Label,
                                final String actionButton2Label,
                                final boolean showDegree)

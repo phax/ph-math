@@ -18,13 +18,13 @@ package numbercruncher.program7_1;
 
 import java.awt.Frame;
 
-import numbercruncher.graphutils.DemoFrame;
+import numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
  * PROGRAM 7-1d: Integration (Interactive Standalone Demo) Interactively
  * demonstrate numerical integration algorithms.
  */
-public class IntegrationDemo extends DemoFrame
+public final class IntegrationDemo extends AbstractDemoFrame
 {
   private static final String TITLE = "Numerical Integration";
 

@@ -22,7 +22,7 @@ import numbercruncher.mathutils.SystemOutAlignRight;
  * Program 4-7: Sum Numbers with Mixed Signs Sum a sequence numbers with
  * alternating signs. The sum should be 0.
  */
-public class SumMixedSigns
+public final class MainSumMixedSigns
 {
   private static SystemOutAlignRight ar = new SystemOutAlignRight ();
 

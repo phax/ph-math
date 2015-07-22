@@ -16,19 +16,19 @@
  */
 package numbercruncher.program5_3;
 
-import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.ImprovedRegulaFalsiRootFinder;
+import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.rootutils.RootFunctions;
 
 /**
  * PROGRAM 5-3: Improved Regula Falsi Algorithm Demonstrate the Improved Regula
  * Falsi Algorithm on a function.
  */
-public class ImprovedRegulaFalsiAlgorithm
+public final class ImprovedRegulaFalsiAlgorithm
 {
   /**
    * Main program.
-   * 
+   *
    * @param args
    *        the array of runtime arguments
    */

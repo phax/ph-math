@@ -18,12 +18,12 @@ package numbercruncher.program15_5;
 
 import java.awt.Frame;
 
-import numbercruncher.graphutils.DemoFrame;
+import numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
  * PROGRAM 15-5: Prime Patterns
  */
-public class PrimePatternsDemo extends DemoFrame
+public final class PrimePatternsDemo extends AbstractDemoFrame
 {
   private static final String TITLE = "Prime Patterns Demo";
 

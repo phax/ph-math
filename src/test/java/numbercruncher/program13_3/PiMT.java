@@ -25,7 +25,7 @@ import numbercruncher.piutils.AbstractPiFormula;
  * PROGRAM 13-3: The Borwein Pi Algorithm Compute digits of pi by the Borwein
  * algorithm.
  */
-public class PiMT extends AbstractPiFormula implements IPiBorweinParent
+public final class PiMT extends AbstractPiFormula implements IPiBorweinParent
 {
   private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat ("HH:mm:ss.SSS");
 
@@ -38,7 +38,7 @@ public class PiMT extends AbstractPiFormula implements IPiBorweinParent
 
   /**
    * Compute the digits of pi using the Borwein algorithm.
-   * 
+   *
    * @param digits
    *        the number of digits of pi to compute
    */
@@ -55,7 +55,7 @@ public class PiMT extends AbstractPiFormula implements IPiBorweinParent
 
   /**
    * Main.
-   * 
+   *
    * @param args
    *        the array of program arguments
    */
@@ -80,7 +80,7 @@ public class PiMT extends AbstractPiFormula implements IPiBorweinParent
 
   /**
    * Scale notification.
-   * 
+   *
    * @param scale
    *        the scale being used
    */
@@ -93,7 +93,7 @@ public class PiMT extends AbstractPiFormula implements IPiBorweinParent
 
   /**
    * Phase notification.
-   * 
+   *
    * @param phase
    *        the current phase
    */
@@ -137,7 +137,7 @@ public class PiMT extends AbstractPiFormula implements IPiBorweinParent
 
   /**
    * Task notification.
-   * 
+   *
    * @param task
    *        the current computation task
    */

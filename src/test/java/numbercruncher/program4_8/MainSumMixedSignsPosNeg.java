@@ -23,7 +23,7 @@ import numbercruncher.mathutils.SystemOutAlignRight;
  * Sum a sequence of double numbers with alternating signs. Compute separate
  * positive and negative subtotals. The final sum should be 0.
  */
-public class SumMixedSignsPosNeg
+public final class MainSumMixedSignsPosNeg
 {
   public static void main (final String args[])
   {

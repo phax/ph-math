@@ -30,7 +30,7 @@ import java.awt.event.WindowEvent;
  * decompose and recompose floating-point numbers according to the IEEE 754
  * standard.
  */
-public class FPFormatsDemo extends Frame
+public final class FPFormatsDemo extends Frame
 {
   public FPFormatsDemo ()
   {

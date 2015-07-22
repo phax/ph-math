@@ -18,8 +18,8 @@ package numbercruncher.program4_6;
 
 import java.util.Random;
 
-import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.KahanSummation;
+import numbercruncher.mathutils.SystemOutAlignRight;
 
 /**
  * PROGRAM 4-6: Fraction Sum 10M with Randomized Order Compute the sum 1/d + 2/d
@@ -27,7 +27,7 @@ import numbercruncher.mathutils.KahanSummation;
  * (n/2)(n + 1) Randomize the order of the fractions, and then compute their sum
  * by simple straight summation and by Kahan's Summation Algorithm.
  */
-public class FractionSum10MRandom
+public final class FractionSum10MRandom
 {
   private static final int GROUPS = 20;
   private static final int MAX = 10000000; // 10M

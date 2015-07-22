@@ -26,14 +26,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 
-import numbercruncher.graphutils.GraphPanel;
+import numbercruncher.graphutils.AbstractGraphPanel;
 import numbercruncher.graphutils.PlotProperties;
 
 /**
  * The base panel for all demo panels that allow the user to set data points
  * with the mouse.
  */
-public abstract class UserPointPanel extends GraphPanel
+public abstract class AbstractUserPointPanel extends AbstractGraphPanel
 {
   private static final float INIT_X_MIN = -0.5f;
   private static final float INIT_X_MAX = 11.5f;
@@ -76,7 +76,7 @@ public abstract class UserPointPanel extends GraphPanel
    * @param actionButton2Label
    *        the label for action button 2
    */
-  protected UserPointPanel (final int maxPoints,
+  protected AbstractUserPointPanel (final int maxPoints,
                             final String nLabelText,
                             final String actionButton1Label,
                             final String actionButton2Label)

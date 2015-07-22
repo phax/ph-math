@@ -31,12 +31,12 @@ import numbercruncher.mathutils.IIntegrator;
 import numbercruncher.mathutils.InterpolationPolynomial;
 import numbercruncher.mathutils.SimpsonsIntegrator;
 import numbercruncher.mathutils.TrapezoidalIntegrator;
-import numbercruncher.pointutils.UserPointPanel;
+import numbercruncher.pointutils.AbstractUserPointPanel;
 
 /**
  * The demo panel for the numerical integration demo and applet.
  */
-public class IntegrationPanel extends UserPointPanel
+public final class IntegrationPanel extends AbstractUserPointPanel
 {
   private static final int MAX_POINTS = 10;
   private static final int MAX_INTERVALS = 512;
@@ -173,7 +173,7 @@ public class IntegrationPanel extends UserPointPanel
     area = 0;
 
     integrator = (algorithm == TRAPEZOIDAL) ? (IIntegrator) new TrapezoidalIntegrator (integrand)
-                                           : (IIntegrator) new SimpsonsIntegrator (integrand);
+                                            : (IIntegrator) new SimpsonsIntegrator (integrand);
   }
 
   /**
@@ -213,7 +213,7 @@ public class IntegrationPanel extends UserPointPanel
 
   /**
    * Display the ith region by coloring it.
-   * 
+   *
    * @param i
    *        the value of i
    * @param h
@@ -233,7 +233,7 @@ public class IntegrationPanel extends UserPointPanel
 
   /**
    * Display the ith trapezoidal region by coloring it.
-   * 
+   *
    * @param i
    *        the value of i
    * @param h
@@ -269,7 +269,7 @@ public class IntegrationPanel extends UserPointPanel
 
   /**
    * Display the ith parabolic region by coloring it.
-   * 
+   *
    * @param pi
    *        the value of i
    * @param ph
@@ -292,8 +292,8 @@ public class IntegrationPanel extends UserPointPanel
 
     // Interpolation parabola.
     final InterpolationPolynomial parabola = new InterpolationPolynomial (new DataPoint [] { new DataPoint (x1, y1),
-                                                                                            new DataPoint (x2, y2),
-                                                                                            new DataPoint (x3, y3) });
+                                                                                             new DataPoint (x2, y2),
+                                                                                             new DataPoint (x3, y3) });
 
     // Plot properties.
     final float xMin = plotProps.getXMin ();
@@ -341,7 +341,7 @@ public class IntegrationPanel extends UserPointPanel
 
   /**
    * The user has added a data point.
-   * 
+   *
    * @param r
    *        the dot's row
    * @param c
@@ -389,7 +389,7 @@ public class IntegrationPanel extends UserPointPanel
 
   /**
    * Return whether or not it is OK to add another data point.
-   * 
+   *
    * @return true if OK, otherwise false
    */
   @Override
@@ -400,7 +400,7 @@ public class IntegrationPanel extends UserPointPanel
 
   /**
    * Return whether or not it's OK to plot the function.
-   * 
+   *
    * @return true if OK, otherwise false
    */
   @Override
@@ -411,7 +411,7 @@ public class IntegrationPanel extends UserPointPanel
 
   /**
    * Return the value of the polynomial interpolation function at x.
-   * 
+   *
    * @param x
    *        the value of x
    * @return the value of the function
@@ -437,7 +437,8 @@ public class IntegrationPanel extends UserPointPanel
 
     integrand.reset ();
 
-    setHeaderLabel ("First plot two to ten points with mouse clicks, " + "then press the 'Plot integrand' button.",
+    setHeaderLabel ("First plot two to ten points with mouse clicks, " +
+                    "then press the 'Plot integrand' button.",
                     Color.blue);
 
     nLabel.setText ("# points");

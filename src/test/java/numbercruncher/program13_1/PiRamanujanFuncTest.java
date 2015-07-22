@@ -18,15 +18,18 @@ package numbercruncher.program13_1;
 
 import java.math.BigDecimal;
 
+import org.junit.Test;
+
 import numbercruncher.mathutils.BigFunctions;
 
 /**
  * PROGRAM 13-3: Ramanujan's Formulas for pi Compute estimates of pi using
  * Ramanujan's formulas.
  */
-public class PiRamanujan
+public final class PiRamanujanFuncTest
 {
-  private void compute ()
+  @Test
+  public void testRun ()
   {
     int digits; // number of digits
     int scale;
@@ -61,12 +64,12 @@ public class PiRamanujan
     sqrt142 = BigFunctions.sqrt (BigDecimal.valueOf (142), scale);
 
     term = BigDecimal.valueOf (24).divide (sqrt142, scale, BigDecimal.ROUND_HALF_EVEN);
-    a = BigDecimal.valueOf (10)
-                  .add (BigDecimal.valueOf (11).multiply (sqrt2))
-                  .divide (BigDecimal.valueOf (4), scale, BigDecimal.ROUND_HALF_EVEN);
-    b = BigDecimal.valueOf (10)
-                  .add (BigDecimal.valueOf (7).multiply (sqrt2))
-                  .divide (BigDecimal.valueOf (4), scale, BigDecimal.ROUND_HALF_EVEN);
+    a = BigDecimal.valueOf (10).add (BigDecimal.valueOf (11).multiply (sqrt2)).divide (BigDecimal.valueOf (4),
+                                                                                       scale,
+                                                                                       BigDecimal.ROUND_HALF_EVEN);
+    b = BigDecimal.valueOf (10).add (BigDecimal.valueOf (7).multiply (sqrt2)).divide (BigDecimal.valueOf (4),
+                                                                                      scale,
+                                                                                      BigDecimal.ROUND_HALF_EVEN);
     lnArg = BigFunctions.sqrt (a, scale).add (BigFunctions.sqrt (b, scale));
     pi = term.multiply (BigFunctions.ln (lnArg, scale)).setScale (digits, BigDecimal.ROUND_HALF_EVEN);
     System.out.println (digits + " digits: " + pi);
@@ -123,12 +126,12 @@ public class PiRamanujan
                   .multiply (sqrt29)
                   .add (BigDecimal.valueOf (11).multiply (sqrt6))
                   .setScale (scale, BigDecimal.ROUND_HALF_EVEN);
-    c = BigDecimal.valueOf (9)
-                  .add (BigDecimal.valueOf (3).multiply (sqrt6))
-                  .divide (BigDecimal.valueOf (4), scale, BigDecimal.ROUND_HALF_EVEN);
-    d = BigDecimal.valueOf (5)
-                  .add (BigDecimal.valueOf (3).multiply (sqrt6))
-                  .divide (BigDecimal.valueOf (4), scale, BigDecimal.ROUND_HALF_EVEN);
+    c = BigDecimal.valueOf (9).add (BigDecimal.valueOf (3).multiply (sqrt6)).divide (BigDecimal.valueOf (4),
+                                                                                     scale,
+                                                                                     BigDecimal.ROUND_HALF_EVEN);
+    d = BigDecimal.valueOf (5).add (BigDecimal.valueOf (3).multiply (sqrt6)).divide (BigDecimal.valueOf (4),
+                                                                                     scale,
+                                                                                     BigDecimal.ROUND_HALF_EVEN);
     e = BigFunctions.sqrt (c, scale).add (BigFunctions.sqrt (d, scale));
     lnArg = BigFunctions.intPower (a, 3, scale)
                         .multiply (b)
@@ -137,29 +140,12 @@ public class PiRamanujan
     pi = term.multiply (BigFunctions.ln (lnArg, scale)).setScale (digits, BigDecimal.ROUND_HALF_EVEN);
     System.out.println (digits + " digits: " + pi);
   }
-
-  /**
-   * Main.
-   * 
-   * @param args
-   *        the array of program arguments
-   */
-  public static void main (final String args[])
-  {
-    final PiRamanujan formulas = new PiRamanujan ();
-
-    try
-    {
-      formulas.compute ();
-    }
-    catch (final Exception ex)
-    {
-      System.out.println ("ERROR: " + ex.getMessage ());
-    }
-  }
 }
-/*
- * Output: 15 digits: 3.141592653589793 16 digits: 3.1415926535897931 18 digits:
- * 3.141592653589793238 22 digits: 3.1415926535897932384626 31 digits:
- * 3.1415926535897932384626433832794
+/**
+ * Output:<br>
+ * 15 digits: 3.141592653589793<br>
+ * 16 digits: 3.1415926535897931<br>
+ * 18 digits: 3.141592653589793238<br>
+ * 22 digits: 3.1415926535897932384626<br>
+ * 31 digits: 3.1415926535897932384626433832794
  */

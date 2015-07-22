@@ -16,12 +16,12 @@
  */
 package numbercruncher.program15_5;
 
-import numbercruncher.graphutils.DemoApplet;
+import numbercruncher.graphutils.AbstractDemoApplet;
 
 /**
  * PROGRAM 15-5: Prime Patterns (Applet)
  */
-public class PrimePatternsApplet extends DemoApplet
+public final class PrimePatternsApplet extends AbstractDemoApplet
 {
   // Constructor
   public PrimePatternsApplet ()

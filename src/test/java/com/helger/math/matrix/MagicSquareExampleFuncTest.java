@@ -24,7 +24,7 @@ import org.junit.Test;
 
 /** Example of use of Matrix Class, featuring magic squares. **/
 
-public class MagicSquareExampleFuncTest
+public final class MagicSquareExampleFuncTest
 {
 
   /** Generate magic square test matrix. **/
@@ -34,7 +34,7 @@ public class MagicSquareExampleFuncTest
     if (n <= 0)
       throw new IllegalStateException ();
 
-    final double [][] M = new double [n] [n];
+    final double [] [] M = new double [n] [n];
 
     // Odd order
 

@@ -16,7 +16,7 @@
  */
 package numbercruncher.program16_2;
 
-import numbercruncher.graphutils.DemoApplet;
+import numbercruncher.graphutils.AbstractDemoApplet;
 
 /**
  * PROGRAM 16-2: Newton's Fractal (Applet) Graph the application of Newton's
@@ -28,7 +28,7 @@ import numbercruncher.graphutils.DemoApplet;
  * number of iterations. The resulting graph is a Julia set fractal. You can
  * zoom into any rectangular region of the graph by using the mouse.
  */
-public class JuliaSetApplet extends DemoApplet
+public final class JuliaSetApplet extends AbstractDemoApplet
 {
   /**
    * Constructor.

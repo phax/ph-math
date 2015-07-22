@@ -18,13 +18,13 @@ package numbercruncher.program5_4;
 
 import java.awt.Frame;
 
-import numbercruncher.graphutils.DemoFrame;
+import numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
  * PROGRAM 5-4d: Secant Algorithm (Interactive Standalone Demo) Interactively
  * demonstrate the Secant Algorithm on various functions.
  */
-public class SecantDemo extends DemoFrame
+public final class SecantDemo extends AbstractDemoFrame
 {
   private static final String TITLE = "Secant Demo";
 
