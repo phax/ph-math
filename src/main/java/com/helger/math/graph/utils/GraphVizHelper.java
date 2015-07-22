@@ -47,9 +47,9 @@ import com.helger.math.graph.IDirectedGraphRelation;
  * @author Philip Helger
  */
 @Immutable
-public final class GraphVizUtils
+public final class GraphVizHelper
 {
-  private GraphVizUtils ()
+  private GraphVizHelper ()
   {}
 
   @Nonnull
