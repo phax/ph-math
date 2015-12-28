@@ -30,7 +30,7 @@ public abstract class AbstractDemoApplet extends Applet
 
   /**
    * Constructor.
-   * 
+   *
    * @param demoPanel
    *        the demo panel
    */
@@ -74,7 +74,7 @@ public abstract class AbstractDemoApplet extends Applet
 
   /**
    * Update the display without repainting the background.
-   * 
+   *
    * @param g
    *        the graphics context
    */
@@ -86,7 +86,7 @@ public abstract class AbstractDemoApplet extends Applet
 
   /**
    * Redraw the contents of the demo panel.
-   * 
+   *
    * @param g
    *        the graphics context
    */

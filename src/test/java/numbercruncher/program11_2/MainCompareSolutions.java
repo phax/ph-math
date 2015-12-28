@@ -73,8 +73,8 @@ public final class MainCompareSolutions
     System.out.println ("Condition number of A = " + condA);
 
     final int nRows = A.rowCount ();
-    final InvertibleMatrix As [] = new InvertibleMatrix [nRows];
-    final float dets [] = new float [nRows];
+    final InvertibleMatrix As[] = new InvertibleMatrix [nRows];
+    final float dets[] = new float [nRows];
 
     // Loop to create matrices A(i) for Cramer's rule.
     for (int i = 0; i < nRows; ++i)
@@ -104,13 +104,13 @@ public final class MainCompareSolutions
    * @param args
    *        the array of arguments
    */
-  public static void main (final String args [])
+  public static void main (final String args[])
   {
     // Matrix A.
     final InvertibleMatrix A = new InvertibleMatrix (new float [] [] { { 3, 1, -5, 4 },
-                                                                      { 2, -3, 3, -2 },
-                                                                      { 5, -3, 4, 1 },
-                                                                      { -2, 4, -3, -5 }, });
+                                                                       { 2, -3, 3, -2 },
+                                                                       { 5, -3, 4, 1 },
+                                                                       { -2, 4, -3, -5 }, });
 
     // Column vector b.
     final ColumnVector b = new ColumnVector (new float [] { -18, 19, 22, -14 });

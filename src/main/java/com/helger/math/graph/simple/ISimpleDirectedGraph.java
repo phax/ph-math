@@ -24,7 +24,7 @@ import com.helger.math.graph.IMutableDirectedGraphRelation;
 
 /**
  * Interface for a modifiable simple graph.
- * 
+ *
  * @author Philip Helger
  */
 public interface ISimpleDirectedGraph extends IMutableDirectedGraph
@@ -33,7 +33,7 @@ public interface ISimpleDirectedGraph extends IMutableDirectedGraph
    * Create a new relation from the passed fromNode to the toNode. Internally
    * the IDs are resolved to the respective graph nodes and later on calls
    * {@link #createRelation(com.helger.math.graph.IDirectedGraphNode, com.helger.math.graph.IDirectedGraphNode)}
-   * 
+   *
    * @param sFromNodeID
    *        The from-node ID. May not be <code>null</code>.
    * @param sToNodeID
@@ -47,7 +47,7 @@ public interface ISimpleDirectedGraph extends IMutableDirectedGraph
    * Create a new relation from the passed fromNode to the toNode. Internally
    * the IDs are resolved to the respective graph nodes and later on calls
    * {@link #createRelation(com.helger.math.graph.IDirectedGraphNode, com.helger.math.graph.IDirectedGraphNode)}
-   * 
+   *
    * @param sRelationID
    *        The relation ID to be used. May not be <code>null</code>.
    * @param sFromNodeID

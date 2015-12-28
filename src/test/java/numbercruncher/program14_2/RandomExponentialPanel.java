@@ -24,10 +24,6 @@ import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextField;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 
 import numbercruncher.graphutils.AbstractGraphPanel;
 import numbercruncher.graphutils.PlotProperties;
@@ -175,80 +171,68 @@ public final class RandomExponentialPanel extends AbstractGraphPanel
     resetButton.setEnabled (false);
 
     // Algorithm choice handler.
-    algorithmChoice.addItemListener (new ItemListener ()
-    {
-      public void itemStateChanged (final ItemEvent ev)
+    algorithmChoice.addItemListener (ev -> {
+      xAlgorithm = algorithmChoice.getSelectedIndex ();
+      switch (xAlgorithm)
       {
-        xAlgorithm = algorithmChoice.getSelectedIndex ();
-        switch (xAlgorithm)
+
+        case LOG:
         {
+          setPlotProperties (LOG_PLOT_PROPS);
+          mean = INIT_LOG_MEAN;
+          barFactor = LOG_BAR_FACTOR;
+          plotFactor = LOG_PLOT_FACTOR;
 
-          case LOG:
-          {
-            setPlotProperties (LOG_PLOT_PROPS);
-            mean = INIT_LOG_MEAN;
-            barFactor = LOG_BAR_FACTOR;
-            plotFactor = LOG_PLOT_FACTOR;
+          meanText.setEnabled (true);
+          updatePlotProperties ();
 
-            meanText.setEnabled (true);
-            updatePlotProperties ();
+          bucketCount = LOG_BUCKET_COUNT;
+          buckets = new Buckets (bucketCount);
+          buckets.setLimits (0, xMax);
 
-            bucketCount = LOG_BUCKET_COUNT;
-            buckets = new Buckets (bucketCount);
-            buckets.setLimits (0, xMax);
-
-            break;
-          }
-
-          case VON_NEUMANN:
-          {
-            setPlotProperties (VON_NEUMANN_PLOT_PROPS);
-            mean = VON_NEUMANN_MEAN;
-            barFactor = VON_NEUMANN_BAR_FACTOR;
-            plotFactor = VON_NEUMANN_PLOT_FACTOR;
-
-            meanText.setEnabled (false);
-            updatePlotProperties ();
-
-            bucketCount = VON_NEUMANN_BUCKET_COUNT;
-            buckets = new Buckets (bucketCount);
-            buckets.setLimits (0, VON_NEUMANN_BUCKET_COUNT - 1);
-
-            break;
-          }
+          break;
         }
 
-        meanText.setText (Float.toString (mean));
-        draw ();
+        case VON_NEUMANN:
+        {
+          setPlotProperties (VON_NEUMANN_PLOT_PROPS);
+          mean = VON_NEUMANN_MEAN;
+          barFactor = VON_NEUMANN_BAR_FACTOR;
+          plotFactor = VON_NEUMANN_PLOT_FACTOR;
+
+          meanText.setEnabled (false);
+          updatePlotProperties ();
+
+          bucketCount = VON_NEUMANN_BUCKET_COUNT;
+          buckets = new Buckets (bucketCount);
+          buckets.setLimits (0, VON_NEUMANN_BUCKET_COUNT - 1);
+
+          break;
+        }
       }
+
+      meanText.setText (Float.toString (mean));
+      draw ();
     });
 
     // Run button handler.
-    runButton.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
+    runButton.addActionListener (ev -> {
+      if (runButton.getLabel ().equals (RUN))
       {
-        if (runButton.getLabel ().equals (RUN))
-        {
-          run ();
-        }
-        else
-        {
-          pause ();
-        }
+        run ();
+      }
+      else
+      {
+        pause ();
       }
     });
 
     // Reset button handler.
-    resetButton.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
-      {
-        n = 0;
-        valuesText.setText ("0");
+    resetButton.addActionListener (ev -> {
+      n = 0;
+      valuesText.setText ("0");
 
-        draw ();
-      }
+      draw ();
     });
 
     // Start with the logarithm algorithm.

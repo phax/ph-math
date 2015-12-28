@@ -16,8 +16,8 @@
  */
 package numbercruncher.matrix;
 
-import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.mathutils.Epsilon;
+import numbercruncher.mathutils.SystemOutAlignRight;
 
 /**
  * Solve a system of linear equations using LU decomposition.

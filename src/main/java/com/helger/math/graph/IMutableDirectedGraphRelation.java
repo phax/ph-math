@@ -24,7 +24,9 @@ import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
  * @author Philip Helger
  */
 @MustImplementEqualsAndHashcode
-public interface IMutableDirectedGraphRelation extends IMutableBaseGraphRelation <IMutableDirectedGraphNode, IMutableDirectedGraphRelation>, IDirectedGraphRelation <IMutableDirectedGraphNode, IMutableDirectedGraphRelation>
+public interface IMutableDirectedGraphRelation extends
+                                               IMutableBaseGraphRelation <IMutableDirectedGraphNode, IMutableDirectedGraphRelation>,
+                                               IDirectedGraphRelation <IMutableDirectedGraphNode, IMutableDirectedGraphRelation>
 {
   /* empty */
 }

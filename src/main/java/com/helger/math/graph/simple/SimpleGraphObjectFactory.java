@@ -28,7 +28,7 @@ import com.helger.math.graph.impl.GraphRelation;
 /**
  * Default implementation of the {@link IMutableGraphObjectFactory} with
  * {@link GraphNode} and {@link GraphRelation}.
- * 
+ *
  * @author Philip Helger
  */
 public class SimpleGraphObjectFactory implements IMutableGraphObjectFactory

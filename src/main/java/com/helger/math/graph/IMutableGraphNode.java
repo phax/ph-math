@@ -24,7 +24,7 @@ import com.helger.commons.state.EChange;
 
 /**
  * Base interface for a single graph node.
- * 
+ *
  * @author Philip Helger
  */
 @MustImplementEqualsAndHashcode
@@ -32,7 +32,7 @@ public interface IMutableGraphNode extends IMutableBaseGraphNode <IMutableGraphN
 {
   /**
    * Add a new relation.
-   * 
+   *
    * @param aRelation
    *        The relation to be added to this node. May be <code>null</code>.
    * @return {@link EChange#CHANGED} if something changed
@@ -42,7 +42,7 @@ public interface IMutableGraphNode extends IMutableBaseGraphNode <IMutableGraphN
 
   /**
    * Remove a new relation.
-   * 
+   *
    * @param aRelation
    *        The relation to be removed from this node. May be <code>null</code>.
    * @return {@link EChange#CHANGED} if something changed

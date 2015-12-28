@@ -26,7 +26,7 @@ import com.helger.commons.id.factory.StringIDFromGlobalIntIDFactory;
 
 /**
  * Test class for class {@link GraphObjectIDFactory}.
- * 
+ *
  * @author Philip Helger
  */
 public final class GraphObjectIDFactoryTest

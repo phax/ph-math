@@ -27,7 +27,7 @@ public class ColumnVector extends Matrix
 
   /**
    * Constructor.
-   * 
+   *
    * @param n
    *        the number of elements
    */
@@ -38,7 +38,7 @@ public class ColumnVector extends Matrix
 
   /**
    * Constructor.
-   * 
+   *
    * @param values
    *        the array of values
    */
@@ -49,7 +49,7 @@ public class ColumnVector extends Matrix
 
   /**
    * Constructor.
-   * 
+   *
    * @param m
    *        the matrix (only the first column used)
    */
@@ -72,7 +72,7 @@ public class ColumnVector extends Matrix
 
   /**
    * Return the i'th value of the vector.
-   * 
+   *
    * @param i
    *        the index
    * @return the value
@@ -84,7 +84,7 @@ public class ColumnVector extends Matrix
 
   /**
    * Copy the values of this matrix.
-   * 
+   *
    * @return the copied values
    */
   public float [] copyValues1D ()
@@ -105,7 +105,7 @@ public class ColumnVector extends Matrix
 
   /**
    * Set this column vector from a matrix. Only the first column is used.
-   * 
+   *
    * @param m
    *        the matrix
    */
@@ -118,7 +118,7 @@ public class ColumnVector extends Matrix
 
   /**
    * Set this column vector from an array of values.
-   * 
+   *
    * @param values
    *        the array of values
    */
@@ -136,7 +136,7 @@ public class ColumnVector extends Matrix
 
   /**
    * Set the value of the i'th element.
-   * 
+   *
    * @param i
    *        the index
    * @param value
@@ -153,7 +153,7 @@ public class ColumnVector extends Matrix
 
   /**
    * Add another column vector to this column vector.
-   * 
+   *
    * @param cv
    *        the other column vector
    * @return the sum column vector
@@ -167,7 +167,7 @@ public class ColumnVector extends Matrix
 
   /**
    * Subtract another column vector from this column vector.
-   * 
+   *
    * @param cv
    *        the other column vector
    * @return the sum column vector
@@ -181,7 +181,7 @@ public class ColumnVector extends Matrix
 
   /**
    * Compute the Euclidean norm.
-   * 
+   *
    * @return the norm
    */
   public float norm ()

@@ -33,7 +33,8 @@ import com.helger.math.graph.IMutableBaseGraphObject;
  * @author Philip Helger
  */
 @NotThreadSafe
-public abstract class AbstractBaseGraphObject extends MapBasedAttributeContainerAny <String>implements IMutableBaseGraphObject
+public abstract class AbstractBaseGraphObject extends MapBasedAttributeContainerAny <String>
+                                              implements IMutableBaseGraphObject
 {
   private final String m_sID;
 

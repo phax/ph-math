@@ -23,7 +23,7 @@ public class ModuloArithmetic
 {
   /**
    * Multiply two integer values a and b modulo m.
-   * 
+   *
    * @param pa
    *        the value of a
    * @param pb
@@ -61,7 +61,7 @@ public class ModuloArithmetic
 
   /**
    * Raise a to the b power modulo m.
-   * 
+   *
    * @param pbase
    *        the value of a
    * @param pexponent
@@ -97,7 +97,7 @@ public class ModuloArithmetic
 
   /**
    * Main for testing.
-   * 
+   *
    * @param args
    *        the commandline arguments (ignored)
    */

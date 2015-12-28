@@ -43,7 +43,7 @@ import com.helger.math.matrix.Matrix;
  * @author Philip Helger
  */
 @NotThreadSafe
-public class Graph extends AbstractBaseGraph <IMutableGraphNode, IMutableGraphRelation>implements IMutableGraph
+public class Graph extends AbstractBaseGraph <IMutableGraphNode, IMutableGraphRelation> implements IMutableGraph
 {
   private final IMutableGraphObjectFactory m_aFactory;
   private ETriState m_eCacheHasCycles = ETriState.UNDEFINED;

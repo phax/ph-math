@@ -33,7 +33,7 @@ import com.helger.math.graph.IMutableGraphRelation;
 
 /**
  * A simple iterator for undirected graphs.
- * 
+ *
  * @author Philip Helger
  */
 @NotThreadSafe

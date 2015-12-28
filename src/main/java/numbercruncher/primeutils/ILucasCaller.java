@@ -23,7 +23,7 @@ public interface ILucasCaller
 {
   /**
    * Report on the status of the Lucas test.
-   * 
+   *
    * @param status
    *        the current status
    */

@@ -31,7 +31,8 @@ import com.helger.commons.annotation.ReturnsMutableCopy;
  * @param <R>
  *        Directed relation class
  */
-public interface IDirectedGraph <N extends IDirectedGraphNode <N, R>, R extends IDirectedGraphRelation <N, R>> extends IBaseGraph <N, R>
+public interface IDirectedGraph <N extends IDirectedGraphNode <N, R>, R extends IDirectedGraphRelation <N, R>>
+                                extends IBaseGraph <N, R>
 {
   /**
    * Try to retrieve the single start node of this graph. A start node is

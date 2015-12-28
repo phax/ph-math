@@ -28,8 +28,6 @@ import java.awt.Image;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * The header panel that displays the current function or a text label.
@@ -106,13 +104,7 @@ final class HeaderPanel extends Panel
     cardLayout.show (this, FUNCTION);
 
     // Header button handler.
-    headerButton.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
-      {
-        HeaderPanel.this.m_aGraphPanel.doHeaderAction (); // callback
-      }
-    });
+    headerButton.addActionListener (ev -> HeaderPanel.this.m_aGraphPanel.doHeaderAction ());
   }
 
   /**

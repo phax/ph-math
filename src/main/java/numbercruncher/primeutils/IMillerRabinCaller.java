@@ -23,7 +23,7 @@ public interface IMillerRabinCaller
 {
   /**
    * Report on the status of the Miller-Rabin test.
-   * 
+   *
    * @param status
    *        the current status
    */

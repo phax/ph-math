@@ -22,8 +22,6 @@ import java.awt.Font;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.Point;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 
 import numbercruncher.graphutils.AbstractGraphPanel;
@@ -66,7 +64,7 @@ public abstract class AbstractUserPointPanel extends AbstractGraphPanel
 
   /**
    * Constructor.
-   * 
+   *
    * @param maxPoints
    *        the maximum number of data points
    * @param nLabelText
@@ -77,9 +75,9 @@ public abstract class AbstractUserPointPanel extends AbstractGraphPanel
    *        the label for action button 2
    */
   protected AbstractUserPointPanel (final int maxPoints,
-                            final String nLabelText,
-                            final String actionButton1Label,
-                            final String actionButton2Label)
+                                    final String nLabelText,
+                                    final String actionButton1Label,
+                                    final String actionButton2Label)
   {
     super (" ", plotProps);
     this.m_nMaxPoints = maxPoints;
@@ -98,22 +96,10 @@ public abstract class AbstractUserPointPanel extends AbstractGraphPanel
     actionButton2.setLabel (actionButton2Label);
 
     // Action button 1 handler.
-    actionButton1.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
-      {
-        doButton1Action ();
-      }
-    });
+    actionButton1.addActionListener (ev -> doButton1Action ());
 
     // Action button 2 handler.
-    actionButton2.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
-      {
-        doButton2Action ();
-      }
-    });
+    actionButton2.addActionListener (ev -> doButton2Action ());
 
     // Data points.
     data = new Point [maxPoints];
@@ -121,7 +107,7 @@ public abstract class AbstractUserPointPanel extends AbstractGraphPanel
 
   /**
    * Perform the dot action. (Do nothing here.)
-   * 
+   *
    * @param r
    *        the dot's row
    * @param c
@@ -144,7 +130,7 @@ public abstract class AbstractUserPointPanel extends AbstractGraphPanel
 
   /**
    * Mouse pressed on the plot: Add an interpolation point.
-   * 
+   *
    * @param ev
    *        the mouse event
    */
@@ -170,7 +156,7 @@ public abstract class AbstractUserPointPanel extends AbstractGraphPanel
 
   /**
    * Return true if it is OK to add another data point.
-   * 
+   *
    * @return true or false
    */
   public boolean dotOK ()

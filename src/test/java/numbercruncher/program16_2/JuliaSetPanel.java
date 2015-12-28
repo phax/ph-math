@@ -24,10 +24,6 @@ import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextField;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.util.Random;
 
@@ -219,43 +215,31 @@ public final class JuliaSetPanel extends AbstractGraphPanel
     }
 
     // Preset choice handler.
-    presets.addItemListener (new ItemListener ()
-    {
-      public void itemStateChanged (final ItemEvent ev)
-      {
-        final int index = presets.getSelectedIndex ();
+    presets.addItemListener (ev -> {
+      final int index = presets.getSelectedIndex ();
 
-        realText.setText (Float.toString (PRESET_REALS[index]));
-        imaginaryText.setText (Float.toString (PRESET_IMAGINARIES[index]));
+      realText.setText (Float.toString (PRESET_REALS[index]));
+      imaginaryText.setText (Float.toString (PRESET_IMAGINARIES[index]));
 
-        startPlot ();
-      }
+      startPlot ();
     });
 
     // Manual button handler.
-    manualButton.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
-      {
-        presets.select (0);
-        startPlot ();
-      }
+    manualButton.addActionListener (ev -> {
+      presets.select (0);
+      startPlot ();
     });
 
     // Random button handler.
-    randomButton.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
-      {
-        final float r1 = 2 * random.nextFloat () - 1;
-        final float r2 = 2 * random.nextFloat () - 1;
+    randomButton.addActionListener (ev -> {
+      final float r1 = 2 * random.nextFloat () - 1;
+      final float r2 = 2 * random.nextFloat () - 1;
 
-        realText.setText (Float.toString (r1));
-        imaginaryText.setText (Float.toString (r2));
+      realText.setText (Float.toString (r1));
+      imaginaryText.setText (Float.toString (r2));
 
-        presets.select (0);
-        startPlot ();
-      }
+      presets.select (0);
+      startPlot ();
     });
   }
 

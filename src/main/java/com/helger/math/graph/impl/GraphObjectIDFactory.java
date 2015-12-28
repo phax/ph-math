@@ -33,7 +33,7 @@ import com.helger.commons.id.factory.IIDFactory;
  * provide another ID factory. If no custom ID factory is present (which is the
  * default), {@link GlobalIDFactory#getNewStringID()} is used to create Graph
  * object IDs.
- * 
+ *
  * @author Philip Helger
  */
 @ThreadSafe
@@ -69,7 +69,7 @@ public final class GraphObjectIDFactory
 
   /**
    * Set a custom ID factory.
-   * 
+   *
    * @param aIDFactory
    *        The new ID factory to use. May be <code>null</code> to indicate that
    *        the default should be used.
@@ -91,7 +91,7 @@ public final class GraphObjectIDFactory
    * Get a new ID for a graph object. If a custom ID factory is defined, the ID
    * is retrieved from there. Otherwise the ID is retrieved from
    * {@link GlobalIDFactory}.
-   * 
+   *
    * @return A new graph object ID. Never <code>null</code>.
    */
   @Nonnull

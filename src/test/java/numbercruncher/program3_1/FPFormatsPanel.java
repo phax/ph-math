@@ -26,8 +26,6 @@ import java.awt.Label;
 import java.awt.Panel;
 import java.awt.SystemColor;
 import java.awt.TextField;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
@@ -703,51 +701,25 @@ final class FPFormatsPanel extends Panel
   private void initHandlers ()
   {
     // Float show value button.
-    fShowValueButton.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
-      {
-        if (isFloatExponentOK)
-          showFloatValue ();
-      }
+    fShowValueButton.addActionListener (ev -> {
+      if (isFloatExponentOK)
+        showFloatValue ();
     });
 
     // Double show value button.
-    dShowValueButton.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
-      {
-        if (isDoubleExponentOK)
-          showDoubleValue ();
-      }
+    dShowValueButton.addActionListener (ev -> {
+      if (isDoubleExponentOK)
+        showDoubleValue ();
     });
 
     // Float decompose button.
-    fDecomposeButton.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
-      {
-        decomposeFloatValue ();
-      }
-    });
+    fDecomposeButton.addActionListener (ev -> decomposeFloatValue ());
 
     // Double decompose button.
-    dDecomposeButton.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
-      {
-        decomposeDoubleValue ();
-      }
-    });
+    dDecomposeButton.addActionListener (ev -> decomposeDoubleValue ());
 
     // Float sign bit text: return key.
-    fSignBitText.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
-      {
-        showFloatValue ();
-      }
-    });
+    fSignBitText.addActionListener (ev -> showFloatValue ());
 
     // Float sign bit text: focus and tab key.
     fSignBitText.addFocusListener (new FocusAdapter ()
@@ -760,13 +732,7 @@ final class FPFormatsPanel extends Panel
     });
 
     // Double sign bit text: return key.
-    dSignBitText.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
-      {
-        showDoubleValue ();
-      }
-    });
+    dSignBitText.addActionListener (ev -> showDoubleValue ());
 
     // Double sign bit text: focus and tab key.
     dSignBitText.addFocusListener (new FocusAdapter ()
@@ -779,21 +745,17 @@ final class FPFormatsPanel extends Panel
     });
 
     // Float exponent bits text: return key.
-    fExponentBitsText.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
+    fExponentBitsText.addActionListener (ev -> {
+      try
       {
-        try
-        {
-          isFloatExponentOK = true;
-          setFloatExponentFromBits ();
-          showFloatValue ();
-        }
-        catch (final Exception ex)
-        {
-          isFloatExponentOK = false;
-          displayFloatError (ex.getMessage ());
-        }
+        isFloatExponentOK = true;
+        setFloatExponentFromBits ();
+        showFloatValue ();
+      }
+      catch (final Exception ex)
+      {
+        isFloatExponentOK = false;
+        displayFloatError (ex.getMessage ());
       }
     });
 
@@ -818,21 +780,17 @@ final class FPFormatsPanel extends Panel
     });
 
     // Double exponent bits text: return key.
-    dExponentBitsText.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
+    dExponentBitsText.addActionListener (ev -> {
+      try
       {
-        try
-        {
-          isDoubleExponentOK = true;
-          setDoubleExponentFromBits ();
-          showDoubleValue ();
-        }
-        catch (final Exception ex)
-        {
-          isDoubleExponentOK = false;
-          displayDoubleError (ex.getMessage ());
-        }
+        isDoubleExponentOK = true;
+        setDoubleExponentFromBits ();
+        showDoubleValue ();
+      }
+      catch (final Exception ex)
+      {
+        isDoubleExponentOK = false;
+        displayDoubleError (ex.getMessage ());
       }
     });
 
@@ -857,21 +815,17 @@ final class FPFormatsPanel extends Panel
     });
 
     // Float biased exponent text: return key.
-    fBiasedText.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
+    fBiasedText.addActionListener (ev -> {
+      try
       {
-        try
-        {
-          isFloatExponentOK = true;
-          setFloatExponentFromBiased ();
-          showFloatValue ();
-        }
-        catch (final Exception ex)
-        {
-          isFloatExponentOK = false;
-          displayFloatError (ex.getMessage ());
-        }
+        isFloatExponentOK = true;
+        setFloatExponentFromBiased ();
+        showFloatValue ();
+      }
+      catch (final Exception ex)
+      {
+        isFloatExponentOK = false;
+        displayFloatError (ex.getMessage ());
       }
     });
 
@@ -896,21 +850,17 @@ final class FPFormatsPanel extends Panel
     });
 
     // Double biased exponent text: return key.
-    dBiasedText.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
+    dBiasedText.addActionListener (ev -> {
+      try
       {
-        try
-        {
-          isDoubleExponentOK = true;
-          setDoubleExponentFromBiased ();
-          showDoubleValue ();
-        }
-        catch (final Exception ex)
-        {
-          isDoubleExponentOK = false;
-          displayDoubleError (ex.getMessage ());
-        }
+        isDoubleExponentOK = true;
+        setDoubleExponentFromBiased ();
+        showDoubleValue ();
+      }
+      catch (final Exception ex)
+      {
+        isDoubleExponentOK = false;
+        displayDoubleError (ex.getMessage ());
       }
     });
 
@@ -935,21 +885,17 @@ final class FPFormatsPanel extends Panel
     });
 
     // Float unbiased exponent text: return key.
-    fUnbiasedText.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
+    fUnbiasedText.addActionListener (ev -> {
+      try
       {
-        try
-        {
-          isFloatExponentOK = true;
-          setFloatExponentFromUnbiased ();
-          showFloatValue ();
-        }
-        catch (final Exception ex)
-        {
-          isFloatExponentOK = false;
-          displayFloatError (ex.getMessage ());
-        }
+        isFloatExponentOK = true;
+        setFloatExponentFromUnbiased ();
+        showFloatValue ();
+      }
+      catch (final Exception ex)
+      {
+        isFloatExponentOK = false;
+        displayFloatError (ex.getMessage ());
       }
     });
 
@@ -974,21 +920,17 @@ final class FPFormatsPanel extends Panel
     });
 
     // Double unbiased exponent text: return key.
-    dUnbiasedText.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
+    dUnbiasedText.addActionListener (ev -> {
+      try
       {
-        try
-        {
-          isDoubleExponentOK = true;
-          setDoubleExponentFromUnbiased ();
-          showDoubleValue ();
-        }
-        catch (final Exception ex)
-        {
-          isDoubleExponentOK = false;
-          displayDoubleError (ex.getMessage ());
-        }
+        isDoubleExponentOK = true;
+        setDoubleExponentFromUnbiased ();
+        showDoubleValue ();
+      }
+      catch (final Exception ex)
+      {
+        isDoubleExponentOK = false;
+        displayDoubleError (ex.getMessage ());
       }
     });
 
@@ -1013,13 +955,7 @@ final class FPFormatsPanel extends Panel
     });
 
     // Float fraction bits text: return key.
-    fFractionBitsText.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
-      {
-        showFloatValue ();
-      }
-    });
+    fFractionBitsText.addActionListener (ev -> showFloatValue ());
 
     // Float fraction bits text: focus and tab key.
     fFractionBitsText.addFocusListener (new FocusAdapter ()
@@ -1032,13 +968,7 @@ final class FPFormatsPanel extends Panel
     });
 
     // Double fraction bits text: return key.
-    dFractionBitsText.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
-      {
-        showDoubleValue ();
-      }
-    });
+    dFractionBitsText.addActionListener (ev -> showDoubleValue ());
 
     // Double fraction bits text: focus and tab key.
     dFractionBitsText.addFocusListener (new FocusAdapter ()
@@ -1051,13 +981,7 @@ final class FPFormatsPanel extends Panel
     });
 
     // Float value text: return key.
-    fValueText.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
-      {
-        decomposeFloatValue ();
-      }
-    });
+    fValueText.addActionListener (ev -> decomposeFloatValue ());
 
     // Float value text: focus and tab key.
     fValueText.addFocusListener (new FocusAdapter ()
@@ -1070,13 +994,7 @@ final class FPFormatsPanel extends Panel
     });
 
     // Double value text: return key.
-    dValueText.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
-      {
-        decomposeDoubleValue ();
-      }
-    });
+    dValueText.addActionListener (ev -> decomposeDoubleValue ());
 
     // Double value text: focus and tab key.
     dValueText.addFocusListener (new FocusAdapter ()

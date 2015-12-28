@@ -21,8 +21,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Label;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 
 import numbercruncher.graphutils.PlotProperties;
 import numbercruncher.mathutils.DataPoint;
@@ -120,14 +118,10 @@ public final class IntegrationPanel extends AbstractUserPointPanel
     addDemoControls (controlPanel);
 
     // Algorithm choice handler.
-    integratorChoice.addItemListener (new ItemListener ()
-    {
-      public void itemStateChanged (final ItemEvent ev)
-      {
-        algorithm = integratorChoice.getSelectedIndex ();
-        if (isPlotted)
-          plot ();
-      }
+    integratorChoice.addItemListener (ev -> {
+      algorithm = integratorChoice.getSelectedIndex ();
+      if (isPlotted)
+        plot ();
     });
   }
 

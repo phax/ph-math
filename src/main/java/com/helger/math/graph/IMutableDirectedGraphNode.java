@@ -27,7 +27,9 @@ import com.helger.commons.state.EChange;
  * @author Philip Helger
  */
 @MustImplementEqualsAndHashcode
-public interface IMutableDirectedGraphNode extends IMutableBaseGraphNode <IMutableDirectedGraphNode, IMutableDirectedGraphRelation>, IDirectedGraphNode <IMutableDirectedGraphNode, IMutableDirectedGraphRelation>
+public interface IMutableDirectedGraphNode extends
+                                           IMutableBaseGraphNode <IMutableDirectedGraphNode, IMutableDirectedGraphRelation>,
+                                           IDirectedGraphNode <IMutableDirectedGraphNode, IMutableDirectedGraphRelation>
 {
   /**
    * Add a new incoming relation to this node

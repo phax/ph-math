@@ -55,7 +55,7 @@ public final class FPFormats
 
     final IEEE754 numbers[] = {
 
-        // Floats
+                                // Floats
                                 new IEEE754 (0,
                                              IEEE754.toFloatBiasedExponent (-IEEE754Constants.FLOAT_EXPONENT_BIAS),
                                              new IEEE754.FloatFraction ("00101")),

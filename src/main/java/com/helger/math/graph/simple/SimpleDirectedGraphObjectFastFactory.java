@@ -28,7 +28,7 @@ import com.helger.math.graph.impl.DirectedGraphRelationFast;
 /**
  * Default implementation of the {@link IMutableDirectedGraphObjectFactory} with
  * {@link DirectedGraphNodeFast} and {@link DirectedGraphRelationFast}.
- * 
+ *
  * @author Philip Helger
  */
 public class SimpleDirectedGraphObjectFastFactory implements IMutableDirectedGraphObjectFactory

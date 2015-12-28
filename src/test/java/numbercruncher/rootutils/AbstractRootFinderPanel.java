@@ -20,11 +20,9 @@ import java.awt.Button;
 import java.awt.Font;
 import java.awt.Label;
 import java.awt.Panel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-import numbercruncher.graphutils.FunctionFrame;
 import numbercruncher.graphutils.AbstractGraphPanel;
+import numbercruncher.graphutils.FunctionFrame;
 
 /**
  * The base panel for all root finder demo panels.
@@ -66,7 +64,7 @@ public abstract class AbstractRootFinderPanel extends AbstractGraphPanel
 
   /**
    * Constructor.
-   * 
+   *
    * @param plotFunctions
    *        the array of functions to plot
    * @param functionImageFileName
@@ -75,15 +73,15 @@ public abstract class AbstractRootFinderPanel extends AbstractGraphPanel
    *        the function frame title
    */
   protected AbstractRootFinderPanel (final PlotFunction plotFunctions[],
-                             final String functionImageFileName,
-                             final String functionFrameTitle)
+                                     final String functionImageFileName,
+                                     final String functionFrameTitle)
   {
     this (plotFunctions, true, false, functionImageFileName, functionFrameTitle);
   }
 
   /**
    * Constructor.
-   * 
+   *
    * @param plotFunctions
    *        the array of functions to plot
    * @param xorMode
@@ -94,16 +92,16 @@ public abstract class AbstractRootFinderPanel extends AbstractGraphPanel
    *        the function frame title
    */
   protected AbstractRootFinderPanel (final PlotFunction plotFunctions[],
-                             final boolean xorMode,
-                             final String functionImageFileName,
-                             final String functionFrameTitle)
+                                     final boolean xorMode,
+                                     final String functionImageFileName,
+                                     final String functionFrameTitle)
   {
     this (plotFunctions, xorMode, false, functionImageFileName, functionFrameTitle);
   }
 
   /**
    * Constructor.
-   * 
+   *
    * @param plotFunctions
    *        the array of functions to plot
    * @param xorMode
@@ -116,10 +114,10 @@ public abstract class AbstractRootFinderPanel extends AbstractGraphPanel
    *        the function frame title
    */
   protected AbstractRootFinderPanel (final PlotFunction plotFunctions[],
-                             final boolean xorMode,
-                             final boolean drawXequalsY,
-                             final String functionImageFileName,
-                             final String functionFrameTitle)
+                                     final boolean xorMode,
+                                     final boolean drawXequalsY,
+                                     final String functionImageFileName,
+                                     final String functionFrameTitle)
   {
     super (plotFunctions, plotFunctions[0].getPlotProperties (), xorMode, drawXequalsY);
 
@@ -142,46 +140,33 @@ public abstract class AbstractRootFinderPanel extends AbstractGraphPanel
     stepButton.setEnabled (true);
 
     // Step button handler.
-    stepButton.addActionListener (new ActionListener ()
-    {
-      // If the run thread is inactive, call step().
-      // If the thread is active, stop it and revert the
-      // button label to "Step".
-      public void actionPerformed (final ActionEvent ev)
+    stepButton.addActionListener (ev -> {
+      if ((runThread != null) && (runThread.isAlive ()))
       {
-        if ((runThread != null) && (runThread.isAlive ()))
-        {
-          paused = true;
-          runButton.setEnabled (true);
-          stepButton.setLabel ("Step");
-        }
-        else
-        {
-          step ();
-        }
+        paused = true;
+        runButton.setEnabled (true);
+        stepButton.setLabel ("Step");
+      }
+      else
+      {
+        step ();
       }
     });
 
     // Run button handler.
-    runButton.addActionListener (new ActionListener ()
-    {
-      // Start the run thread and change the step button
-      // label to "Pause".
-      public void actionPerformed (final ActionEvent ev)
-      {
-        runButton.setEnabled (false);
-        stepButton.setLabel ("Pause");
-        paused = false;
+    runButton.addActionListener (ev -> {
+      runButton.setEnabled (false);
+      stepButton.setLabel ("Pause");
+      paused = false;
 
-        runThread = new RunThread ();
-        runThread.start ();
-      }
+      runThread = new RunThread ();
+      runThread.start ();
     });
   }
 
   /**
    * Set the converged flag.
-   * 
+   *
    * @param converged
    *        true if algorithm converged
    */
@@ -215,7 +200,7 @@ public abstract class AbstractRootFinderPanel extends AbstractGraphPanel
 
   /**
    * Return the selected function to find roots for.
-   * 
+   *
    * @return the selected function
    */
   protected PlotFunction getSelectedPlotFunction ()
@@ -246,7 +231,7 @@ public abstract class AbstractRootFinderPanel extends AbstractGraphPanel
 
   /**
    * Return the value of the selected function at x.
-   * 
+   *
    * @param x
    *        the value of x
    * @return the value of the function
@@ -380,7 +365,7 @@ public abstract class AbstractRootFinderPanel extends AbstractGraphPanel
 
   /**
    * The algorithm has exceeded the maximum number of iterations.
-   * 
+   *
    * @param maxIters
    *        the maximum number of iterations
    * @param text

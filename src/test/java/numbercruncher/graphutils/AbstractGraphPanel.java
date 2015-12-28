@@ -58,7 +58,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Constructor.
-   * 
+   *
    * @param functions
    *        the array of plottable functions
    * @param plotProps
@@ -69,9 +69,9 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
    *        if true, draw the X=Y line
    */
   protected AbstractGraphPanel (final IPlottable functions[],
-                        final PlotProperties plotProps,
-                        final boolean xorMode,
-                        final boolean drawXequalsY)
+                                final PlotProperties plotProps,
+                                final boolean xorMode,
+                                final boolean drawXequalsY)
   {
     this.m_aPlotProps = plotProps;
     this.m_bXorMode = xorMode;
@@ -86,7 +86,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Constructor.
-   * 
+   *
    * @param headerText
    *        the text to display in the header panel
    * @param plotProps
@@ -107,7 +107,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Constructor.
-   * 
+   *
    * @param headerText
    *        the text to display in the header panel
    * @param plotProps
@@ -127,7 +127,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Constructor.
-   * 
+   *
    * @param plotProps
    *        the plot properties
    */
@@ -165,7 +165,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Return the label font.
-   * 
+   *
    * @return the font
    */
   protected Font getLabelFont ()
@@ -175,7 +175,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Return the text font.
-   * 
+   *
    * @return the font
    */
   protected Font getTextFont ()
@@ -185,7 +185,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Return the plot properties.
-   * 
+   *
    * @return the plot properties
    */
   protected PlotProperties getPlotProperties ()
@@ -195,7 +195,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Set the plot properties.
-   * 
+   *
    * @param plotProps
    *        the plot properties
    */
@@ -207,7 +207,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Set the header image.
-   * 
+   *
    * @param image
    *        the header image
    */
@@ -218,7 +218,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Set the header label text in the default black color.
-   * 
+   *
    * @param text
    *        the header label text
    */
@@ -229,7 +229,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Set the header label text in color.
-   * 
+   *
    * @param text
    *        the header label text
    * @param color
@@ -242,7 +242,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Set the function to plot.
-   * 
+   *
    * @param function
    *        the function to set
    */
@@ -254,7 +254,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Set the header to display the function.
-   * 
+   *
    * @param function
    *        the function to display
    */
@@ -265,7 +265,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Add a demo's controls to the control panel.
-   * 
+   *
    * @param demoControlPanel
    *        the demo's control subpanel
    */
@@ -276,7 +276,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Process a user input error.
-   * 
+   *
    * @param message
    *        the error message
    */
@@ -335,7 +335,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Plot the function.
-   * 
+   *
    * @param plotFunction
    *        the function to plot
    */
@@ -362,7 +362,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Return whether or not it is OK to plot the function.
-   * 
+   *
    * @return true or false
    */
   protected boolean plotOK ()
@@ -372,7 +372,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Check to make sure the function is in bounds over the interval [a, b].
-   * 
+   *
    * @param a
    *        the lower bound
    * @param b
@@ -406,7 +406,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Return the value of the plottable function at x. (Return 0 here.)
-   * 
+   *
    * @param x
    *        the value of x
    * @return the value of the function
@@ -418,7 +418,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Start a function plot.
-   * 
+   *
    * @param color
    *        the plot color
    */
@@ -429,7 +429,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Plot a function point at column c.
-   * 
+   *
    * @param c
    *        the column
    * @param y
@@ -450,7 +450,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Plot a point.
-   * 
+   *
    * @param x
    *        the x-coordinate of the point
    * @param y
@@ -465,7 +465,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Plot a line.
-   * 
+   *
    * @param x1
    *        the x-coordinate of one end of the line
    * @param y1
@@ -484,7 +484,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Plot multiple lines.
-   * 
+   *
    * @param xs1
    *        the array of x-coordinates of one end of the lines
    * @param ys1
@@ -508,7 +508,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Plot a rectangle.
-   * 
+   *
    * @param x
    *        the x-coordinate of the upper left corner
    * @param y
@@ -527,7 +527,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Plot a dot.
-   * 
+   *
    * @param x
    *        the x-coordinate of the dot center
    * @param y
@@ -544,7 +544,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Plot multiple dots.
-   * 
+   *
    * @param data
    *        the array of dot coordinates
    * @param k
@@ -647,7 +647,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
   /**
    * Mouse clicked event handler. (Callback from the plot panel. Do nothing
    * here.)
-   * 
+   *
    * @param ev
    *        the mouse event
    */
@@ -657,7 +657,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
   /**
    * Mouse pressed event handler. (Callback from the plot panel. Do nothing
    * here.)
-   * 
+   *
    * @param ev
    *        the mouse event
    */
@@ -667,7 +667,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
   /**
    * Mouse released event handler. (Callback from the plot panel. Do nothing
    * here.)
-   * 
+   *
    * @param ev
    *        the mouse event
    */
@@ -677,7 +677,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
   /**
    * Mouse dragged event handler. (Callback from the plot panel. Do nothing
    * here.)
-   * 
+   *
    * @param ev
    *        the mouse event
    */
@@ -686,7 +686,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
 
   /**
    * Choose a function. (Callback from the function frame. Do nothing here.)
-   * 
+   *
    * @param index
    */
   public void chooseFunction (final int index)

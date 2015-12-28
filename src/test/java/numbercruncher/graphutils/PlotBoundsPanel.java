@@ -22,8 +22,6 @@ import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextField;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
@@ -199,14 +197,10 @@ final class PlotBoundsPanel extends Panel
       super (3);
 
       // Action (return key) handler.
-      addActionListener (new ActionListener ()
-      {
-        public void actionPerformed (final ActionEvent ev)
+      addActionListener (ev -> {
+        if (boundsOK ())
         {
-          if (boundsOK ())
-          {
-            m_aGraphPanel.plotBoundsChanged (); // callback
-          }
+          m_aGraphPanel.plotBoundsChanged (); // callback
         }
       });
 

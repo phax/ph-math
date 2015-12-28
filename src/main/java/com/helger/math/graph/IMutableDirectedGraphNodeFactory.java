@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 
 /**
  * Factory interface for creating directed graph nodes
- * 
+ *
  * @author Philip Helger
  */
 public interface IMutableDirectedGraphNodeFactory
@@ -30,7 +30,7 @@ public interface IMutableDirectedGraphNodeFactory
    * Create a new graph node with a <code>null</code> value and add it to the
    * graph. A new ID is generated.<br>
    * Equal to calling <code>createNode (null);</code>
-   * 
+   *
    * @return The created graph node. Never <code>null</code>.
    */
   @Nonnull
@@ -38,7 +38,7 @@ public interface IMutableDirectedGraphNodeFactory
 
   /**
    * Create a new graph node with a known ID.
-   * 
+   *
    * @param sID
    *        The ID of the graph node. If it is <code>null</code> or empty a new
    *        ID is automatically created.

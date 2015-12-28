@@ -21,14 +21,14 @@ import javax.annotation.Nullable;
 
 /**
  * Factory interface for creating directed graph relations.
- * 
+ *
  * @author Philip Helger
  */
 public interface IMutableDirectedGraphRelationFactory
 {
   /**
    * Create a new relation from the passed from-node to the to-node.
-   * 
+   *
    * @param aFrom
    *        The from node. May not be <code>null</code>.
    * @param aTo
@@ -42,7 +42,7 @@ public interface IMutableDirectedGraphRelationFactory
   /**
    * Create a new relation from the passed from-node to the to-node using a
    * previously known ID.
-   * 
+   *
    * @param sID
    *        The ID of the relation to be created. If it is <code>null</code> or
    *        empty a new unique ID is created.

@@ -26,7 +26,7 @@ public class TrapezoidalIntegrator implements IIntegrator
 
   /**
    * Constructor.
-   * 
+   *
    * @param integrand
    *        the function to integrate
    */
@@ -38,7 +38,7 @@ public class TrapezoidalIntegrator implements IIntegrator
   /**
    * Integrate the function from a to b using the trapezoidal algorithm, and
    * return an approximation to the area. (Integrator implementation.)
-   * 
+   *
    * @param a
    *        the lower limit
    * @param b
@@ -67,7 +67,7 @@ public class TrapezoidalIntegrator implements IIntegrator
 
   /**
    * Compute the area of the ith trapezoidal region.
-   * 
+   *
    * @param x1
    *        the left bound of the region
    * @param h

@@ -22,8 +22,6 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.Panel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import numbercruncher.graphutils.AbstractGraphPanel;
 import numbercruncher.graphutils.PlotProperties;
@@ -138,31 +136,23 @@ public final class BuffonPanel extends AbstractGraphPanel
     resetButton.setEnabled (false);
 
     // Run button handler.
-    runButton.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
+    runButton.addActionListener (ev -> {
+      if (runButton.getLabel ().equals (RUN))
       {
-        if (runButton.getLabel ().equals (RUN))
-        {
-          run ();
-        }
-        else
-        {
-          pause ();
-        }
+        run ();
+      }
+      else
+      {
+        pause ();
       }
     });
 
     // Reset button handler.
-    resetButton.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
-      {
-        needles.init ();
-        needlesText.setText ("0");
+    resetButton.addActionListener (ev -> {
+      needles.init ();
+      needlesText.setText ("0");
 
-        draw ();
-      }
+      draw ();
     });
   }
 

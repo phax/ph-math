@@ -37,7 +37,7 @@ public abstract class AbstractDemoFrame extends Frame
 
   /**
    * Constructor.
-   * 
+   *
    * @param title
    *        the window title
    * @param demoPanel
@@ -50,7 +50,7 @@ public abstract class AbstractDemoFrame extends Frame
 
   /**
    * Constructor.
-   * 
+   *
    * @param title
    *        the window title
    * @param demoPanel
@@ -70,7 +70,7 @@ public abstract class AbstractDemoFrame extends Frame
 
   /**
    * Initialize the frame.
-   * 
+   *
    * @param width
    *        the frame width
    * @param height
@@ -127,7 +127,7 @@ public abstract class AbstractDemoFrame extends Frame
 
   /**
    * Update the display without repainting the background.
-   * 
+   *
    * @param g
    *        the graphics context
    */

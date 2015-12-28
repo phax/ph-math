@@ -30,7 +30,8 @@ import com.helger.commons.state.EChange;
  * @param <R>
  *        Relation class
  */
-public interface IMutableBaseGraph <N extends IMutableBaseGraphNode <N, R>, R extends IMutableBaseGraphRelation <N, R>> extends IBaseGraph <N, R>, IMutableBaseGraphObject
+public interface IMutableBaseGraph <N extends IMutableBaseGraphNode <N, R>, R extends IMutableBaseGraphRelation <N, R>>
+                                   extends IBaseGraph <N, R>, IMutableBaseGraphObject
 {
   /**
    * Allow or disallow that {@link #addNode(IMutableBaseGraphNode)} and

@@ -23,7 +23,7 @@ public class PredictorCorrectorDiffEqSolver extends AbstractDiffEqSolver
 {
   /**
    * Constructor.
-   * 
+   *
    * @param equation
    *        the differential equation to solve
    */
@@ -34,7 +34,7 @@ public class PredictorCorrectorDiffEqSolver extends AbstractDiffEqSolver
 
   /**
    * Return the next data point in the approximation of the solution.
-   * 
+   *
    * @param h
    *        the width of the interval
    */

@@ -27,7 +27,7 @@ import com.helger.math.graph.impl.Graph;
 
 /**
  * A simple graph object that bidirectionally links graph nodes.
- * 
+ *
  * @author Philip Helger
  */
 @NotThreadSafe

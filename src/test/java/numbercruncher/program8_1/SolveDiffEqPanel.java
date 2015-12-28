@@ -23,13 +23,9 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.Panel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 
-import numbercruncher.graphutils.FunctionFrame;
 import numbercruncher.graphutils.AbstractGraphPanel;
+import numbercruncher.graphutils.FunctionFrame;
 import numbercruncher.graphutils.PlotProperties;
 import numbercruncher.mathutils.AbstractDiffEqSolver;
 import numbercruncher.mathutils.AbstractDifferentialEquation;
@@ -213,49 +209,30 @@ public final class SolveDiffEqPanel extends AbstractGraphPanel
     stepButton.setEnabled (true);
 
     // Algorithm choice handler.
-    solverChoice.addItemListener (new ItemListener ()
-    {
-      public void itemStateChanged (final ItemEvent ev)
-      {
-        draw ();
-      }
-    });
+    solverChoice.addItemListener (ev -> draw ());
 
     // Step button handler.
-    stepButton.addActionListener (new ActionListener ()
-    {
-      // If the run thread is inactive, call step().
-      // If the thread is active, stop it and revert the
-      // button label to "Step".
-      public void actionPerformed (final ActionEvent ev)
+    stepButton.addActionListener (ev -> {
+      if ((runThread != null) && (runThread.isAlive ()))
       {
-        if ((runThread != null) && (runThread.isAlive ()))
-        {
-          paused = true;
-          runButton.setEnabled (true);
-          stepButton.setLabel ("Step");
-        }
-        else
-        {
-          step ();
-        }
+        paused = true;
+        runButton.setEnabled (true);
+        stepButton.setLabel ("Step");
+      }
+      else
+      {
+        step ();
       }
     });
 
     // Run button handler.
-    runButton.addActionListener (new ActionListener ()
-    {
-      // Start the run thread and change the step button
-      // label to "Pause".
-      public void actionPerformed (final ActionEvent ev)
-      {
-        runButton.setEnabled (false);
-        stepButton.setLabel ("Pause");
-        paused = false;
+    runButton.addActionListener (ev -> {
+      runButton.setEnabled (false);
+      stepButton.setLabel ("Pause");
+      paused = false;
 
-        runThread = new RunThread ();
-        runThread.start ();
-      }
+      runThread = new RunThread ();
+      runThread.start ();
     });
   }
 

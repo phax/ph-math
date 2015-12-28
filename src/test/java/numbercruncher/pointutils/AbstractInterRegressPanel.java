@@ -20,8 +20,6 @@ import java.awt.Choice;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Label;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 
 /**
  * The base panel for the interpolation and regression panels.
@@ -33,7 +31,7 @@ public abstract class AbstractInterRegressPanel extends AbstractUserPointPanel
 
   /**
    * Constructor.
-   * 
+   *
    * @param maxPoints
    *        the maximum number of data points
    * @param actionButton1Label
@@ -41,14 +39,16 @@ public abstract class AbstractInterRegressPanel extends AbstractUserPointPanel
    * @param actionButton2Label
    *        the label for action button 2
    */
-  protected AbstractInterRegressPanel (final int maxPoints, final String actionButton1Label, final String actionButton2Label)
+  protected AbstractInterRegressPanel (final int maxPoints,
+                                       final String actionButton1Label,
+                                       final String actionButton2Label)
   {
     this (maxPoints, actionButton1Label, actionButton2Label, false);
   }
 
   /**
    * Constructor.
-   * 
+   *
    * @param maxPoints
    *        the maximum number of data points
    * @param actionButton1Label
@@ -59,9 +59,9 @@ public abstract class AbstractInterRegressPanel extends AbstractUserPointPanel
    *        true to enable the degree choice, false to disable
    */
   protected AbstractInterRegressPanel (final int maxPoints,
-                               final String actionButton1Label,
-                               final String actionButton2Label,
-                               final boolean showDegree)
+                                       final String actionButton1Label,
+                                       final String actionButton2Label,
+                                       final boolean showDegree)
   {
     super (maxPoints, "# points:", actionButton1Label, actionButton2Label);
 
@@ -95,21 +95,17 @@ public abstract class AbstractInterRegressPanel extends AbstractUserPointPanel
     actionButton1.setEnabled (false);
 
     // Degree choice handler.
-    degreeChoice.addItemListener (new ItemListener ()
-    {
-      public void itemStateChanged (final ItemEvent ev)
-      {
-        final Choice choice = (Choice) ev.getItemSelectable ();
-        final int degree = choice.getSelectedIndex () + 1;
-        degreeChanged (degree);
-        draw ();
-      }
+    degreeChoice.addItemListener (ev -> {
+      final Choice choice = (Choice) ev.getItemSelectable ();
+      final int degree = choice.getSelectedIndex () + 1;
+      degreeChanged (degree);
+      draw ();
     });
   }
 
   /**
    * Notify that the degree has changed. (Do nothing here.)
-   * 
+   *
    * @param degree
    *        the new degree
    */
@@ -118,7 +114,7 @@ public abstract class AbstractInterRegressPanel extends AbstractUserPointPanel
 
   /**
    * Return whether or not it's OK to plot the function.
-   * 
+   *
    * @return true if OK, otherwise false
    */
   @Override

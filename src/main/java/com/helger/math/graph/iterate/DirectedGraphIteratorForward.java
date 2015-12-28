@@ -34,7 +34,7 @@ import com.helger.math.graph.IMutableDirectedGraphRelation;
 
 /**
  * A simple forward iterator for directed graphs (following the outgoing nodes).
- * 
+ *
  * @author Philip Helger
  */
 @NotThreadSafe
@@ -43,7 +43,7 @@ public final class DirectedGraphIteratorForward implements IIterableIterator <IM
   /**
    * This class represents a node in the current iteration process. It is
    * relevant to easily keep the current iterator status and the node together.
-   * 
+   *
    * @author Philip Helger
    */
   private static final class IterationNode
@@ -141,7 +141,7 @@ public final class DirectedGraphIteratorForward implements IIterableIterator <IM
 
           // Callback to check whether the current relation should be followed
           // or not
-          if (m_aRelationFilter != null && !m_aRelationFilter.matchesFilter (aCurrentRelation))
+          if (m_aRelationFilter != null && !m_aRelationFilter.test (aCurrentRelation))
             continue;
 
           // to-node of the current relation

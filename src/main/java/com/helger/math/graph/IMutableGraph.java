@@ -26,7 +26,9 @@ import com.helger.commons.state.EChange;
  *
  * @author Philip Helger
  */
-public interface IMutableGraph extends IMutableBaseGraph <IMutableGraphNode, IMutableGraphRelation>, IMutableGraphObjectFactory
+public interface IMutableGraph extends
+                               IMutableBaseGraph <IMutableGraphNode, IMutableGraphRelation>,
+                               IMutableGraphObjectFactory
 {
   /**
    * Allow or disallow that {@link #addNode(IMutableGraphNode)} and

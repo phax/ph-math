@@ -24,7 +24,7 @@ public class InvertibleMatrix extends LinearSystem
 {
   /**
    * Constructor.
-   * 
+   *
    * @param n
    *        the number of rows = the number of columns
    */
@@ -35,7 +35,7 @@ public class InvertibleMatrix extends LinearSystem
 
   /**
    * Constructor.
-   * 
+   *
    * @param values
    *        the array of values
    */
@@ -46,7 +46,7 @@ public class InvertibleMatrix extends LinearSystem
 
   /**
    * Compute the inverse of this matrix.
-   * 
+   *
    * @return the inverse matrix
    * @throws MatrixException
    *         if an error occurred
@@ -69,7 +69,7 @@ public class InvertibleMatrix extends LinearSystem
 
   /**
    * Compute the determinant.
-   * 
+   *
    * @return the determinant
    * @throws MatrixException
    *         if an error occurred
@@ -94,7 +94,7 @@ public class InvertibleMatrix extends LinearSystem
 
   /**
    * Compute the Euclidean norm of this matrix.
-   * 
+   *
    * @return the norm
    */
   public float norm ()
@@ -115,7 +115,7 @@ public class InvertibleMatrix extends LinearSystem
 
   /**
    * Compute the condition number based on the Euclidean norm.
-   * 
+   *
    * @return the condition number
    */
   public float condition () throws MatrixException

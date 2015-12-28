@@ -26,7 +26,7 @@ public class MatrixException extends Exception
 
   /**
    * Constructor.
-   * 
+   *
    * @param msg
    *        the error message
    */

@@ -24,10 +24,6 @@ import java.awt.Font;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextField;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 
 import numbercruncher.graphutils.AbstractGraphPanel;
 import numbercruncher.graphutils.PlotProperties;
@@ -131,43 +127,33 @@ public final class PrimePatternsPanel extends AbstractGraphPanel
     addDemoControls (controlPanel);
 
     // Path choice handler.
-    pathChoice.addItemListener (new ItemListener ()
-    {
-      // Select a path.
-      public void itemStateChanged (final ItemEvent ev)
-      {
-        final String item = (String) ev.getItem ();
+    pathChoice.addItemListener (ev -> {
+      final String item = (String) ev.getItem ();
 
-        for (int i = 0; i < PATHS.length; ++i)
+      for (int i = 0; i < PATHS.length; ++i)
+      {
+        if (item.equals (PATHS[i]))
         {
-          if (item.equals (PATHS[i]))
-          {
-            path = i;
-            break;
-          }
+          path = i;
+          break;
         }
       }
     });
 
     // Run button handler.
-    runButton.addActionListener (new ActionListener ()
-    {
-      // Start and stop the run thread.
-      public void actionPerformed (final ActionEvent ev)
+    runButton.addActionListener (ev -> {
+      if (runButton.getLabel ().equals (RUN_LABEL))
       {
-        if (runButton.getLabel ().equals (RUN_LABEL))
-        {
-          runButton.setLabel (STOP_LABEL);
-          runButton.setEnabled (false);
+        runButton.setLabel (STOP_LABEL);
+        runButton.setEnabled (false);
 
-          draw (); // clear panel
-          plotPrimes ();
-        }
-        else
-        {
-          runButton.setLabel (RUN_LABEL);
-          stopFlag = true;
-        }
+        draw (); // clear panel
+        plotPrimes ();
+      }
+      else
+      {
+        runButton.setLabel (RUN_LABEL);
+        stopFlag = true;
       }
     });
   }

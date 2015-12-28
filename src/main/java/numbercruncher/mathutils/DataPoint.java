@@ -28,7 +28,7 @@ public class DataPoint
 
   /**
    * Constructor.
-   * 
+   *
    * @param x
    *        the x value
    * @param y

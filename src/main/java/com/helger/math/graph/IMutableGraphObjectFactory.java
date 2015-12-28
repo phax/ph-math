@@ -19,7 +19,7 @@ package com.helger.math.graph;
 /**
  * Combined factory interface that encapsulates node and relation factory
  * methods.
- * 
+ *
  * @author Philip Helger
  */
 public interface IMutableGraphObjectFactory extends IMutableGraphNodeFactory, IMutableGraphRelationFactory

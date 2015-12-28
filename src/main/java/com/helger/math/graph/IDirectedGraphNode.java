@@ -36,7 +36,8 @@ import com.helger.commons.annotation.ReturnsMutableCopy;
  *        Directed relation class
  */
 @MustImplementEqualsAndHashcode
-public interface IDirectedGraphNode <N extends IDirectedGraphNode <N, R>, R extends IDirectedGraphRelation <N, R>> extends IBaseGraphNode <N, R>
+public interface IDirectedGraphNode <N extends IDirectedGraphNode <N, R>, R extends IDirectedGraphRelation <N, R>>
+                                    extends IBaseGraphNode <N, R>
 {
   /**
    * @return <code>true</code> if this node has at least one incoming relation.

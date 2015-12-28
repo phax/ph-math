@@ -36,7 +36,7 @@ public class KahanSummation
 
   /**
    * Return the current corrected value of the running sum.
-   * 
+   *
    * @return the running sum's value
    */
   public float value ()
@@ -46,7 +46,7 @@ public class KahanSummation
 
   /**
    * Return the corrected value of the current addend.
-   * 
+   *
    * @return the corrected addend value
    */
   public float correctedAddend ()
@@ -56,7 +56,7 @@ public class KahanSummation
 
   /**
    * Add the value of an addend to the running sum.
-   * 
+   *
    * @param addend
    *        the value
    */

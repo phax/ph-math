@@ -34,7 +34,8 @@ import com.helger.commons.annotation.ReturnsMutableCopy;
  *        Relation class
  */
 @MustImplementEqualsAndHashcode
-public interface IBaseGraphRelation <N extends IBaseGraphNode <N, R>, R extends IBaseGraphRelation <N, R>> extends IBaseGraphObject
+public interface IBaseGraphRelation <N extends IBaseGraphNode <N, R>, R extends IBaseGraphRelation <N, R>>
+                                    extends IBaseGraphObject
 {
   /**
    * Check if this relation is connected to the passed node.

@@ -901,12 +901,14 @@ public final class MatrixIntTest
       final DecimalFormat fmt = new DecimalFormat ("0");
       fmt.setDecimalFormatSymbols (DecimalFormatSymbols.getInstance (Locale.US));
 
-      final PrintWriter aPW = new PrintWriter (new FileOutputStream (FILENAME_JAMA_TEST_MATRIX_OUT));
-      A.print (aPW, fmt, 10);
-      aPW.close ();
-      final BufferedReader aReader = new BufferedReader (new FileReader (FILENAME_JAMA_TEST_MATRIX_OUT));
-      R = MatrixInt.read (aReader);
-      aReader.close ();
+      try (final PrintWriter aPW = new PrintWriter (new FileOutputStream (FILENAME_JAMA_TEST_MATRIX_OUT)))
+      {
+        A.print (aPW, fmt, 10);
+      }
+      try (final BufferedReader aReader = new BufferedReader (new FileReader (FILENAME_JAMA_TEST_MATRIX_OUT)))
+      {
+        R = MatrixInt.read (aReader);
+      }
       if (A.minus (R).norm1 () < .001)
       {
         _try_success ("print()/read()...", "");
@@ -931,12 +933,14 @@ public final class MatrixIntTest
                                      "print()/read()...",
                                      "Formatting error... will try JDK1.1 reformulation...");
         final DecimalFormat fmt = new DecimalFormat ("0");
-        final PrintWriter FILE = new PrintWriter (new FileOutputStream (FILENAME_JAMA_TEST_MATRIX_OUT));
-        A.print (FILE, fmt, 10);
-        FILE.close ();
-        final BufferedReader aReader = new BufferedReader (new FileReader (FILENAME_JAMA_TEST_MATRIX_OUT));
-        R = MatrixInt.read (aReader);
-        aReader.close ();
+        try (final PrintWriter FILE = new PrintWriter (new FileOutputStream (FILENAME_JAMA_TEST_MATRIX_OUT)))
+        {
+          A.print (FILE, fmt, 10);
+        }
+        try (final BufferedReader aReader = new BufferedReader (new FileReader (FILENAME_JAMA_TEST_MATRIX_OUT)))
+        {
+          R = MatrixInt.read (aReader);
+        }
         if (A.minus (R).norm1 () < .001)
         {
           _try_success ("print()/read()...", "");
@@ -962,12 +966,14 @@ public final class MatrixIntTest
     final String tmpname = "TMPMATRIX.serial";
     try
     {
-      final ObjectOutputStream out = new ObjectOutputStream (new FileOutputStream (tmpname));
-      out.writeObject (R);
-      out.close ();
-      final ObjectInputStream sin = new ObjectInputStream (new FileInputStream (tmpname));
-      A = (MatrixInt) sin.readObject ();
-      sin.close ();
+      try (final ObjectOutputStream out = new ObjectOutputStream (new FileOutputStream (tmpname)))
+      {
+        out.writeObject (R);
+      }
+      try (final ObjectInputStream sin = new ObjectInputStream (new FileInputStream (tmpname)))
+      {
+        A = (MatrixInt) sin.readObject ();
+      }
 
       try
       {

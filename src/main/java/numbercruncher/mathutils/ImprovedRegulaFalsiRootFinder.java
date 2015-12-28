@@ -29,7 +29,7 @@ public class ImprovedRegulaFalsiRootFinder extends RegulaFalsiRootFinder
 
   /**
    * Constructor.
-   * 
+   *
    * @param function
    *        the functions whose roots to find
    * @param xMin
@@ -51,7 +51,7 @@ public class ImprovedRegulaFalsiRootFinder extends RegulaFalsiRootFinder
 
   /**
    * Do the improved regula falsi iteration procedure.
-   * 
+   *
    * @param n
    *        the iteration count
    */

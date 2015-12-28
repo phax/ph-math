@@ -24,10 +24,6 @@ import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextField;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 
 import numbercruncher.graphutils.AbstractGraphPanel;
 import numbercruncher.graphutils.PlotProperties;
@@ -182,40 +178,26 @@ public final class RandomNormalPanel extends AbstractGraphPanel
     resetButton.setEnabled (false);
 
     // Algorithm choice handler.
-    algorithmChoice.addItemListener (new ItemListener ()
-    {
-      public void itemStateChanged (final ItemEvent ev)
-      {
-        draw ();
-      }
-    });
+    algorithmChoice.addItemListener (ev -> draw ());
 
     // Run button handler.
-    runButton.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
+    runButton.addActionListener (ev -> {
+      if (runButton.getLabel ().equals (RUN))
       {
-        if (runButton.getLabel ().equals (RUN))
-        {
-          run ();
-        }
-        else
-        {
-          pause ();
-        }
+        run ();
+      }
+      else
+      {
+        pause ();
       }
     });
 
     // Reset button handler.
-    resetButton.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
-      {
-        n = 0;
-        valuesText.setText ("0");
+    resetButton.addActionListener (ev -> {
+      n = 0;
+      valuesText.setText ("0");
 
-        draw ();
-      }
+      draw ();
     });
   }
 

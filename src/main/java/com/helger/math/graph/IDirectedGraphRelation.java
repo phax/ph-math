@@ -30,7 +30,8 @@ import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
  *        Directed relation class
  */
 @MustImplementEqualsAndHashcode
-public interface IDirectedGraphRelation <N extends IDirectedGraphNode <N, R>, R extends IDirectedGraphRelation <N, R>> extends IBaseGraphRelation <N, R>
+public interface IDirectedGraphRelation <N extends IDirectedGraphNode <N, R>, R extends IDirectedGraphRelation <N, R>>
+                                        extends IBaseGraphRelation <N, R>
 {
   /**
    * @return The from-node of this relation. Never <code>null</code>.

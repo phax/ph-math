@@ -23,7 +23,7 @@ interface IPiBorweinParent
 {
   /**
    * Scale notification.
-   * 
+   *
    * @param scale
    *        the scale being used
    */
@@ -31,7 +31,7 @@ interface IPiBorweinParent
 
   /**
    * Phase notification.
-   * 
+   *
    * @param phase
    *        the current phase
    */
@@ -39,7 +39,7 @@ interface IPiBorweinParent
 
   /**
    * Task notification.
-   * 
+   *
    * @param task
    *        the current computation task
    */

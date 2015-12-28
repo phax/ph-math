@@ -43,7 +43,8 @@ import com.helger.math.graph.IMutableBaseGraphRelation;
  *        Relation class
  */
 @NotThreadSafe
-public abstract class AbstractBaseGraph <N extends IMutableBaseGraphNode <N, R>, R extends IMutableBaseGraphRelation <N, R>> extends AbstractBaseGraphObject implements IMutableBaseGraph <N, R>
+public abstract class AbstractBaseGraph <N extends IMutableBaseGraphNode <N, R>, R extends IMutableBaseGraphRelation <N, R>>
+                                        extends AbstractBaseGraphObject implements IMutableBaseGraph <N, R>
 {
   /** By default this is allowed */
   public static final boolean DEFAULT_CHANGING_CONNECTED_OBJECTS_ALLOWED = true;

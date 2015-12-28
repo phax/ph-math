@@ -23,7 +23,7 @@ public interface IEvaluatable
 {
   /**
    * Return the value of the function at x.
-   * 
+   *
    * @param x
    *        the value of x
    * @return the value of the function at x

@@ -25,8 +25,6 @@ import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextArea;
 import java.awt.TextField;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 
 import numbercruncher.graphutils.IDemoPanel;
@@ -189,24 +187,10 @@ public final class PiBorweinPanel extends Panel implements IDemoPanel, IPiBorwei
     stopButton.setEnabled (false);
 
     // Run button handler.
-    runButton.addActionListener (new ActionListener ()
-    {
-      // Start and stop the algorithm.
-      public void actionPerformed (final ActionEvent ev)
-      {
-        run ();
-      }
-    });
+    runButton.addActionListener (ev -> run ());
 
     // Stop button handler.
-    stopButton.addActionListener (new ActionListener ()
-    {
-      // Start and stop the algorithm.
-      public void actionPerformed (final ActionEvent ev)
-      {
-        stop ();
-      }
-    });
+    stopButton.addActionListener (ev -> stop ());
   }
 
   private void run ()

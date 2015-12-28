@@ -27,7 +27,7 @@ public abstract class AbstractPiFormula
 {
   /**
    * Print the string containing the digits of pi.
-   * 
+   *
    * @param piString
    *        the string containing the digits of pi
    */
@@ -72,7 +72,7 @@ public abstract class AbstractPiFormula
 
   /**
    * Return a timestamp string that contains the elapsed time period.
-   * 
+   *
    * @param time
    *        the starting time of the period
    * @return the timestamp string

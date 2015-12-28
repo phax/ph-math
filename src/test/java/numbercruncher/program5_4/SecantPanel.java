@@ -27,8 +27,8 @@ import numbercruncher.graphutils.PlotProperties;
 import numbercruncher.mathutils.AbstractFunction;
 import numbercruncher.mathutils.AbstractRootFinder;
 import numbercruncher.mathutils.SecantRootFinder;
-import numbercruncher.rootutils.PlotFunction;
 import numbercruncher.rootutils.AbstractRootFinderPanel;
+import numbercruncher.rootutils.PlotFunction;
 
 /**
  * The demo panel for the Secant Algorithm program and applet.

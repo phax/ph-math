@@ -22,8 +22,6 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.Panel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
@@ -112,50 +110,31 @@ public final class TransformationPanel extends Panel implements IDemoPanel
     add (controlPanel, BorderLayout.SOUTH);
 
     // Run button handler.
-    runButton.addActionListener (new ActionListener ()
-    {
-      // Start the run thread and change the step button
-      // label to "Pause".
-      public void actionPerformed (final ActionEvent ev)
-      {
-        runButton.setEnabled (false);
-        stepButton.setLabel ("Pause");
-        paused = false;
+    runButton.addActionListener (ev -> {
+      runButton.setEnabled (false);
+      stepButton.setLabel ("Pause");
+      paused = false;
 
-        runThread = new RunThread ();
-        runThread.start ();
-      }
+      runThread = new RunThread ();
+      runThread.start ();
     });
 
     // Step button handler.
-    stepButton.addActionListener (new ActionListener ()
-    {
-      // If the run thread is inactive, call step().
-      // If the thread is active, stop it and revert the
-      // button label to "Step".
-      public void actionPerformed (final ActionEvent ev)
+    stepButton.addActionListener (ev -> {
+      if ((runThread != null) && (runThread.isAlive ()))
       {
-        if ((runThread != null) && (runThread.isAlive ()))
-        {
-          paused = true;
-          runButton.setEnabled (true);
-          stepButton.setLabel ("Step");
-        }
-        else
-        {
-          step ();
-        }
+        paused = true;
+        runButton.setEnabled (true);
+        stepButton.setLabel ("Step");
+      }
+      else
+      {
+        step ();
       }
     });
 
     // Reset button handler.
-    resetButton.addActionListener (new ActionListener ()
-    {
-      public void actionPerformed (final ActionEvent ev)
-      {
-        reset ();
-      }
-    });
+    resetButton.addActionListener (ev -> reset ());
 
     // Resize event handler.
     addComponentListener (new ComponentAdapter ()

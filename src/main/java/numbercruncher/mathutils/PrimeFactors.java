@@ -26,7 +26,7 @@ public class PrimeFactors
 {
   /**
    * Compute the Sieve of Eratosthenes.
-   * 
+   *
    * @param n
    *        the size of the sieve
    * @return the sieve as a boolean array (each element is true if the
@@ -61,7 +61,7 @@ public class PrimeFactors
 
   /**
    * Compute the prime factors of an integer value.
-   * 
+   *
    * @param pn
    *        the value to factor
    * @return an array of distinct prime factors
@@ -100,7 +100,7 @@ public class PrimeFactors
 
   /**
    * Main for testing.
-   * 
+   *
    * @param args
    *        the commandline arguments (ignored)
    */

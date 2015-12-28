@@ -26,7 +26,7 @@ public class SimpsonsIntegrator implements IIntegrator
 
   /**
    * Constructor.
-   * 
+   *
    * @param integrand
    *        the function to integrate
    */
@@ -38,7 +38,7 @@ public class SimpsonsIntegrator implements IIntegrator
   /**
    * Integrate the function from a to b using Simpson's algorithm, and return an
    * approximation to the area. (Integrator implementation.)
-   * 
+   *
    * @param a
    *        the lower limit
    * @param b
@@ -68,7 +68,7 @@ public class SimpsonsIntegrator implements IIntegrator
 
   /**
    * Compute the area of the ith parabolic region.
-   * 
+   *
    * @param x1
    *        the left bound of the region
    * @param h

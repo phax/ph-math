@@ -20,7 +20,7 @@ public class IdentityMatrix extends SquareMatrix
 {
   /**
    * Constructor.
-   * 
+   *
    * @param n
    *        the number of rows == the number of columns
    */
@@ -33,7 +33,7 @@ public class IdentityMatrix extends SquareMatrix
 
   /**
    * Convert a square matrix into an identity matrix.
-   * 
+   *
    * @param sm
    *        the square matrix to convert
    */

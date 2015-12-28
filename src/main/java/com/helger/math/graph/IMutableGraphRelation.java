@@ -22,7 +22,7 @@ import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
 
 /**
  * Base interface for a single undirected graph relation.
- * 
+ *
  * @author Philip Helger
  */
 @MustImplementEqualsAndHashcode

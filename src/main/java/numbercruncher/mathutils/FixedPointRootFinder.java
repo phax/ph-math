@@ -33,7 +33,7 @@ public class FixedPointRootFinder extends AbstractRootFinder
 
   /**
    * Constructor.
-   * 
+   *
    * @param function
    *        the functions whose roots to find
    */
@@ -44,7 +44,7 @@ public class FixedPointRootFinder extends AbstractRootFinder
 
   /**
    * Reset.
-   * 
+   *
    * @param x0
    *        the initial x-value
    */
@@ -60,7 +60,7 @@ public class FixedPointRootFinder extends AbstractRootFinder
 
   /**
    * Return the current value of x[n].
-   * 
+   *
    * @return the value
    */
   public float getXn ()
@@ -70,7 +70,7 @@ public class FixedPointRootFinder extends AbstractRootFinder
 
   /**
    * Return the current value of g(x[n]).
-   * 
+   *
    * @return the value
    */
   public float getGn ()
@@ -84,7 +84,7 @@ public class FixedPointRootFinder extends AbstractRootFinder
 
   /**
    * Do the fixed point iteration procedure. (Nothing to do!)
-   * 
+   *
    * @param n
    *        the iteration count
    */
@@ -105,7 +105,7 @@ public class FixedPointRootFinder extends AbstractRootFinder
 
   /**
    * Check the position of xn.
-   * 
+   *
    * @throws PositionUnchangedException
    */
   @Override
@@ -119,7 +119,7 @@ public class FixedPointRootFinder extends AbstractRootFinder
 
   /**
    * Indicate whether or not the algorithm has converged.
-   * 
+   *
    * @return true if converged, else false
    */
   @Override

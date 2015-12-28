@@ -23,7 +23,7 @@ public final class IntPower
 {
   /**
    * Compute and return x^power.
-   * 
+   *
    * @param px
    * @param pexponent
    *        the integer power
