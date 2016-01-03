@@ -23,6 +23,8 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.helger.math.graph.IMutableDirectedGraphNode;
+import com.helger.math.graph.IMutableGraphNode;
 import com.helger.math.graph.simple.SimpleDirectedGraph;
 import com.helger.math.graph.simple.SimpleDirectedGraphObjectFastFactory;
 import com.helger.math.graph.simple.SimpleGraph;
@@ -59,7 +61,7 @@ public final class DijkstraTest
     assertEquals ("O", g.getSingleStartNode ().getID ());
     assertEquals ("T", g.getSingleEndNode ().getID ());
 
-    final Dijkstra.Result <?> r = Dijkstra.applyDijkstra (g, "O", "T", ATTR_WEIGHT);
+    final Dijkstra.Result <IMutableDirectedGraphNode> r = Dijkstra.applyDijkstra (g, "O", "T", ATTR_WEIGHT);
     assertNotNull (r);
     s_aLogger.info (r.getAsString ());
     assertEquals (13, r.getResultDistance ());
@@ -82,7 +84,7 @@ public final class DijkstraTest
     assertEquals ("1", g.getSingleStartNode ().getID ());
     assertEquals ("6", g.getSingleEndNode ().getID ());
 
-    final Dijkstra.Result <?> r = Dijkstra.applyDijkstra (g, "1", "6", ATTR_WEIGHT);
+    final Dijkstra.Result <IMutableDirectedGraphNode> r = Dijkstra.applyDijkstra (g, "1", "6", ATTR_WEIGHT);
     assertNotNull (r);
     s_aLogger.info (r.getAsString ());
     assertEquals (5, r.getResultDistance ());
@@ -103,7 +105,7 @@ public final class DijkstraTest
     g.createRelation ("4", "6").setAttribute (ATTR_WEIGHT, 5);
     g.createRelation ("5", "6").setAttribute (ATTR_WEIGHT, 2);
 
-    final Dijkstra.Result <?> r = Dijkstra.applyDijkstra (g, "1", "6", ATTR_WEIGHT);
+    final Dijkstra.Result <IMutableGraphNode> r = Dijkstra.applyDijkstra (g, "1", "6", ATTR_WEIGHT);
     assertNotNull (r);
     s_aLogger.info (r.getAsString ());
     assertEquals (5, r.getResultDistance ());
@@ -143,7 +145,7 @@ public final class DijkstraTest
     assertEquals ("O", g.getSingleStartNode ().getID ());
     assertEquals ("T", g.getSingleEndNode ().getID ());
 
-    final Dijkstra.Result <?> r = Dijkstra.applyDijkstra (g, "O", "T", ATTR_WEIGHT);
+    final Dijkstra.Result <IMutableDirectedGraphNode> r = Dijkstra.applyDijkstra (g, "O", "T", ATTR_WEIGHT);
     assertNotNull (r);
     s_aLogger.info (r.getAsString ());
     assertEquals (24, r.getResultDistance ());
@@ -171,7 +173,7 @@ public final class DijkstraTest
     g.createRelation ("Geneve", "Lausanne").setAttribute (ATTR_WEIGHT, 64);
     g.createRelation ("Lausanne", "Paris").setAttribute (ATTR_WEIGHT, 536);
 
-    Dijkstra.Result <?> r = Dijkstra.applyDijkstra (g, "Barcelona", "Lausanne", ATTR_WEIGHT);
+    Dijkstra.Result <IMutableGraphNode> r = Dijkstra.applyDijkstra (g, "Barcelona", "Lausanne", ATTR_WEIGHT);
     assertNotNull (r);
     s_aLogger.info (r.getAsString ());
     assertEquals (864, r.getResultDistance ());
