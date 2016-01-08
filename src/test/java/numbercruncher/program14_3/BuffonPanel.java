@@ -23,6 +23,7 @@ import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.Panel;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import numbercruncher.graphutils.AbstractGraphPanel;
 import numbercruncher.graphutils.PlotProperties;
 
@@ -208,6 +209,7 @@ public final class BuffonPanel extends AbstractGraphPanel
      * Run the thread.
      */
     @Override
+    @SuppressFBWarnings ("UC_USELESS_CONDITION")
     public void run ()
     {
       while (!paused)
