@@ -16,15 +16,13 @@
  */
 package com.helger.math.graph.impl;
 
-import java.util.concurrent.locks.ReadWriteLock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.PresentForCodeCoverage;
+import com.helger.commons.concurrent.SimpleReadWriteLock;
 import com.helger.commons.id.factory.GlobalIDFactory;
 import com.helger.commons.id.factory.IIDFactory;
 
@@ -39,7 +37,7 @@ import com.helger.commons.id.factory.IIDFactory;
 @ThreadSafe
 public final class GraphObjectIDFactory
 {
-  private static final ReadWriteLock s_aRWLock = new ReentrantReadWriteLock ();
+  private static final SimpleReadWriteLock s_aRWLock = new SimpleReadWriteLock ();
   private static IIDFactory <String> s_aIDFactory;
 
   @PresentForCodeCoverage
@@ -56,15 +54,7 @@ public final class GraphObjectIDFactory
   @Nullable
   public static IIDFactory <String> getIDFactory ()
   {
-    s_aRWLock.readLock ().lock ();
-    try
-    {
-      return s_aIDFactory;
-    }
-    finally
-    {
-      s_aRWLock.readLock ().unlock ();
-    }
+    return s_aRWLock.readLocked ( () -> s_aIDFactory);
   }
 
   /**
@@ -76,15 +66,9 @@ public final class GraphObjectIDFactory
    */
   public static void setIDFactory (@Nullable final IIDFactory <String> aIDFactory)
   {
-    s_aRWLock.writeLock ().lock ();
-    try
-    {
+    s_aRWLock.writeLocked ( () -> {
       s_aIDFactory = aIDFactory;
-    }
-    finally
-    {
-      s_aRWLock.writeLock ().unlock ();
-    }
+    });
   }
 
   /**
@@ -98,14 +82,7 @@ public final class GraphObjectIDFactory
   @Nonempty
   public static String createNewGraphObjectID ()
   {
-    s_aRWLock.readLock ().lock ();
-    try
-    {
-      return s_aIDFactory != null ? s_aIDFactory.getNewID () : GlobalIDFactory.getNewStringID ();
-    }
-    finally
-    {
-      s_aRWLock.readLock ().unlock ();
-    }
+    return s_aRWLock.readLocked ( () -> s_aIDFactory != null ? s_aIDFactory.getNewID ()
+                                                             : GlobalIDFactory.getNewStringID ());
   }
 }
