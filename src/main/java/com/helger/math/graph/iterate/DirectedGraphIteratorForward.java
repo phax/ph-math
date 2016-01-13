@@ -25,6 +25,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
+import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.UnsupportedOperation;
 import com.helger.commons.collection.impl.NonBlockingStack;
 import com.helger.commons.collection.iterate.IIterableIterator;
@@ -53,9 +54,7 @@ public final class DirectedGraphIteratorForward implements IIterableIterator <IM
 
     private IterationNode (@Nonnull final IMutableDirectedGraphNode aNode)
     {
-      if (aNode == null)
-        throw new NullPointerException ("node");
-      m_aNode = aNode;
+      m_aNode = ValueEnforcer.notNull (aNode, "Node");
       m_aOutgoingIt = aNode.getAllOutgoingRelations ().iterator ();
     }
 
@@ -76,7 +75,7 @@ public final class DirectedGraphIteratorForward implements IIterableIterator <IM
    * Current stack. It contains the current node plus an iterator of the
    * outgoing relations of the node
    */
-  private final NonBlockingStack <IterationNode> m_aNodeStack = new NonBlockingStack <IterationNode> ();
+  private final NonBlockingStack <IterationNode> m_aNodeStack = new NonBlockingStack <> ();
 
   /**
    * Optional filter for graph relations to defined whether thy should be
@@ -88,7 +87,7 @@ public final class DirectedGraphIteratorForward implements IIterableIterator <IM
    * This set keeps track of all the nodes we already visited. This is important
    * for cyclic dependencies.
    */
-  private final Set <String> m_aHandledNodes = new HashSet <String> ();
+  private final Set <String> m_aHandledNodes = new HashSet <> ();
 
   /**
    * Does the graph have cycles?
@@ -103,8 +102,7 @@ public final class DirectedGraphIteratorForward implements IIterableIterator <IM
   public DirectedGraphIteratorForward (@Nonnull final IMutableDirectedGraphNode aStartNode,
                                        @Nullable final IFilter <IMutableDirectedGraphRelation> aRelationFilter)
   {
-    if (aStartNode == null)
-      throw new NullPointerException ("startNode");
+    ValueEnforcer.notNull (aStartNode, "StartNode");
 
     m_aRelationFilter = aRelationFilter;
 
