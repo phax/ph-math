@@ -16,7 +16,6 @@
  */
 package com.helger.math.graph.algo;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.TreeSet;
@@ -112,10 +111,10 @@ public final class Kruskal
 
     if (GlobalDebug.isDebugMode ())
     {
-      final List <String> aSortedRelationsText = new ArrayList <String> ();
-      for (final IMutableGraphRelation aRel : aSortedRelations)
-        aSortedRelationsText.add (_getWeightInfo (aRel, sRelationCostAttr));
-      s_aLogger.info ("Sorted relations: " + StringHelper.getImploded (';', aSortedRelationsText));
+      s_aLogger.info ("Sorted relations: " +
+                      StringHelper.getImploded (';',
+                                                aSortedRelations,
+                                                aRel -> _getWeightInfo (aRel, sRelationCostAttr)));
     }
 
     final SimpleGraph ret = new SimpleGraph (new SimpleGraphObjectFastFactory ());
