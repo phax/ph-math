@@ -17,6 +17,7 @@
 package com.helger.math.graph.algo;
 
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 import java.util.TreeSet;
 
@@ -27,7 +28,6 @@ import org.slf4j.LoggerFactory;
 
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.collection.CollectionHelper;
-import com.helger.commons.compare.IntComparator;
 import com.helger.commons.debug.GlobalDebug;
 import com.helger.commons.string.StringHelper;
 import com.helger.math.graph.IMutableGraphNode;
@@ -107,7 +107,7 @@ public final class Kruskal
     if (GlobalDebug.isDebugMode ())
       s_aLogger.info ("Starting Kruskal on " + aAllRelations.size () + " relations");
     final List <IMutableGraphRelation> aSortedRelations = CollectionHelper.getSorted (aAllRelations,
-                                                                                      new IntComparator <IMutableGraphRelation> (aObject -> aObject.getAttributeAsInt (sRelationCostAttr)));
+                                                                                      Comparator.comparingInt (aObject -> aObject.getAttributeAsInt (sRelationCostAttr)));
 
     if (GlobalDebug.isDebugMode ())
     {
