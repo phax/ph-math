@@ -26,7 +26,6 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.UnsupportedOperation;
 import com.helger.commons.collection.impl.NonBlockingStack;
 import com.helger.commons.collection.iterate.IIterableIterator;
 import com.helger.commons.filter.IFilter;
@@ -182,21 +181,5 @@ public final class DirectedGraphIteratorBackward implements IIterableIterator <I
   public boolean hasCycles ()
   {
     return m_bHasCycles;
-  }
-
-  /**
-   * @throws UnsupportedOperationException
-   *         every time!
-   */
-  @UnsupportedOperation
-  public void remove ()
-  {
-    throw new UnsupportedOperationException ("This iterator has no remove!");
-  }
-
-  @Nonnull
-  public Iterator <IMutableDirectedGraphNode> iterator ()
-  {
-    return this;
   }
 }

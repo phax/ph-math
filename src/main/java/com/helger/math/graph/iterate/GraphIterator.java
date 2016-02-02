@@ -26,7 +26,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
-import com.helger.commons.annotation.UnsupportedOperation;
+import com.helger.commons.ValueEnforcer;
 import com.helger.commons.collection.iterate.IIterableIterator;
 import com.helger.math.graph.IMutableGraphNode;
 import com.helger.math.graph.IMutableGraphRelation;
@@ -53,11 +53,10 @@ public final class GraphIterator implements IIterableIterator <IMutableGraphNode
 
   public GraphIterator (@Nonnull final IMutableGraphNode aStartNode)
   {
-    if (aStartNode == null)
-      throw new NullPointerException ("startNode");
+    ValueEnforcer.notNull (aStartNode, "startNode");
 
     // Collect all nodes, depth first
-    final List <IMutableGraphNode> aList = new ArrayList <IMutableGraphNode> ();
+    final List <IMutableGraphNode> aList = new ArrayList <> ();
     _traverseDFS (aStartNode, aList);
     m_aIter = aList.iterator ();
   }
@@ -103,21 +102,5 @@ public final class GraphIterator implements IIterableIterator <IMutableGraphNode
   public boolean hasCycles ()
   {
     return m_bHasCycles;
-  }
-
-  /**
-   * @throws UnsupportedOperationException
-   *         every time!
-   */
-  @UnsupportedOperation
-  public void remove ()
-  {
-    throw new UnsupportedOperationException ("This iterator has no remove!");
-  }
-
-  @Nonnull
-  public Iterator <IMutableGraphNode> iterator ()
-  {
-    return this;
   }
 }
