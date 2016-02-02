@@ -239,7 +239,7 @@ public final class Dijkstra
       final Object aDirectedFromNode = aLastMatch.getToNode ();
       final Object aDirectedToNode = aNode;
       final IMutableDirectedGraphRelation r = ((IMutableDirectedGraphNode) aDirectedFromNode).getOutgoingRelationTo ((IMutableDirectedGraphNode) aDirectedToNode);
-      return GenericReflection.<IMutableDirectedGraphRelation, R> uncheckedCast (r);
+      return GenericReflection.uncheckedCast (r);
     }
 
     // Undirected
