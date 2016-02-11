@@ -35,7 +35,6 @@ import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.debug.GlobalDebug;
 import com.helger.commons.lang.GenericReflection;
-import com.helger.commons.lang.IHasStringRepresentation;
 import com.helger.math.graph.IMutableBaseGraph;
 import com.helger.math.graph.IMutableBaseGraphNode;
 import com.helger.math.graph.IMutableBaseGraphRelation;
@@ -51,7 +50,7 @@ public final class Dijkstra
 {
   private static final Logger s_aLogger = LoggerFactory.getLogger (Dijkstra.class);
 
-  private static final class WorkElement <N extends IMutableBaseGraphNode <N, ?>> implements IHasStringRepresentation
+  private static final class WorkElement <N extends IMutableBaseGraphNode <N, ?>>
   {
     private final N m_aFromNode;
     private final int m_nDistance;
@@ -173,7 +172,7 @@ public final class Dijkstra
   }
 
   @Immutable
-  public static final class Result <N extends IMutableBaseGraphNode <N, ?>> implements IHasStringRepresentation
+  public static final class Result <N extends IMutableBaseGraphNode <N, ?>>
   {
     private final List <N> m_aResultNodes;
     private final int m_nResultDistance;
