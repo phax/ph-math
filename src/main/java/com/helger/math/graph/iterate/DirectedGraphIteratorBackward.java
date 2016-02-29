@@ -16,16 +16,16 @@
  */
 package com.helger.math.graph.iterate;
 
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.Set;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.ValueEnforcer;
+import com.helger.commons.collection.ext.CommonsHashSet;
+import com.helger.commons.collection.ext.ICommonsSet;
 import com.helger.commons.collection.impl.NonBlockingStack;
 import com.helger.commons.collection.iterate.IIterableIterator;
 import com.helger.commons.filter.IFilter;
@@ -87,7 +87,7 @@ public final class DirectedGraphIteratorBackward implements IIterableIterator <I
    * This set keeps track of all the nodes we already visited. This is important
    * for cyclic dependencies.
    */
-  private final Set <String> m_aHandledNodes = new HashSet <> ();
+  private final ICommonsSet <String> m_aHandledNodes = new CommonsHashSet <> ();
 
   /**
    * Does the graph have cycles?

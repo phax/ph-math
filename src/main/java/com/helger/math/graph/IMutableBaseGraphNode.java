@@ -25,14 +25,14 @@ import com.helger.commons.state.EChange;
  * Base interface for a single graph node.
  *
  * @author Philip Helger
- * @param <N>
+ * @param <NODETYPE>
  *        Node class
- * @param <R>
+ * @param <RELATIONTYPE>
  *        Relation class
  */
 @MustImplementEqualsAndHashcode
-public interface IMutableBaseGraphNode <N extends IMutableBaseGraphNode <N, R>, R extends IMutableBaseGraphRelation <N, R>>
-                                       extends IBaseGraphNode <N, R>, IMutableBaseGraphObject
+public interface IMutableBaseGraphNode <NODETYPE extends IMutableBaseGraphNode <NODETYPE, RELATIONTYPE>, RELATIONTYPE extends IMutableBaseGraphRelation <NODETYPE, RELATIONTYPE>>
+                                       extends IBaseGraphNode <NODETYPE, RELATIONTYPE>, IMutableBaseGraphObject
 {
   /**
    * Remove all relations of this node.

@@ -16,14 +16,13 @@
  */
 package com.helger.math.graph.impl;
 
-import java.util.Set;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsLinkedHashSet;
+import com.helger.commons.collection.ext.ICommonsOrderedSet;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.math.graph.IMutableGraphNode;
@@ -70,16 +69,16 @@ public class GraphRelation extends AbstractBaseGraphObject implements IMutableGr
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <IMutableGraphNode> getAllConnectedNodes ()
+  public ICommonsOrderedSet <IMutableGraphNode> getAllConnectedNodes ()
   {
-    return CollectionHelper.newSet (m_aNode1, m_aNode2);
+    return new CommonsLinkedHashSet <> (m_aNode1, m_aNode2);
   }
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <String> getAllConnectedNodeIDs ()
+  public ICommonsOrderedSet <String> getAllConnectedNodeIDs ()
   {
-    return CollectionHelper.newSet (m_aNode1.getID (), m_aNode2.getID ());
+    return new CommonsLinkedHashSet <> (m_aNode1.getID (), m_aNode2.getID ());
   }
 
   @Nonnull

@@ -19,7 +19,6 @@ package com.helger.math.graph.algo;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
-import java.util.TreeSet;
 
 import javax.annotation.Nonnull;
 
@@ -28,6 +27,7 @@ import org.slf4j.LoggerFactory;
 
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsTreeSet;
 import com.helger.commons.debug.GlobalDebug;
 import com.helger.commons.string.StringHelper;
 import com.helger.math.graph.IMutableGraphNode;
@@ -93,7 +93,7 @@ public final class Kruskal
                                         @Nonnull @Nonempty final String sRelationCostAttr)
   {
     return "{" +
-           StringHelper.getImploded (',', new TreeSet <String> (aRel.getAllConnectedNodeIDs ())) +
+           StringHelper.getImploded (',', new CommonsTreeSet <> (aRel.getAllConnectedNodeIDs ())) +
            ":" +
            aRel.getAttributeAsInt (sRelationCostAttr) +
            "}";

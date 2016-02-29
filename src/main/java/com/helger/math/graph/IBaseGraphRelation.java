@@ -16,25 +16,24 @@
  */
 package com.helger.math.graph;
 
-import java.util.Set;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
 import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.collection.ext.ICommonsOrderedSet;
 
 /**
  * Base interface for a single undirected graph relation.
  *
  * @author Philip Helger
- * @param <N>
+ * @param <NODETYPE>
  *        Node class
- * @param <R>
+ * @param <RELATIONTYPE>
  *        Relation class
  */
 @MustImplementEqualsAndHashcode
-public interface IBaseGraphRelation <N extends IBaseGraphNode <N, R>, R extends IBaseGraphRelation <N, R>>
+public interface IBaseGraphRelation <NODETYPE extends IBaseGraphNode <NODETYPE, RELATIONTYPE>, RELATIONTYPE extends IBaseGraphRelation <NODETYPE, RELATIONTYPE>>
                                     extends IBaseGraphObject
 {
   /**
@@ -45,19 +44,19 @@ public interface IBaseGraphRelation <N extends IBaseGraphNode <N, R>, R extends 
    * @return <code>true</code> if the passed node is related via this relation,
    *         <code>false</code> if not.
    */
-  boolean isRelatedTo (@Nullable N aNode);
+  boolean isRelatedTo (@Nullable NODETYPE aNode);
 
   /**
    * @return A list with all connected nodes. Usually 2 elements.
    */
   @Nonnull
   @ReturnsMutableCopy
-  Set <N> getAllConnectedNodes ();
+  ICommonsOrderedSet <NODETYPE> getAllConnectedNodes ();
 
   /**
    * @return A list with the ID of all connected nodes. Usually 2 elements.
    */
   @Nonnull
   @ReturnsMutableCopy
-  Set <String> getAllConnectedNodeIDs ();
+  ICommonsOrderedSet <String> getAllConnectedNodeIDs ();
 }

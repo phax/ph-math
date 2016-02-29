@@ -16,12 +16,6 @@
  */
 package com.helger.math.graph.impl;
 
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
@@ -29,6 +23,11 @@ import javax.annotation.concurrent.NotThreadSafe;
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsLinkedHashMap;
+import com.helger.commons.collection.ext.CommonsLinkedHashSet;
+import com.helger.commons.collection.ext.ICommonsOrderedMap;
+import com.helger.commons.collection.ext.ICommonsOrderedSet;
+import com.helger.commons.collection.ext.ICommonsSet;
 import com.helger.commons.state.EChange;
 import com.helger.commons.state.ETriState;
 import com.helger.math.graph.IMutableDirectedGraph;
@@ -178,7 +177,7 @@ public class DirectedGraph extends AbstractBaseGraph <IMutableDirectedGraphNode,
   @Nonnull
   public IMutableDirectedGraphNode getSingleStartNode () throws IllegalStateException
   {
-    final Set <IMutableDirectedGraphNode> aStartNodes = getAllStartNodes ();
+    final ICommonsSet <IMutableDirectedGraphNode> aStartNodes = getAllStartNodes ();
     if (aStartNodes.size () > 1)
       throw new IllegalStateException ("Graph has more than one starting node");
     if (aStartNodes.isEmpty ())
@@ -188,19 +187,15 @@ public class DirectedGraph extends AbstractBaseGraph <IMutableDirectedGraphNode,
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <IMutableDirectedGraphNode> getAllStartNodes ()
+  public ICommonsSet <IMutableDirectedGraphNode> getAllStartNodes ()
   {
-    final Set <IMutableDirectedGraphNode> aResult = new HashSet <IMutableDirectedGraphNode> ();
-    for (final IMutableDirectedGraphNode aNode : m_aNodes.values ())
-      if (!aNode.hasIncomingRelations ())
-        aResult.add (aNode);
-    return aResult;
+    return CollectionHelper.newSet (m_aNodes.values (), aNode -> !aNode.hasIncomingRelations ());
   }
 
   @Nonnull
   public IMutableDirectedGraphNode getSingleEndNode () throws IllegalStateException
   {
-    final Set <IMutableDirectedGraphNode> aEndNodes = getAllEndNodes ();
+    final ICommonsSet <IMutableDirectedGraphNode> aEndNodes = getAllEndNodes ();
     if (aEndNodes.size () > 1)
       throw new IllegalStateException ("Graph has more than one ending node");
     if (aEndNodes.isEmpty ())
@@ -210,20 +205,16 @@ public class DirectedGraph extends AbstractBaseGraph <IMutableDirectedGraphNode,
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <IMutableDirectedGraphNode> getAllEndNodes ()
+  public ICommonsSet <IMutableDirectedGraphNode> getAllEndNodes ()
   {
-    final Set <IMutableDirectedGraphNode> aResult = new HashSet <IMutableDirectedGraphNode> ();
-    for (final IMutableDirectedGraphNode aNode : m_aNodes.values ())
-      if (!aNode.hasOutgoingRelations ())
-        aResult.add (aNode);
-    return aResult;
+    return CollectionHelper.newSet (m_aNodes.values (), aNode -> !aNode.hasOutgoingRelations ());
   }
 
   @Nonnull
   @ReturnsMutableCopy
-  public Map <String, IMutableDirectedGraphRelation> getAllRelations ()
+  public ICommonsOrderedMap <String, IMutableDirectedGraphRelation> getAllRelations ()
   {
-    final Map <String, IMutableDirectedGraphRelation> ret = new LinkedHashMap <String, IMutableDirectedGraphRelation> ();
+    final ICommonsOrderedMap <String, IMutableDirectedGraphRelation> ret = new CommonsLinkedHashMap <> ();
     for (final IMutableDirectedGraphNode aNode : m_aNodes.values ())
       for (final IMutableDirectedGraphRelation aRelation : aNode.getAllRelations ())
         ret.put (aRelation.getID (), aRelation);
@@ -232,9 +223,9 @@ public class DirectedGraph extends AbstractBaseGraph <IMutableDirectedGraphNode,
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <String> getAllRelationIDs ()
+  public ICommonsOrderedSet <String> getAllRelationIDs ()
   {
-    final Set <String> ret = new LinkedHashSet <String> ();
+    final ICommonsOrderedSet <String> ret = new CommonsLinkedHashSet <> ();
     for (final IMutableDirectedGraphNode aNode : m_aNodes.values ())
       ret.addAll (aNode.getAllRelationIDs ());
     return ret;

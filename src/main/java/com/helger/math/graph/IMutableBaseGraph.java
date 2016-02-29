@@ -25,13 +25,13 @@ import com.helger.commons.state.EChange;
  * Interface for a modifiable graph.
  *
  * @author Philip Helger
- * @param <N>
+ * @param <NODETYPE>
  *        Node class
- * @param <R>
+ * @param <RELATIONTYPE>
  *        Relation class
  */
-public interface IMutableBaseGraph <N extends IMutableBaseGraphNode <N, R>, R extends IMutableBaseGraphRelation <N, R>>
-                                   extends IBaseGraph <N, R>, IMutableBaseGraphObject
+public interface IMutableBaseGraph <NODETYPE extends IMutableBaseGraphNode <NODETYPE, RELATIONTYPE>, RELATIONTYPE extends IMutableBaseGraphRelation <NODETYPE, RELATIONTYPE>>
+                                   extends IBaseGraph <NODETYPE, RELATIONTYPE>, IMutableBaseGraphObject
 {
   /**
    * Allow or disallow that {@link #addNode(IMutableBaseGraphNode)} and
@@ -65,7 +65,7 @@ public interface IMutableBaseGraph <N extends IMutableBaseGraphNode <N, R>, R ex
    * @see #setChangingConnectedObjectsAllowed(boolean)
    */
   @Nonnull
-  EChange addNode (@Nonnull N aNode) throws IllegalArgumentException;
+  EChange addNode (@Nonnull NODETYPE aNode) throws IllegalArgumentException;
 
   /**
    * Remove an existing node from the graph. <br>
@@ -83,7 +83,7 @@ public interface IMutableBaseGraph <N extends IMutableBaseGraphNode <N, R>, R ex
    * @see #setChangingConnectedObjectsAllowed(boolean)
    */
   @Nonnull
-  EChange removeNode (@Nonnull N aNode) throws IllegalArgumentException;
+  EChange removeNode (@Nonnull NODETYPE aNode) throws IllegalArgumentException;
 
   /**
    * Remove an existing node and all connected relations from the graph.
@@ -93,7 +93,7 @@ public interface IMutableBaseGraph <N extends IMutableBaseGraphNode <N, R>, R ex
    * @return {@link EChange}
    */
   @Nonnull
-  EChange removeNodeAndAllRelations (@Nonnull N aNode);
+  EChange removeNodeAndAllRelations (@Nonnull NODETYPE aNode);
 
   /**
    * Remove the passed relation from the graph.
@@ -104,5 +104,5 @@ public interface IMutableBaseGraph <N extends IMutableBaseGraphNode <N, R>, R ex
    *         the from- or the to-node
    */
   @Nonnull
-  EChange removeRelation (@Nullable R aRelation);
+  EChange removeRelation (@Nullable RELATIONTYPE aRelation);
 }

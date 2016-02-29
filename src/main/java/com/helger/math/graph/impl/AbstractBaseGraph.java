@@ -16,17 +16,15 @@
  */
 package com.helger.math.graph.impl;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
-
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsLinkedHashMap;
+import com.helger.commons.collection.ext.ICommonsOrderedMap;
+import com.helger.commons.collection.ext.ICommonsOrderedSet;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.math.graph.IMutableBaseGraph;
@@ -37,19 +35,20 @@ import com.helger.math.graph.IMutableBaseGraphRelation;
  * A simple graph object that bidirectionally links graph nodes.
  *
  * @author Philip Helger
- * @param <N>
+ * @param <NODETYPE>
  *        Node class
- * @param <R>
+ * @param <RELATIONTYPE>
  *        Relation class
  */
 @NotThreadSafe
-public abstract class AbstractBaseGraph <N extends IMutableBaseGraphNode <N, R>, R extends IMutableBaseGraphRelation <N, R>>
-                                        extends AbstractBaseGraphObject implements IMutableBaseGraph <N, R>
+public abstract class AbstractBaseGraph <NODETYPE extends IMutableBaseGraphNode <NODETYPE, RELATIONTYPE>, RELATIONTYPE extends IMutableBaseGraphRelation <NODETYPE, RELATIONTYPE>>
+                                        extends AbstractBaseGraphObject
+                                        implements IMutableBaseGraph <NODETYPE, RELATIONTYPE>
 {
   /** By default this is allowed */
   public static final boolean DEFAULT_CHANGING_CONNECTED_OBJECTS_ALLOWED = true;
 
-  protected final Map <String, N> m_aNodes = new LinkedHashMap <String, N> ();
+  protected final ICommonsOrderedMap <String, NODETYPE> m_aNodes = new CommonsLinkedHashMap <> ();
   private boolean m_bIsChangingConnectedObjectsAllowed = DEFAULT_CHANGING_CONNECTED_OBJECTS_ALLOWED;
 
   public AbstractBaseGraph (@Nullable final String sID)
@@ -68,7 +67,7 @@ public abstract class AbstractBaseGraph <N extends IMutableBaseGraphNode <N, R>,
   }
 
   @Nullable
-  public N getNodeOfID (@Nullable final String sID)
+  public NODETYPE getNodeOfID (@Nullable final String sID)
   {
     return m_aNodes.get (sID);
   }
@@ -81,16 +80,16 @@ public abstract class AbstractBaseGraph <N extends IMutableBaseGraphNode <N, R>,
 
   @Nonnull
   @ReturnsMutableCopy
-  public Map <String, N> getAllNodes ()
+  public ICommonsOrderedMap <String, NODETYPE> getAllNodes ()
   {
-    return CollectionHelper.newOrderedMap (m_aNodes);
+    return m_aNodes.getClone ();
   }
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <String> getAllNodeIDs ()
+  public ICommonsOrderedSet <String> getAllNodeIDs ()
   {
-    return CollectionHelper.newOrderedSet (m_aNodes.keySet ());
+    return m_aNodes.copyOfKeySet ();
   }
 
   @Override

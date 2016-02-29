@@ -22,14 +22,14 @@ import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
  * Base interface for a single undirected graph relation.
  *
  * @author Philip Helger
- * @param <N>
+ * @param <NODETYPE>
  *        Node class
- * @param <R>
+ * @param <RELATIONTYPE>
  *        Relation class
  */
 @MustImplementEqualsAndHashcode
-public interface IMutableBaseGraphRelation <N extends IMutableBaseGraphNode <N, R>, R extends IMutableBaseGraphRelation <N, R>>
-                                           extends IBaseGraphRelation <N, R>, IMutableBaseGraphObject
+public interface IMutableBaseGraphRelation <NODETYPE extends IMutableBaseGraphNode <NODETYPE, RELATIONTYPE>, RELATIONTYPE extends IMutableBaseGraphRelation <NODETYPE, RELATIONTYPE>>
+                                           extends IBaseGraphRelation <NODETYPE, RELATIONTYPE>, IMutableBaseGraphObject
 {
   /* empty */
 }

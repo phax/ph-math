@@ -16,26 +16,25 @@
  */
 package com.helger.math.graph;
 
-import java.util.Set;
-
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
 import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.collection.ext.ICommonsOrderedSet;
 
 /**
  * Base interface for a single graph node.
  *
  * @author Philip Helger
- * @param <N>
+ * @param <NODETYPE>
  *        Node class
- * @param <R>
+ * @param <RELATIONTYPE>
  *        Relation class
  */
 @MustImplementEqualsAndHashcode
-public interface IBaseGraphNode <N extends IBaseGraphNode <N, R>, R extends IBaseGraphRelation <N, R>>
+public interface IBaseGraphNode <NODETYPE extends IBaseGraphNode <NODETYPE, RELATIONTYPE>, RELATIONTYPE extends IBaseGraphRelation <NODETYPE, RELATIONTYPE>>
                                 extends IBaseGraphObject
 {
   /**
@@ -48,7 +47,7 @@ public interface IBaseGraphNode <N extends IBaseGraphNode <N, R>, R extends IBas
    *        The node to be checked. May be <code>null</code>.
    * @return <code>true</code> if is connected, <code>false</code> if not
    */
-  boolean isConnectedWith (@Nullable N aNode);
+  boolean isConnectedWith (@Nullable NODETYPE aNode);
 
   /**
    * Find the relation from this node to the passed node.
@@ -59,7 +58,7 @@ public interface IBaseGraphNode <N extends IBaseGraphNode <N, R>, R extends IBas
    *         the passed node.
    */
   @Nullable
-  R getRelation (@Nullable N aNode);
+  RELATIONTYPE getRelation (@Nullable NODETYPE aNode);
 
   /**
    * Check if this node has any relations.
@@ -82,7 +81,7 @@ public interface IBaseGraphNode <N extends IBaseGraphNode <N, R>, R extends IBas
    */
   @Nonnull
   @ReturnsMutableCopy
-  Set <R> getAllRelations ();
+  ICommonsOrderedSet <RELATIONTYPE> getAllRelations ();
 
   /**
    * @return A container with the IDs of all incoming and outgoing relations.
@@ -90,7 +89,7 @@ public interface IBaseGraphNode <N extends IBaseGraphNode <N, R>, R extends IBas
    */
   @Nonnull
   @ReturnsMutableCopy
-  Set <String> getAllRelationIDs ();
+  ICommonsOrderedSet <String> getAllRelationIDs ();
 
   /**
    * @return A container with all nodes directly connected to this node's
@@ -98,7 +97,7 @@ public interface IBaseGraphNode <N extends IBaseGraphNode <N, R>, R extends IBas
    */
   @Nonnull
   @ReturnsMutableCopy
-  Set <N> getAllRelatedNodes ();
+  ICommonsOrderedSet <NODETYPE> getAllRelatedNodes ();
 
   /**
    * @return A container with the IDs of all nodes directly connected to this
@@ -106,5 +105,5 @@ public interface IBaseGraphNode <N extends IBaseGraphNode <N, R>, R extends IBas
    */
   @Nonnull
   @ReturnsMutableCopy
-  Set <String> getAllRelatedNodeIDs ();
+  ICommonsOrderedSet <String> getAllRelatedNodeIDs ();
 }

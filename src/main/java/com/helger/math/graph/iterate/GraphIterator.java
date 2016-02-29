@@ -16,17 +16,17 @@
  */
 package com.helger.math.graph.iterate;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.ValueEnforcer;
+import com.helger.commons.collection.ext.CommonsArrayList;
+import com.helger.commons.collection.ext.CommonsHashSet;
+import com.helger.commons.collection.ext.ICommonsList;
+import com.helger.commons.collection.ext.ICommonsSet;
 import com.helger.commons.collection.iterate.IIterableIterator;
 import com.helger.math.graph.IMutableGraphNode;
 import com.helger.math.graph.IMutableGraphRelation;
@@ -42,7 +42,7 @@ public final class GraphIterator implements IIterableIterator <IMutableGraphNode
   /**
    * Maps node IDs to node states
    */
-  private final Set <String> m_aHandledObjects = new HashSet <String> ();
+  private final ICommonsSet <String> m_aHandledObjects = new CommonsHashSet <> ();
 
   private final Iterator <IMutableGraphNode> m_aIter;
 
@@ -56,12 +56,13 @@ public final class GraphIterator implements IIterableIterator <IMutableGraphNode
     ValueEnforcer.notNull (aStartNode, "startNode");
 
     // Collect all nodes, depth first
-    final List <IMutableGraphNode> aList = new ArrayList <> ();
+    final ICommonsList <IMutableGraphNode> aList = new CommonsArrayList <> ();
     _traverseDFS (aStartNode, aList);
     m_aIter = aList.iterator ();
   }
 
-  private void _traverseDFS (@Nonnull final IMutableGraphNode aStartNode, @Nonnull final List <IMutableGraphNode> aList)
+  private void _traverseDFS (@Nonnull final IMutableGraphNode aStartNode,
+                             @Nonnull final ICommonsList <IMutableGraphNode> aList)
   {
     m_aHandledObjects.add (aStartNode.getID ());
     aList.add (aStartNode);

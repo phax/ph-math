@@ -16,26 +16,25 @@
  */
 package com.helger.math.graph;
 
-import java.util.Map;
-import java.util.Set;
-
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.collection.ext.ICommonsOrderedMap;
+import com.helger.commons.collection.ext.ICommonsOrderedSet;
 import com.helger.math.matrix.Matrix;
 
 /**
  * Base interface for a read-only graph.
  *
  * @author Philip Helger
- * @param <N>
+ * @param <NODETYPE>
  *        Node class
- * @param <R>
+ * @param <RELATIONTYPE>
  *        Relation class
  */
-public interface IBaseGraph <N extends IBaseGraphNode <N, R>, R extends IBaseGraphRelation <N, R>>
+public interface IBaseGraph <NODETYPE extends IBaseGraphNode <NODETYPE, RELATIONTYPE>, RELATIONTYPE extends IBaseGraphRelation <NODETYPE, RELATIONTYPE>>
                             extends IBaseGraphObject
 {
   /**
@@ -52,7 +51,7 @@ public interface IBaseGraph <N extends IBaseGraphNode <N, R>, R extends IBaseGra
    * @return <code>null</code> if no such graph node exists in this graph.
    */
   @Nullable
-  N getNodeOfID (@Nullable String sID);
+  NODETYPE getNodeOfID (@Nullable String sID);
 
   /**
    * @return A non-<code>null</code> collection of the nodes in this graph, in
@@ -60,7 +59,7 @@ public interface IBaseGraph <N extends IBaseGraphNode <N, R>, R extends IBaseGra
    */
   @Nonnull
   @ReturnsMutableCopy
-  Map <String, N> getAllNodes ();
+  ICommonsOrderedMap <String, NODETYPE> getAllNodes ();
 
   /**
    * @return A non-<code>null</code> set of all the node IDs in this graph, in
@@ -68,7 +67,7 @@ public interface IBaseGraph <N extends IBaseGraphNode <N, R>, R extends IBaseGra
    */
   @Nonnull
   @ReturnsMutableCopy
-  Set <String> getAllNodeIDs ();
+  ICommonsOrderedSet <String> getAllNodeIDs ();
 
   /**
    * @return A non-<code>null</code> collection of the relations in this graph,
@@ -76,7 +75,7 @@ public interface IBaseGraph <N extends IBaseGraphNode <N, R>, R extends IBaseGra
    */
   @Nonnull
   @ReturnsMutableCopy
-  Map <String, R> getAllRelations ();
+  ICommonsOrderedMap <String, RELATIONTYPE> getAllRelations ();
 
   /**
    * @return A non-<code>null</code> set of all the relation IDs in this graph,
@@ -84,7 +83,7 @@ public interface IBaseGraph <N extends IBaseGraphNode <N, R>, R extends IBaseGra
    */
   @Nonnull
   @ReturnsMutableCopy
-  Set <String> getAllRelationIDs ();
+  ICommonsOrderedSet <String> getAllRelationIDs ();
 
   /**
    * Check if this graph contains cycles. An example for a cycle is e.g. if

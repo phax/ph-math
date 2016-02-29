@@ -16,15 +16,14 @@
  */
 package com.helger.math.graph.impl;
 
-import java.util.Set;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsLinkedHashSet;
+import com.helger.commons.collection.ext.ICommonsOrderedSet;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.math.graph.IMutableDirectedGraphNode;
@@ -70,16 +69,16 @@ public class DirectedGraphRelation extends AbstractBaseGraphObject implements IM
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <IMutableDirectedGraphNode> getAllConnectedNodes ()
+  public ICommonsOrderedSet <IMutableDirectedGraphNode> getAllConnectedNodes ()
   {
-    return CollectionHelper.newSet (m_aFrom, m_aTo);
+    return new CommonsLinkedHashSet <> (m_aFrom, m_aTo);
   }
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <String> getAllConnectedNodeIDs ()
+  public ICommonsOrderedSet <String> getAllConnectedNodeIDs ()
   {
-    return CollectionHelper.newSet (m_aFrom.getID (), m_aTo.getID ());
+    return new CommonsLinkedHashSet <> (m_aFrom.getID (), m_aTo.getID ());
   }
 
   @Nonnull

@@ -16,18 +16,16 @@
  */
 package com.helger.math.graph.impl;
 
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
-
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsLinkedHashMap;
+import com.helger.commons.collection.ext.CommonsLinkedHashSet;
+import com.helger.commons.collection.ext.ICommonsOrderedMap;
+import com.helger.commons.collection.ext.ICommonsOrderedSet;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.math.graph.IMutableGraphNode;
@@ -41,7 +39,7 @@ import com.helger.math.graph.IMutableGraphRelation;
 @NotThreadSafe
 public class GraphNode extends AbstractBaseGraphObject implements IMutableGraphNode
 {
-  private Map <String, IMutableGraphRelation> m_aRelations;
+  private ICommonsOrderedMap <String, IMutableGraphRelation> m_aRelations;
 
   public GraphNode ()
   {
@@ -68,7 +66,7 @@ public class GraphNode extends AbstractBaseGraphObject implements IMutableGraphN
 
     final String sRelationID = aRelation.getID ();
     if (m_aRelations == null)
-      m_aRelations = new LinkedHashMap <String, IMutableGraphRelation> ();
+      m_aRelations = new CommonsLinkedHashMap <> ();
     else
       if (m_aRelations.containsKey (sRelationID))
         return EChange.UNCHANGED;
@@ -113,20 +111,20 @@ public class GraphNode extends AbstractBaseGraphObject implements IMutableGraphN
 
   public boolean hasRelations ()
   {
-    return CollectionHelper.isNotEmpty (m_aRelations);
+    return m_aRelations != null && m_aRelations.isNotEmpty ();
   }
 
   @Nonnegative
   public int getRelationCount ()
   {
-    return CollectionHelper.getSize (m_aRelations);
+    return m_aRelations == null ? 0 : m_aRelations.size ();
   }
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <IMutableGraphRelation> getAllRelations ()
+  public ICommonsOrderedSet <IMutableGraphRelation> getAllRelations ()
   {
-    final Set <IMutableGraphRelation> ret = new LinkedHashSet <IMutableGraphRelation> ();
+    final ICommonsOrderedSet <IMutableGraphRelation> ret = new CommonsLinkedHashSet <> ();
     if (m_aRelations != null)
       ret.addAll (m_aRelations.values ());
     return ret;
@@ -134,9 +132,9 @@ public class GraphNode extends AbstractBaseGraphObject implements IMutableGraphN
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <String> getAllRelationIDs ()
+  public ICommonsOrderedSet <String> getAllRelationIDs ()
   {
-    final Set <String> ret = new LinkedHashSet <String> ();
+    final ICommonsOrderedSet <String> ret = new CommonsLinkedHashSet <> ();
     if (m_aRelations != null)
       ret.addAll (m_aRelations.keySet ());
     return ret;
@@ -144,9 +142,9 @@ public class GraphNode extends AbstractBaseGraphObject implements IMutableGraphN
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <IMutableGraphNode> getAllRelatedNodes ()
+  public ICommonsOrderedSet <IMutableGraphNode> getAllRelatedNodes ()
   {
-    final Set <IMutableGraphNode> ret = new LinkedHashSet <IMutableGraphNode> ();
+    final ICommonsOrderedSet <IMutableGraphNode> ret = new CommonsLinkedHashSet <> ();
     if (m_aRelations != null)
       for (final IMutableGraphRelation aRelation : m_aRelations.values ())
       {
@@ -158,9 +156,9 @@ public class GraphNode extends AbstractBaseGraphObject implements IMutableGraphN
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <String> getAllRelatedNodeIDs ()
+  public ICommonsOrderedSet <String> getAllRelatedNodeIDs ()
   {
-    final Set <String> ret = new LinkedHashSet <String> ();
+    final ICommonsOrderedSet <String> ret = new CommonsLinkedHashSet <> ();
     if (m_aRelations != null)
       for (final IMutableGraphRelation aRelation : m_aRelations.values ())
       {

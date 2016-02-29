@@ -16,28 +16,27 @@
  */
 package com.helger.math.graph;
 
-import java.util.List;
-import java.util.Set;
-
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
 import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.collection.ext.ICommonsList;
+import com.helger.commons.collection.ext.ICommonsSet;
 
 /**
  * Base interface for graph node implementations.
  *
  * @author Philip Helger
- * @param <N>
+ * @param <NODETYPE>
  *        Directed node class
- * @param <R>
+ * @param <RELATIONTYPE>
  *        Directed relation class
  */
 @MustImplementEqualsAndHashcode
-public interface IDirectedGraphNode <N extends IDirectedGraphNode <N, R>, R extends IDirectedGraphRelation <N, R>>
-                                    extends IBaseGraphNode <N, R>
+public interface IDirectedGraphNode <NODETYPE extends IDirectedGraphNode <NODETYPE, RELATIONTYPE>, RELATIONTYPE extends IDirectedGraphRelation <NODETYPE, RELATIONTYPE>>
+                                    extends IBaseGraphNode <NODETYPE, RELATIONTYPE>
 {
   /**
    * @return <code>true</code> if this node has at least one incoming relation.
@@ -58,14 +57,14 @@ public interface IDirectedGraphNode <N extends IDirectedGraphNode <N, R>, R exte
    * @return <code>true</code> if the passed relation is an incoming relation,
    *         <code>false</code> if not
    */
-  boolean isIncomingRelation (@Nullable R aRelation);
+  boolean isIncomingRelation (@Nullable RELATIONTYPE aRelation);
 
   /**
    * @return All incoming relations and never <code>null</code>.
    */
   @Nonnull
   @ReturnsMutableCopy
-  List <R> getAllIncomingRelations ();
+  ICommonsList <RELATIONTYPE> getAllIncomingRelations ();
 
   /**
    * Check if this graph node is directly connected to the passed node via an
@@ -75,14 +74,14 @@ public interface IDirectedGraphNode <N extends IDirectedGraphNode <N, R>, R exte
    *        The node to be checked. May be <code>null</code>.
    * @return <code>true</code> if is connected, <code>false</code> if not
    */
-  boolean isFromNode (@Nullable N aNode);
+  boolean isFromNode (@Nullable NODETYPE aNode);
 
   /**
    * @return All nodes that are connected via incoming relations.
    */
   @Nonnull
   @ReturnsMutableCopy
-  Set <N> getAllFromNodes ();
+  ICommonsSet <NODETYPE> getAllFromNodes ();
 
   /**
    * Find the incoming relation from the passed node to this node.
@@ -93,7 +92,7 @@ public interface IDirectedGraphNode <N extends IDirectedGraphNode <N, R>, R exte
    *         passed node to this node.
    */
   @Nullable
-  R getIncomingRelationFrom (@Nullable N aFromNode);
+  RELATIONTYPE getIncomingRelationFrom (@Nullable NODETYPE aFromNode);
 
   // --- outgoing ---
 
@@ -116,14 +115,14 @@ public interface IDirectedGraphNode <N extends IDirectedGraphNode <N, R>, R exte
    * @return <code>true</code> if the passed relation is an outgoing relation,
    *         <code>false</code> if not
    */
-  boolean isOutgoingRelation (@Nullable R aRelation);
+  boolean isOutgoingRelation (@Nullable RELATIONTYPE aRelation);
 
   /**
    * @return All outgoing relations and never <code>null</code>.
    */
   @Nonnull
   @ReturnsMutableCopy
-  List <R> getAllOutgoingRelations ();
+  ICommonsList <RELATIONTYPE> getAllOutgoingRelations ();
 
   /**
    * Check if this graph node is directly connected to the passed node via an
@@ -133,14 +132,14 @@ public interface IDirectedGraphNode <N extends IDirectedGraphNode <N, R>, R exte
    *        The node to be checked. May be <code>null</code>.
    * @return <code>true</code> if is connected, <code>false</code> if not
    */
-  boolean isToNode (@Nullable N aNode);
+  boolean isToNode (@Nullable NODETYPE aNode);
 
   /**
    * @return All nodes that are connected via outgoing relations.
    */
   @Nonnull
   @ReturnsMutableCopy
-  Set <N> getAllToNodes ();
+  ICommonsSet <NODETYPE> getAllToNodes ();
 
   /**
    * Find the incoming relation from this node to the passed node.
@@ -151,7 +150,7 @@ public interface IDirectedGraphNode <N extends IDirectedGraphNode <N, R>, R exte
    *         node to the passed node.
    */
   @Nullable
-  R getOutgoingRelationTo (@Nullable N aToNode);
+  RELATIONTYPE getOutgoingRelationTo (@Nullable NODETYPE aToNode);
 
   // --- incoming and/or outgoing
 

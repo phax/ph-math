@@ -16,12 +16,6 @@
  */
 package com.helger.math.graph.algo;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -30,9 +24,15 @@ import javax.annotation.concurrent.Immutable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsArrayList;
+import com.helger.commons.collection.ext.CommonsLinkedHashMap;
+import com.helger.commons.collection.ext.CommonsLinkedHashSet;
+import com.helger.commons.collection.ext.ICommonsList;
+import com.helger.commons.collection.ext.ICommonsOrderedMap;
+import com.helger.commons.collection.ext.ICommonsOrderedSet;
 import com.helger.commons.debug.GlobalDebug;
 import com.helger.commons.lang.GenericReflection;
 import com.helger.math.graph.IMutableBaseGraph;
@@ -125,19 +125,17 @@ public final class Dijkstra
 
   private static final class WorkRow <N extends IMutableBaseGraphNode <N, ?>>
   {
-    private final Map <String, WorkElement <N>> m_aElements;
+    private final ICommonsOrderedMap <String, WorkElement <N>> m_aElements;
 
     public WorkRow (@Nonnegative final int nElements)
     {
-      if (nElements <= 0)
-        throw new IllegalArgumentException ("Elements must be positive: " + nElements);
-      m_aElements = new LinkedHashMap <String, WorkElement <N>> (nElements);
+      ValueEnforcer.isGT0 (nElements, "Elements");
+      m_aElements = new CommonsLinkedHashMap <> (nElements);
     }
 
     public void add (@Nonnull final WorkElement <N> aElement)
     {
-      if (aElement == null)
-        throw new NullPointerException ("element");
+      ValueEnforcer.notNull (aElement, "Element");
 
       m_aElements.put (aElement.getToNodeID (), aElement);
     }
@@ -158,6 +156,7 @@ public final class Dijkstra
       for (final WorkElement <N> aElement : m_aElements.values ())
         if (ret == null || aElement.getDistance () < ret.getDistance ())
           ret = aElement;
+
       if (ret == null)
         throw new IllegalStateException ("Cannot call this method without an element!");
       return ret;
@@ -165,33 +164,31 @@ public final class Dijkstra
 
     @Nonnull
     @ReturnsMutableCopy
-    public List <WorkElement <N>> getAllElements ()
+    public ICommonsList <WorkElement <N>> getAllElements ()
     {
-      return CollectionHelper.newList (m_aElements.values ());
+      return m_aElements.copyOfValues ();
     }
   }
 
   @Immutable
   public static final class Result <N extends IMutableBaseGraphNode <N, ?>>
   {
-    private final List <N> m_aResultNodes;
+    private final ICommonsList <N> m_aResultNodes;
     private final int m_nResultDistance;
 
-    public Result (@Nonnull @Nonempty final List <N> aResultNodes, @Nonnegative final int nResultDistance)
+    public Result (@Nonnull @Nonempty final ICommonsList <N> aResultNodes, @Nonnegative final int nResultDistance)
     {
-      if (CollectionHelper.isEmpty (aResultNodes))
-        throw new IllegalArgumentException ("resultNodes");
-      if (nResultDistance < 0)
-        throw new IllegalArgumentException ("Distance negative: " + nResultDistance);
+      ValueEnforcer.notEmpty (aResultNodes, "EesultNodes");
+      ValueEnforcer.isGE0 (nResultDistance, "Result Distance");
       m_aResultNodes = aResultNodes;
       m_nResultDistance = nResultDistance;
     }
 
     @Nonnull
     @ReturnsMutableCopy
-    public List <N> getAllResultNodes ()
+    public ICommonsList <N> getAllResultNodes ()
     {
-      return CollectionHelper.newList (m_aResultNodes);
+      return m_aResultNodes.getClone ();
     }
 
     @Nonnull
@@ -259,7 +256,7 @@ public final class Dijkstra
       throw new IllegalArgumentException ("To ID: " + sToID);
 
     // Ordered set for deterministic results
-    final Set <N> aAllRemainingNodes = CollectionHelper.newOrderedSet (aGraph.getAllNodes ().values ());
+    final ICommonsOrderedSet <N> aAllRemainingNodes = new CommonsLinkedHashSet <> (aGraph.getAllNodes ().values ());
 
     if (GlobalDebug.isDebugMode ())
       s_aLogger.info ("Starting Dijkstra on directed graph with " +
@@ -271,13 +268,13 @@ public final class Dijkstra
                       "'");
 
     // Map from to-node-id to element
-    final Map <String, WorkElement <N>> aAllMatches = new LinkedHashMap <String, WorkElement <N>> ();
+    final ICommonsOrderedMap <String, WorkElement <N>> aAllMatches = new CommonsLinkedHashMap <> ();
     WorkElement <N> aLastMatch = null;
     WorkRow <N> aLastRow = null;
     int nIteration = 0;
     do
     {
-      final WorkRow <N> aRow = new WorkRow <N> (aAllRemainingNodes.size ());
+      final WorkRow <N> aRow = new WorkRow <> (aAllRemainingNodes.size ());
       if (aLastRow == null)
       {
         // Initial row - no from node
@@ -285,13 +282,13 @@ public final class Dijkstra
           if (aNode.equals (aStartNode))
           {
             // Start node has distance 0 to itself
-            aRow.add (new WorkElement <N> (0, aNode));
+            aRow.add (new WorkElement <> (0, aNode));
           }
           else
           {
             // All other elements have infinite distance to the start node (for
             // now)
-            aRow.add (new WorkElement <N> (Integer.MAX_VALUE, aNode));
+            aRow.add (new WorkElement <> (Integer.MAX_VALUE, aNode));
           }
       }
       else
@@ -313,7 +310,7 @@ public final class Dijkstra
 
             // Use only, if distance is shorter (=better) than before!
             if (nNewDistance < aPrevElement.getDistance ())
-              aRow.add (new WorkElement <N> (aLastMatch.getToNode (), nNewDistance, aNode));
+              aRow.add (new WorkElement <> (aLastMatch.getToNode (), nNewDistance, aNode));
             else
               aRow.add (aPrevElement);
           }
@@ -352,7 +349,7 @@ public final class Dijkstra
 
     // Now get the result path from back to front
     final int nResultDistance = aLastMatch.getDistance ();
-    final List <N> aResultNodes = new ArrayList <N> ();
+    final ICommonsList <N> aResultNodes = new CommonsArrayList <> ();
     while (true)
     {
       aResultNodes.add (0, aLastMatch.getToNode ());

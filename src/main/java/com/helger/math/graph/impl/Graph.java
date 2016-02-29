@@ -16,18 +16,16 @@
  */
 package com.helger.math.graph.impl;
 
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsLinkedHashMap;
+import com.helger.commons.collection.ext.CommonsLinkedHashSet;
+import com.helger.commons.collection.ext.ICommonsList;
+import com.helger.commons.collection.ext.ICommonsOrderedMap;
+import com.helger.commons.collection.ext.ICommonsOrderedSet;
 import com.helger.commons.state.EChange;
 import com.helger.commons.state.ETriState;
 import com.helger.math.graph.IMutableGraph;
@@ -180,9 +178,9 @@ public class Graph extends AbstractBaseGraph <IMutableGraphNode, IMutableGraphRe
 
   @Nonnull
   @ReturnsMutableCopy
-  public Map <String, IMutableGraphRelation> getAllRelations ()
+  public ICommonsOrderedMap <String, IMutableGraphRelation> getAllRelations ()
   {
-    final Map <String, IMutableGraphRelation> ret = new LinkedHashMap <String, IMutableGraphRelation> ();
+    final ICommonsOrderedMap <String, IMutableGraphRelation> ret = new CommonsLinkedHashMap <> ();
     for (final IMutableGraphNode aNode : m_aNodes.values ())
       for (final IMutableGraphRelation aRelation : aNode.getAllRelations ())
         ret.put (aRelation.getID (), aRelation);
@@ -191,9 +189,9 @@ public class Graph extends AbstractBaseGraph <IMutableGraphNode, IMutableGraphRe
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <String> getAllRelationIDs ()
+  public ICommonsOrderedSet <String> getAllRelationIDs ()
   {
-    final Set <String> ret = new LinkedHashSet <String> ();
+    final ICommonsOrderedSet <String> ret = new CommonsLinkedHashSet <> ();
     for (final IMutableGraphNode aNode : m_aNodes.values ())
       ret.addAll (aNode.getAllRelationIDs ());
     return ret;
@@ -219,11 +217,11 @@ public class Graph extends AbstractBaseGraph <IMutableGraphNode, IMutableGraphRe
       m_eCacheHasCycles = ETriState.FALSE;
       // Check all nodes, in case we a small cycle and a set of other nodes (see
       // test case testCycles2)
-      final List <IMutableGraphNode> aAllNodes = CollectionHelper.newList (m_aNodes.values ());
-      while (!aAllNodes.isEmpty ())
+      final ICommonsList <IMutableGraphNode> aAllNodes = m_aNodes.copyOfValues ();
+      while (aAllNodes.isNotEmpty ())
       {
         // Iterate from the first node
-        final GraphIterator it = new GraphIterator (aAllNodes.remove (0));
+        final GraphIterator it = new GraphIterator (aAllNodes.removeFirst ());
         if (it.hasCycles ())
         {
           m_eCacheHasCycles = ETriState.TRUE;

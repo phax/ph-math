@@ -16,23 +16,22 @@
  */
 package com.helger.math.graph;
 
-import java.util.Set;
-
 import javax.annotation.Nonnull;
 
 import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.collection.ext.ICommonsSet;
 
 /**
  * Interface for a directed graph.
  *
  * @author Philip Helger
- * @param <N>
+ * @param <NODETYPE>
  *        Directed node class
- * @param <R>
+ * @param <RELATIONTYPE>
  *        Directed relation class
  */
-public interface IDirectedGraph <N extends IDirectedGraphNode <N, R>, R extends IDirectedGraphRelation <N, R>>
-                                extends IBaseGraph <N, R>
+public interface IDirectedGraph <NODETYPE extends IDirectedGraphNode <NODETYPE, RELATIONTYPE>, RELATIONTYPE extends IDirectedGraphRelation <NODETYPE, RELATIONTYPE>>
+                                extends IBaseGraph <NODETYPE, RELATIONTYPE>
 {
   /**
    * Try to retrieve the single start node of this graph. A start node is
@@ -43,7 +42,7 @@ public interface IDirectedGraph <N extends IDirectedGraphNode <N, R>, R extends 
    *         In case the graph has no or more than one start node.
    */
   @Nonnull
-  N getSingleStartNode () throws IllegalStateException;
+  NODETYPE getSingleStartNode () throws IllegalStateException;
 
   /**
    * Get all start nodes of this graph. Start nodes are identified by having no
@@ -53,7 +52,7 @@ public interface IDirectedGraph <N extends IDirectedGraphNode <N, R>, R extends 
    */
   @Nonnull
   @ReturnsMutableCopy
-  Set <N> getAllStartNodes ();
+  ICommonsSet <NODETYPE> getAllStartNodes ();
 
   /**
    * Try to retrieve the single end node of this graph. An end node is
@@ -64,7 +63,7 @@ public interface IDirectedGraph <N extends IDirectedGraphNode <N, R>, R extends 
    *         In case the graph has no or more than one end node.
    */
   @Nonnull
-  N getSingleEndNode () throws IllegalStateException;
+  NODETYPE getSingleEndNode () throws IllegalStateException;
 
   /**
    * Get all end nodes of this graph. End nodes are identified by having no
@@ -74,5 +73,5 @@ public interface IDirectedGraph <N extends IDirectedGraphNode <N, R>, R extends 
    */
   @Nonnull
   @ReturnsMutableCopy
-  Set <N> getAllEndNodes ();
+  ICommonsSet <NODETYPE> getAllEndNodes ();
 }

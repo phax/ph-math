@@ -25,9 +25,7 @@ import java.io.StreamTokenizer;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 
 import javax.annotation.Nonnegative;
@@ -35,6 +33,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.WillNotClose;
 
 import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.collection.ext.CommonsArrayList;
+import com.helger.commons.collection.ext.ICommonsList;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.lang.ICloneable;
 import com.helger.commons.math.MathHelper;
@@ -1432,7 +1432,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
       throw new IOException ("Unexpected EOF on matrix read.");
 
     // Read & store 1st row.
-    final List <Double> vD = new ArrayList <Double> ();
+    final ICommonsList <Double> vD = new CommonsArrayList <> ();
     do
     {
       vD.add (Double.valueOf (Double.parseDouble (aTokenizer.sval)));
@@ -1447,7 +1447,7 @@ public class Matrix implements Serializable, ICloneable <Matrix>
       aRow[nCol] = vD.get (nCol).doubleValue ();
     }
 
-    final List <double []> v = new ArrayList <double []> ();
+    final ICommonsList <double []> v = new CommonsArrayList <> ();
     // Start storing rows instead of columns.
     v.add (aRow);
     while (aTokenizer.nextToken () == StreamTokenizer.TT_WORD)

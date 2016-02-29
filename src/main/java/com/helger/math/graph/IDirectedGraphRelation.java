@@ -24,20 +24,20 @@ import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
  * Base interface for a single directed graph relation.
  *
  * @author Philip Helger
- * @param <N>
+ * @param <NODETYPE>
  *        Directed node class
- * @param <R>
+ * @param <RELATIONTYPE>
  *        Directed relation class
  */
 @MustImplementEqualsAndHashcode
-public interface IDirectedGraphRelation <N extends IDirectedGraphNode <N, R>, R extends IDirectedGraphRelation <N, R>>
-                                        extends IBaseGraphRelation <N, R>
+public interface IDirectedGraphRelation <NODETYPE extends IDirectedGraphNode <NODETYPE, RELATIONTYPE>, RELATIONTYPE extends IDirectedGraphRelation <NODETYPE, RELATIONTYPE>>
+                                        extends IBaseGraphRelation <NODETYPE, RELATIONTYPE>
 {
   /**
    * @return The from-node of this relation. Never <code>null</code>.
    */
   @Nonnull
-  N getFrom ();
+  NODETYPE getFrom ();
 
   /**
    * @return The ID of the from-node of this relation. Never <code>null</code>.
@@ -49,7 +49,7 @@ public interface IDirectedGraphRelation <N extends IDirectedGraphNode <N, R>, R 
    * @return The to-node of this relation. Never <code>null</code>.
    */
   @Nonnull
-  N getTo ();
+  NODETYPE getTo ();
 
   /**
    * @return The ID of the to-node of this relation. Never <code>null</code>.

@@ -16,14 +16,6 @@
  */
 package com.helger.math.graph.impl;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -32,6 +24,14 @@ import javax.annotation.concurrent.NotThreadSafe;
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.CollectionHelper;
+import com.helger.commons.collection.ext.CommonsArrayList;
+import com.helger.commons.collection.ext.CommonsHashSet;
+import com.helger.commons.collection.ext.CommonsLinkedHashMap;
+import com.helger.commons.collection.ext.CommonsLinkedHashSet;
+import com.helger.commons.collection.ext.ICommonsList;
+import com.helger.commons.collection.ext.ICommonsOrderedMap;
+import com.helger.commons.collection.ext.ICommonsOrderedSet;
+import com.helger.commons.collection.ext.ICommonsSet;
 import com.helger.commons.state.EChange;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.math.graph.IMutableDirectedGraphNode;
@@ -45,8 +45,8 @@ import com.helger.math.graph.IMutableDirectedGraphRelation;
 @NotThreadSafe
 public class DirectedGraphNode extends AbstractBaseGraphObject implements IMutableDirectedGraphNode
 {
-  private Map <String, IMutableDirectedGraphRelation> m_aIncoming;
-  private Map <String, IMutableDirectedGraphRelation> m_aOutgoing;
+  private ICommonsOrderedMap <String, IMutableDirectedGraphRelation> m_aIncoming;
+  private ICommonsOrderedMap <String, IMutableDirectedGraphRelation> m_aOutgoing;
 
   public DirectedGraphNode ()
   {
@@ -83,7 +83,7 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IMutab
     }
     else
     {
-      m_aIncoming = new LinkedHashMap <String, IMutableDirectedGraphRelation> ();
+      m_aIncoming = new CommonsLinkedHashMap <> ();
     }
 
     // Add!
@@ -92,13 +92,13 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IMutab
 
   public boolean hasIncomingRelations ()
   {
-    return CollectionHelper.isNotEmpty (m_aIncoming);
+    return m_aIncoming != null && m_aIncoming.isNotEmpty ();
   }
 
   @Nonnegative
   public int getIncomingRelationCount ()
   {
-    return CollectionHelper.getSize (m_aIncoming);
+    return m_aIncoming == null ? 0 : m_aIncoming.size ();
   }
 
   public boolean isIncomingRelation (@Nullable final IMutableDirectedGraphRelation aRelation)
@@ -108,10 +108,9 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IMutab
 
   @Nonnull
   @ReturnsMutableCopy
-  public List <IMutableDirectedGraphRelation> getAllIncomingRelations ()
+  public ICommonsList <IMutableDirectedGraphRelation> getAllIncomingRelations ()
   {
-    return m_aIncoming == null ? new ArrayList <IMutableDirectedGraphRelation> ()
-                               : CollectionHelper.newList (m_aIncoming.values ());
+    return m_aIncoming == null ? new CommonsArrayList <> () : new CommonsArrayList <> (m_aIncoming.values ());
   }
 
   @Nonnull
@@ -137,12 +136,11 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IMutab
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <IMutableDirectedGraphNode> getAllFromNodes ()
+  public ICommonsSet <IMutableDirectedGraphNode> getAllFromNodes ()
   {
-    final Set <IMutableDirectedGraphNode> ret = new HashSet <IMutableDirectedGraphNode> ();
+    final ICommonsSet <IMutableDirectedGraphNode> ret = new CommonsHashSet <> ();
     if (m_aIncoming != null)
-      for (final IMutableDirectedGraphRelation aRelation : m_aIncoming.values ())
-        ret.add (aRelation.getFrom ());
+      CollectionHelper.findAllMapped (m_aIncoming.values (), IMutableDirectedGraphRelation::getFrom, ret::add);
     return ret;
   }
 
@@ -175,7 +173,7 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IMutab
     }
     else
     {
-      m_aOutgoing = new LinkedHashMap <String, IMutableDirectedGraphRelation> ();
+      m_aOutgoing = new CommonsLinkedHashMap <> ();
     }
 
     // Add!
@@ -184,13 +182,13 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IMutab
 
   public boolean hasOutgoingRelations ()
   {
-    return CollectionHelper.isNotEmpty (m_aOutgoing);
+    return m_aOutgoing != null && m_aOutgoing.isNotEmpty ();
   }
 
   @Nonnegative
   public int getOutgoingRelationCount ()
   {
-    return CollectionHelper.getSize (m_aOutgoing);
+    return m_aOutgoing == null ? 0 : m_aOutgoing.size ();
   }
 
   public boolean isOutgoingRelation (@Nullable final IMutableDirectedGraphRelation aRelation)
@@ -200,20 +198,18 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IMutab
 
   @Nonnull
   @ReturnsMutableCopy
-  public List <IMutableDirectedGraphRelation> getAllOutgoingRelations ()
+  public ICommonsList <IMutableDirectedGraphRelation> getAllOutgoingRelations ()
   {
-    return m_aOutgoing == null ? new ArrayList <IMutableDirectedGraphRelation> ()
-                               : CollectionHelper.newList (m_aOutgoing.values ());
+    return m_aOutgoing == null ? new CommonsArrayList <> () : new CommonsArrayList <> (m_aOutgoing.values ());
   }
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <IMutableDirectedGraphNode> getAllToNodes ()
+  public ICommonsSet <IMutableDirectedGraphNode> getAllToNodes ()
   {
-    final Set <IMutableDirectedGraphNode> ret = new HashSet <IMutableDirectedGraphNode> ();
+    final ICommonsSet <IMutableDirectedGraphNode> ret = new CommonsHashSet <> ();
     if (m_aOutgoing != null)
-      for (final IMutableDirectedGraphRelation aRelation : m_aOutgoing.values ())
-        ret.add (aRelation.getTo ());
+      CollectionHelper.findAllMapped (m_aOutgoing.values (), IMutableDirectedGraphRelation::getTo, ret::add);
     return ret;
   }
 
@@ -294,9 +290,9 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IMutab
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <IMutableDirectedGraphRelation> getAllRelations ()
+  public ICommonsOrderedSet <IMutableDirectedGraphRelation> getAllRelations ()
   {
-    final Set <IMutableDirectedGraphRelation> ret = new LinkedHashSet <IMutableDirectedGraphRelation> ();
+    final ICommonsOrderedSet <IMutableDirectedGraphRelation> ret = new CommonsLinkedHashSet <> ();
     if (m_aIncoming != null)
       ret.addAll (m_aIncoming.values ());
     if (m_aOutgoing != null)
@@ -306,9 +302,9 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IMutab
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <String> getAllRelationIDs ()
+  public ICommonsOrderedSet <String> getAllRelationIDs ()
   {
-    final Set <String> ret = new LinkedHashSet <String> ();
+    final ICommonsOrderedSet <String> ret = new CommonsLinkedHashSet <> ();
     if (m_aIncoming != null)
       ret.addAll (m_aIncoming.keySet ());
     if (m_aOutgoing != null)
@@ -318,9 +314,9 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IMutab
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <IMutableDirectedGraphNode> getAllRelatedNodes ()
+  public ICommonsOrderedSet <IMutableDirectedGraphNode> getAllRelatedNodes ()
   {
-    final Set <IMutableDirectedGraphNode> ret = new LinkedHashSet <IMutableDirectedGraphNode> ();
+    final ICommonsOrderedSet <IMutableDirectedGraphNode> ret = new CommonsLinkedHashSet <> ();
     if (m_aIncoming != null)
       for (final IMutableDirectedGraphRelation aRelation : m_aIncoming.values ())
         ret.add (aRelation.getFrom ());
@@ -332,9 +328,9 @@ public class DirectedGraphNode extends AbstractBaseGraphObject implements IMutab
 
   @Nonnull
   @ReturnsMutableCopy
-  public Set <String> getAllRelatedNodeIDs ()
+  public ICommonsOrderedSet <String> getAllRelatedNodeIDs ()
   {
-    final Set <String> ret = new LinkedHashSet <String> ();
+    final ICommonsOrderedSet <String> ret = new CommonsLinkedHashSet <> ();
     if (m_aIncoming != null)
       for (final IMutableDirectedGraphRelation aRelation : m_aIncoming.values ())
         ret.add (aRelation.getFromID ());
