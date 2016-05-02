@@ -20,6 +20,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.hashcode.HashCodeGenerator;
+import com.helger.commons.hashcode.IHashCodeGenerator;
 
 /**
  * Implementation of {@link com.helger.math.graph.IMutableDirectedGraphNode}
@@ -30,7 +31,8 @@ import com.helger.commons.hashcode.HashCodeGenerator;
 @NotThreadSafe
 public class DirectedGraphNodeFast extends DirectedGraphNode
 {
-  private Integer m_aHashCode;
+  // Status vars
+  private transient int m_nHashCode = IHashCodeGenerator.ILLEGAL_HASHCODE;
 
   public DirectedGraphNodeFast ()
   {
@@ -56,8 +58,9 @@ public class DirectedGraphNodeFast extends DirectedGraphNode
   @Override
   public int hashCode ()
   {
-    if (m_aHashCode == null)
-      m_aHashCode = new HashCodeGenerator (this).append (getID ()).getHashCodeObj ();
-    return m_aHashCode.intValue ();
+    int ret = m_nHashCode;
+    if (ret == IHashCodeGenerator.ILLEGAL_HASHCODE)
+      ret = m_nHashCode = new HashCodeGenerator (this).append (getID ()).getHashCode ();
+    return ret;
   }
 }
