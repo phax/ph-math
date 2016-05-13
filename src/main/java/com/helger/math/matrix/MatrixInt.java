@@ -38,7 +38,7 @@ import com.helger.commons.collection.ext.ICommonsList;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.lang.ICloneable;
 import com.helger.commons.math.MathHelper;
-import com.helger.commons.random.VerySecureRandom;
+import com.helger.commons.random.RandomHelper;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.system.SystemHelper;
 
@@ -1100,7 +1100,7 @@ public class MatrixInt implements Serializable, ICloneable <MatrixInt>
     {
       final int [] aDstRow = aNewArray[nRow];
       for (int nCol = 0; nCol < nCols; nCol++)
-        aDstRow[nCol] = 1 + VerySecureRandom.getInstance ().nextInt (100);
+        aDstRow[nCol] = 1 + RandomHelper.getRandom ().nextInt (100);
     }
     return aNewMatrix;
   }
