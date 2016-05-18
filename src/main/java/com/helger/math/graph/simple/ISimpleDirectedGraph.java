@@ -32,7 +32,7 @@ public interface ISimpleDirectedGraph extends IMutableDirectedGraph
   /**
    * Create a new relation from the passed fromNode to the toNode. Internally
    * the IDs are resolved to the respective graph nodes and later on calls
-   * {@link #createRelation(com.helger.math.graph.IDirectedGraphNode, com.helger.math.graph.IDirectedGraphNode)}
+   * {@link #createRelation(com.helger.math.graph.IMutableDirectedGraphNode, com.helger.math.graph.IMutableDirectedGraphNode)}
    *
    * @param sFromNodeID
    *        The from-node ID. May not be <code>null</code>.
@@ -46,7 +46,7 @@ public interface ISimpleDirectedGraph extends IMutableDirectedGraph
   /**
    * Create a new relation from the passed fromNode to the toNode. Internally
    * the IDs are resolved to the respective graph nodes and later on calls
-   * {@link #createRelation(com.helger.math.graph.IDirectedGraphNode, com.helger.math.graph.IDirectedGraphNode)}
+   * {@link #createRelation(com.helger.math.graph.IMutableDirectedGraphNode, com.helger.math.graph.IMutableDirectedGraphNode)}
    *
    * @param sRelationID
    *        The relation ID to be used. May not be <code>null</code>.
