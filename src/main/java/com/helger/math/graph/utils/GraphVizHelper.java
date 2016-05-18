@@ -80,6 +80,10 @@ public final class GraphVizHelper
    *        The name of the attribute to be used for relation labels. May be
    *        <code>null</code> to use no relation label.
    * @return The string representation to be used as input for DOT.
+   * @param <N>
+   *        Graph node type
+   * @param <R>
+   *        Graph relation type
    */
   @Nonnull
   public static <N extends IBaseGraphNode <N, R>, R extends IBaseGraphRelation <N, R>> String getAsGraphVizDot (@Nonnull final IBaseGraph <N, R> aGraph,
@@ -135,6 +139,10 @@ public final class GraphVizHelper
    *        The name of the attribute to be used for relation labels. May be
    *        <code>null</code> to use no relation label.
    * @return The string representation to be used as input for DOT.
+   * @param <N>
+   *        Graph node type
+   * @param <R>
+   *        Graph relation type
    */
   @Nonnull
   public static <N extends IDirectedGraphNode <N, R>, R extends IDirectedGraphRelation <N, R>> String getAsGraphVizDot (@Nonnull final IDirectedGraph <N, R> aGraph,

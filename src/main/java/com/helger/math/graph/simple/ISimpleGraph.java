@@ -32,7 +32,7 @@ public interface ISimpleGraph extends IMutableGraph
   /**
    * Create a new relation from the passed fromNode to the toNode. Internally
    * the IDs are resolved to the respective graph nodes and later on calls
-   * {@link #createRelation(com.helger.math.graph.IGraphNode, com.helger.math.graph.IGraphNode)}
+   * {@link #createRelation(com.helger.math.graph.IMutableGraphNode, com.helger.math.graph.IMutableGraphNode)}
    *
    * @param sFromNodeID
    *        The from-node ID. May not be <code>null</code>.
@@ -46,7 +46,7 @@ public interface ISimpleGraph extends IMutableGraph
   /**
    * Create a new relation from the passed fromNode to the toNode. Internally
    * the IDs are resolved to the respective graph nodes and later on calls
-   * {@link #createRelation(com.helger.math.graph.IGraphNode, com.helger.math.graph.IGraphNode)}
+   * {@link #createRelation(com.helger.math.graph.IMutableGraphNode, com.helger.math.graph.IMutableGraphNode)}
    *
    * @param sRelationID
    *        The relation ID to be used. May not be <code>null</code>.
