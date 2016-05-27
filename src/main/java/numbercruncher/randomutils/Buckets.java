@@ -25,7 +25,7 @@ public class Buckets
 {
   private static final int MAX_BAR_SIZE = 50;
 
-  private final SystemOutAlignRight m_aAlignRight = new SystemOutAlignRight ();
+  private final SystemOutAlignRight m_aAlignRight = new SystemOutAlignRight (System.out);
 
   /** number of intervals */
   private final int m_n;

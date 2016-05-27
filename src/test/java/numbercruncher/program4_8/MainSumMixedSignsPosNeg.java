@@ -29,7 +29,7 @@ public final class MainSumMixedSignsPosNeg
 {
   public static void main (final String args[])
   {
-    final SystemOutAlignRight ar = new SystemOutAlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight (System.out);
 
     int k = 0;
     int odd = 1; // odd number

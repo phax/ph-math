@@ -32,7 +32,7 @@ public final class PrimeGenerators
   private static final String GREENWOOD = "41n^2 - 4641n + 88007";
   private static final int WIDTH = GREENWOOD.length () + 5;
 
-  private static SystemOutAlignRight ar = new SystemOutAlignRight ();
+  private static SystemOutAlignRight ar = new SystemOutAlignRight (System.out);
 
   public static void main (final String args[])
   {

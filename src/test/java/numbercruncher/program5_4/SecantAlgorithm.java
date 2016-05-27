@@ -37,7 +37,7 @@ public final class SecantAlgorithm
     {
       final SecantRootFinder finder = new SecantRootFinder (RootFunctions.function ("x^2 - 4"), 0.3625f, 1.3625001f);
 
-      final SystemOutAlignRight ar = new SystemOutAlignRight ();
+      final SystemOutAlignRight ar = new SystemOutAlignRight (System.out);
 
       ar.print ("n", 2);
       ar.print ("x[n-1]", 10);

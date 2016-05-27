@@ -37,7 +37,7 @@ public final class FractionSum10MRandom
     final int counting[] = new int [MAX + 1]; // array of counting #s
     final Random random = new Random (0); // random # generator
 
-    final SystemOutAlignRight ar = new SystemOutAlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight (System.out);
 
     // Initialize the array of counting numbers.
     for (int i = 1; i <= MAX; ++i)

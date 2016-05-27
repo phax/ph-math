@@ -28,7 +28,7 @@ import numbercruncher.primeutils.LucasStatus;
 public final class TestLucas implements ILucasCaller
 {
   private int prevA = 0;
-  private final SystemOutAlignRight ar = new SystemOutAlignRight ();
+  private final SystemOutAlignRight ar = new SystemOutAlignRight (System.out);
 
   /**
    * Test an integer p for primality.

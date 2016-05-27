@@ -16,6 +16,10 @@
  */
 package numbercruncher.matrix;
 
+import java.io.PrintStream;
+
+import javax.annotation.Nonnull;
+
 import numbercruncher.mathutils.Epsilon;
 import numbercruncher.mathutils.SystemOutAlignRight;
 
@@ -187,11 +191,11 @@ public class LinearSystem extends SquareMatrix
    * @throws MatrixException
    *         if an error occurred
    */
-  public void printDecomposed (final int width) throws MatrixException
+  public void printDecomposed (final int width, @Nonnull final PrintStream aPS) throws MatrixException
   {
     decompose ();
 
-    final SystemOutAlignRight ar = new SystemOutAlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight (aPS);
 
     for (int r = 0; r < m_nRows; ++r)
     {

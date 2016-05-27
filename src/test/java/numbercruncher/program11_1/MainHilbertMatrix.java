@@ -42,24 +42,24 @@ public final class MainHilbertMatrix
         H.set (r, c, 1.0f / (r + c + 1));
       }
     }
-    H.print (15);
+    H.print (15, System.out);
 
     // Invert the Hilbert matrix.
     final InvertibleMatrix Hinv = H.inverse ();
     System.out.println ("\nHilbert matrix inverted");
-    Hinv.print (15);
+    Hinv.print (15, System.out);
 
     System.out.println ("\nHilbert matrix condition number = " + H.norm () * Hinv.norm ());
 
     // Invert the inverse.
     final InvertibleMatrix HinvInv = Hinv.inverse ();
     System.out.println ("\nInverse matrix inverted");
-    HinvInv.print (15);
+    HinvInv.print (15, System.out);
 
     // Multiply P = H*Hinv.
     System.out.println ("\nHilbert matrix times its inverse " + "(should be identity)");
     final SquareMatrix P = H.multiply (Hinv);
-    P.print (15);
+    P.print (15, System.out);
 
     // Average norm of P's rows.
     float normSum = 0;

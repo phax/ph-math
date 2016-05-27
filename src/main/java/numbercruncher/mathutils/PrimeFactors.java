@@ -70,7 +70,7 @@ public class PrimeFactors
   {
     int n = pn;
     final boolean isPrime[] = primeSieve (n); // primes <= n
-    final ICommonsList <Integer> v = new CommonsArrayList <> ();
+    final ICommonsList <Integer> v = new CommonsArrayList<> ();
 
     // Loop to try prime divisors.
     for (int factor = 2; n > 1; ++factor)
@@ -97,50 +97,4 @@ public class PrimeFactors
     }
     return factors;
   }
-
-  /**
-   * Main for testing.
-   *
-   * @param args
-   *        the commandline arguments (ignored)
-   */
-  public static void main (final String args[])
-  {
-    final SystemOutAlignRight ar = new SystemOutAlignRight ();
-
-    // Test Sieve of Eratosthenes.
-    System.out.println ("The Sieve of Eratosthenes:\n");
-    final boolean isPrime[] = primeSieve (100);
-    for (int i = 1; i <= 100; ++i)
-    {
-      if (isPrime[i])
-        ar.print (i, 4);
-      else
-        ar.print (".", 4);
-      if (i % 10 == 0)
-        ar.println ();
-    }
-
-    System.out.println ();
-
-    // Test prime factors.
-    final int k[] = { 84, 1409, 3141135, };
-    for (final int element : k)
-    {
-      final int factors[] = factorsOf (element);
-      System.out.print ("The prime factors of " + element + " are");
-      for (final int factor : factors)
-      {
-        System.out.print (" " + factor);
-      }
-      System.out.println ();
-    }
-  }
 }
-/*
- * Output: The Sieve of Eratosthenes: . 2 3 . 5 . 7 . . . 11 . 13 . . . 17 . 19
- * . . . 23 . . . . . 29 . 31 . . . . . 37 . . . 41 . 43 . . . 47 . . . . . 53 .
- * . . . . 59 . 61 . . . . . 67 . . . 71 . 73 . . . . . 79 . . . 83 . . . . . 89
- * . . . . . . . 97 . . . The prime factors of 84 are 2 3 7 The prime factors of
- * 1409 are 1409 The prime factors of 3141135 are 3 5 29 83
- */

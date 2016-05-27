@@ -16,6 +16,10 @@
  */
 package numbercruncher.matrix;
 
+import java.io.PrintStream;
+
+import javax.annotation.Nonnull;
+
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import numbercruncher.mathutils.SystemOutAlignRight;
 
@@ -511,9 +515,9 @@ public class Matrix
    * @param width
    *        the column width
    */
-  public void print (final int width)
+  public void print (final int width, @Nonnull final PrintStream aPS)
   {
-    final SystemOutAlignRight ar = new SystemOutAlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight (aPS);
 
     for (int r = 0; r < m_nRows; ++r)
     {

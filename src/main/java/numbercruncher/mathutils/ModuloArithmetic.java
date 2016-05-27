@@ -94,32 +94,4 @@ public class ModuloArithmetic
 
     return power;
   }
-
-  /**
-   * Main for testing.
-   *
-   * @param args
-   *        the commandline arguments (ignored)
-   */
-  public static void main (final String args[])
-  {
-    final int a = 3;
-    final int b = 13;
-    final int m = 5;
-
-    // Test modulo multiplication.
-    final int modProduct = multiply (a, b, m);
-    System.out.println (a + "*" + b + " = " + a * b);
-    System.out.println (a + "*" + b + " = " + modProduct + " (mod " + m + ")");
-
-    System.out.println ();
-
-    // Test modulo exponentiation.
-    final int modPower = raise (a, b, m);
-    System.out.println (a + "^" + b + " = " + IntPower.raise (a, b));
-    System.out.println (a + "^" + b + " = " + modPower + " (mod " + m + ")");
-  }
 }
-/*
- * Output: 3*13 = 39 3*13 = 4 (mod 5) 3^13 = 1594323.0 3^13 = 3 (mod 5)
- */

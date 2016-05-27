@@ -37,9 +37,9 @@ public final class OneThird
     final IEEE754 ieeeDConverted = new IEEE754 (dConverted);
     final IEEE754 ieeeDThird = new IEEE754 (dThird);
 
-    ieeeFThird.print ();
-    ieeeDConverted.print ();
-    ieeeDThird.print ();
+    ieeeFThird.print (System.out);
+    ieeeDConverted.print (System.out);
+    ieeeDThird.print (System.out);
 
     // Prepend the leading 0 bits of the converted 1/3.
     int unbiased = ieeeDConverted.unbiasedExponent ();

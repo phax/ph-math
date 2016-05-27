@@ -36,7 +36,7 @@ public final class Buffon
   public static void main (final String args[])
   {
     final Needles needles = new Needles (0, 0, 0, 10.5f);
-    final SystemOutAlignRight ar = new SystemOutAlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight (System.out);
 
     ar.print ("Needles", 15);
     ar.print ("Crossings", 15);

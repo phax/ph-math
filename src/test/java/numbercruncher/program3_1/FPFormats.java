@@ -41,14 +41,14 @@ public final class FPFormats
                              Float.NaN, };
     for (final float f : floats)
     {
-      new IEEE754 (f).print ();
+      new IEEE754 (f).print (System.out);
     }
 
     // Doubles
     final double doubles[] = { -0.375, Double.MIN_VALUE, Double.MAX_VALUE, Double.POSITIVE_INFINITY, Double.NaN, };
     for (final double d : doubles)
     {
-      new IEEE754 (d).print ();
+      new IEEE754 (d).print (System.out);
     }
 
     System.out.println ("------------------------------");
@@ -78,7 +78,7 @@ public final class FPFormats
 
     for (final IEEE754 number : numbers)
     {
-      number.print ();
+      number.print (System.out);
     }
   }
 

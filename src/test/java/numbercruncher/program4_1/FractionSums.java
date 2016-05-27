@@ -27,7 +27,7 @@ public final class FractionSums
 {
   public static void main (final String args[])
   {
-    final SystemOutAlignRight ar = new SystemOutAlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight (System.out);
 
     ar.print ("n", 9);
     ar.print ("Denom", 14);

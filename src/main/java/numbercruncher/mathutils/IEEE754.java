@@ -16,6 +16,10 @@
  */
 package numbercruncher.mathutils;
 
+import java.io.PrintStream;
+
+import javax.annotation.Nonnull;
+
 /**
  * Decompose a floating-point value into its parts according to the IEEE 754
  * standard.
@@ -426,49 +430,37 @@ public class IEEE754
   /**
    * Print the decomposed parts of the value.
    */
-  public void print ()
+  public void print (@Nonnull final PrintStream aPW)
   {
-    System.out.println ("------------------------------");
+    aPW.println ("------------------------------");
 
     // Print the value.
     if (isDouble ())
-    {
-      System.out.println ("double value = " + doubleValue ());
-    }
+      aPW.println ("double value = " + doubleValue ());
     else
-    {
-      System.out.println ("float value = " + floatValue ());
-    }
+      aPW.println ("float value = " + floatValue ());
 
     // Print the sign.
-    System.out.print ("sign=" + signBit ());
+    aPW.print ("sign=" + signBit ());
 
     // Print the bit representation of the exponent and its
     // biased and unbiased values. Indicate whether the value
     // is denormalized, or whether the exponent is reserved.
-    System.out.print (", exponent=" + exponentBits () + " (biased=" + biasedExponent ());
+    aPW.print (", exponent=" + exponentBits () + " (biased=" + biasedExponent ());
 
     if (isZero ())
-    {
-      System.out.println (", zero)");
-    }
+      aPW.println (", zero)");
     else
       if (isExponentReserved ())
-      {
-        System.out.println (", reserved)");
-      }
+        aPW.println (", reserved)");
       else
         if (isDenormalized ())
-        {
-          System.out.println (", denormalized, use " + unbiasedExponent () + ")");
-        }
+          aPW.println (", denormalized, use " + unbiasedExponent () + ")");
         else
-        {
-          System.out.println (", normalized, unbiased=" + unbiasedExponent () + ")");
-        }
+          aPW.println (", normalized, unbiased=" + unbiasedExponent () + ")");
 
     // Print the significand.
-    System.out.println ("significand=" + significandBits ());
+    aPW.println ("significand=" + significandBits ());
   }
 
   // --------------------------------//

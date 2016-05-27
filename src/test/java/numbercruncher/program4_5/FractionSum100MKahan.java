@@ -32,7 +32,7 @@ public final class FractionSum100MKahan
 
   public static void main (final String args[])
   {
-    final SystemOutAlignRight ar = new SystemOutAlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight (System.out);
 
     ar.print ("i", 9);
     ar.print ("Running sum", 16);

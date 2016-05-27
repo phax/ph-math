@@ -30,7 +30,7 @@ public final class FractionSum100MReversed
 
   public static void main (final String args[])
   {
-    final SystemOutAlignRight ar = new SystemOutAlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight (System.out);
 
     ar.print ("i", 9);
     ar.print ("Fraction", 15);

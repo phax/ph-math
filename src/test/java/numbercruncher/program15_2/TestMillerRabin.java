@@ -31,7 +31,7 @@ public final class TestMillerRabin implements IMillerRabinCaller
 
   private static final String CODE_LABELS[] = { "???", "composite", "prime?" };
 
-  private final SystemOutAlignRight ar = new SystemOutAlignRight ();
+  private final SystemOutAlignRight ar = new SystemOutAlignRight (System.out);
 
   /**
    * Test an integer p for primality.

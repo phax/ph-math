@@ -26,7 +26,7 @@ import numbercruncher.mathutils.SystemOutAlignRight;
  */
 public final class MainSumMixedSigns
 {
-  private static SystemOutAlignRight ar = new SystemOutAlignRight ();
+  private static SystemOutAlignRight ar = new SystemOutAlignRight (System.out);
 
   public static void main (final String args[])
   {

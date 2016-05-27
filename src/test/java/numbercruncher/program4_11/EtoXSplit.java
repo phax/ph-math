@@ -30,7 +30,7 @@ public final class EtoXSplit
 {
   private static final double X = -19.5;
 
-  private static SystemOutAlignRight ar = new SystemOutAlignRight ();
+  private static SystemOutAlignRight ar = new SystemOutAlignRight (System.out);
 
   public static void main (final String args[])
   {

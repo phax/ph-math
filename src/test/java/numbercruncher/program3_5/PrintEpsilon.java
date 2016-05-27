@@ -27,8 +27,8 @@ public final class PrintEpsilon
 {
   public static void main (final String args[])
   {
-    (new IEEE754 (Epsilon.floatValue ())).print ();
-    (new IEEE754 (Epsilon.doubleValue ())).print ();
+    new IEEE754 (Epsilon.floatValue ()).print (System.out);
+    new IEEE754 (Epsilon.doubleValue ()).print (System.out);
   }
 }
 /*

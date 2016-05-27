@@ -29,7 +29,7 @@ public final class Interpolation
 {
   private static final int MAX_POINTS = 10;
 
-  private static SystemOutAlignRight ar = new SystemOutAlignRight ();
+  private static SystemOutAlignRight ar = new SystemOutAlignRight (System.out);
 
   /**
    * Main program.

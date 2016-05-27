@@ -30,7 +30,7 @@ public final class EtoX
 
   public static void main (final String args[])
   {
-    final SystemOutAlignRight ar = new SystemOutAlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight (System.out);
 
     int k = 0;
     double numerator = 1;

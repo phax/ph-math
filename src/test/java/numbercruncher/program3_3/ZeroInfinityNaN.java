@@ -26,7 +26,7 @@ public final class ZeroInfinityNaN
 {
   public static void main (final String args[])
   {
-    final SystemOutAlignRight ar = new SystemOutAlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight (System.out);
 
     final float operands[] = { -0f, +0f, -1f, 1f, Float.NEGATIVE_INFINITY, Float.POSITIVE_INFINITY, Float.NaN, };
 

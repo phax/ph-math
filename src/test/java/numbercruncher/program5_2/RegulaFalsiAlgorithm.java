@@ -40,7 +40,7 @@ public final class RegulaFalsiAlgorithm
                                                                       -0.25f,
                                                                       3.25f);
 
-      final SystemOutAlignRight ar = new SystemOutAlignRight ();
+      final SystemOutAlignRight ar = new SystemOutAlignRight (System.out);
 
       ar.print ("n", 2);
       ar.print ("xNeg", 11);

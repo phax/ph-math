@@ -66,7 +66,7 @@ public final class TestLinearSystem
     }
 
     System.out.println ("Coefficient matrix A");
-    A.print (13);
+    A.print (13, System.out);
 
     System.out.print ("\nb =");
     b.print ();
@@ -75,7 +75,7 @@ public final class TestLinearSystem
     final ColumnVector x = A.solve (b, true);
 
     System.out.println ("\nDecomposed matrix LU");
-    A.printDecomposed (13);
+    A.printDecomposed (13, System.out);
 
     System.out.print ("\nx =");
     x.print ();

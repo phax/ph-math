@@ -16,6 +16,8 @@
  */
 package numbercruncher.mathutils;
 
+import java.io.PrintStream;
+
 import javax.annotation.Nonnull;
 
 import com.helger.commons.string.StringHelper;
@@ -25,14 +27,17 @@ import com.helger.commons.string.StringHelper;
  */
 public class SystemOutAlignRight
 {
+  private final PrintStream m_aPS;
   /** line size */
   private int m_nLineSize;
 
   /**
    * Constructor.
    */
-  public SystemOutAlignRight ()
-  {}
+  public SystemOutAlignRight (@Nonnull final PrintStream aPS)
+  {
+    m_aPS = aPS;
+  }
 
   /**
    * Print text right-aligned in the column.
@@ -45,7 +50,7 @@ public class SystemOutAlignRight
   public void print (@Nonnull final String text, final int width)
   {
     final int padding = width - text.length ();
-    System.out.print (StringHelper.getRepeated (' ', padding) + text);
+    m_aPS.print (StringHelper.getRepeated (' ', padding) + text);
 
     m_nLineSize += width;
   }
@@ -94,7 +99,7 @@ public class SystemOutAlignRight
    */
   public void println ()
   {
-    System.out.println ();
+    m_aPS.println ();
     m_nLineSize = 0;
   }
 
@@ -103,10 +108,10 @@ public class SystemOutAlignRight
    */
   public void underline ()
   {
-    System.out.println ();
+    m_aPS.println ();
     for (int i = 0; i < m_nLineSize; ++i)
-      System.out.print ("-");
-    System.out.println ();
+      m_aPS.print ('-');
+    m_aPS.println ();
     m_nLineSize = 0;
   }
 }

@@ -103,7 +103,7 @@ public final class SolveDiffEq
       }
     }
 
-    final SystemOutAlignRight ar = new SystemOutAlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight (System.out);
 
     ar.print ("n", 8);
     ar.print ("h", 15);

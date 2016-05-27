@@ -94,7 +94,7 @@ public final class Integration
     final IIntegrator integrator = (algorithm == TRAPEZOIDAL) ? (IIntegrator) new TrapezoidalIntegrator (integrand)
                                                               : (IIntegrator) new SimpsonsIntegrator (integrand);
 
-    final SystemOutAlignRight ar = new SystemOutAlignRight ();
+    final SystemOutAlignRight ar = new SystemOutAlignRight (System.out);
 
     ar.print ("n", 5);
     ar.print ("pi", 15);

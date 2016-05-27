@@ -51,7 +51,7 @@ public final class FixedPointIteration
     try
     {
       FixedPointRootFinder finder;
-      final SystemOutAlignRight ar = new SystemOutAlignRight ();
+      final SystemOutAlignRight ar = new SystemOutAlignRight (System.out);
 
       System.out.println ("\ng(x) = " + key + "\n");
       finder = new FixedPointRootFinder (RootFunctions.function (key));

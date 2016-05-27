@@ -41,7 +41,7 @@ public final class MainCompareSolutions
   private void run (final InvertibleMatrix A, final ColumnVector b, final ColumnVector correct) throws MatrixException
   {
     System.out.println ("Coefficient matrix A");
-    A.print (14);
+    A.print (14, System.out);
 
     System.out.print ("\nb =");
     b.print ();
@@ -57,7 +57,7 @@ public final class MainCompareSolutions
     final InvertibleMatrix Ainv = A.inverse ();
 
     System.out.println ("\nA inverse");
-    Ainv.print (14);
+    Ainv.print (14, System.out);
 
     final float detA = A.determinant ();
     final float condA = A.norm () * Ainv.norm ();
@@ -84,7 +84,7 @@ public final class MainCompareSolutions
       dets[i] = As[i].determinant ();
 
       System.out.println ("\nA[" + (i + 1) + "], determinant = " + dets[i]);
-      As[i].print (14);
+      As[i].print (14, System.out);
     }
 
     // Solve the system using Cramer's rule.
