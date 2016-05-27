@@ -16,9 +16,10 @@
  */
 package numbercruncher.piutils;
 
-import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.Duration;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 /**
  * Utility class for programs that compute pi.
@@ -79,25 +80,10 @@ public abstract class AbstractPiFormula
    */
   protected String timestamp (final long time)
   {
-    final DecimalFormat DECIMAL_FORMAT = new DecimalFormat ("00");
-    final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat ("HH:mm:ss.SSS");
-
-    // Current time in hh:mm:ss.
-    final String tString = TIME_FORMAT.format (new Date ());
-
-    final long elapsed = (System.currentTimeMillis () - time + 500) / 1000;
-    final long hours = elapsed / (60 * 60);
-    final long minutes = (elapsed % (60 * 60)) / 60;
-    final long seconds = elapsed % 60;
-
     // Current time followed by elapsed time as (hh:mm:ss).
-    return tString +
-           " (" +
-           DECIMAL_FORMAT.format (hours) +
-           ":" +
-           DECIMAL_FORMAT.format (minutes) +
-           ":" +
-           DECIMAL_FORMAT.format (seconds) +
-           ")";
+    final LocalDateTime aLDT = LocalDateTime.now (ZoneId.systemDefault ());
+    final LocalDateTime aOld = LocalDateTime.ofInstant (Instant.ofEpochMilli (time), ZoneId.systemDefault ());
+
+    return aLDT.toLocalTime ().toString () + " (" + Duration.between (aOld, aLDT).toString () + ")";
   }
 }

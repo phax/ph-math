@@ -22,16 +22,15 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.io.StreamTokenizer;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.util.Arrays;
-import java.util.Locale;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.WillNotClose;
 
+import com.helger.commons.CGlobal;
+import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.ext.CommonsArrayList;
 import com.helger.commons.collection.ext.ICommonsList;
@@ -125,10 +124,8 @@ public class MatrixInt implements Serializable, ICloneable <MatrixInt>
    */
   public MatrixInt (@Nonnegative final int nRows, @Nonnegative final int nCols)
   {
-    if (nRows <= 0)
-      throw new IllegalArgumentException ("rows may not be negative!");
-    if (nCols <= 0)
-      throw new IllegalArgumentException ("cols may not be negative!");
+    ValueEnforcer.isGT0 (nRows, "Rows");
+    ValueEnforcer.isGT0 (nCols, "Cols");
     m_nRows = nRows;
     m_nCols = nCols;
     m_aData = new int [nRows] [nCols];
@@ -1161,8 +1158,7 @@ public class MatrixInt implements Serializable, ICloneable <MatrixInt>
                      @Nonnegative final int nWidth,
                      @Nonnegative final int nFractionDigits)
   {
-    final DecimalFormat format = new DecimalFormat ();
-    format.setDecimalFormatSymbols (DecimalFormatSymbols.getInstance (Locale.US));
+    final NumberFormat format = NumberFormat.getInstance (CGlobal.DEFAULT_LOCALE);
     format.setMinimumIntegerDigits (1);
     format.setMaximumFractionDigits (nFractionDigits);
     format.setMinimumFractionDigits (nFractionDigits);
@@ -1290,7 +1286,7 @@ public class MatrixInt implements Serializable, ICloneable <MatrixInt>
       throw new IOException ("Unexpected EOF on matrix read.");
 
     // Read & store 1st row.
-    final ICommonsList <Integer> vD = new CommonsArrayList <> ();
+    final ICommonsList <Integer> vD = new CommonsArrayList<> ();
     do
     {
       vD.add (Integer.valueOf (Integer.parseInt (aTokenizer.sval)));
@@ -1305,7 +1301,7 @@ public class MatrixInt implements Serializable, ICloneable <MatrixInt>
       aRow[nCol] = vD.get (nCol).intValue ();
     }
 
-    final ICommonsList <int []> v = new CommonsArrayList <> ();
+    final ICommonsList <int []> v = new CommonsArrayList<> ();
     // Start storing rows instead of columns.
     v.add (aRow);
     while (aTokenizer.nextToken () == StreamTokenizer.TT_WORD)
