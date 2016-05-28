@@ -32,7 +32,6 @@ import numbercruncher.graphutils.IDemoPanel;
 /**
  * The demo panel for the Borwein pi algorithm program and applet.
  */
-@SuppressWarnings ("deprecation")
 public final class PiBorweinPanel extends Panel implements IDemoPanel, IPiBorweinParent
 {
   private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat ("00");
@@ -239,12 +238,12 @@ public final class PiBorweinPanel extends Panel implements IDemoPanel, IPiBorwei
   {
     if (timerThread.isAlive ())
     {
-      timerThread.stop ();
+      timerThread.interrupt ();
     }
 
     if (computeThread.isAlive ())
     {
-      computeThread.stop ();
+      computeThread.interrupt ();
       taskText.setText ("STOPPED");
     }
 
@@ -278,7 +277,7 @@ public final class PiBorweinPanel extends Panel implements IDemoPanel, IPiBorwei
 
       case PiBorweinConstants.DONE:
       {
-        timerThread.stop ();
+        timerThread.interrupt ();
         phaseText.setText (Integer.toString (algorithm.getIterations ()) + " iterations");
         taskText.setText ("DONE");
         break;

@@ -443,8 +443,6 @@ public class LinearSystem extends SquareMatrix
       for (int r = 0; r < m_nRows; ++r)
       {
         double dot = 0;
-        @SuppressWarnings ("unused")
-        final float [] row = m_aValues[r];
         for (int c = 0; c < m_nRows; ++c)
         {
           final double elmt = at (r, c);

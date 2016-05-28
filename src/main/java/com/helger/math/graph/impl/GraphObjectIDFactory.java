@@ -41,7 +41,6 @@ public final class GraphObjectIDFactory
   private static IIDFactory <String> s_aIDFactory;
 
   @PresentForCodeCoverage
-  @SuppressWarnings ("unused")
   private static final GraphObjectIDFactory s_aInstance = new GraphObjectIDFactory ();
 
   private GraphObjectIDFactory ()

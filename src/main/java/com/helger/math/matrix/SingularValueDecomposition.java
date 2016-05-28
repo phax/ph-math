@@ -270,7 +270,6 @@ public class SingularValueDecomposition implements Serializable
 
     // Main iteration loop for the singular values.
     final int pp = p - 1;
-    @SuppressWarnings ("unused")
     int iter = 0;
     while (p > 0)
     {
@@ -361,7 +360,7 @@ public class SingularValueDecomposition implements Serializable
           break;
         }
 
-          // Split at negligible s(k).
+        // Split at negligible s(k).
         case 2:
         {
           double f = e[k - 1];
@@ -388,7 +387,7 @@ public class SingularValueDecomposition implements Serializable
           break;
         }
 
-          // Perform one qr step.
+        // Perform one qr step.
         case 3:
         {
 
@@ -461,7 +460,7 @@ public class SingularValueDecomposition implements Serializable
           break;
         }
 
-          // Convergence.
+        // Convergence.
         case 4:
         {
           // Make the singular values positive.
@@ -511,6 +510,10 @@ public class SingularValueDecomposition implements Serializable
           throw new IllegalStateException ();
       }
     }
+
+    // Dummy
+    if (iter > 0)
+    {}
   }
 
   /*

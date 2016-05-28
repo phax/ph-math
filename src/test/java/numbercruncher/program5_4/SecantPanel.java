@@ -41,8 +41,7 @@ public final class SecantPanel extends AbstractRootFinderPanel
   private static final String FUNCTION_FRAME_TITLE = "Click to choose a function f(x)";
 
   /** control panel */
-  @SuppressWarnings ("hiding")
-  private final Panel controlPanel = new Panel ();
+  private final Panel m_aControlPanel = new Panel ();
   /** xnm1 label */
   private final Label xnm1Label = new Label ("x[n-1]:");
   /** xnm1 test */
@@ -135,18 +134,18 @@ public final class SecantPanel extends AbstractRootFinderPanel
     xnp1Text.setAlignment (Label.LEFT);
 
     // Secant panel
-    controlPanel.setLayout (new GridLayout (0, 5, 5, 2));
-    controlPanel.add (xnm1Label);
-    controlPanel.add (xnm1Text);
-    controlPanel.add (xnp1Label);
-    controlPanel.add (xnp1Text);
-    controlPanel.add (runButton);
-    controlPanel.add (xnLabel);
-    controlPanel.add (xnText);
-    controlPanel.add (nLabel);
-    controlPanel.add (nText);
-    controlPanel.add (stepButton);
-    addDemoControls (controlPanel);
+    m_aControlPanel.setLayout (new GridLayout (0, 5, 5, 2));
+    m_aControlPanel.add (xnm1Label);
+    m_aControlPanel.add (xnm1Text);
+    m_aControlPanel.add (xnp1Label);
+    m_aControlPanel.add (xnp1Text);
+    m_aControlPanel.add (runButton);
+    m_aControlPanel.add (xnLabel);
+    m_aControlPanel.add (xnText);
+    m_aControlPanel.add (nLabel);
+    m_aControlPanel.add (nText);
+    m_aControlPanel.add (stepButton);
+    addDemoControls (m_aControlPanel);
   }
 
   /**

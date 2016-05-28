@@ -136,8 +136,33 @@ final class PiMTAlgorithm
     m_aParent.notifyPhase (PiBorweinConstants.DONE);
   }
 
-  @SuppressWarnings ("deprecation")
-  private class YThread extends Thread
+  private class SuspendableThread extends Thread
+  {
+    private volatile boolean m_bSuspended = false;
+
+    public void mySuspend ()
+    {
+      m_bSuspended = true;
+      try
+      {
+        synchronized (this)
+        {
+          while (m_bSuspended)
+            wait ();
+        }
+      }
+      catch (final InterruptedException ex)
+      {}
+    }
+
+    public void myResume ()
+    {
+      m_bSuspended = false;
+      notify ();
+    }
+  }
+
+  private class YThread extends SuspendableThread
   {
     private BigDecimal y4, yRoot4, yNumerator, yDenominator;
     private int i = 0;
@@ -154,11 +179,11 @@ final class PiMTAlgorithm
           break;
         ys[i] = m_aY;
 
-        aThread.resume ();
+        aThread.myResume ();
         yield ();
       }
 
-      aThread.resume ();
+      aThread.myResume ();
       iterations = i;
     }
 
@@ -182,8 +207,7 @@ final class PiMTAlgorithm
     }
   }
 
-  @SuppressWarnings ("deprecation")
-  private class AThread extends Thread
+  private class AThread extends SuspendableThread
   {
     private BigDecimal aTerm4, aTerm, y2;
     private int i = 0;
@@ -196,18 +220,18 @@ final class PiMTAlgorithm
         if (ys[++i] == null)
         {
           if (yThread.isAlive ())
-            suspend ();
+            mySuspend ();
           if (ys[i] == null)
             break;
         }
 
         compute ();
 
-        xThread.resume ();
+        xThread.myResume ();
         yield ();
       }
 
-      xThread.resume ();
+      xThread.myResume ();
     }
 
     private void compute ()
@@ -239,8 +263,7 @@ final class PiMTAlgorithm
     }
   }
 
-  @SuppressWarnings ("deprecation")
-  private class XThread extends Thread
+  private class XThread extends SuspendableThread
   {
     private int i = 0;
 
@@ -252,7 +275,7 @@ final class PiMTAlgorithm
         if (as[++i] == null)
         {
           if (aThread.isAlive ())
-            suspend ();
+            mySuspend ();
           if (as[i] == null)
             break;
         }

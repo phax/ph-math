@@ -255,7 +255,6 @@ public class EigenvalueDecomposition implements Serializable
 
       if (m > l)
       {
-        @SuppressWarnings ("unused")
         int iter = 0;
         do
         {
@@ -318,6 +317,10 @@ public class EigenvalueDecomposition implements Serializable
           // Check for convergence.
 
         } while (MathHelper.abs (m_aEVe[l]) > EPSILON * tst1);
+
+        // Dummy
+        if (iter > 0)
+        {}
       }
       m_aEVd[l] = m_aEVd[l] + f;
       m_aEVe[l] = 0.0;
@@ -679,12 +682,11 @@ public class EigenvalueDecomposition implements Serializable
             if (m == l)
               break;
             if (MathHelper.abs (m_aHessenBerg[m][m - 1]) *
-                (MathHelper.abs (q) +
-                 MathHelper.abs (r)) < EPSILON *
-                                       (MathHelper.abs (p) *
-                                        (MathHelper.abs (m_aHessenBerg[m - 1][m - 1]) +
-                                         MathHelper.abs (z) +
-                                         MathHelper.abs (m_aHessenBerg[m + 1][m + 1]))))
+                (MathHelper.abs (q) + MathHelper.abs (r)) < EPSILON *
+                                                            (MathHelper.abs (p) *
+                                                             (MathHelper.abs (m_aHessenBerg[m - 1][m - 1]) +
+                                                              MathHelper.abs (z) +
+                                                              MathHelper.abs (m_aHessenBerg[m + 1][m + 1]))))
             {
               break;
             }
