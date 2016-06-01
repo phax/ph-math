@@ -17,8 +17,9 @@
 package numbercruncher.rootutils;
 
 import java.awt.Rectangle;
-import java.util.Hashtable;
-import java.util.Map;
+
+import com.helger.commons.collection.ext.CommonsConcurrentHashMap;
+import com.helger.commons.collection.ext.ICommonsMap;
 
 import numbercruncher.graphutils.IPlottable;
 import numbercruncher.graphutils.PlotProperties;
@@ -80,7 +81,7 @@ public final class PlotFunction implements IPlottable
   private PlotProperties properties;
 
   /** wrapped function table */
-  private static Map <String, PlotFunction> TABLE = new Hashtable <String, PlotFunction> (32);
+  private static ICommonsMap <String, PlotFunction> TABLE = new CommonsConcurrentHashMap<> (32);
 
   // Enter the wrapped functions into the table.
   static

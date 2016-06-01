@@ -16,8 +16,8 @@
  */
 package numbercruncher.program15_4;
 
-import java.util.HashSet;
-import java.util.Set;
+import com.helger.commons.collection.ext.CommonsHashSet;
+import com.helger.commons.collection.ext.ICommonsSet;
 
 import numbercruncher.mathutils.SystemOutAlignRight;
 import numbercruncher.primeutils.PrimalityFuncTest;
@@ -45,9 +45,9 @@ public final class PrimeGenerators
     int gPrimeCount = 0; // count of Greenwood primes
 
     // set of Euler primes
-    final Set <Integer> ePrimes = new HashSet <Integer> ();
+    final ICommonsSet <Integer> ePrimes = new CommonsHashSet<> ();
     // set of Greenwood primes
-    final Set <Integer> gPrimes = new HashSet <Integer> ();
+    final ICommonsSet <Integer> gPrimes = new CommonsHashSet<> ();
 
     String eMark, gMark; // " " if prime, "c" if composite
 

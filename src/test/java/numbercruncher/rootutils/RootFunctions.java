@@ -16,8 +16,8 @@
  */
 package numbercruncher.rootutils;
 
-import java.util.Hashtable;
-import java.util.Map;
+import com.helger.commons.collection.ext.CommonsConcurrentHashMap;
+import com.helger.commons.collection.ext.ICommonsMap;
 
 import numbercruncher.mathutils.AbstractFunction;
 
@@ -27,7 +27,7 @@ import numbercruncher.mathutils.AbstractFunction;
 public final class RootFunctions
 {
   /** global function table */
-  private static Map <String, AbstractFunction> TABLE = new Hashtable <String, AbstractFunction> (32);
+  private static ICommonsMap <String, AbstractFunction> TABLE = new CommonsConcurrentHashMap<> (32);
 
   // Enter the functions into the global function table.
   static

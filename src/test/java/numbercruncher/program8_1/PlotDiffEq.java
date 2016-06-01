@@ -17,8 +17,9 @@
 package numbercruncher.program8_1;
 
 import java.awt.Rectangle;
-import java.util.Hashtable;
-import java.util.Map;
+
+import com.helger.commons.collection.ext.CommonsConcurrentHashMap;
+import com.helger.commons.collection.ext.ICommonsMap;
 
 import numbercruncher.graphutils.IPlottable;
 import numbercruncher.graphutils.PlotProperties;
@@ -55,7 +56,7 @@ public final class PlotDiffEq implements IPlottable
   private PlotProperties properties;
 
   /** wrapped differential equations table */
-  public static Map <String, PlotDiffEq> TABLE = new Hashtable <String, PlotDiffEq> (32);
+  public static ICommonsMap <String, PlotDiffEq> TABLE = new CommonsConcurrentHashMap<> (32);
 
   // Enter the wrapped differential equations into the table.
   static

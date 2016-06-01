@@ -16,8 +16,8 @@
  */
 package numbercruncher.program8_1;
 
-import java.util.Hashtable;
-import java.util.Map;
+import com.helger.commons.collection.ext.CommonsConcurrentHashMap;
+import com.helger.commons.collection.ext.ICommonsMap;
 
 import numbercruncher.mathutils.AbstractDifferentialEquation;
 import numbercruncher.mathutils.DataPoint;
@@ -28,7 +28,7 @@ import numbercruncher.mathutils.DataPoint;
 public final class DiffEqsToSolve
 {
   /** global function table */
-  private static Map <String, AbstractDifferentialEquation> TABLE = new Hashtable <String, AbstractDifferentialEquation> (32);
+  private static ICommonsMap <String, AbstractDifferentialEquation> TABLE = new CommonsConcurrentHashMap<> (32);
 
   // Enter the differential equations into the global table.
   static
