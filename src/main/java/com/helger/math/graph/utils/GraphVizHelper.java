@@ -30,16 +30,16 @@ import com.helger.commons.charset.CharsetManager;
 import com.helger.commons.io.stream.NonBlockingByteArrayOutputStream;
 import com.helger.commons.io.stream.StreamHelper;
 import com.helger.commons.string.StringHelper;
-import com.helger.commons.xml.serialize.write.EXMLCharMode;
-import com.helger.commons.xml.serialize.write.EXMLIncorrectCharacterHandling;
-import com.helger.commons.xml.serialize.write.EXMLSerializeVersion;
-import com.helger.commons.xml.serialize.write.XMLMaskHelper;
 import com.helger.math.graph.IBaseGraph;
 import com.helger.math.graph.IBaseGraphNode;
 import com.helger.math.graph.IBaseGraphRelation;
 import com.helger.math.graph.IDirectedGraph;
 import com.helger.math.graph.IDirectedGraphNode;
 import com.helger.math.graph.IDirectedGraphRelation;
+import com.helger.xml.serialize.write.EXMLCharMode;
+import com.helger.xml.serialize.write.EXMLIncorrectCharacterHandling;
+import com.helger.xml.serialize.write.EXMLSerializeVersion;
+import com.helger.xml.serialize.write.XMLMaskHelper;
 
 /**
  * Utility class to export a graph to something else
