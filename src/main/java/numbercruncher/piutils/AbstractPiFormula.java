@@ -17,9 +17,9 @@
 package numbercruncher.piutils;
 
 import java.time.Duration;
-import java.time.Instant;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
+
+import com.helger.commons.datetime.PDTFactory;
 
 /**
  * Utility class for programs that compute pi.
@@ -81,8 +81,8 @@ public abstract class AbstractPiFormula
   protected String timestamp (final long time)
   {
     // Current time followed by elapsed time as (hh:mm:ss).
-    final LocalDateTime aLDT = LocalDateTime.now (ZoneId.systemDefault ());
-    final LocalDateTime aOld = LocalDateTime.ofInstant (Instant.ofEpochMilli (time), ZoneId.systemDefault ());
+    final LocalDateTime aLDT = PDTFactory.getCurrentLocalDateTime ();
+    final LocalDateTime aOld = PDTFactory.createLocalDateTime (time);
 
     return aLDT.toLocalTime ().toString () + " (" + Duration.between (aOld, aLDT).toString () + ")";
   }
