@@ -96,7 +96,7 @@
           <instructions>
             <Export-Package>
               com.helger.math.*,
-              numbercruncher.*
+              com.helger.numbercruncher.*
             </Export-Package>
             <Import-Package>
               !javax.annotation.*,*

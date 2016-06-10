@@ -73,6 +73,16 @@
 
       <dependency>
         <groupId>com.helger</groupId>
+        <artifactId>ph-matrix</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.helger</groupId>
+        <artifactId>ph-graph</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.helger</groupId>
         <artifactId>ph-math</artifactId>
         <version>${project.version}</version>
       </dependency>
@@ -93,6 +103,8 @@
   </dependencies>
 
   <modules>
+    <module>ph-matrix</module>
+    <module>ph-graph</module>
     <module>ph-math</module>
   </modules>
 </project>
