@@ -95,7 +95,6 @@
         <configuration>
           <instructions>
             <Export-Package>
-              com.helger.math.*,
               com.helger.numbercruncher.*
             </Export-Package>
             <Import-Package>
