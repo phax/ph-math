@@ -16,6 +16,8 @@
  */
 package com.helger.graph.algo;
 
+import java.util.function.ToIntFunction;
+
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -244,7 +246,7 @@ public final class Dijkstra
   public static <N extends IMutableBaseGraphNode <N, R>, R extends IMutableBaseGraphRelation <N, R>> Dijkstra.Result <N> applyDijkstra (@Nonnull final IMutableBaseGraph <N, R> aGraph,
                                                                                                                                         @Nonnull @Nonempty final String sFromID,
                                                                                                                                         @Nonnull @Nonempty final String sToID,
-                                                                                                                                        @Nonnull @Nonempty final String sRelationCostAttr)
+                                                                                                                                        @Nonnull final ToIntFunction <R> aRelationCostProvider)
   {
     final N aStartNode = aGraph.getNodeOfID (sFromID);
     if (aStartNode == null)
@@ -303,8 +305,7 @@ public final class Dijkstra
           if (aRelation != null)
           {
             // Nodes are related - check weight
-            final int nNewDistance = aLastMatch.getDistance () +
-                                     aRelation.getAttributeAsInt (sRelationCostAttr, Integer.MIN_VALUE);
+            final int nNewDistance = aLastMatch.getDistance () + aRelationCostProvider.applyAsInt (aRelation);
 
             // Use only, if distance is shorter (=better) than before!
             if (nNewDistance < aPrevElement.getDistance ())
