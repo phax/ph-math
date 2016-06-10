@@ -16,6 +16,8 @@
  */
 package com.helger.math.graph;
 
+import java.util.function.Consumer;
+
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -70,6 +72,15 @@ public interface IBaseGraph <NODETYPE extends IBaseGraphNode <NODETYPE, RELATION
   ICommonsOrderedSet <String> getAllNodeIDs ();
 
   /**
+   * Iterate each node calling the provided consumer with the node object.
+   *
+   * @param aConsumer
+   *        The consumer to be invoked. May not be <code>null</code>. May only
+   *        perform reading operations!
+   */
+  void forEachNode (@Nonnull Consumer <? super NODETYPE> aConsumer);
+
+  /**
    * @return A non-<code>null</code> collection of the relations in this graph,
    *         in arbitrary order!
    */
@@ -84,6 +95,16 @@ public interface IBaseGraph <NODETYPE extends IBaseGraphNode <NODETYPE, RELATION
   @Nonnull
   @ReturnsMutableCopy
   ICommonsOrderedSet <String> getAllRelationIDs ();
+
+  /**
+   * Iterate each relation calling the provided consumer with the relation
+   * object.
+   *
+   * @param aConsumer
+   *        The consumer to be invoked. May not be <code>null</code>. May only
+   *        perform reading operations!
+   */
+  void forEachRelation (@Nonnull Consumer <? super RELATIONTYPE> aConsumer);
 
   /**
    * Check if this graph contains cycles. An example for a cycle is e.g. if

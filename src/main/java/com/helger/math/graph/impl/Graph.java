@@ -16,10 +16,13 @@
  */
 package com.helger.math.graph.impl;
 
+import java.util.function.Consumer;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
+import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.ext.CommonsLinkedHashMap;
 import com.helger.commons.collection.ext.CommonsLinkedHashSet;
@@ -180,18 +183,25 @@ public class Graph extends AbstractBaseGraph <IMutableGraphNode, IMutableGraphRe
   @ReturnsMutableCopy
   public ICommonsOrderedMap <String, IMutableGraphRelation> getAllRelations ()
   {
-    final ICommonsOrderedMap <String, IMutableGraphRelation> ret = new CommonsLinkedHashMap <> ();
+    final ICommonsOrderedMap <String, IMutableGraphRelation> ret = new CommonsLinkedHashMap<> ();
     for (final IMutableGraphNode aNode : m_aNodes.values ())
       for (final IMutableGraphRelation aRelation : aNode.getAllRelations ())
         ret.put (aRelation.getID (), aRelation);
     return ret;
   }
 
+  public void forEachRelation (@Nonnull final Consumer <? super IMutableGraphRelation> aConsumer)
+  {
+    ValueEnforcer.notNull (aConsumer, "Consumer");
+    for (final IMutableGraphNode aNode : m_aNodes.values ())
+      aNode.forEachRelation (aConsumer);
+  }
+
   @Nonnull
   @ReturnsMutableCopy
   public ICommonsOrderedSet <String> getAllRelationIDs ()
   {
-    final ICommonsOrderedSet <String> ret = new CommonsLinkedHashSet <> ();
+    final ICommonsOrderedSet <String> ret = new CommonsLinkedHashSet<> ();
     for (final IMutableGraphNode aNode : m_aNodes.values ())
       ret.addAll (aNode.getAllRelationIDs ());
     return ret;

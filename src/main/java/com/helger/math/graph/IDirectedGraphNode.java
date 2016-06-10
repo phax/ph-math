@@ -16,6 +16,8 @@
  */
 package com.helger.math.graph;
 
+import java.util.function.Consumer;
+
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -65,6 +67,16 @@ public interface IDirectedGraphNode <NODETYPE extends IDirectedGraphNode <NODETY
   @Nonnull
   @ReturnsMutableCopy
   ICommonsList <RELATIONTYPE> getAllIncomingRelations ();
+
+  /**
+   * Iterate each icoming relation calling the provided consumer with the
+   * relation object.
+   *
+   * @param aConsumer
+   *        The consumer to be invoked. May not be <code>null</code>. May only
+   *        perform reading operations!
+   */
+  void forEachIncomingRelation (@Nonnull Consumer <? super RELATIONTYPE> aConsumer);
 
   /**
    * Check if this graph node is directly connected to the passed node via an
@@ -123,6 +135,16 @@ public interface IDirectedGraphNode <NODETYPE extends IDirectedGraphNode <NODETY
   @Nonnull
   @ReturnsMutableCopy
   ICommonsList <RELATIONTYPE> getAllOutgoingRelations ();
+
+  /**
+   * Iterate each outgoing relation calling the provided consumer with the
+   * relation object.
+   *
+   * @param aConsumer
+   *        The consumer to be invoked. May not be <code>null</code>. May only
+   *        perform reading operations!
+   */
+  void forEachOutgoingRelation (@Nonnull Consumer <? super RELATIONTYPE> aConsumer);
 
   /**
    * Check if this graph node is directly connected to the passed node via an

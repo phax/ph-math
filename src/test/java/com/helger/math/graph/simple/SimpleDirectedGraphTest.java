@@ -25,6 +25,9 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
+import com.helger.commons.collection.ext.CommonsHashSet;
+import com.helger.commons.collection.ext.ICommonsSet;
+import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.math.graph.AbstractGraphTestCase;
 import com.helger.math.graph.IMutableDirectedGraphNode;
@@ -232,6 +235,11 @@ public final class SimpleDirectedGraphTest extends AbstractGraphTestCase
     assertTrue (sg.containsCycles ());
     sg.createRelation ("6", "4");
     assertTrue (sg.containsCycles ());
+
+    final ICommonsSet <String> aRelationIDs1 = sg.getAllRelationIDs ();
+    final ICommonsSet <String> aRelationIDs2 = new CommonsHashSet<> ();
+    sg.forEachRelation (x -> aRelationIDs2.add (x.getID ()));
+    assertTrue (EqualsHelper.equalsCollection (aRelationIDs1, aRelationIDs2));
   }
 
   @Test

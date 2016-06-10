@@ -16,11 +16,14 @@
  */
 package com.helger.math.graph.impl;
 
+import java.util.function.Consumer;
+
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
+import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.ext.CommonsLinkedHashMap;
 import com.helger.commons.collection.ext.ICommonsOrderedMap;
@@ -48,7 +51,7 @@ public abstract class AbstractBaseGraph <NODETYPE extends IMutableBaseGraphNode 
   /** By default this is allowed */
   public static final boolean DEFAULT_CHANGING_CONNECTED_OBJECTS_ALLOWED = true;
 
-  protected final ICommonsOrderedMap <String, NODETYPE> m_aNodes = new CommonsLinkedHashMap <> ();
+  protected final ICommonsOrderedMap <String, NODETYPE> m_aNodes = new CommonsLinkedHashMap<> ();
   private boolean m_bIsChangingConnectedObjectsAllowed = DEFAULT_CHANGING_CONNECTED_OBJECTS_ALLOWED;
 
   public AbstractBaseGraph (@Nullable final String sID)
@@ -90,6 +93,12 @@ public abstract class AbstractBaseGraph <NODETYPE extends IMutableBaseGraphNode 
   public ICommonsOrderedSet <String> getAllNodeIDs ()
   {
     return m_aNodes.copyOfKeySet ();
+  }
+
+  public void forEachNode (@Nonnull final Consumer <? super NODETYPE> aConsumer)
+  {
+    ValueEnforcer.notNull (aConsumer, "Consumer");
+    m_aNodes.values ().forEach (aConsumer);
   }
 
   @Override

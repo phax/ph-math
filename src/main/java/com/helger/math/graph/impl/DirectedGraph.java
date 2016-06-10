@@ -16,6 +16,8 @@
  */
 package com.helger.math.graph.impl;
 
+import java.util.function.Consumer;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
@@ -214,7 +216,7 @@ public class DirectedGraph extends AbstractBaseGraph <IMutableDirectedGraphNode,
   @ReturnsMutableCopy
   public ICommonsOrderedMap <String, IMutableDirectedGraphRelation> getAllRelations ()
   {
-    final ICommonsOrderedMap <String, IMutableDirectedGraphRelation> ret = new CommonsLinkedHashMap <> ();
+    final ICommonsOrderedMap <String, IMutableDirectedGraphRelation> ret = new CommonsLinkedHashMap<> ();
     for (final IMutableDirectedGraphNode aNode : m_aNodes.values ())
       for (final IMutableDirectedGraphRelation aRelation : aNode.getAllRelations ())
         ret.put (aRelation.getID (), aRelation);
@@ -225,10 +227,21 @@ public class DirectedGraph extends AbstractBaseGraph <IMutableDirectedGraphNode,
   @ReturnsMutableCopy
   public ICommonsOrderedSet <String> getAllRelationIDs ()
   {
-    final ICommonsOrderedSet <String> ret = new CommonsLinkedHashSet <> ();
+    final ICommonsOrderedSet <String> ret = new CommonsLinkedHashSet<> ();
     for (final IMutableDirectedGraphNode aNode : m_aNodes.values ())
       ret.addAll (aNode.getAllRelationIDs ());
     return ret;
+  }
+
+  public void forEachRelation (@Nonnull final Consumer <? super IMutableDirectedGraphRelation> aConsumer)
+  {
+    ValueEnforcer.notNull (aConsumer, "Consumer");
+    for (final IMutableDirectedGraphNode aNode : m_aNodes.values ())
+    {
+      // Use only the outgoings, because the incomings are outgoing somewhere
+      // else
+      aNode.forEachOutgoingRelation (aConsumer);
+    }
   }
 
   @Override

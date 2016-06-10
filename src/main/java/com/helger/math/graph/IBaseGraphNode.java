@@ -16,6 +16,8 @@
  */
 package com.helger.math.graph;
 
+import java.util.function.Consumer;
+
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -90,6 +92,16 @@ public interface IBaseGraphNode <NODETYPE extends IBaseGraphNode <NODETYPE, RELA
   @Nonnull
   @ReturnsMutableCopy
   ICommonsOrderedSet <String> getAllRelationIDs ();
+
+  /**
+   * Iterate each relation calling the provided consumer with the relation
+   * object.
+   *
+   * @param aConsumer
+   *        The consumer to be invoked. May not be <code>null</code>. May only
+   *        perform reading operations!
+   */
+  void forEachRelation (@Nonnull Consumer <? super RELATIONTYPE> aConsumer);
 
   /**
    * @return A container with all nodes directly connected to this node's
