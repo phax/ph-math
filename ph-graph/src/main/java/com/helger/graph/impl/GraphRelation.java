@@ -20,6 +20,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 
+import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.ext.CommonsLinkedHashSet;
 import com.helger.commons.collection.ext.ICommonsOrderedSet;
@@ -49,10 +50,8 @@ public class GraphRelation extends AbstractBaseGraphObject implements IMutableGr
                         @Nonnull final IMutableGraphNode aNode2)
   {
     super (sID);
-    if (aNode1 == null)
-      throw new NullPointerException ("node1");
-    if (aNode2 == null)
-      throw new NullPointerException ("node2");
+    ValueEnforcer.notNull (aNode1, "Node1");
+    ValueEnforcer.notNull (aNode2, "Node2");
     m_aNode1 = aNode1;
     m_aNode2 = aNode2;
   }
@@ -71,14 +70,14 @@ public class GraphRelation extends AbstractBaseGraphObject implements IMutableGr
   @ReturnsMutableCopy
   public ICommonsOrderedSet <IMutableGraphNode> getAllConnectedNodes ()
   {
-    return new CommonsLinkedHashSet <> (m_aNode1, m_aNode2);
+    return new CommonsLinkedHashSet<> (m_aNode1, m_aNode2);
   }
 
   @Nonnull
   @ReturnsMutableCopy
   public ICommonsOrderedSet <String> getAllConnectedNodeIDs ()
   {
-    return new CommonsLinkedHashSet <> (m_aNode1.getID (), m_aNode2.getID ());
+    return new CommonsLinkedHashSet<> (m_aNode1.getID (), m_aNode2.getID ());
   }
 
   @Nonnull

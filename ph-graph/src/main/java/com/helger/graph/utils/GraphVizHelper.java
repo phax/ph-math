@@ -90,8 +90,7 @@ public final class GraphVizHelper
                                                                                                                 @Nullable final String sNodeLabelAttr,
                                                                                                                 @Nullable final String sRelationLabelAttr)
   {
-    if (aGraph == null)
-      throw new NullPointerException ("graph");
+    ValueEnforcer.notNull (aGraph, "Graph");
 
     final StringBuilder aSB = new StringBuilder ();
     // It's a directed graph
@@ -149,8 +148,7 @@ public final class GraphVizHelper
                                                                                                                         @Nullable final String sNodeLabelAttr,
                                                                                                                         @Nullable final String sRelationLabelAttr)
   {
-    if (aGraph == null)
-      throw new NullPointerException ("graph");
+    ValueEnforcer.notNull (aGraph, "Graph");
 
     final StringBuilder aSB = new StringBuilder ();
     // It's a directed graph

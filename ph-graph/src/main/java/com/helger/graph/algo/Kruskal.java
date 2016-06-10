@@ -25,7 +25,9 @@ import javax.annotation.Nonnull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
+import com.helger.commons.annotation.PresentForCodeCoverage;
 import com.helger.commons.collection.CollectionHelper;
 import com.helger.commons.collection.ext.CommonsTreeSet;
 import com.helger.commons.debug.GlobalDebug;
@@ -43,11 +45,6 @@ import com.helger.graph.simple.SimpleGraphObjectFastFactory;
  */
 public final class Kruskal
 {
-  private static final Logger s_aLogger = LoggerFactory.getLogger (Kruskal.class);
-
-  private Kruskal ()
-  {}
-
   public static final class Result
   {
     private final SimpleGraph m_aGraph;
@@ -55,8 +52,7 @@ public final class Kruskal
 
     public Result (@Nonnull final SimpleGraph aGraph, final int nTotalWeight)
     {
-      if (aGraph == null)
-        throw new NullPointerException ("graph");
+      ValueEnforcer.notNull (aGraph, "Graph");
       m_aGraph = aGraph;
       m_nTotalWeight = nTotalWeight;
     }
@@ -89,11 +85,19 @@ public final class Kruskal
     }
   }
 
+  private static final Logger s_aLogger = LoggerFactory.getLogger (Kruskal.class);
+
+  @PresentForCodeCoverage
+  private static final Kruskal s_aInstance = new Kruskal ();
+
+  private Kruskal ()
+  {}
+
   private static String _getWeightInfo (@Nonnull final IMutableGraphRelation aRel,
                                         @Nonnull @Nonempty final String sRelationCostAttr)
   {
     return "{" +
-           StringHelper.getImploded (',', new CommonsTreeSet <> (aRel.getAllConnectedNodeIDs ())) +
+           StringHelper.getImploded (',', new CommonsTreeSet<> (aRel.getAllConnectedNodeIDs ())) +
            ":" +
            aRel.getAttributeAsInt (sRelationCostAttr) +
            "}";

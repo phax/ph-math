@@ -52,8 +52,7 @@ public class Graph extends AbstractBaseGraph <IMutableGraphNode, IMutableGraphRe
   public Graph (@Nullable final String sID, @Nonnull final IMutableGraphObjectFactory aFactory)
   {
     super (sID);
-    if (aFactory == null)
-      throw new NullPointerException ("factory");
+    ValueEnforcer.notNull (aFactory, "Factory");
     m_aFactory = aFactory;
   }
 
@@ -88,8 +87,7 @@ public class Graph extends AbstractBaseGraph <IMutableGraphNode, IMutableGraphRe
   @Nonnull
   public EChange addNode (@Nonnull final IMutableGraphNode aNode)
   {
-    if (aNode == null)
-      throw new NullPointerException ("node");
+    ValueEnforcer.notNull (aNode, "Node");
 
     if (!isChangingConnectedObjectsAllowed () && aNode.hasRelations ())
       throw new IllegalArgumentException ("The node to be added already has incoming and/or outgoing relations and this is not allowed!");
@@ -106,8 +104,7 @@ public class Graph extends AbstractBaseGraph <IMutableGraphNode, IMutableGraphRe
   @Nonnull
   public EChange removeNode (@Nonnull final IMutableGraphNode aNode)
   {
-    if (aNode == null)
-      throw new NullPointerException ("node");
+    ValueEnforcer.notNull (aNode, "Node");
 
     if (!isChangingConnectedObjectsAllowed () && aNode.hasRelations ())
       throw new IllegalArgumentException ("The node to be removed already has incoming and/or outgoing relations and this is not allowed!");
@@ -122,8 +119,7 @@ public class Graph extends AbstractBaseGraph <IMutableGraphNode, IMutableGraphRe
   @Nonnull
   public EChange removeNodeAndAllRelations (@Nonnull final IMutableGraphNode aNode)
   {
-    if (aNode == null)
-      throw new NullPointerException ("node");
+    ValueEnforcer.notNull (aNode, "Node");
 
     if (!m_aNodes.containsKey (aNode.getID ()))
       return EChange.UNCHANGED;
