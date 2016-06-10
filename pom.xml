@@ -24,11 +24,11 @@
     <artifactId>parent-pom</artifactId>
     <version>1.8.4</version>
   </parent>
-  <artifactId>ph-math</artifactId>
+  <artifactId>ph-math-parent-pom</artifactId>
   <version>3.0.0-SNAPSHOT</version>
-  <packaging>bundle</packaging>
-  <name>ph-math</name>
-  <description>Java library with basic math stuff</description>
+  <packaging>pom</packaging>
+  <name>ph-math-parent-pom</name>
+  <description>Base POM for ph-math</description>
   <url>https://github.com/phax/ph-math</url>
   <inceptionYear>2014</inceptionYear>
   
@@ -70,20 +70,21 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+
+      <dependency>
+        <groupId>com.helger</groupId>
+        <artifactId>ph-math</artifactId>
+        <version>${project.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
   <dependencies>
     <dependency>
-      <groupId>com.helger</groupId>
-      <artifactId>ph-commons</artifactId>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
     </dependency>
-    <dependency>
-      <groupId>com.helger</groupId>
-      <artifactId>ph-xml</artifactId>
-      <optional>true</optional>
-    </dependency>
-    
+
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
@@ -91,45 +92,7 @@
     </dependency>
   </dependencies>
 
-  <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>de.thetaphi</groupId>
-          <artifactId>forbiddenapis</artifactId>
-          <configuration>
-            <bundledSignatures>
-              <bundledSignature>jdk-unsafe</bundledSignature>
-              <bundledSignature>jdk-deprecated</bundledSignature>
-              <bundledSignature>jdk-reflection</bundledSignature>
-              <bundledSignature>jdk-internal</bundledSignature>
-              <bundledSignature>jdk-non-portable</bundledSignature>
-              <!--  
-              <bundledSignature>jdk-system-out</bundledSignature>
-              -->
-            </bundledSignatures>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-  
-    <plugins>
-      <plugin>
-        <groupId>org.apache.felix</groupId>
-        <artifactId>maven-bundle-plugin</artifactId>
-        <extensions>true</extensions>
-        <configuration>
-          <instructions>
-            <Export-Package>
-              com.helger.math.*,
-              numbercruncher.*
-            </Export-Package>
-            <Import-Package>
-              !javax.annotation.*,*
-            </Import-Package>
-          </instructions>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+  <modules>
+    <module>ph-math</module>
+  </modules>
 </project>
