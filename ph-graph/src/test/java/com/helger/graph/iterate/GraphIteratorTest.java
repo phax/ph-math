@@ -29,13 +29,13 @@ import org.junit.Test;
 import com.helger.graph.AbstractGraphTestCase;
 import com.helger.graph.IMutableGraph;
 import com.helger.graph.IMutableGraphNode;
-import com.helger.graph.iterate.GraphIterator;
 
 /**
  * Test class for class {@link GraphIterator}.
  *
  * @author Philip Helger
  */
+@SuppressWarnings ("unused")
 public final class GraphIteratorTest extends AbstractGraphTestCase
 {
   @Test

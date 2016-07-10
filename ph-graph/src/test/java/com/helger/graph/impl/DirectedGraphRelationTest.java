@@ -22,8 +22,6 @@ import static org.junit.Assert.fail;
 import org.junit.Test;
 
 import com.helger.commons.mock.CommonsTestHelper;
-import com.helger.graph.impl.DirectedGraphNode;
-import com.helger.graph.impl.DirectedGraphRelation;
 
 /**
  * Test class for class {@link DirectedGraphRelation}.
@@ -33,6 +31,7 @@ import com.helger.graph.impl.DirectedGraphRelation;
 public final class DirectedGraphRelationTest
 {
   @Test
+  @SuppressWarnings ("unused")
   public void testCtor ()
   {
     new DirectedGraphRelation (new DirectedGraphNode (), new DirectedGraphNode ());

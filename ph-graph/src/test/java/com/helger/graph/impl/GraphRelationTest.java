@@ -23,8 +23,6 @@ import static org.junit.Assert.fail;
 import org.junit.Test;
 
 import com.helger.commons.mock.CommonsTestHelper;
-import com.helger.graph.impl.GraphNode;
-import com.helger.graph.impl.GraphRelation;
 
 /**
  * Test class for class {@link GraphRelation}.
@@ -34,6 +32,7 @@ import com.helger.graph.impl.GraphRelation;
 public final class GraphRelationTest
 {
   @Test
+  @SuppressWarnings ("unused")
   public void testCtor ()
   {
     new GraphRelation (new GraphNode (), new GraphNode ());

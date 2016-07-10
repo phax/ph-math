@@ -29,13 +29,13 @@ import org.junit.Test;
 import com.helger.graph.AbstractGraphTestCase;
 import com.helger.graph.IMutableDirectedGraph;
 import com.helger.graph.IMutableDirectedGraphNode;
-import com.helger.graph.iterate.DirectedGraphIteratorBackward;
 
 /**
  * Test class for class {@link DirectedGraphIteratorBackward}.
  *
  * @author Philip Helger
  */
+@SuppressWarnings ("unused")
 public final class DirectedGraphIteratorBackwardTest extends AbstractGraphTestCase
 {
   @Test
