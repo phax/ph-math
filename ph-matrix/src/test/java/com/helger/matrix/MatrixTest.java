@@ -39,12 +39,6 @@ import org.junit.Test;
 
 import com.helger.commons.io.file.FileOperations;
 import com.helger.commons.string.StringHelper;
-import com.helger.matrix.CholeskyDecomposition;
-import com.helger.matrix.EigenvalueDecomposition;
-import com.helger.matrix.LUDecomposition;
-import com.helger.matrix.Matrix;
-import com.helger.matrix.QRDecomposition;
-import com.helger.matrix.SingularValueDecomposition;
 
 /**
  * TestMatrix tests the functionality of the Jama Matrix class and associated
@@ -84,6 +78,7 @@ public final class MatrixTest
   private static final double EPSILON = Math.pow (2.0, -52.0);
 
   @Test
+  @SuppressWarnings ("unused")
   public void testMain ()
   {
     // Uncomment this to test IO in a different locale.

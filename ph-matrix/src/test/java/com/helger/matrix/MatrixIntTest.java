@@ -38,7 +38,6 @@ import org.junit.Test;
 
 import com.helger.commons.io.file.FileOperations;
 import com.helger.commons.string.StringHelper;
-import com.helger.matrix.MatrixInt;
 
 /**
  * TestMatrix tests the functionality of the Jama MatrixInt class and associated
@@ -77,6 +76,7 @@ public final class MatrixIntTest
   private static final String FILENAME_JAMA_TEST_MATRIX_OUT = "Jamaout";
   private static final double EPSILON = Math.pow (2.0, -52.0);
 
+  @SuppressWarnings ("unused")
   @Test
   public void testMain ()
   {
