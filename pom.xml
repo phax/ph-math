@@ -66,21 +66,11 @@
       <dependency>
         <groupId>com.helger</groupId>
         <artifactId>ph-commons-parent-pom</artifactId>
-        <version>8.2.2</version>
+        <version>8.3.0-SNAPSHOT</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
 
-      <dependency>
-        <groupId>com.helger</groupId>
-        <artifactId>ph-matrix</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.helger</groupId>
-        <artifactId>ph-graph</artifactId>
-        <version>${project.version}</version>
-      </dependency>
       <dependency>
         <groupId>com.helger</groupId>
         <artifactId>ph-math</artifactId>
@@ -108,8 +98,6 @@
   </dependencies>
 
   <modules>
-    <module>ph-matrix</module>
-    <module>ph-graph</module>
     <module>ph-math</module>
   </modules>
 </project>
