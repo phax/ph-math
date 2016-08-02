@@ -37,8 +37,8 @@ public class Complex
    */
   public Complex (final float real, final float imaginary)
   {
-    this.m_fReal = real;
-    this.m_fImaginary = imaginary;
+    m_fReal = real;
+    m_fImaginary = imaginary;
   }
 
   /**
