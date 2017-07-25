@@ -20,9 +20,6 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.numbercruncher.mathutils.PrimeFactors;
-import com.helger.numbercruncher.mathutils.SystemOutAlignRight;
-
 public final class PrimeFactorsTest
 {
   private static final Logger s_aLogger = LoggerFactory.getLogger (PrimeFactorsTest.class);

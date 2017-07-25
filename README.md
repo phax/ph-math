@@ -2,11 +2,17 @@
 
 Java library with some basic math implementations
 
-  * Graphs - directed and undirected
-  * Matrix implementations
+  * Misc numbercruncher stuff
   
-Version <= 1.2.x target ph-commons < 6.0.0.
-Version >= 2.0.0 target ph-commons >= 6.0.0.
+# News and noteworthy
+  * v4.0.0 - work in progress
+    * Updated to ph-commons 9.0.0
+  * v3.0.0 
+    * Updated to ph-commons 8.x    
+  * v2.0.0 
+    * Updated to ph-commons 6.x    
+  * v1.2.0 
+    * Requires ph-commons 5.x    
 
 # Maven usage
 Add the following to your pom.xml to use this artifact:

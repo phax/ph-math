@@ -19,8 +19,6 @@ package com.helger.numbercruncher.primeutils;
 import java.util.Random;
 
 import com.helger.numbercruncher.mathutils.ModuloArithmetic;
-import com.helger.numbercruncher.primeutils.IMillerRabinCaller;
-import com.helger.numbercruncher.primeutils.MillerRabinStatus;
 
 /**
  * An implemention of the the Miller-Rabin test for primality.

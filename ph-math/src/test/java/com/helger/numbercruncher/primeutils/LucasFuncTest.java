@@ -18,8 +18,6 @@ package com.helger.numbercruncher.primeutils;
 
 import com.helger.numbercruncher.mathutils.ModuloArithmetic;
 import com.helger.numbercruncher.mathutils.PrimeFactors;
-import com.helger.numbercruncher.primeutils.ILucasCaller;
-import com.helger.numbercruncher.primeutils.LucasStatus;
 
 /**
  * An implemention of the the Lucas test for primality.

@@ -19,9 +19,6 @@ package com.helger.numbercruncher.mathutils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.numbercruncher.mathutils.IntPower;
-import com.helger.numbercruncher.mathutils.ModuloArithmetic;
-
 public final class ModuloArithmeticTest
 {
   private static final Logger s_aLogger = LoggerFactory.getLogger (ModuloArithmetic.class);

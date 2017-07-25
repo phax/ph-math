@@ -20,8 +20,6 @@ import java.math.BigDecimal;
 
 import org.junit.Test;
 
-import com.helger.numbercruncher.mathutils.BigFunctions;
-
 /**
  * PROGRAM 12-2: Test BigFunctions Test the {@link BigFunctions} by comparing
  * results with class java.lang.Math.
