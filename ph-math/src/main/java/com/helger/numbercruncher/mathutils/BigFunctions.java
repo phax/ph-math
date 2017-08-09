@@ -18,6 +18,7 @@ package com.helger.numbercruncher.mathutils;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.RoundingMode;
 
 import javax.annotation.Nonnull;
 
@@ -46,7 +47,7 @@ public final class BigFunctions
     // If the exponent is negative, compute 1/(x^-exponent).
     if (exponent < 0)
     {
-      return BigDecimal.ONE.divide (intPower (x, -exponent, scale), scale, BigDecimal.ROUND_HALF_EVEN);
+      return BigDecimal.ONE.divide (intPower (x, -exponent, scale), scale, RoundingMode.HALF_EVEN);
     }
 
     BigDecimal power = BigDecimal.ONE;
@@ -58,11 +59,11 @@ public final class BigFunctions
       // Is the rightmost bit a 1?
       if ((exponent & 1) == 1)
       {
-        power = power.multiply (x).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
+        power = power.multiply (x).setScale (scale, RoundingMode.HALF_EVEN);
       }
 
       // Square x and shift exponent 1 bit to the right.
-      x = x.multiply (x).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
+      x = x.multiply (x).setScale (scale, RoundingMode.HALF_EVEN);
       exponent >>= 1;
 
       Thread.yield ();
@@ -101,7 +102,7 @@ public final class BigFunctions
     BigDecimal xPrev;
 
     // The initial approximation is x/index.
-    x = x.divide (i, scale, BigDecimal.ROUND_HALF_EVEN);
+    x = x.divide (i, scale, RoundingMode.HALF_EVEN);
 
     // Loop until the approximations converge
     // (two successive approximations are equal after rounding).
@@ -111,17 +112,17 @@ public final class BigFunctions
       final BigDecimal xToIm1 = intPower (x, index - 1, sp1);
 
       // x^index
-      final BigDecimal xToI = x.multiply (xToIm1).setScale (sp1, BigDecimal.ROUND_HALF_EVEN);
+      final BigDecimal xToI = x.multiply (xToIm1).setScale (sp1, RoundingMode.HALF_EVEN);
 
       // n + (index-1)*(x^index)
-      final BigDecimal numerator = n.add (im1.multiply (xToI)).setScale (sp1, BigDecimal.ROUND_HALF_EVEN);
+      final BigDecimal numerator = n.add (im1.multiply (xToI)).setScale (sp1, RoundingMode.HALF_EVEN);
 
       // (index*(x^(index-1))
-      final BigDecimal denominator = i.multiply (xToIm1).setScale (sp1, BigDecimal.ROUND_HALF_EVEN);
+      final BigDecimal denominator = i.multiply (xToIm1).setScale (sp1, RoundingMode.HALF_EVEN);
 
       // x = (n + (index-1)*(x^index)) / (index*(x^(index-1)))
       xPrev = x;
-      x = numerator.divide (denominator, sp1, BigDecimal.ROUND_DOWN);
+      x = numerator.divide (denominator, sp1, RoundingMode.DOWN);
 
       Thread.yield ();
     } while (x.subtract (xPrev).abs ().compareTo (tolerance) > 0);
@@ -150,11 +151,11 @@ public final class BigFunctions
     // If x is negative, return 1/(e^-x).
     if (x.signum () == -1)
     {
-      return BigDecimal.ONE.divide (exp (x.negate (), scale), scale, BigDecimal.ROUND_HALF_EVEN);
+      return BigDecimal.ONE.divide (exp (x.negate (), scale), scale, RoundingMode.HALF_EVEN);
     }
 
     // Compute the whole part of x.
-    BigDecimal xWhole = x.setScale (0, BigDecimal.ROUND_DOWN);
+    BigDecimal xWhole = x.setScale (0, RoundingMode.DOWN);
 
     // If there isn't a whole part, compute and return e^x.
     if (xWhole.signum () == 0)
@@ -164,7 +165,7 @@ public final class BigFunctions
     final BigDecimal xFraction = x.subtract (xWhole);
 
     // z = 1 + fraction/whole
-    final BigDecimal z = BigDecimal.ONE.add (xFraction.divide (xWhole, scale, BigDecimal.ROUND_HALF_EVEN));
+    final BigDecimal z = BigDecimal.ONE.add (xFraction.divide (xWhole, scale, RoundingMode.HALF_EVEN));
 
     // t = e^z
     final BigDecimal t = _expTaylor (z, scale);
@@ -177,12 +178,12 @@ public final class BigFunctions
     // of e^Long.MAX_VALUE.
     while (xWhole.compareTo (maxLong) >= 0)
     {
-      result = result.multiply (intPower (t, Long.MAX_VALUE, scale)).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
+      result = result.multiply (intPower (t, Long.MAX_VALUE, scale)).setScale (scale, RoundingMode.HALF_EVEN);
       xWhole = xWhole.subtract (maxLong);
 
       Thread.yield ();
     }
-    return result.multiply (intPower (t, xWhole.longValue (), scale)).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
+    return result.multiply (intPower (t, xWhole.longValue (), scale)).setScale (scale, RoundingMode.HALF_EVEN);
   }
 
   /**
@@ -209,13 +210,13 @@ public final class BigFunctions
     do
     {
       // x^i
-      xPower = xPower.multiply (x).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
+      xPower = xPower.multiply (x).setScale (scale, RoundingMode.HALF_EVEN);
 
       // i!
       factorial = factorial.multiply (BigDecimal.valueOf (i));
 
       // x^i/i!
-      final BigDecimal term = xPower.divide (factorial, scale, BigDecimal.ROUND_HALF_EVEN);
+      final BigDecimal term = xPower.divide (factorial, scale, RoundingMode.HALF_EVEN);
 
       // sum = sum + x^i/i!
       sumPrev = sum;
@@ -262,7 +263,7 @@ public final class BigFunctions
     final BigDecimal lnRoot = _lnNewton (root, scale);
 
     // magnitude*ln(x^(1/magnitude))
-    return BigDecimal.valueOf (magnitude).multiply (lnRoot).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
+    return BigDecimal.valueOf (magnitude).multiply (lnRoot).setScale (scale, RoundingMode.HALF_EVEN);
   }
 
   /**
@@ -288,7 +289,7 @@ public final class BigFunctions
       final BigDecimal eToX = exp (x, sp1);
 
       // (e^x - n)/e^x
-      term = eToX.subtract (n).divide (eToX, sp1, BigDecimal.ROUND_DOWN);
+      term = eToX.subtract (n).divide (eToX, sp1, RoundingMode.DOWN);
 
       // x - (e^x - n)/e^x
       x = x.subtract (term);
@@ -296,7 +297,7 @@ public final class BigFunctions
       Thread.yield ();
     } while (term.compareTo (tolerance) > 0);
 
-    return x.setScale (scale, BigDecimal.ROUND_HALF_EVEN);
+    return x.setScale (scale, RoundingMode.HALF_EVEN);
   }
 
   /**
@@ -351,10 +352,10 @@ public final class BigFunctions
     do
     {
       // x^i
-      power = power.multiply (x).multiply (x).setScale (sp1, BigDecimal.ROUND_HALF_EVEN);
+      power = power.multiply (x).multiply (x).setScale (sp1, RoundingMode.HALF_EVEN);
 
       // (x^i)/i
-      term = power.divide (BigDecimal.valueOf (i), sp1, BigDecimal.ROUND_HALF_EVEN);
+      term = power.divide (BigDecimal.valueOf (i), sp1, RoundingMode.HALF_EVEN);
 
       // sum = sum +- (x^i)/i
       sum = addFlag ? sum.add (term) : sum.subtract (term);

@@ -44,9 +44,9 @@ public final class PrimeGenerators
     int gPrimeCount = 0; // count of Greenwood primes
 
     // set of Euler primes
-    final ICommonsSet <Integer> ePrimes = new CommonsHashSet<> ();
+    final ICommonsSet <Integer> ePrimes = new CommonsHashSet <> ();
     // set of Greenwood primes
-    final ICommonsSet <Integer> gPrimes = new CommonsHashSet<> ();
+    final ICommonsSet <Integer> gPrimes = new CommonsHashSet <> ();
 
     String eMark, gMark; // " " if prime, "c" if composite
 
@@ -67,7 +67,7 @@ public final class PrimeGenerators
       if (epIsPrime)
       {
         ++ePrimeCount;
-        ePrimes.add (new Integer (ep));
+        ePrimes.add (Integer.valueOf (ep));
         eMark = " ";
       }
       else
@@ -78,7 +78,7 @@ public final class PrimeGenerators
       if (gpIsPrime)
       {
         ++gPrimeCount;
-        gPrimes.add (new Integer (gp));
+        gPrimes.add (Integer.valueOf (gp));
         gMark = " ";
       }
       else

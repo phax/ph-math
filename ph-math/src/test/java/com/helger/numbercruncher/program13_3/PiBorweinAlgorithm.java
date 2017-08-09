@@ -17,6 +17,7 @@
 package com.helger.numbercruncher.program13_3;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import com.helger.numbercruncher.mathutils.BigFunctions;
 
@@ -96,7 +97,7 @@ final class PiBorweinAlgorithm
     BigDecimal y = sqrt2.subtract (BigDecimal.valueOf (1));
 
     m_aParent.notifyTask ("a");
-    BigDecimal a = big6.subtract (big4.multiply (sqrt2).setScale (scale, BigDecimal.ROUND_HALF_EVEN));
+    BigDecimal a = big6.subtract (big4.multiply (sqrt2).setScale (scale, RoundingMode.HALF_EVEN));
 
     BigDecimal y2, y4, yRoot4, yNumerator, yDenominator;
     BigDecimal aTerm4, aTerm;
@@ -107,8 +108,8 @@ final class PiBorweinAlgorithm
       m_aParent.notifyPhase (++iterations);
 
       m_aParent.notifyTask ("y4");
-      y4 = y.multiply (y).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
-      y4 = y4.multiply (y4).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
+      y4 = y.multiply (y).setScale (scale, RoundingMode.HALF_EVEN);
+      y4 = y4.multiply (y4).setScale (scale, RoundingMode.HALF_EVEN);
 
       m_aParent.notifyTask ("yRoot4");
       yRoot4 = BigFunctions.sqrt (big1.subtract (y4), scale);
@@ -117,32 +118,32 @@ final class PiBorweinAlgorithm
       m_aParent.notifyTask ("y");
       yNumerator = big1.subtract (yRoot4);
       yDenominator = big1.add (yRoot4);
-      y = yNumerator.divide (yDenominator, scale, BigDecimal.ROUND_HALF_EVEN);
+      y = yNumerator.divide (yDenominator, scale, RoundingMode.HALF_EVEN);
 
       if (y.signum () == 0)
         break;
 
       m_aParent.notifyTask ("aTerm");
       aTerm4 = big1.add (y);
-      aTerm4 = aTerm4.multiply (aTerm4).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
-      aTerm4 = aTerm4.multiply (aTerm4).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
-      a = a.multiply (aTerm4).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
+      aTerm4 = aTerm4.multiply (aTerm4).setScale (scale, RoundingMode.HALF_EVEN);
+      aTerm4 = aTerm4.multiply (aTerm4).setScale (scale, RoundingMode.HALF_EVEN);
+      a = a.multiply (aTerm4).setScale (scale, RoundingMode.HALF_EVEN);
 
       m_aParent.notifyTask ("power2");
-      power2 = power2.multiply (big4).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
+      power2 = power2.multiply (big4).setScale (scale, RoundingMode.HALF_EVEN);
 
       m_aParent.notifyTask ("y2");
-      y2 = y.multiply (y).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
+      y2 = y.multiply (y).setScale (scale, RoundingMode.HALF_EVEN);
 
       m_aParent.notifyTask ("a");
       aTerm = big1.add (y).add (y2);
-      aTerm = power2.multiply (y).multiply (aTerm).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
-      a = a.subtract (aTerm).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
+      aTerm = power2.multiply (y).multiply (aTerm).setScale (scale, RoundingMode.HALF_EVEN);
+      a = a.subtract (aTerm).setScale (scale, RoundingMode.HALF_EVEN);
     }
 
     // Inversion phase.
     m_aParent.notifyPhase (PiBorweinConstants.INVERTING);
-    pi = big1.divide (a, m_nDigits, BigDecimal.ROUND_DOWN);
+    pi = big1.divide (a, m_nDigits, RoundingMode.DOWN);
 
     m_aParent.notifyPhase (PiBorweinConstants.DONE);
   }

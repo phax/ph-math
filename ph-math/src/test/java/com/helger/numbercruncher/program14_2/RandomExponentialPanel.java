@@ -251,7 +251,7 @@ public final class RandomExponentialPanel extends AbstractGraphPanel
     {
       meanText.requestFocus ();
       text = meanText.getText ();
-      mean = new Float (text).floatValue ();
+      mean = Float.parseFloat (text);
     }
     catch (final NumberFormatException ex)
     {

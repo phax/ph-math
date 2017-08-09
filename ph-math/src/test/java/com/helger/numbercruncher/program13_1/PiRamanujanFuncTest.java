@@ -17,6 +17,7 @@
 package com.helger.numbercruncher.program13_1;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import org.junit.Test;
 
@@ -48,11 +49,11 @@ public final class PiRamanujanFuncTest
     sqrt13 = BigFunctions.sqrt (BigDecimal.valueOf (13), scale);
     sqrt130 = BigFunctions.sqrt (BigDecimal.valueOf (130), scale);
 
-    term = BigDecimal.valueOf (12).divide (sqrt130, scale, BigDecimal.ROUND_HALF_EVEN);
+    term = BigDecimal.valueOf (12).divide (sqrt130, scale, RoundingMode.HALF_EVEN);
     a = BigDecimal.valueOf (2).add (sqrt5);
     b = BigDecimal.valueOf (3).add (sqrt13);
-    lnArg = a.multiply (b).divide (sqrt2, BigDecimal.ROUND_HALF_EVEN).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
-    pi = term.multiply (BigFunctions.ln (lnArg, scale)).setScale (digits, BigDecimal.ROUND_HALF_EVEN);
+    lnArg = a.multiply (b).divide (sqrt2, RoundingMode.HALF_EVEN).setScale (scale, RoundingMode.HALF_EVEN);
+    pi = term.multiply (BigFunctions.ln (lnArg, scale)).setScale (digits, RoundingMode.HALF_EVEN);
     System.out.println (digits + " digits: " + pi);
 
     // --- 16 digits ---
@@ -63,15 +64,15 @@ public final class PiRamanujanFuncTest
     sqrt2 = BigFunctions.sqrt (BigDecimal.valueOf (2), scale);
     sqrt142 = BigFunctions.sqrt (BigDecimal.valueOf (142), scale);
 
-    term = BigDecimal.valueOf (24).divide (sqrt142, scale, BigDecimal.ROUND_HALF_EVEN);
+    term = BigDecimal.valueOf (24).divide (sqrt142, scale, RoundingMode.HALF_EVEN);
     a = BigDecimal.valueOf (10).add (BigDecimal.valueOf (11).multiply (sqrt2)).divide (BigDecimal.valueOf (4),
                                                                                        scale,
-                                                                                       BigDecimal.ROUND_HALF_EVEN);
+                                                                                       RoundingMode.HALF_EVEN);
     b = BigDecimal.valueOf (10).add (BigDecimal.valueOf (7).multiply (sqrt2)).divide (BigDecimal.valueOf (4),
                                                                                       scale,
-                                                                                      BigDecimal.ROUND_HALF_EVEN);
+                                                                                      RoundingMode.HALF_EVEN);
     lnArg = BigFunctions.sqrt (a, scale).add (BigFunctions.sqrt (b, scale));
-    pi = term.multiply (BigFunctions.ln (lnArg, scale)).setScale (digits, BigDecimal.ROUND_HALF_EVEN);
+    pi = term.multiply (BigFunctions.ln (lnArg, scale)).setScale (digits, RoundingMode.HALF_EVEN);
     System.out.println (digits + " digits: " + pi);
 
     // --- 18 digits ---
@@ -83,11 +84,11 @@ public final class PiRamanujanFuncTest
     sqrt10 = BigFunctions.sqrt (BigDecimal.valueOf (10), scale);
     sqrt190 = BigFunctions.sqrt (BigDecimal.valueOf (190), scale);
 
-    term = BigDecimal.valueOf (12).divide (sqrt190, scale, BigDecimal.ROUND_HALF_EVEN);
+    term = BigDecimal.valueOf (12).divide (sqrt190, scale, RoundingMode.HALF_EVEN);
     a = BigDecimal.valueOf (2).multiply (sqrt2).add (sqrt10);
     b = BigDecimal.valueOf (3).add (sqrt10);
-    lnArg = a.multiply (b).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
-    pi = term.multiply (BigFunctions.ln (lnArg, scale)).setScale (digits, BigDecimal.ROUND_HALF_EVEN);
+    lnArg = a.multiply (b).setScale (scale, RoundingMode.HALF_EVEN);
+    pi = term.multiply (BigFunctions.ln (lnArg, scale)).setScale (digits, RoundingMode.HALF_EVEN);
     System.out.println (digits + " digits: " + pi);
 
     // --- 22 digits ---
@@ -100,14 +101,14 @@ public final class PiRamanujanFuncTest
     sqrt10 = BigFunctions.sqrt (BigDecimal.valueOf (10), scale);
     sqrt310 = BigFunctions.sqrt (BigDecimal.valueOf (310), scale);
 
-    term = BigDecimal.valueOf (12).divide (sqrt310, scale, BigDecimal.ROUND_HALF_EVEN);
+    term = BigDecimal.valueOf (12).divide (sqrt310, scale, RoundingMode.HALF_EVEN);
     a = BigDecimal.valueOf (3).add (sqrt5);
     b = BigDecimal.valueOf (2).add (sqrt2);
     c = BigDecimal.valueOf (5).add (BigDecimal.valueOf (2).multiply (sqrt10));
     d = BigFunctions.sqrt (BigDecimal.valueOf (61).add (BigDecimal.valueOf (20).multiply (sqrt10)), scale);
-    e = c.add (d).multiply (a).multiply (b).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
-    lnArg = e.divide (BigDecimal.valueOf (4), scale, BigDecimal.ROUND_HALF_EVEN);
-    pi = term.multiply (BigFunctions.ln (lnArg, scale)).setScale (digits, BigDecimal.ROUND_HALF_EVEN);
+    e = c.add (d).multiply (a).multiply (b).setScale (scale, RoundingMode.HALF_EVEN);
+    lnArg = e.divide (BigDecimal.valueOf (4), scale, RoundingMode.HALF_EVEN);
+    pi = term.multiply (BigFunctions.ln (lnArg, scale)).setScale (digits, RoundingMode.HALF_EVEN);
     System.out.println (digits + " digits: " + pi);
 
     // --- 31 digits ---
@@ -120,24 +121,24 @@ public final class PiRamanujanFuncTest
     sqrt29 = BigFunctions.sqrt (BigDecimal.valueOf (29), scale);
     sqrt522 = BigFunctions.sqrt (BigDecimal.valueOf (522), scale);
 
-    term = BigDecimal.valueOf (4).divide (sqrt522, scale, BigDecimal.ROUND_HALF_EVEN);
-    a = BigDecimal.valueOf (5).add (sqrt29).divide (sqrt2, BigDecimal.ROUND_HALF_EVEN);
+    term = BigDecimal.valueOf (4).divide (sqrt522, scale, RoundingMode.HALF_EVEN);
+    a = BigDecimal.valueOf (5).add (sqrt29).divide (sqrt2, RoundingMode.HALF_EVEN);
     b = BigDecimal.valueOf (5)
                   .multiply (sqrt29)
                   .add (BigDecimal.valueOf (11).multiply (sqrt6))
-                  .setScale (scale, BigDecimal.ROUND_HALF_EVEN);
+                  .setScale (scale, RoundingMode.HALF_EVEN);
     c = BigDecimal.valueOf (9).add (BigDecimal.valueOf (3).multiply (sqrt6)).divide (BigDecimal.valueOf (4),
                                                                                      scale,
-                                                                                     BigDecimal.ROUND_HALF_EVEN);
+                                                                                     RoundingMode.HALF_EVEN);
     d = BigDecimal.valueOf (5).add (BigDecimal.valueOf (3).multiply (sqrt6)).divide (BigDecimal.valueOf (4),
                                                                                      scale,
-                                                                                     BigDecimal.ROUND_HALF_EVEN);
+                                                                                     RoundingMode.HALF_EVEN);
     e = BigFunctions.sqrt (c, scale).add (BigFunctions.sqrt (d, scale));
     lnArg = BigFunctions.intPower (a, 3, scale)
                         .multiply (b)
                         .multiply (BigFunctions.intPower (e, 6, scale))
-                        .setScale (scale, BigDecimal.ROUND_HALF_EVEN);
-    pi = term.multiply (BigFunctions.ln (lnArg, scale)).setScale (digits, BigDecimal.ROUND_HALF_EVEN);
+                        .setScale (scale, RoundingMode.HALF_EVEN);
+    pi = term.multiply (BigFunctions.ln (lnArg, scale)).setScale (digits, RoundingMode.HALF_EVEN);
     System.out.println (digits + " digits: " + pi);
   }
 }

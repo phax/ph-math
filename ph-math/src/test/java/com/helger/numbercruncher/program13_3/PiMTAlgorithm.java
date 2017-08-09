@@ -17,6 +17,7 @@
 package com.helger.numbercruncher.program13_3;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import com.helger.numbercruncher.mathutils.BigFunctions;
 
@@ -119,7 +120,7 @@ final class PiMTAlgorithm
     m_aParent.notifyTask (M + "y" + FINISHED);
 
     m_aParent.notifyTask (M + "a" + STARTED);
-    m_aA = big6.subtract (big4.multiply (sqrt2).setScale (scale, BigDecimal.ROUND_HALF_EVEN));
+    m_aA = big6.subtract (big4.multiply (sqrt2).setScale (scale, RoundingMode.HALF_EVEN));
     m_aParent.notifyTask (M + "a" + FINISHED);
 
     yThread.start ();
@@ -190,8 +191,8 @@ final class PiMTAlgorithm
     private void compute ()
     {
       m_aParent.notifyTask (Y + "y4" + "[" + i + "]" + STARTED);
-      y4 = m_aY.multiply (m_aY).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
-      y4 = y4.multiply (y4).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
+      y4 = m_aY.multiply (m_aY).setScale (scale, RoundingMode.HALF_EVEN);
+      y4 = y4.multiply (y4).setScale (scale, RoundingMode.HALF_EVEN);
       m_aParent.notifyTask (Y + "y4" + "[" + i + "]" + FINISHED);
 
       m_aParent.notifyTask (Y + "yRoot4" + "[" + i + "]" + STARTED);
@@ -202,7 +203,7 @@ final class PiMTAlgorithm
       m_aParent.notifyTask (Y + "y" + "[" + i + "]" + STARTED);
       yNumerator = big1.subtract (yRoot4);
       yDenominator = big1.add (yRoot4);
-      m_aY = yNumerator.divide (yDenominator, scale, BigDecimal.ROUND_HALF_EVEN);
+      m_aY = yNumerator.divide (yDenominator, scale, RoundingMode.HALF_EVEN);
       m_aParent.notifyTask (Y + "y" + "[" + i + "]" + FINISHED);
     }
   }
@@ -240,23 +241,23 @@ final class PiMTAlgorithm
 
       m_aParent.notifyTask (A + "aTerm" + "[" + i + "]" + STARTED);
       aTerm4 = big1.add (y);
-      aTerm4 = aTerm4.multiply (aTerm4).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
-      aTerm4 = aTerm4.multiply (aTerm4).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
-      m_aA = m_aA.multiply (aTerm4).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
+      aTerm4 = aTerm4.multiply (aTerm4).setScale (scale, RoundingMode.HALF_EVEN);
+      aTerm4 = aTerm4.multiply (aTerm4).setScale (scale, RoundingMode.HALF_EVEN);
+      m_aA = m_aA.multiply (aTerm4).setScale (scale, RoundingMode.HALF_EVEN);
       m_aParent.notifyTask (A + "aTerm" + "[" + i + "]" + FINISHED);
 
       m_aParent.notifyTask (A + "power2" + "[" + i + "]" + STARTED);
-      power2 = power2.multiply (big4).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
+      power2 = power2.multiply (big4).setScale (scale, RoundingMode.HALF_EVEN);
       m_aParent.notifyTask (A + "power2" + "[" + i + "]" + FINISHED);
 
       m_aParent.notifyTask (A + "y2" + "[" + i + "]" + STARTED);
-      y2 = y.multiply (y).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
+      y2 = y.multiply (y).setScale (scale, RoundingMode.HALF_EVEN);
       m_aParent.notifyTask (A + "y2" + "[" + i + "]" + FINISHED);
 
       m_aParent.notifyTask (A + "a" + "[" + i + "]" + STARTED);
       aTerm = big1.add (y).add (y2);
-      aTerm = power2.multiply (y).multiply (aTerm).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
-      m_aA = m_aA.subtract (aTerm).setScale (scale, BigDecimal.ROUND_HALF_EVEN);
+      aTerm = power2.multiply (y).multiply (aTerm).setScale (scale, RoundingMode.HALF_EVEN);
+      m_aA = m_aA.subtract (aTerm).setScale (scale, RoundingMode.HALF_EVEN);
 
       as[i] = m_aA;
       m_aParent.notifyTask (A + "a" + "[" + i + "]" + FINISHED);
@@ -290,7 +291,7 @@ final class PiMTAlgorithm
       final BigDecimal a = as[i];
 
       m_aParent.notifyTask (X + "Inverting a" + "[" + i + "]" + STARTED);
-      pi = big1.divide (a, m_nDigits, BigDecimal.ROUND_DOWN);
+      pi = big1.divide (a, m_nDigits, RoundingMode.DOWN);
       m_aParent.notifyTask (X + "Inverting a" + "[" + i + "]" + FINISHED);
     }
   }

@@ -17,6 +17,7 @@
 package com.helger.numbercruncher.program13_2;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import com.helger.numbercruncher.mathutils.BigFunctions;
 import com.helger.numbercruncher.piutils.AbstractPiFormula;
@@ -54,8 +55,8 @@ public final class PiArctan extends AbstractPiFormula
     System.out.println (timestamp (startTime) + " Initializing");
     markTime = System.currentTimeMillis ();
 
-    final BigDecimal r5 = big1.divide (BigDecimal.valueOf (5), scale, BigDecimal.ROUND_HALF_EVEN);
-    BigDecimal r239 = big1.divide (BigDecimal.valueOf (239), scale, BigDecimal.ROUND_HALF_EVEN);
+    final BigDecimal r5 = big1.divide (BigDecimal.valueOf (5), scale, RoundingMode.HALF_EVEN);
+    BigDecimal r239 = big1.divide (BigDecimal.valueOf (239), scale, RoundingMode.HALF_EVEN);
 
     System.out.println (timestamp (markTime) + " Computing arctan(1/5)");
     markTime = System.currentTimeMillis ();
@@ -70,8 +71,8 @@ public final class PiArctan extends AbstractPiFormula
     System.out.println (timestamp (markTime) + " Computing pi");
     markTime = System.currentTimeMillis ();
 
-    BigDecimal term = big4.multiply (arctan5).setScale (scale, BigDecimal.ROUND_HALF_EVEN).subtract (arctan239);
-    BigDecimal pi = big4.multiply (term).setScale (digits, BigDecimal.ROUND_DOWN);
+    BigDecimal term = big4.multiply (arctan5).setScale (scale, RoundingMode.HALF_EVEN).subtract (arctan239);
+    BigDecimal pi = big4.multiply (term).setScale (digits, RoundingMode.DOWN);
 
     System.out.println (timestamp (markTime) + " pi computed");
     printPi (pi.toString ());
@@ -88,9 +89,9 @@ public final class PiArctan extends AbstractPiFormula
     System.out.println (timestamp (startTime) + " Initializing");
     markTime = System.currentTimeMillis ();
 
-    final BigDecimal r10 = big1.divide (BigDecimal.valueOf (10), scale, BigDecimal.ROUND_HALF_EVEN);
-    final BigDecimal r515 = big1.divide (BigDecimal.valueOf (515), scale, BigDecimal.ROUND_HALF_EVEN);
-    r239 = big1.divide (BigDecimal.valueOf (239), scale, BigDecimal.ROUND_HALF_EVEN);
+    final BigDecimal r10 = big1.divide (BigDecimal.valueOf (10), scale, RoundingMode.HALF_EVEN);
+    final BigDecimal r515 = big1.divide (BigDecimal.valueOf (515), scale, RoundingMode.HALF_EVEN);
+    r239 = big1.divide (BigDecimal.valueOf (239), scale, RoundingMode.HALF_EVEN);
 
     System.out.println (timestamp (markTime) + " Computing arctan(1/10)");
     markTime = System.currentTimeMillis ();
@@ -111,10 +112,10 @@ public final class PiArctan extends AbstractPiFormula
     markTime = System.currentTimeMillis ();
 
     term = big8.multiply (arctan10)
-               .setScale (scale, BigDecimal.ROUND_HALF_EVEN)
-               .subtract (big4.multiply (arctan515).setScale (scale, BigDecimal.ROUND_HALF_EVEN))
+               .setScale (scale, RoundingMode.HALF_EVEN)
+               .subtract (big4.multiply (arctan515).setScale (scale, RoundingMode.HALF_EVEN))
                .subtract (arctan239);
-    pi = big4.multiply (term).setScale (digits, BigDecimal.ROUND_DOWN);
+    pi = big4.multiply (term).setScale (digits, RoundingMode.DOWN);
 
     System.out.println (timestamp (markTime) + " pi computed");
     printPi (pi.toString ());

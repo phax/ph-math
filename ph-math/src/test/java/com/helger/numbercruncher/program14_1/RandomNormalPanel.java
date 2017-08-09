@@ -209,11 +209,11 @@ public final class RandomNormalPanel extends AbstractGraphPanel
     {
       meanText.requestFocus ();
       text = meanText.getText ();
-      mean = new Float (text).floatValue ();
+      mean = Float.parseFloat (text);
 
       stddevText.requestFocus ();
       text = stddevText.getText ();
-      stddev = (new Float (text)).floatValue ();
+      stddev = Float.parseFloat (text);
 
       if (stddev <= 0)
       {

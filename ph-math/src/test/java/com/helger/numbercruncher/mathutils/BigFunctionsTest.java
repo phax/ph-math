@@ -17,6 +17,7 @@
 package com.helger.numbercruncher.mathutils;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import org.junit.Test;
 
@@ -59,7 +60,7 @@ public final class BigFunctionsTest
                         BigFunctions.arctan (BigFunctions.sqrt (BigDecimal.valueOf (3), SCALE)
                                                          .divide (BigDecimal.valueOf (3),
                                                                   SCALE,
-                                                                  BigDecimal.ROUND_HALF_EVEN),
+                                                                  RoundingMode.HALF_EVEN),
                                              SCALE));
   }
 }
