@@ -27,6 +27,9 @@ import javax.annotation.Nonnull;
  */
 public final class BigFunctions
 {
+  private BigFunctions ()
+  {}
+
   /**
    * Compute x^exponent to a given scale. Uses the same algorithm as class
    * numbercruncher.mathutils.IntPower.

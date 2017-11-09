@@ -5,14 +5,14 @@ Java library with some basic math implementations
   * Misc numbercruncher stuff
   
 # News and noteworthy
-  * v4.0.0 - work in progress
-    * Updated to ph-commons 9.0.0
-  * v3.0.0 
-    * Updated to ph-commons 8.x    
-  * v2.0.0 
-    * Updated to ph-commons 6.x    
-  * v1.2.0 
-    * Requires ph-commons 5.x    
+* v4.0.0 - 2017-11-09
+  * Updated to ph-commons 9.0.0
+* v3.0.0 
+  * Updated to ph-commons 8.x    
+* v2.0.0 
+  * Updated to ph-commons 6.x    
+* v1.2.0 
+  * Requires ph-commons 5.x    
 
 # Maven usage
 Add the following to your pom.xml to use this artifact:
@@ -20,7 +20,7 @@ Add the following to your pom.xml to use this artifact:
 <dependency>
   <groupId>com.helger</groupId>
   <artifactId>ph-math</artifactId>
-  <version>3.0.0</version>
+  <version>4.0.0</version>
 </dependency>
 ```
 
