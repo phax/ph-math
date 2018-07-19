@@ -21,7 +21,7 @@ import org.slf4j.LoggerFactory;
 
 public final class ModuloArithmeticTest
 {
-  private static final Logger s_aLogger = LoggerFactory.getLogger (ModuloArithmetic.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger (ModuloArithmetic.class);
 
   public void test ()
   {
@@ -31,15 +31,15 @@ public final class ModuloArithmeticTest
 
     // Test modulo multiplication.
     final int modProduct = ModuloArithmetic.multiply (a, b, m);
-    s_aLogger.info (a + "*" + b + " = " + a * b);
-    s_aLogger.info (a + "*" + b + " = " + modProduct + " (mod " + m + ")");
+    LOGGER.info (a + "*" + b + " = " + a * b);
+    LOGGER.info (a + "*" + b + " = " + modProduct + " (mod " + m + ")");
 
-    s_aLogger.info ("");
+    LOGGER.info ("");
 
     // Test modulo exponentiation.
     final int modPower = ModuloArithmetic.raise (a, b, m);
-    s_aLogger.info (a + "^" + b + " = " + IntPower.raise (a, b));
-    s_aLogger.info (a + "^" + b + " = " + modPower + " (mod " + m + ")");
+    LOGGER.info (a + "^" + b + " = " + IntPower.raise (a, b));
+    LOGGER.info (a + "^" + b + " = " + modPower + " (mod " + m + ")");
   }
   /*
    * Output: 3*13 = 39 3*13 = 4 (mod 5) 3^13 = 1594323.0 3^13 = 3 (mod 5)

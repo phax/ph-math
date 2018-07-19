@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
 
 public final class PrimeFactorsTest
 {
-  private static final Logger s_aLogger = LoggerFactory.getLogger (PrimeFactorsTest.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger (PrimeFactorsTest.class);
 
   @Test
   public void test ()
@@ -30,7 +30,7 @@ public final class PrimeFactorsTest
     final SystemOutAlignRight ar = new SystemOutAlignRight (System.out);
 
     // Test Sieve of Eratosthenes.
-    s_aLogger.info ("The Sieve of Eratosthenes:\n");
+    LOGGER.info ("The Sieve of Eratosthenes:\n");
     final boolean isPrime[] = PrimeFactors.primeSieve (100);
     for (int i = 1; i <= 100; ++i)
     {
@@ -53,7 +53,7 @@ public final class PrimeFactorsTest
       {
         aSB.append (" " + factor);
       }
-      s_aLogger.info (aSB.toString ());
+      LOGGER.info (aSB.toString ());
     }
   }
 }
