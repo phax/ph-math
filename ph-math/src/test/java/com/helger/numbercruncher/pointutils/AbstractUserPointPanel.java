@@ -60,7 +60,7 @@ public abstract class AbstractUserPointPanel extends AbstractGraphPanel
   private boolean dotOK = true;
 
   /** initial plot properties */
-  protected static PlotProperties plotProps = new PlotProperties (INIT_X_MIN, INIT_X_MAX, INIT_Y_MIN, INIT_Y_MAX);
+  protected static final PlotProperties plotProps = new PlotProperties (INIT_X_MIN, INIT_X_MAX, INIT_Y_MIN, INIT_Y_MAX);
 
   /**
    * Constructor.

@@ -32,6 +32,8 @@ import com.helger.numbercruncher.mathutils.FixedPointRootFinder;
 import com.helger.numbercruncher.rootutils.AbstractRootFinderPanel;
 import com.helger.numbercruncher.rootutils.PlotFunction;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 /**
  * The demo panel for the Fixed Point Iteration Method program and applet.
  */
@@ -209,7 +211,7 @@ public final class FixedPointPanel extends AbstractRootFinderPanel
       plotLines (cs1, rs1, cs2, rs2, k, Color.red);
 
     // Draw a new fixed-point iteration trace.
-    iterate (x0 (c));
+    _iterate (x0 (c));
     plotLines (cs1, rs1, cs2, rs2, k, Color.red);
   }
 
@@ -237,7 +239,8 @@ public final class FixedPointPanel extends AbstractRootFinderPanel
    * @param x0
    *        the starting value
    */
-  private void iterate (final float x0)
+  @SuppressFBWarnings ("RV_RETURN_VALUE_IGNORED_NO_SIDE_EFFECT")
+  private void _iterate (final float x0)
   {
     // Plot properties.
     final PlotProperties plotProps = getPlotProperties ();

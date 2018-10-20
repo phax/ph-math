@@ -154,7 +154,7 @@ public final class CubePanel extends Panel
   {
     // Scale and move to the center.
     m_aTransformation.setScaling (50, 50, 50);
-    m_aTransformation.setTranslation (width / 2, height / 2, depth / 2);
+    m_aTransformation.setTranslation (width / 2f, height / 2f, depth / 2f);
 
     m_aCube.draw (bg, m_aTransformation);
 
@@ -169,7 +169,7 @@ public final class CubePanel extends Panel
     // whether the cube is moving towards or away from the viewer.
     // At maximum z, the cube should be twice its original size,
     // and at minimum z, it should be half its original size.
-    final float steps = (depth / 2) / Math.abs (zDelta);
+    final float steps = (depth / 2f) / Math.abs (zDelta);
     float scaleFactor = (float) Math.pow (MAX_SCALING, 1 / steps);
     if (zDelta < 0)
       scaleFactor = 1 / scaleFactor;

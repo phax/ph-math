@@ -28,6 +28,8 @@ import com.helger.numbercruncher.mathutils.ImprovedRegulaFalsiRootFinder;
 import com.helger.numbercruncher.rootutils.AbstractRootFinderPanel;
 import com.helger.numbercruncher.rootutils.PlotFunction;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 /**
  * The demo panel for the Improved Regula Falsi Algorithm program and applet.
  */
@@ -126,7 +128,8 @@ public final class ImprovedRegulaFalsiPanel extends AbstractRootFinderPanel
   /**
    * Draw the secant.
    */
-  private void drawSecant ()
+  @SuppressFBWarnings ("RV_RETURN_VALUE_IGNORED_NO_SIDE_EFFECT")
+  private void _drawSecant ()
   {
     // Convert xNeg, xPos, and xFalse to graph columns.
     final int cNeg = Math.round ((xNeg - xMin) / xDelta);
@@ -230,7 +233,7 @@ public final class ImprovedRegulaFalsiPanel extends AbstractRootFinderPanel
     xFalse = finder.getXFalse ();
     xPos = finder.getXPos ();
 
-    drawSecant (); // draw a new secant
+    _drawSecant (); // draw a new secant
 
     // Update text controls.
     nText.setText (Integer.toString (finder.getIterationCount ()));

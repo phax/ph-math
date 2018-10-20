@@ -144,7 +144,7 @@ public final class BisectionPanel extends AbstractRootFinderPanel
     // Convert xNeg, xPos, and xMid to graph columns.
     final int colNeg = Math.round ((xNeg - xMin) / xDelta);
     final int colPos = Math.round ((xPos - xMin) / xDelta);
-    final int colMid = (colNeg + colPos) >> 1;
+    final int colMid = (colNeg + colPos) >>> 1;
 
     // Draw the boundary lines at xNeg and xPos.
     cs1[k] = cs2[k] = colPos;

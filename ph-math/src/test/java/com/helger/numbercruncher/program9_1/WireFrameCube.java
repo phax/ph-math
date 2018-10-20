@@ -27,10 +27,10 @@ final class WireFrameCube
   /**
    * Represent each face of the cube.
    */
-  private class Face
+  private static class Face
   {
     /** indices of the face's vertices */
-    int indices[];
+    private final int [] indices;
 
     /**
      * Constructor.

@@ -55,7 +55,7 @@ public final class PlotDiffEq implements IPlottable
   private PlotProperties properties;
 
   /** wrapped differential equations table */
-  public static ICommonsMap <String, PlotDiffEq> TABLE = new CommonsConcurrentHashMap<> (32);
+  public static final ICommonsMap <String, PlotDiffEq> TABLE = new CommonsConcurrentHashMap <> (32);
 
   // Enter the wrapped differential equations into the table.
   static

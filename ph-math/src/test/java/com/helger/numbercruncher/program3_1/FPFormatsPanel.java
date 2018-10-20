@@ -1684,7 +1684,7 @@ final class FPFormatsPanel extends Panel
    * Hack for older JVMs that support only the default constructor of
    * java.awt.GridBagConstraints.
    */
-  private class GridBagConstraints extends java.awt.GridBagConstraints
+  private static class GridBagConstraints extends java.awt.GridBagConstraints
   {
     GridBagConstraints (final int pgridx,
                         final int pgridy,
