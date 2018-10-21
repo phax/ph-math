@@ -33,8 +33,7 @@ final class Needles
   /** y coord of the other end of a needle */
   private float y2;
   /** angle of rotation about the midpoint */
-  @SuppressWarnings ("unused")
-  private float m_fTheta;
+  // private float m_fTheta;
 
   /** paper's left edge */
   private final float m_fXMin;
