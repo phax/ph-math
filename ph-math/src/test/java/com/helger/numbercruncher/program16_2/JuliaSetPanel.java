@@ -428,7 +428,8 @@ public final class JuliaSetPanel extends AbstractGraphPanel
     // Erase the previous rectangle.
     if ((c2 != -1) && (m_nR2 != -1))
     {
-      plotRectangle (Math.min (c1, c2),
+      plotRectangle (Math.min (c1,
+                               c2),
                      Math.min (m_nR1, m_nR2),
                      Math.abs (c1 - c2),
                      Math.abs (m_nR1 - m_nR2),
@@ -447,7 +448,8 @@ public final class JuliaSetPanel extends AbstractGraphPanel
     displayBounds ();
 
     // Draw the new rectangle.
-    plotRectangle (Math.min (c1, c2),
+    plotRectangle (Math.min (c1,
+                             c2),
                    Math.min (m_nR1, m_nR2),
                    Math.abs (c1 - c2),
                    Math.abs (m_nR1 - m_nR2),
@@ -467,7 +469,8 @@ public final class JuliaSetPanel extends AbstractGraphPanel
     // Draw the rectangle.
     if ((c2 != -1) && (m_nR2 != -1))
     {
-      plotRectangle (Math.min (c1, c2),
+      plotRectangle (Math.min (c1,
+                               c2),
                      Math.min (m_nR1, m_nR2),
                      Math.abs (c1 - c2),
                      Math.abs (m_nR1 - m_nR2),

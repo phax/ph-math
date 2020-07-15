@@ -27,7 +27,7 @@ import com.helger.numbercruncher.mathutils.DataPoint;
 public final class DiffEqsToSolve
 {
   /** global function table */
-  private static ICommonsMap <String, AbstractDifferentialEquation> TABLE = new CommonsConcurrentHashMap<> (32);
+  private static ICommonsMap <String, AbstractDifferentialEquation> TABLE = new CommonsConcurrentHashMap <> (32);
 
   // Enter the differential equations into the global table.
   static

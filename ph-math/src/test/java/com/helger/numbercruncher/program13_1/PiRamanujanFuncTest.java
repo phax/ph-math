@@ -65,12 +65,12 @@ public final class PiRamanujanFuncTest
     sqrt142 = BigFunctions.sqrt (BigDecimal.valueOf (142), scale);
 
     term = BigDecimal.valueOf (24).divide (sqrt142, scale, RoundingMode.HALF_EVEN);
-    a = BigDecimal.valueOf (10).add (BigDecimal.valueOf (11).multiply (sqrt2)).divide (BigDecimal.valueOf (4),
-                                                                                       scale,
-                                                                                       RoundingMode.HALF_EVEN);
-    b = BigDecimal.valueOf (10).add (BigDecimal.valueOf (7).multiply (sqrt2)).divide (BigDecimal.valueOf (4),
-                                                                                      scale,
-                                                                                      RoundingMode.HALF_EVEN);
+    a = BigDecimal.valueOf (10)
+                  .add (BigDecimal.valueOf (11).multiply (sqrt2))
+                  .divide (BigDecimal.valueOf (4), scale, RoundingMode.HALF_EVEN);
+    b = BigDecimal.valueOf (10)
+                  .add (BigDecimal.valueOf (7).multiply (sqrt2))
+                  .divide (BigDecimal.valueOf (4), scale, RoundingMode.HALF_EVEN);
     lnArg = BigFunctions.sqrt (a, scale).add (BigFunctions.sqrt (b, scale));
     pi = term.multiply (BigFunctions.ln (lnArg, scale)).setScale (digits, RoundingMode.HALF_EVEN);
     System.out.println (digits + " digits: " + pi);
@@ -127,12 +127,12 @@ public final class PiRamanujanFuncTest
                   .multiply (sqrt29)
                   .add (BigDecimal.valueOf (11).multiply (sqrt6))
                   .setScale (scale, RoundingMode.HALF_EVEN);
-    c = BigDecimal.valueOf (9).add (BigDecimal.valueOf (3).multiply (sqrt6)).divide (BigDecimal.valueOf (4),
-                                                                                     scale,
-                                                                                     RoundingMode.HALF_EVEN);
-    d = BigDecimal.valueOf (5).add (BigDecimal.valueOf (3).multiply (sqrt6)).divide (BigDecimal.valueOf (4),
-                                                                                     scale,
-                                                                                     RoundingMode.HALF_EVEN);
+    c = BigDecimal.valueOf (9)
+                  .add (BigDecimal.valueOf (3).multiply (sqrt6))
+                  .divide (BigDecimal.valueOf (4), scale, RoundingMode.HALF_EVEN);
+    d = BigDecimal.valueOf (5)
+                  .add (BigDecimal.valueOf (3).multiply (sqrt6))
+                  .divide (BigDecimal.valueOf (4), scale, RoundingMode.HALF_EVEN);
     e = BigFunctions.sqrt (c, scale).add (BigFunctions.sqrt (d, scale));
     lnArg = BigFunctions.intPower (a, 3, scale)
                         .multiply (b)

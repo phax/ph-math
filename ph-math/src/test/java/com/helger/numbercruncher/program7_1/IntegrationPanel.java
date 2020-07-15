@@ -431,8 +431,7 @@ public final class IntegrationPanel extends AbstractUserPointPanel
 
     integrand.reset ();
 
-    setHeaderLabel ("First plot two to ten points with mouse clicks, " +
-                    "then press the 'Plot integrand' button.",
+    setHeaderLabel ("First plot two to ten points with mouse clicks, " + "then press the 'Plot integrand' button.",
                     Color.blue);
 
     nLabel.setText ("# points");

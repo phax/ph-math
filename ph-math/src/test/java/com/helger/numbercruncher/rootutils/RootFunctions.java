@@ -26,7 +26,7 @@ import com.helger.numbercruncher.mathutils.AbstractFunction;
 public final class RootFunctions
 {
   /** global function table */
-  private static ICommonsMap <String, AbstractFunction> TABLE = new CommonsConcurrentHashMap<> (32);
+  private static ICommonsMap <String, AbstractFunction> TABLE = new CommonsConcurrentHashMap <> (32);
 
   // Enter the functions into the global function table.
   static

@@ -80,7 +80,7 @@ public final class PlotFunction implements IPlottable
   private PlotProperties properties;
 
   /** wrapped function table */
-  private static ICommonsMap <String, PlotFunction> TABLE = new CommonsConcurrentHashMap<> (32);
+  private static ICommonsMap <String, PlotFunction> TABLE = new CommonsConcurrentHashMap <> (32);
 
   // Enter the wrapped functions into the table.
   static

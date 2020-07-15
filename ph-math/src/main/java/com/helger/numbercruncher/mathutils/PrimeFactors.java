@@ -70,7 +70,7 @@ public class PrimeFactors
   {
     int n = pn;
     final boolean isPrime[] = primeSieve (n); // primes <= n
-    final ICommonsList <Integer> v = new CommonsArrayList<> ();
+    final ICommonsList <Integer> v = new CommonsArrayList <> ();
 
     // Loop to try prime divisors.
     for (int factor = 2; n > 1; ++factor)

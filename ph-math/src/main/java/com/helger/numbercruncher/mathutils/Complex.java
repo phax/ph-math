@@ -114,8 +114,7 @@ public class Complex
    */
   public Complex multiply (final Complex z)
   {
-    return new Complex (m_fReal * z.real () -
-                        m_fImaginary * z.imaginary (),
+    return new Complex (m_fReal * z.real () - m_fImaginary * z.imaginary (),
                         m_fReal * z.imaginary () + m_fImaginary * z.real ());
   }
 
