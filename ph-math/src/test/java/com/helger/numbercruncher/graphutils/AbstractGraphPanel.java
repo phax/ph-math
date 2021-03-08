@@ -496,12 +496,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
    * @param color
    *        the color of the lines
    */
-  protected void plotLines (final int xs1[],
-                            final int ys1[],
-                            final int xs2[],
-                            final int ys2[],
-                            final int k,
-                            final Color color)
+  protected void plotLines (final int xs1[], final int ys1[], final int xs2[], final int ys2[], final int k, final Color color)
   {
     plotPanel.plotLines (xs1, ys1, xs2, ys2, k, color);
   }
@@ -688,6 +683,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
    * Choose a function. (Callback from the function frame. Do nothing here.)
    *
    * @param index
+   *        index to use
    */
   public void chooseFunction (final int index)
   {}

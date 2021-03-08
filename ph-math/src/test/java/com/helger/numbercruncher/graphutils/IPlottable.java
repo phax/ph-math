@@ -37,6 +37,8 @@ public interface IPlottable
   /**
    * Return the value of the function at x.
    *
+   * @param x
+   *        x value
    * @return the function value
    */
   float at (float x);
