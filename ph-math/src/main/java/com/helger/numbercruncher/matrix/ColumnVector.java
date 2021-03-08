@@ -16,15 +16,16 @@
  */
 package com.helger.numbercruncher.matrix;
 
+import java.io.PrintStream;
+
+import javax.annotation.Nonnull;
+import javax.annotation.WillNotClose;
+
 /**
  * A column vector.
  */
 public class ColumnVector extends Matrix
 {
-  // --------------//
-  // Constructors //
-  // --------------//
-
   /**
    * Constructor.
    *
@@ -63,7 +64,7 @@ public class ColumnVector extends Matrix
   // ---------//
 
   /**
-   * Return this column vector's size.
+   * @return this column vector's size.
    */
   public int size ()
   {
@@ -199,13 +200,16 @@ public class ColumnVector extends Matrix
 
   /**
    * Print the vector values.
+   *
+   * @param aPS
+   *        the print stream to write on. May not be <code>null</code>.
    */
-  public void print ()
+  public void print (@Nonnull @WillNotClose final PrintStream aPS)
   {
     for (int r = 0; r < m_nRows; ++r)
     {
-      System.out.print ("  " + m_aValues[r][0]);
+      aPS.print ("  " + m_aValues[r][0]);
     }
-    System.out.println ();
+    aPS.println ();
   }
 }

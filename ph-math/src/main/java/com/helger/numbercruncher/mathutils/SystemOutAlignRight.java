@@ -19,6 +19,7 @@ package com.helger.numbercruncher.mathutils;
 import java.io.PrintStream;
 
 import javax.annotation.Nonnull;
+import javax.annotation.WillNotClose;
 
 import com.helger.commons.string.StringHelper;
 
@@ -33,8 +34,11 @@ public class SystemOutAlignRight
 
   /**
    * Constructor.
+   *
+   * @param aPS
+   *        The print stream to operate on. May not be <code>null</code>.
    */
-  public SystemOutAlignRight (@Nonnull final PrintStream aPS)
+  public SystemOutAlignRight (@Nonnull @WillNotClose final PrintStream aPS)
   {
     m_aPS = aPS;
   }
@@ -42,17 +46,17 @@ public class SystemOutAlignRight
   /**
    * Print text right-aligned in the column.
    *
-   * @param text
+   * @param sText
    *        the text to print
-   * @param width
+   * @param nWidth
    *        the column width
    */
-  public void print (@Nonnull final String text, final int width)
+  public void print (@Nonnull final String sText, final int nWidth)
   {
-    final int padding = width - text.length ();
-    m_aPS.print (StringHelper.getRepeated (' ', padding) + text);
+    final int padding = nWidth - sText.length ();
+    m_aPS.print (StringHelper.getRepeated (' ', padding) + sText);
 
-    m_nLineSize += width;
+    m_nLineSize += nWidth;
   }
 
   /**
@@ -60,12 +64,12 @@ public class SystemOutAlignRight
    *
    * @param value
    *        the value to print
-   * @param width
+   * @param nWidth
    *        the column width
    */
-  public void print (final int value, final int width)
+  public void print (final int value, final int nWidth)
   {
-    print (Integer.toString (value), width);
+    print (Integer.toString (value), nWidth);
   }
 
   /**
@@ -73,12 +77,12 @@ public class SystemOutAlignRight
    *
    * @param value
    *        the value to print
-   * @param width
+   * @param nWidth
    *        the column width
    */
-  public void print (final float value, final int width)
+  public void print (final float value, final int nWidth)
   {
-    print (Float.toString (value), width);
+    print (Float.toString (value), nWidth);
   }
 
   /**
@@ -86,12 +90,12 @@ public class SystemOutAlignRight
    *
    * @param value
    *        the value to print
-   * @param width
+   * @param nWidth
    *        the column width
    */
-  public void print (final double value, final int width)
+  public void print (final double value, final int nWidth)
   {
-    print (Double.toString (value), width);
+    print (Double.toString (value), nWidth);
   }
 
   /**
@@ -109,8 +113,7 @@ public class SystemOutAlignRight
   public void underline ()
   {
     m_aPS.println ();
-    for (int i = 0; i < m_nLineSize; ++i)
-      m_aPS.print ('-');
+    m_aPS.print (StringHelper.getRepeated ('-', m_nLineSize));
     m_aPS.println ();
     m_nLineSize = 0;
   }

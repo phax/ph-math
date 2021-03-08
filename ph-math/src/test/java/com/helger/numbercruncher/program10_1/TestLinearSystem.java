@@ -69,7 +69,7 @@ public final class TestLinearSystem
     A.print (13, System.out);
 
     System.out.print ("\nb =");
-    b.print ();
+    b.print (System.out);
 
     // Solve the system with iterative improvement.
     final ColumnVector x = A.solve (b, true);
@@ -78,7 +78,7 @@ public final class TestLinearSystem
     A.printDecomposed (13, System.out);
 
     System.out.print ("\nx =");
-    x.print ();
+    x.print (System.out);
 
     // Compute the error vector and print its norm.
     System.out.println ("Error vector norm = " + x.subtract (correct).norm ());

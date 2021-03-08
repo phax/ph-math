@@ -25,6 +25,7 @@ public final class IntPower
    * Compute and return x^power.
    *
    * @param px
+   *        the x value
    * @param pexponent
    *        the integer power
    * @return x^power

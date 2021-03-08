@@ -44,14 +44,14 @@ public final class MainCompareSolutions
     A.print (14, System.out);
 
     System.out.print ("\nb =");
-    b.print ();
+    b.print (System.out);
 
     // Solve the system using LU decomposition
     // with iterative improvement.
     ColumnVector x = A.solve (b, true);
     System.out.println ("\nLU decomposition:");
     System.out.print ("   x =");
-    x.print ();
+    x.print (System.out);
     System.out.println ("Error vector norm = " + x.subtract (correct).norm ());
 
     final InvertibleMatrix Ainv = A.inverse ();
@@ -66,7 +66,7 @@ public final class MainCompareSolutions
     x = Ainv.multiply (b);
     System.out.println ("\nMultiplication by inverse:");
     System.out.print ("   x =");
-    x.print ();
+    x.print (System.out);
     System.out.println ("Error vector norm = " + x.subtract (correct).norm ());
 
     System.out.println ("\n     Determinant of A = " + detA);
@@ -94,7 +94,7 @@ public final class MainCompareSolutions
 
     System.out.println ("\nCramer's rule:");
     System.out.print ("   x =");
-    x.print ();
+    x.print (System.out);
     System.out.println ("Error vector norm = " + x.subtract (correct).norm ());
   }
 

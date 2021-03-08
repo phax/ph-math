@@ -16,7 +16,10 @@
  */
 package com.helger.numbercruncher.matrix;
 
+import java.io.PrintStream;
+
 import javax.annotation.Nonnull;
+import javax.annotation.WillNotClose;
 
 import com.helger.commons.annotation.ReturnsMutableCopy;
 
@@ -56,7 +59,7 @@ public class RowVector extends Matrix
   }
 
   /**
-   * Return the row vector's size.
+   * @return the row vector's size.
    */
   public int size ()
   {
@@ -72,7 +75,7 @@ public class RowVector extends Matrix
   @ReturnsMutableCopy
   public float [] copyValues1D ()
   {
-    final float v[] = new float [m_nCols];
+    final float [] v = new float [m_nCols];
     for (int c = 0; c < m_nCols; ++c)
       v[c] = m_aValues[0][c];
     return v;
@@ -89,10 +92,6 @@ public class RowVector extends Matrix
   {
     return m_aValues[0][i];
   }
-
-  // ---------//
-  // Setters //
-  // ---------//
 
   /**
    * Set this row vector from a matrix. Only the first row is used.
@@ -113,7 +112,7 @@ public class RowVector extends Matrix
    * @param values
    *        the array of values
    */
-  protected void set (final float values[])
+  protected void set (final float [] values)
   {
     m_nRows = 1;
     m_nCols = values.length;
@@ -186,13 +185,16 @@ public class RowVector extends Matrix
 
   /**
    * Print the vector values.
+   *
+   * @param aPS
+   *        the print stream to write on. May not be <code>null</code>.
    */
-  public void print ()
+  public void print (@Nonnull @WillNotClose final PrintStream aPS)
   {
     for (int c = 0; c < m_nCols; ++c)
     {
-      System.out.print ("  " + m_aValues[0][c]);
+      aPS.print ("  " + m_aValues[0][c]);
     }
-    System.out.println ();
+    aPS.println ();
   }
 }

@@ -41,8 +41,10 @@ public class RandomExponential
   }
 
   /**
-   * Compute the next randomn value using the logarithm algorithm. Requires a
+   * Compute the next random value using the logarithm algorithm. Requires a
    * uniformly-distributed random value in [0, 1).
+   *
+   * @return next value
    */
   public float nextLog ()
   {
@@ -57,8 +59,10 @@ public class RandomExponential
   }
 
   /**
-   * Compute the next randomn value using the von Neumann algorithm. Requires
+   * Compute the next random value using the von Neumann algorithm. Requires
    * sequences of uniformly-distributed random values in [0, 1).
+   *
+   * @return next value
    */
   public float nextVonNeumann ()
   {
@@ -76,7 +80,7 @@ public class RandomExponential
       float u = u1;
       float uPrev = Float.NaN;
 
-      // Loop to generate a sequence of ramdom values
+      // Loop to generate a sequence of random values
       // as long as they are decreasing.
       for (;;)
       {
@@ -86,16 +90,17 @@ public class RandomExponential
         // No longer decreasing?
         if (u > uPrev)
         {
-
           // n is even.
           if ((n & 1) == 0)
           {
-            return u1 + k; // return a random value
+            // return a random value
+            return u1 + k;
           }
 
           // n is odd.
           ++k;
-          break; // try another sequence
+          // try another sequence
+          break;
         }
 
         ++n;

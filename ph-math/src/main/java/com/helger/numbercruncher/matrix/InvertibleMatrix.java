@@ -117,6 +117,8 @@ public class InvertibleMatrix extends LinearSystem
    * Compute the condition number based on the Euclidean norm.
    *
    * @return the condition number
+   * @throws MatrixException
+   *         if an error occurred
    */
   public float condition () throws MatrixException
   {

@@ -19,6 +19,7 @@ package com.helger.numbercruncher.matrix;
 import java.io.PrintStream;
 
 import javax.annotation.Nonnull;
+import javax.annotation.WillNotClose;
 
 import com.helger.numbercruncher.mathutils.Epsilon;
 import com.helger.numbercruncher.mathutils.SystemOutAlignRight;
@@ -30,7 +31,7 @@ public class LinearSystem extends SquareMatrix
 {
   private static final float TOLERANCE = Epsilon.floatValue ();
 
-  /** max iters for improvement = twice # of significant digits */
+  /** max iterations for improvement = twice # of significant digits */
   private static final int MAX_ITER;
 
   static
@@ -188,10 +189,13 @@ public class LinearSystem extends SquareMatrix
    *
    * @param width
    *        the column width
+   * @param aPS
+   *        the print stream to write on. May not be
+   *        {@link NullPointerException}.
    * @throws MatrixException
    *         if an error occurred
    */
-  public void printDecomposed (final int width, @Nonnull final PrintStream aPS) throws MatrixException
+  public void printDecomposed (final int width, @Nonnull @WillNotClose final PrintStream aPS) throws MatrixException
   {
     decompose ();
 

@@ -37,6 +37,7 @@ public class ImprovedRegulaFalsiRootFinder extends RegulaFalsiRootFinder
    * @param xMax
    *        the initial x-value where the function is positive
    * @throws AbstractRootFinder.InvalidIntervalException
+   *         if the interval is invalid
    */
   public ImprovedRegulaFalsiRootFinder (final AbstractFunction function,
                                         final float xMin,

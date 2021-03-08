@@ -60,6 +60,7 @@ public abstract class AbstractDiffEqSolver
    *
    * @param h
    *        the width of the interval
+   * @return the next data point in the approximation of the solution.
    */
   public abstract DataPoint nextPoint (float h);
 }

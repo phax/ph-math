@@ -59,6 +59,8 @@ public class RandomNormal
    * Compute the next random value using the Central Limit Theorem, which states
    * that the averages of sets of uniformly-distributed random values are
    * normally distributed.
+   *
+   * @return next value
    */
   public float nextCentral ()
   {
@@ -72,9 +74,11 @@ public class RandomNormal
   }
 
   /**
-   * Compute the next randomn value using the polar algorithm. Requires two
+   * Compute the next random value using the polar algorithm. Requires two
    * uniformly-distributed random values in [-1, +1). Actually computes two
-   * random values and saves the second one for the next invokation.
+   * random values and saves the second one for the next invocation.
+   *
+   * @return next value
    */
   public float nextPolar ()
   {
@@ -121,6 +125,8 @@ public class RandomNormal
   /**
    * Compute the next random value using the ratio algorithm. Requires two
    * uniformly-distributed random values in [0, 1).
+   *
+   * @return next value
    */
   public float nextRatio ()
   {

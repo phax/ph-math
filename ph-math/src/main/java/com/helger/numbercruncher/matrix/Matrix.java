@@ -19,6 +19,7 @@ package com.helger.numbercruncher.matrix;
 import java.io.PrintStream;
 
 import javax.annotation.Nonnull;
+import javax.annotation.WillNotClose;
 
 import com.helger.numbercruncher.mathutils.SystemOutAlignRight;
 
@@ -34,11 +35,7 @@ public class Matrix
   /** number of columns */
   protected int m_nCols;
   /** 2-d array of values */
-  protected float m_aValues[][];
-
-  // --------------//
-  // Constructors //
-  // --------------//
+  protected float [] [] m_aValues;
 
   /**
    * Default constructor.
@@ -515,8 +512,10 @@ public class Matrix
    *
    * @param width
    *        the column width
+   * @param aPS
+   *        the print stream to write on. May not be <code>null</code>.
    */
-  public void print (final int width, @Nonnull final PrintStream aPS)
+  public void print (final int width, @Nonnull @WillNotClose final PrintStream aPS)
   {
     final SystemOutAlignRight ar = new SystemOutAlignRight (aPS);
 

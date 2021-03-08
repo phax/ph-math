@@ -75,7 +75,9 @@ public abstract class AbstractDifferentialEquation implements IEvaluatable
    * Return the value of the differential equation at (x, y).
    *
    * @param x
+   *        x position
    * @param y
+   *        y position
    * @return the solution value
    */
   public float at (final float x, final float y)
@@ -86,6 +88,8 @@ public abstract class AbstractDifferentialEquation implements IEvaluatable
   /**
    * Return the value of the solution at x.
    *
+   * @param x
+   *        the value of x
    * @return the solution value
    */
   public abstract float solutionAt (float x);

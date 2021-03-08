@@ -31,15 +31,15 @@ public abstract class AbstractRootFinder
   /**
    * Constructor.
    *
-   * @param function
+   * @param aFunction
    *        the function whose roots to find
-   * @param maxIters
+   * @param nMaxIters
    *        the maximum number of iterations
    */
-  public AbstractRootFinder (final AbstractFunction function, final int maxIters)
+  public AbstractRootFinder (final AbstractFunction aFunction, final int nMaxIters)
   {
-    m_aFunction = function;
-    m_nMaxIters = maxIters;
+    m_aFunction = aFunction;
+    m_nMaxIters = nMaxIters;
   }
 
   /**
@@ -50,6 +50,7 @@ public abstract class AbstractRootFinder
    * @param x2
    *        x-coordinate of the right end of the interval
    * @throws InvalidIntervalException
+   *         if the interval is invalid
    */
   public void checkInterval (final float x1, final float x2) throws InvalidIntervalException
   {
@@ -76,7 +77,9 @@ public abstract class AbstractRootFinder
    *
    * @return true if the algorithm converged, else false
    * @throws IterationCountExceededException
+   *         in case the maximum number of iterations is exceeded
    * @throws PositionUnchangedException
+   *         If the position didn't change
    */
   public boolean step () throws IterationCountExceededException, PositionUnchangedException
   {
@@ -90,17 +93,16 @@ public abstract class AbstractRootFinder
   }
 
   /**
-   * Check the iteration count to see if it has exeeded the maximum number of
+   * Check the iteration count to see if it has exceeded the maximum number of
    * iterations.
    *
    * @throws IterationCountExceededException
+   *         in case the maximum number of iterations is exceeded
    */
   protected void checkIterationCount () throws IterationCountExceededException
   {
     if (++m_nIndex > m_nMaxIters)
-    {
       throw new IterationCountExceededException ();
-    }
   }
 
   /**
@@ -132,6 +134,7 @@ public abstract class AbstractRootFinder
    * Check the position of x.
    *
    * @throws PositionUnchangedException
+   *         If the position didn't change
    */
   protected abstract void checkPosition () throws PositionUnchangedException;
 

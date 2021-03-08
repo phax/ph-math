@@ -19,6 +19,7 @@ package com.helger.numbercruncher.mathutils;
 import java.io.PrintStream;
 
 import javax.annotation.Nonnull;
+import javax.annotation.WillNotClose;
 
 /**
  * Decompose a floating-point value into its parts according to the IEEE 754
@@ -128,7 +129,8 @@ public class IEEE754
    *        the biased exponent value, 0..255
    * @param fraction
    *        the fraction bits
-   * @throws com.helger.numbercruncher.mathutils.IEEE754.IEEE754Exception
+   * @throws IEEE754Exception
+   *         in case of misconfiguration
    */
   public IEEE754 (final int sign, final int biasedExponent, final FloatFraction fraction) throws IEEE754Exception
   {
@@ -178,7 +180,8 @@ public class IEEE754
    *        the biased exponent value, 0..2047
    * @param fraction
    *        the fraction bits
-   * @throws com.helger.numbercruncher.mathutils.IEEE754.IEEE754Exception
+   * @throws IEEE754Exception
+   *         in case of misconfiguration
    */
   public IEEE754 (final int sign, final int biasedExponent, final DoubleFraction fraction) throws IEEE754Exception
   {
@@ -429,8 +432,11 @@ public class IEEE754
 
   /**
    * Print the decomposed parts of the value.
+   *
+   * @param aPW
+   *        the PrintStream to write on
    */
-  public void print (@Nonnull final PrintStream aPW)
+  public void print (@Nonnull @WillNotClose final PrintStream aPW)
   {
     aPW.println ("------------------------------");
 
@@ -520,16 +526,14 @@ public class IEEE754
    *
    * @param biased
    *        the biased exponent value
-   * @throws com.helger.numbercruncher.mathutils.IEEE754.IEEE754Exception
+   * @throws IEEE754Exception
+   *         in case of misconfiguration
    */
   public static void validateFloatBiasedExponent (final int biased) throws IEEE754Exception
   {
     if ((biased < 0) || (biased > IEEE754Constants.FLOAT_EXPONENT_RESERVED))
     {
-      throw new IEEE754Exception ("The biased exponent value should be " +
-                                  "0 through " +
-                                  IEEE754Constants.FLOAT_EXPONENT_RESERVED +
-                                  ".");
+      throw new IEEE754Exception ("The biased exponent value should be " + "0 through " + IEEE754Constants.FLOAT_EXPONENT_RESERVED + ".");
     }
   }
 
@@ -538,7 +542,8 @@ public class IEEE754
    *
    * @param unbiased
    *        the unbiased exponent value
-   * @throws com.helger.numbercruncher.mathutils.IEEE754.IEEE754Exception
+   * @throws IEEE754Exception
+   *         in case of misconfiguration
    */
   public static void validateFloatUnbiasedExponent (final int unbiased) throws IEEE754Exception
   {
@@ -557,16 +562,14 @@ public class IEEE754
    *
    * @param biased
    *        the biased exponent value
-   * @throws com.helger.numbercruncher.mathutils.IEEE754.IEEE754Exception
+   * @throws IEEE754Exception
+   *         in case of misconfiguration
    */
   public static void validateDoubleBiasedExponent (final int biased) throws IEEE754Exception
   {
     if ((biased < 0) || (biased > IEEE754Constants.DOUBLE_EXPONENT_RESERVED))
     {
-      throw new IEEE754Exception ("The biased exponent value should be " +
-                                  "0 through " +
-                                  IEEE754Constants.DOUBLE_EXPONENT_RESERVED +
-                                  ".");
+      throw new IEEE754Exception ("The biased exponent value should be " + "0 through " + IEEE754Constants.DOUBLE_EXPONENT_RESERVED + ".");
     }
   }
 
@@ -575,7 +578,8 @@ public class IEEE754
    *
    * @param unbiased
    *        the unbiased exponent value
-   * @throws com.helger.numbercruncher.mathutils.IEEE754.IEEE754Exception
+   * @throws IEEE754Exception
+   *         in case of misconfiguration
    */
   public static void validateDoubleUnbiasedExponent (final int unbiased) throws IEEE754Exception
   {
@@ -596,7 +600,7 @@ public class IEEE754
   /**
    * IEEE 754 exception.
    */
-  public static class IEEE754Exception extends java.lang.Exception
+  public static class IEEE754Exception extends Exception
   {
     public IEEE754Exception (final String message)
     {
@@ -619,14 +623,13 @@ public class IEEE754
      *        the bit size of the part
      * @param bits
      *        the string of character bits '0' and '1'
-     * @throws com.helger.numbercruncher.mathutils.IEEE754.IEEE754Exception
+     * @throws IEEE754Exception
+     *         in case of misconfiguration
      */
-    private AbstractPart (final int size, final String bits) throws IEEE754Exception
+    protected AbstractPart (final int size, final String bits) throws IEEE754Exception
     {
       if (size <= 0)
-      {
         throw new IEEE754Exception ("Invalid part size: " + size);
-      }
 
       final int length = bits.length ();
       m_aPart = new StringBuilder (size);
@@ -660,7 +663,7 @@ public class IEEE754
      * Convert the part to an integer value.
      *
      * @return the integer value
-     * @throws com.helger.numbercruncher.mathutils.IEEE754.IEEE754Exception
+     * @throws IEEE754Exception
      *         if the binary number format is invalid
      */
     protected int toInt () throws IEEE754Exception
@@ -679,7 +682,7 @@ public class IEEE754
      * Convert the part to an long value.
      *
      * @return the long value
-     * @throws com.helger.numbercruncher.mathutils.IEEE754.IEEE754Exception
+     * @throws IEEE754Exception
      *         if the binary number format is invalid
      */
     protected long toLong () throws IEEE754Exception
@@ -706,7 +709,7 @@ public class IEEE754
     /**
      * Validate that the part consists only of '0' and '1'.
      *
-     * @throws com.helger.numbercruncher.mathutils.IEEE754.IEEE754Exception
+     * @throws IEEE754Exception
      */
     private void _validate () throws IEEE754Exception
     {
@@ -733,7 +736,8 @@ public class IEEE754
      *
      * @param bits
      *        the string of character bits '0' and '1'
-     * @throws com.helger.numbercruncher.mathutils.IEEE754.IEEE754Exception
+     * @throws IEEE754Exception
+     *         in case of misconfiguration
      */
     public FloatFraction (final String bits) throws IEEE754Exception
     {
@@ -751,7 +755,8 @@ public class IEEE754
      *
      * @param bits
      *        the string of character bits '0' and '1'
-     * @throws com.helger.numbercruncher.mathutils.IEEE754.IEEE754Exception
+     * @throws IEEE754Exception
+     *         in case of misconfiguration
      */
     public DoubleFraction (final String bits) throws IEEE754Exception
     {
