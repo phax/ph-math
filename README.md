@@ -6,18 +6,20 @@ Java library with some basic math implementations
 
 # Maven usage
 
-Add the following to your pom.xml to use this artifact:
+Add the following to your pom.xml to use this artifact, replacing `x.y.z` with the effective version number:
 
 ```xml
 <dependency>
   <groupId>com.helger</groupId>
   <artifactId>ph-math</artifactId>
-  <version>4.0.0</version>
+  <version>x.y.z</version>
 </dependency>
 ```
   
 # News and noteworthy
 
+* v4.0.2 - work in progress
+    * Updated to ph-commons 10
 * v4.0.1 - 2020-09-17
     * Updated to Jakarta JAXB 2.3.3
 * v4.0.0 - 2017-11-09
