@@ -2,7 +2,7 @@
 
 Java library with some basic math implementations
 
-  * Misc numbercruncher stuff
+* Misc numbercruncher stuff
 
 # Maven usage
 
