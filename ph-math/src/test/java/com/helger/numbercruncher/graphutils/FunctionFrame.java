@@ -16,7 +16,6 @@
  */
 package com.helger.numbercruncher.graphutils;
 
-import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -171,8 +170,7 @@ public final class FunctionFrame extends Frame
     // a standalone application, the file should be in the current
     // working directory. For an applet, the file should be in
     // the images subdirectory in the code base.
-    final String imageBase = (parent instanceof Frame) ? "file:///" + System.getProperty ("user.dir") + "/"
-                                                       : ((Applet) parent).getCodeBase () + "images/";
+    final String imageBase = "file:///" + System.getProperty ("user.dir") + "/";
     final String urlString = imageBase + functionImageFileName;
 
     try
