@@ -25,7 +25,7 @@ import com.helger.numbercruncher.mathutils.SystemOutAlignRight;
  */
 public final class EtoX
 {
-  private static final double x = -19.5;
+  private static final double X = -19.5;
 
   public static void main (final String args[])
   {
@@ -48,7 +48,7 @@ public final class EtoX
     // Loop to compute and sum the terms of the Taylor series.
     do
     {
-      numerator *= x; // x^k
+      numerator *= X; // x^k
       denominator *= ++k; // k!
 
       final double fraction = numerator / denominator;
@@ -64,8 +64,8 @@ public final class EtoX
       ar.println ();
     } while (!EqualsHelper.equals (prevSum, sum));
 
-    final double correct = Math.exp (x);
-    System.out.println ("\ne^" + x + " = " + sum);
+    final double correct = Math.exp (X);
+    System.out.println ("\ne^" + X + " = " + sum);
     System.out.println ("% error = " + 100 * Math.abs (sum - correct) / correct);
   }
 }

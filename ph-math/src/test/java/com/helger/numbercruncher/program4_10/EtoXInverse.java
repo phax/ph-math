@@ -26,7 +26,7 @@ import com.helger.numbercruncher.mathutils.SystemOutAlignRight;
  */
 public final class EtoXInverse
 {
-  private static final double x = -19.5;
+  private static final double X = -19.5;
 
   public static void main (final String args[])
   {
@@ -37,7 +37,7 @@ public final class EtoXInverse
     double denominator = 1;
     double sum = 1; // running sum
     double prevSum = 0; // previous value of running sum
-    final double xInverse = -x;
+    final double xInverse = -X;
 
     ar.print ("k", 2);
     ar.print ("Numerator", 24);
@@ -67,8 +67,8 @@ public final class EtoXInverse
     } while (!EqualsHelper.equals (prevSum, sum));
 
     final double result = 1 / sum;
-    final double correct = Math.exp (x);
-    System.out.println ("\ne^" + x + " = " + result);
+    final double correct = Math.exp (X);
+    System.out.println ("\ne^" + X + " = " + result);
     System.out.println ("% error = " + 100 * Math.abs (result - correct) / correct);
   }
 }
