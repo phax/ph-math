@@ -164,6 +164,7 @@ public final class FunctionFrame extends Frame
    */
   private void loadImage (final String functionImageFileName)
   {
+    @SuppressWarnings ("unused")
     final Container parent = m_aGraphPanel.getParent ();
 
     // Construct the URL string for the function image file. For
