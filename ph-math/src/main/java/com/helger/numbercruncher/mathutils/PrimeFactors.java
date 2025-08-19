@@ -24,13 +24,16 @@ import com.helger.commons.collection.impl.ICommonsList;
  */
 public class PrimeFactors
 {
+  private PrimeFactors ()
+  {}
+
   /**
    * Compute the Sieve of Eratosthenes.
    *
    * @param n
    *        the size of the sieve
-   * @return the sieve as a boolean array (each element is true if the
-   *         corresponding number is prime, false if the number is composite)
+   * @return the sieve as a boolean array (each element is true if the corresponding number is
+   *         prime, false if the number is composite)
    */
   public static boolean [] primeSieve (final int n)
   {
