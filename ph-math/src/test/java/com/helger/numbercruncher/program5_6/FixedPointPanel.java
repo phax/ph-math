@@ -32,8 +32,6 @@ import com.helger.numbercruncher.mathutils.FixedPointRootFinder;
 import com.helger.numbercruncher.rootutils.AbstractRootFinderPanel;
 import com.helger.numbercruncher.rootutils.PlotFunction;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-
 /**
  * The demo panel for the Fixed Point Iteration Method program and applet.
  */
@@ -158,8 +156,7 @@ public final class FixedPointPanel extends AbstractRootFinderPanel
   }
 
   /**
-   * Mouse pressed event handler: Animate the Newton trace. (Callback from the
-   * plot panel)
+   * Mouse pressed event handler: Animate the Newton trace. (Callback from the plot panel)
    *
    * @param ev
    *        the mouse event
@@ -172,8 +169,7 @@ public final class FixedPointPanel extends AbstractRootFinderPanel
   }
 
   /**
-   * Mouse dragged event handler: Animate the Newton trace. (Callback from the
-   * plot panel)
+   * Mouse dragged event handler: Animate the Newton trace. (Callback from the plot panel)
    *
    * @param ev
    *        the mouse event
@@ -233,13 +229,11 @@ public final class FixedPointPanel extends AbstractRootFinderPanel
   }
 
   /**
-   * Iterate to create the graphic trace of fixed-point iteration starting at
-   * x0.
+   * Iterate to create the graphic trace of fixed-point iteration starting at x0.
    *
    * @param x0
    *        the starting value
    */
-  @SuppressFBWarnings ("RV_RETURN_VALUE_IGNORED_NO_SIDE_EFFECT")
   private void _iterate (final float x0)
   {
     // Plot properties.
@@ -343,9 +337,9 @@ public final class FixedPointPanel extends AbstractRootFinderPanel
     FUNCTIONS[0] = plotFunction;
 
     /*
-     * Function function = new Function() { public float at( float x) { return
-     * (float) Math.exp(1/x); } }; PlotFunction plotFunction = new
-     * PlotFunction(function, -3.25f, 4.255f, -0.25f, 5.25f);
+     * Function function = new Function() { public float at( float x) { return (float)
+     * Math.exp(1/x); } }; PlotFunction plotFunction = new PlotFunction(function, -3.25f, 4.255f,
+     * -0.25f, 5.25f);
      */
 
     test.setTitle ("Fixed Point Test");

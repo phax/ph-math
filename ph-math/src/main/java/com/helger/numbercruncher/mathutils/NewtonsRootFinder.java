@@ -16,7 +16,7 @@
  */
 package com.helger.numbercruncher.mathutils;
 
-import com.helger.commons.equals.EqualsHelper;
+import com.helger.base.equals.EqualsHelper;
 
 /**
  * The root finder class that implements Newton's algorithm.

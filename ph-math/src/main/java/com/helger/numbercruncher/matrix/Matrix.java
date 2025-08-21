@@ -18,12 +18,10 @@ package com.helger.numbercruncher.matrix;
 
 import java.io.PrintStream;
 
-import javax.annotation.Nonnull;
-import javax.annotation.WillNotClose;
-
+import com.helger.annotation.WillNotClose;
 import com.helger.numbercruncher.mathutils.SystemOutAlignRight;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import jakarta.annotation.Nonnull;
 
 /**
  * The matrix class.
@@ -169,7 +167,6 @@ public class Matrix
    *
    * @return the values
    */
-  @SuppressFBWarnings ("EI_EXPOSE_REP")
   public float [] [] values ()
   {
     return m_aValues;
@@ -222,9 +219,8 @@ public class Matrix
   }
 
   /**
-   * Set this matrix from a 2-d array of values. If the rows do not have the
-   * same length, then the matrix column count is the length of the shortest
-   * row.
+   * Set this matrix from a 2-d array of values. If the rows do not have the same length, then the
+   * matrix column count is the length of the shortest row.
    *
    * @param values
    *        the 2-d array of values

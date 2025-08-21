@@ -20,8 +20,6 @@ import com.helger.numbercruncher.matrix.ColumnVector;
 import com.helger.numbercruncher.matrix.LinearSystem;
 import com.helger.numbercruncher.matrix.MatrixException;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-
 /**
  * A least-squares regression polynomial function.
  */
@@ -71,7 +69,6 @@ public class RegressionPolynomial implements IEvaluatable
    * @param data
    *        the array of data points
    */
-  @SuppressFBWarnings ("EI_EXPOSE_REP2")
   public RegressionPolynomial (final int degree, final DataPoint [] data)
   {
     m_nDegree = degree;
@@ -105,7 +102,6 @@ public class RegressionPolynomial implements IEvaluatable
    *
    * @return the count
    */
-  @SuppressFBWarnings ("EI_EXPOSE_REP")
   public DataPoint [] getDataPoints ()
   {
     return m_aData;
@@ -182,8 +178,7 @@ public class RegressionPolynomial implements IEvaluatable
   }
 
   /**
-   * Return the value of the regression polynomial function at x.
-   * (Implementation of Evaluatable.)
+   * Return the value of the regression polynomial function at x. (Implementation of Evaluatable.)
    *
    * @param x
    *        the value of x
@@ -209,10 +204,6 @@ public class RegressionPolynomial implements IEvaluatable
       }
 
       return y;
-    }
-    catch (final MatrixException ex)
-    {
-      return Float.NaN;
     }
     catch (final Exception ex)
     {
@@ -329,8 +320,8 @@ public class RegressionPolynomial implements IEvaluatable
   }
 
   /**
-   * Compute the sum of the x coordinates each raised to an integer power and
-   * multiplied by the corresponding y coordinate.
+   * Compute the sum of the x coordinates each raised to an integer power and multiplied by the
+   * corresponding y coordinate.
    *
    * @return the sum
    */

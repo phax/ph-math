@@ -192,7 +192,6 @@ public final class RandomExponentialPanel extends AbstractGraphPanel
 
           break;
         }
-
         case VON_NEUMANN:
         {
           setPlotProperties (VON_NEUMANN_PLOT_PROPS);
@@ -342,7 +341,7 @@ public final class RandomExponentialPanel extends AbstractGraphPanel
 
         if (n % GROUP_SIZE == 0)
         {
-          yield ();
+          Thread.yield ();
           valuesText.setText (Integer.toString (n));
           drawBars ();
         }

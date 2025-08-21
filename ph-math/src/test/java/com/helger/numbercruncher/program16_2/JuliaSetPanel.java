@@ -299,7 +299,7 @@ public final class JuliaSetPanel extends AbstractGraphPanel
 
     try
     {
-      real = Float.valueOf (realText.getText ()).floatValue ();
+      real = Float.parseFloat (realText.getText ());
     }
     catch (final NumberFormatException ex)
     {
@@ -308,7 +308,7 @@ public final class JuliaSetPanel extends AbstractGraphPanel
 
     try
     {
-      imaginary = Float.valueOf (imaginaryText.getText ()).floatValue ();
+      imaginary = Float.parseFloat (imaginaryText.getText ());
     }
     catch (final NumberFormatException ex)
     {
@@ -428,8 +428,7 @@ public final class JuliaSetPanel extends AbstractGraphPanel
     // Erase the previous rectangle.
     if ((c2 != -1) && (m_nR2 != -1))
     {
-      plotRectangle (Math.min (c1,
-                               c2),
+      plotRectangle (Math.min (c1, c2),
                      Math.min (m_nR1, m_nR2),
                      Math.abs (c1 - c2),
                      Math.abs (m_nR1 - m_nR2),
@@ -448,8 +447,7 @@ public final class JuliaSetPanel extends AbstractGraphPanel
     displayBounds ();
 
     // Draw the new rectangle.
-    plotRectangle (Math.min (c1,
-                             c2),
+    plotRectangle (Math.min (c1, c2),
                    Math.min (m_nR1, m_nR2),
                    Math.abs (c1 - c2),
                    Math.abs (m_nR1 - m_nR2),
@@ -457,8 +455,7 @@ public final class JuliaSetPanel extends AbstractGraphPanel
   }
 
   /**
-   * Mouse released on the plot: End the zoom rectangle and plot the zoomed
-   * area.
+   * Mouse released on the plot: End the zoom rectangle and plot the zoomed area.
    */
   @Override
   public void mouseReleasedOnPlot (final MouseEvent ev)
@@ -469,8 +466,7 @@ public final class JuliaSetPanel extends AbstractGraphPanel
     // Draw the rectangle.
     if ((c2 != -1) && (m_nR2 != -1))
     {
-      plotRectangle (Math.min (c1,
-                               c2),
+      plotRectangle (Math.min (c1, c2),
                      Math.min (m_nR1, m_nR2),
                      Math.abs (c1 - c2),
                      Math.abs (m_nR1 - m_nR2),
@@ -490,8 +486,8 @@ public final class JuliaSetPanel extends AbstractGraphPanel
   private static final int ESCAPE_MODULUS = 2;
 
   /**
-   * Graph thread class that iterates z^2 + c as z varies over each point in the
-   * complex plane bounded by the rectangle xMin, xMax, yMin, yMax.
+   * Graph thread class that iterates z^2 + c as z varies over each point in the complex plane
+   * bounded by the rectangle xMin, xMax, yMin, yMax.
    */
   private class PlotThread extends Thread
   {
@@ -548,7 +544,7 @@ public final class JuliaSetPanel extends AbstractGraphPanel
 
         // Draw a row of the graph.
         drawPlot ();
-        yield ();
+        Thread.yield ();
       }
     }
   }

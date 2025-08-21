@@ -315,7 +315,7 @@ public final class RandomNormalPanel extends AbstractGraphPanel
 
         if (n % GROUP_SIZE == 0)
         {
-          yield ();
+          Thread.yield ();
           valuesText.setText (Integer.toString (n));
           drawBars ();
         }

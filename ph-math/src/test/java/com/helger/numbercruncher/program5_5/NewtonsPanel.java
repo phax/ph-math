@@ -32,8 +32,6 @@ import com.helger.numbercruncher.mathutils.NewtonsRootFinder;
 import com.helger.numbercruncher.rootutils.AbstractRootFinderPanel;
 import com.helger.numbercruncher.rootutils.PlotFunction;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-
 /**
  * The demo panel for the Newton's Algorithm program and applet.
  */
@@ -151,8 +149,7 @@ final class NewtonsPanel extends AbstractRootFinderPanel
   }
 
   /**
-   * Mouse pressed event handler: Animate the Newton trace. (Callback from the
-   * plot panel)
+   * Mouse pressed event handler: Animate the Newton trace. (Callback from the plot panel)
    *
    * @param ev
    *        the mouse event
@@ -165,8 +162,7 @@ final class NewtonsPanel extends AbstractRootFinderPanel
   }
 
   /**
-   * Mouse dragged event handler: Animate the Newton trace. (Callback from the
-   * plot panel)
+   * Mouse dragged event handler: Animate the Newton trace. (Callback from the plot panel)
    *
    * @param ev
    *        the mouse event
@@ -231,7 +227,6 @@ final class NewtonsPanel extends AbstractRootFinderPanel
    * @param x0
    *        the starting value
    */
-  @SuppressFBWarnings ("RV_RETURN_VALUE_IGNORED_NO_SIDE_EFFECT")
   private void _iterate (final float x0)
   {
     // Plot properties.
@@ -373,13 +368,12 @@ final class NewtonsPanel extends AbstractRootFinderPanel
 
     final PlotFunction plotFunction = new PlotFunction (function, -2.25f, 2.25f, -2.25f, 2.25f);
     /*
-     * Function function = new Function() { public float at(float x) { return
-     * x*x - 4*x + 4; } public float derivativeAt(float x) { return 2*x - 4; }
-     * }; PlotFunction plotFunction = new PlotFunction(function, -1.25f, 5.255f,
-     * -0.5f, 5.25f); Function function = new Function() { public float at(float
-     * x) { return x*x*x - 6*x*x + 12*x - 8; } public float derivativeAt(float
-     * x) { return 3*x*x - 12*x + 12; } }; PlotFunction plotFunction = new
-     * PlotFunction(function, -0.25f, 5.255f, -5.25f, 5.25f);
+     * Function function = new Function() { public float at(float x) { return x*x - 4*x + 4; }
+     * public float derivativeAt(float x) { return 2*x - 4; } }; PlotFunction plotFunction = new
+     * PlotFunction(function, -1.25f, 5.255f, -0.5f, 5.25f); Function function = new Function() {
+     * public float at(float x) { return x*x*x - 6*x*x + 12*x - 8; } public float derivativeAt(float
+     * x) { return 3*x*x - 12*x + 12; } }; PlotFunction plotFunction = new PlotFunction(function,
+     * -0.25f, 5.255f, -5.25f, 5.25f);
      */
 
     FUNCTIONS[0] = plotFunction;

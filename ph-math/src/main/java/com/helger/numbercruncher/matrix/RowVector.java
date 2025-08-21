@@ -18,10 +18,10 @@ package com.helger.numbercruncher.matrix;
 
 import java.io.PrintStream;
 
-import javax.annotation.Nonnull;
-import javax.annotation.WillNotClose;
+import com.helger.annotation.WillNotClose;
+import com.helger.annotation.style.ReturnsMutableCopy;
 
-import com.helger.commons.annotation.ReturnsMutableCopy;
+import jakarta.annotation.Nonnull;
 
 public class RowVector extends Matrix
 {

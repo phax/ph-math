@@ -18,7 +18,7 @@ package com.helger.numbercruncher.program1_4;
 
 import java.util.Random;
 
-import com.helger.commons.equals.EqualsHelper;
+import com.helger.base.equals.EqualsHelper;
 
 /**
  * PROGRAM 1-4: Not Associative Percentage Figure out what percentage of

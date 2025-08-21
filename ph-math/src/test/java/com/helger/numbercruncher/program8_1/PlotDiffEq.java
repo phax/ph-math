@@ -18,8 +18,8 @@ package com.helger.numbercruncher.program8_1;
 
 import java.awt.Rectangle;
 
-import com.helger.commons.collection.impl.CommonsConcurrentHashMap;
-import com.helger.commons.collection.impl.ICommonsMap;
+import com.helger.collection.commons.CommonsConcurrentHashMap;
+import com.helger.collection.commons.ICommonsMap;
 import com.helger.numbercruncher.graphutils.IPlottable;
 import com.helger.numbercruncher.graphutils.PlotProperties;
 import com.helger.numbercruncher.mathutils.AbstractDifferentialEquation;

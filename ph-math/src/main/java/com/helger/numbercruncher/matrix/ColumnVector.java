@@ -18,8 +18,9 @@ package com.helger.numbercruncher.matrix;
 
 import java.io.PrintStream;
 
-import javax.annotation.Nonnull;
-import javax.annotation.WillNotClose;
+import com.helger.annotation.WillNotClose;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * A column vector.

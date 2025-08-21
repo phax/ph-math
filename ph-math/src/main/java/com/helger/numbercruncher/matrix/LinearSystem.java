@@ -18,11 +18,11 @@ package com.helger.numbercruncher.matrix;
 
 import java.io.PrintStream;
 
-import javax.annotation.Nonnull;
-import javax.annotation.WillNotClose;
-
+import com.helger.annotation.WillNotClose;
 import com.helger.numbercruncher.mathutils.Epsilon;
 import com.helger.numbercruncher.mathutils.SystemOutAlignRight;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * Solve a system of linear equations using LU decomposition.

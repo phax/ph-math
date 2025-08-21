@@ -181,7 +181,7 @@ final class PiMTAlgorithm
         ys[i] = m_aY;
 
         aThread.myResume ();
-        yield ();
+        Thread.yield ();
       }
 
       aThread.myResume ();
@@ -229,7 +229,7 @@ final class PiMTAlgorithm
         compute ();
 
         xThread.myResume ();
-        yield ();
+        Thread.yield ();
       }
 
       xThread.myResume ();
@@ -282,7 +282,7 @@ final class PiMTAlgorithm
         }
 
         compute ();
-        yield ();
+        Thread.yield ();
       }
     }
 

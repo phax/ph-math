@@ -16,8 +16,8 @@
  */
 package com.helger.numbercruncher.program8_1;
 
-import com.helger.commons.collection.impl.CommonsConcurrentHashMap;
-import com.helger.commons.collection.impl.ICommonsMap;
+import com.helger.collection.commons.CommonsConcurrentHashMap;
+import com.helger.collection.commons.ICommonsMap;
 import com.helger.numbercruncher.mathutils.AbstractDifferentialEquation;
 import com.helger.numbercruncher.mathutils.DataPoint;
 

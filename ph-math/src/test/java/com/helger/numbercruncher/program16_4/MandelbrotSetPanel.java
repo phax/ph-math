@@ -284,8 +284,7 @@ public final class MandelbrotSetPanel extends AbstractGraphPanel
   }
 
   /**
-   * Mouse released on the plot: End the zoom rectangle and plot the zoomed
-   * area.
+   * Mouse released on the plot: End the zoom rectangle and plot the zoomed area.
    */
   @Override
   public void mouseReleasedOnPlot (final MouseEvent ev)
@@ -312,8 +311,8 @@ public final class MandelbrotSetPanel extends AbstractGraphPanel
   private static final int ESCAPE_MODULUS = 2;
 
   /**
-   * Graph thread class that iterates z^2 + c as c varies over each point in the
-   * complex plane bounded by the rectangle xMin, xMax, yMin, yMax.
+   * Graph thread class that iterates z^2 + c as c varies over each point in the complex plane
+   * bounded by the rectangle xMin, xMax, yMin, yMax.
    */
   private class PlotThread extends Thread
   {
@@ -370,7 +369,7 @@ public final class MandelbrotSetPanel extends AbstractGraphPanel
 
         // Draw a row of the graph.
         drawPlot ();
-        yield ();
+        Thread.yield ();
       }
     }
   }

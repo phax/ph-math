@@ -301,8 +301,7 @@ public final class PrimePatternsPanel extends AbstractGraphPanel
     }
 
     /**
-     * Monitor the path thread. Upon the thread's termination, set the run
-     * button's label to "Run".
+     * Monitor the path thread. Upon the thread's termination, set the run button's label to "Run".
      */
     @Override
     public void run ()
@@ -361,7 +360,7 @@ public final class PrimePatternsPanel extends AbstractGraphPanel
 
         // Draw the plot before changing direction.
         drawPlot ();
-        yield ();
+        Thread.yield ();
 
         // Change direction.
         direction = (direction + 1) % 4;
@@ -373,18 +372,15 @@ public final class PrimePatternsPanel extends AbstractGraphPanel
             dc = 1;
             ++steps;
             break;
-
           case 1:
             dr = -1; // up
             dc = 0;
             break;
-
           case 2:
             dr = 0; // left
             dc = -1;
             ++steps;
             break;
-
           case 3:
             dr = 1; // down
             dc = 0;
@@ -400,8 +396,8 @@ public final class PrimePatternsPanel extends AbstractGraphPanel
   private class Diagonal extends Thread
   {
     /**
-     * Arrange the integers diagonally from lower left to upper right, starting
-     * in the upper left corner.
+     * Arrange the integers diagonally from lower left to upper right, starting in the upper left
+     * corner.
      */
     @Override
     public void run ()
@@ -431,7 +427,7 @@ public final class PrimePatternsPanel extends AbstractGraphPanel
 
         // Draw the plot after each diagonal.
         drawPlot ();
-        yield ();
+        Thread.yield ();
       }
 
       // Do the second half.
@@ -456,7 +452,7 @@ public final class PrimePatternsPanel extends AbstractGraphPanel
 
         // Draw the plot after each diagonal.
         drawPlot ();
-        yield ();
+        Thread.yield ();
       }
     }
   }
@@ -488,7 +484,7 @@ public final class PrimePatternsPanel extends AbstractGraphPanel
 
         // Draw the plot after each row.
         drawPlot ();
-        yield ();
+        Thread.yield ();
       }
     }
   }

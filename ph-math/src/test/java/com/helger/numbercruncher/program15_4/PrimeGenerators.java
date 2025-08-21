@@ -16,8 +16,8 @@
  */
 package com.helger.numbercruncher.program15_4;
 
-import com.helger.commons.collection.impl.CommonsHashSet;
-import com.helger.commons.collection.impl.ICommonsSet;
+import com.helger.collection.commons.CommonsHashSet;
+import com.helger.collection.commons.ICommonsSet;
 import com.helger.numbercruncher.mathutils.SystemOutAlignRight;
 import com.helger.numbercruncher.primeutils.PrimalityFuncTest;
 

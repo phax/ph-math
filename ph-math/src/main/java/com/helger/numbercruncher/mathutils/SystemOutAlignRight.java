@@ -18,10 +18,10 @@ package com.helger.numbercruncher.mathutils;
 
 import java.io.PrintStream;
 
-import javax.annotation.Nonnull;
-import javax.annotation.WillNotClose;
+import com.helger.annotation.WillNotClose;
+import com.helger.base.string.StringHelper;
 
-import com.helger.commons.string.StringHelper;
+import jakarta.annotation.Nonnull;
 
 /**
  * Print text and numbers right-aligned in columns.

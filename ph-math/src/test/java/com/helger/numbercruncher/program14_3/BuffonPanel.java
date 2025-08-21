@@ -26,8 +26,6 @@ import java.awt.Panel;
 import com.helger.numbercruncher.graphutils.AbstractGraphPanel;
 import com.helger.numbercruncher.graphutils.PlotProperties;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-
 /**
  * The demo panel for the Random Normal program and applet.
  */
@@ -210,7 +208,6 @@ public final class BuffonPanel extends AbstractGraphPanel
      * Run the thread.
      */
     @Override
-    @SuppressFBWarnings ("UC_USELESS_CONDITION")
     public void run ()
     {
       while (!paused)

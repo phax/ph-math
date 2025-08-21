@@ -260,8 +260,7 @@ public final class BifurcationPanel extends AbstractGraphPanel
   }
 
   /**
-   * Mouse released on the plot: End the zoom rectangle and plot the zoomed
-   * area.
+   * Mouse released on the plot: End the zoom rectangle and plot the zoomed area.
    */
   @Override
   public void mouseReleasedOnPlot (final MouseEvent ev)
@@ -290,8 +289,8 @@ public final class BifurcationPanel extends AbstractGraphPanel
   private static final int MAX_ITERS = 200;
 
   /**
-   * Graph thread class that creates a bifurcation diagram of the function f(x)
-   * = x^2 + c. For each value of c, it plots the values of the orbit of x=0.
+   * Graph thread class that creates a bifurcation diagram of the function f(x) = x^2 + c. For each
+   * value of c, it plots the values of the orbit of x=0.
    */
   private class PlotThread extends Thread
   {
@@ -328,7 +327,7 @@ public final class BifurcationPanel extends AbstractGraphPanel
 
         // Draw a row of the graph.
         drawPlot ();
-        yield ();
+        Thread.yield ();
       }
     }
   }

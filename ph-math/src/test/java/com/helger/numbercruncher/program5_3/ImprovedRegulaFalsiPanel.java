@@ -28,8 +28,6 @@ import com.helger.numbercruncher.mathutils.ImprovedRegulaFalsiRootFinder;
 import com.helger.numbercruncher.rootutils.AbstractRootFinderPanel;
 import com.helger.numbercruncher.rootutils.PlotFunction;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-
 /**
  * The demo panel for the Improved Regula Falsi Algorithm program and applet.
  */
@@ -128,7 +126,6 @@ public final class ImprovedRegulaFalsiPanel extends AbstractRootFinderPanel
   /**
    * Draw the secant.
    */
-  @SuppressFBWarnings ("RV_RETURN_VALUE_IGNORED_NO_SIDE_EFFECT")
   private void _drawSecant ()
   {
     // Convert xNeg, xPos, and xFalse to graph columns.
@@ -206,8 +203,8 @@ public final class ImprovedRegulaFalsiPanel extends AbstractRootFinderPanel
   }
 
   /**
-   * Do one iteration step by constructing the secant and choosing the left or
-   * right part of the interval.
+   * Do one iteration step by constructing the secant and choosing the left or right part of the
+   * interval.
    */
   @Override
   protected void step ()

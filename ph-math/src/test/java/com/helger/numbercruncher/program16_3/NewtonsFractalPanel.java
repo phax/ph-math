@@ -270,8 +270,7 @@ public final class NewtonsFractalPanel extends AbstractGraphPanel
   }
 
   /**
-   * Mouse released on the plot: End the zoom rectangle and plot the zoomed
-   * area.
+   * Mouse released on the plot: End the zoom rectangle and plot the zoomed area.
    */
   @Override
   public void mouseReleasedOnPlot (final MouseEvent ev)
@@ -299,8 +298,8 @@ public final class NewtonsFractalPanel extends AbstractGraphPanel
   private static final Complex THREE = new Complex (3, 0);
 
   /**
-   * Graph thread class that applies Newton's Method to z^3 - 1 starting at each
-   * point in the complex plane.
+   * Graph thread class that applies Newton's Method to z^3 - 1 starting at each point in the
+   * complex plane.
    */
   private class PlotThread extends Thread
   {
@@ -362,7 +361,7 @@ public final class NewtonsFractalPanel extends AbstractGraphPanel
 
         // Draw a row of the graph.
         drawPlot ();
-        yield ();
+        Thread.yield ();
       }
     }
   }

@@ -16,8 +16,6 @@
  */
 package com.helger.numbercruncher.mathutils;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-
 /**
  * A polynomial interpolation function.
  */
@@ -36,7 +34,6 @@ public class InterpolationPolynomial implements IEvaluatable
    * @param data
    *        the array of data points
    */
-  @SuppressFBWarnings ("EI_EXPOSE_REP2")
   public InterpolationPolynomial (final DataPoint [] data)
   {
     m_aData = data;
@@ -65,7 +62,6 @@ public class InterpolationPolynomial implements IEvaluatable
    *
    * @return the array of data points
    */
-  @SuppressFBWarnings ("EI_EXPOSE_REP")
   public DataPoint [] getDataPoints ()
   {
     return m_aData;
@@ -76,7 +72,6 @@ public class InterpolationPolynomial implements IEvaluatable
    *
    * @return the table
    */
-  @SuppressFBWarnings ("EI_EXPOSE_REP")
   public float [] [] getDividedDifferenceTable ()
   {
     return m_aDivDiff;
@@ -93,8 +88,8 @@ public class InterpolationPolynomial implements IEvaluatable
   }
 
   /**
-   * Add new data point: Augment the divided difference table by appending a new
-   * entry at the bottom of each column.
+   * Add new data point: Augment the divided difference table by appending a new entry at the bottom
+   * of each column.
    *
    * @param dataPoint
    *        the new data point
@@ -120,8 +115,8 @@ public class InterpolationPolynomial implements IEvaluatable
   }
 
   /**
-   * Return the value of the polynomial interpolation function at x.
-   * (Implementation of Evaluatable.)
+   * Return the value of the polynomial interpolation function at x. (Implementation of
+   * Evaluatable.)
    *
    * @param x
    *        the value of x

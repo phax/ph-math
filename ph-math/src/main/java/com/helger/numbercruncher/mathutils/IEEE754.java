@@ -18,8 +18,9 @@ package com.helger.numbercruncher.mathutils;
 
 import java.io.PrintStream;
 
-import javax.annotation.Nonnull;
-import javax.annotation.WillNotClose;
+import com.helger.annotation.WillNotClose;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * Decompose a floating-point value into its parts according to the IEEE 754

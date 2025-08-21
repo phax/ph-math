@@ -16,7 +16,7 @@
  */
 package com.helger.numbercruncher.program4_9;
 
-import com.helger.commons.equals.EqualsHelper;
+import com.helger.base.equals.EqualsHelper;
 import com.helger.numbercruncher.mathutils.SystemOutAlignRight;
 
 /**

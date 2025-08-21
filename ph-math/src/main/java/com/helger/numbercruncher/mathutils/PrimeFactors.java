@@ -16,8 +16,8 @@
  */
 package com.helger.numbercruncher.mathutils;
 
-import com.helger.commons.collection.impl.CommonsArrayList;
-import com.helger.commons.collection.impl.ICommonsList;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Compute the Sieve of Eratosthenes and prime factors.
@@ -72,8 +72,9 @@ public class PrimeFactors
   public static int [] factorsOf (final int pn)
   {
     int n = pn;
-    final boolean isPrime[] = primeSieve (n); // primes <= n
-    final ICommonsList <Integer> v = new CommonsArrayList <> ();
+    // primes <= n
+    final boolean isPrime[] = primeSieve (n);
+    final List <Integer> v = new ArrayList <> ();
 
     // Loop to try prime divisors.
     for (int factor = 2; n > 1; ++factor)
