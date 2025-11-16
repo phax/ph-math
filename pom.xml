@@ -25,7 +25,7 @@
     <version>3.0.2</version>
   </parent>
   <artifactId>ph-math-parent-pom</artifactId>
-  <version>6.1.0</version>
+  <version>6.1.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>ph-math-parent-pom</name>
   <description>Base POM for ph-math</description>
@@ -44,7 +44,7 @@
     <connection>scm:git:https://github.com/phax/ph-math.git</connection>
     <developerConnection>scm:git:https://github.com/phax/ph-math.git</developerConnection>
     <url>http://github.com/phax/ph-math</url>
-    <tag>ph-math-parent-pom-6.1.0</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <organization>
