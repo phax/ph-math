@@ -18,10 +18,10 @@ package com.helger.numbercruncher.mathutils;
 
 import java.io.PrintStream;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.WillNotClose;
 import com.helger.base.string.StringHelper;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Print text and numbers right-aligned in columns.
@@ -38,7 +38,7 @@ public class SystemOutAlignRight
    * @param aPS
    *        The print stream to operate on. May not be <code>null</code>.
    */
-  public SystemOutAlignRight (@Nonnull @WillNotClose final PrintStream aPS)
+  public SystemOutAlignRight (@NonNull @WillNotClose final PrintStream aPS)
   {
     m_aPS = aPS;
   }
@@ -51,7 +51,7 @@ public class SystemOutAlignRight
    * @param nWidth
    *        the column width
    */
-  public void print (@Nonnull final String sText, final int nWidth)
+  public void print (@NonNull final String sText, final int nWidth)
   {
     final int padding = nWidth - sText.length ();
     m_aPS.print (StringHelper.getRepeated (' ', padding) + sText);

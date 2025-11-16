@@ -18,10 +18,10 @@ package com.helger.numbercruncher.matrix;
 
 import java.io.PrintStream;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.WillNotClose;
 import com.helger.annotation.style.ReturnsMutableCopy;
-
-import jakarta.annotation.Nonnull;
 
 public class RowVector extends Matrix
 {
@@ -71,7 +71,7 @@ public class RowVector extends Matrix
    *
    * @return the copied values
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public float [] copyValues1D ()
   {
@@ -189,7 +189,7 @@ public class RowVector extends Matrix
    * @param aPS
    *        the print stream to write on. May not be <code>null</code>.
    */
-  public void print (@Nonnull @WillNotClose final PrintStream aPS)
+  public void print (@NonNull @WillNotClose final PrintStream aPS)
   {
     for (int c = 0; c < m_nCols; ++c)
     {

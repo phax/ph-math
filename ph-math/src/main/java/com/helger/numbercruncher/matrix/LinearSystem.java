@@ -18,11 +18,11 @@ package com.helger.numbercruncher.matrix;
 
 import java.io.PrintStream;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.WillNotClose;
 import com.helger.numbercruncher.mathutils.Epsilon;
 import com.helger.numbercruncher.mathutils.SystemOutAlignRight;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Solve a system of linear equations using LU decomposition.
@@ -195,7 +195,7 @@ public class LinearSystem extends SquareMatrix
    * @throws MatrixException
    *         if an error occurred
    */
-  public void printDecomposed (final int width, @Nonnull @WillNotClose final PrintStream aPS) throws MatrixException
+  public void printDecomposed (final int width, @NonNull @WillNotClose final PrintStream aPS) throws MatrixException
   {
     decompose ();
 

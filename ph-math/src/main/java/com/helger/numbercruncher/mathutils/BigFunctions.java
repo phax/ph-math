@@ -20,7 +20,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
 
-import jakarta.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * Several useful BigDecimal mathematical functions.
@@ -42,7 +42,7 @@ public final class BigFunctions
    *        the desired scale of the result
    * @return the result value
    */
-  public static BigDecimal intPower (@Nonnull final BigDecimal px, final long pexponent, final int scale)
+  public static BigDecimal intPower (@NonNull final BigDecimal px, final long pexponent, final int scale)
   {
     BigDecimal x = px;
     long exponent = pexponent;
@@ -87,7 +87,7 @@ public final class BigFunctions
    *        the desired scale of the result
    * @return the result value
    */
-  public static BigDecimal intRoot (@Nonnull final BigDecimal px, final long index, final int scale)
+  public static BigDecimal intRoot (@NonNull final BigDecimal px, final long index, final int scale)
   {
     BigDecimal x = px;
 
@@ -241,7 +241,7 @@ public final class BigFunctions
    *        Scale
    * @return ln(x)
    */
-  public static BigDecimal ln (@Nonnull final BigDecimal x, final int scale)
+  public static BigDecimal ln (@NonNull final BigDecimal x, final int scale)
   {
     // Check that x > 0.
     if (x.signum () <= 0)
@@ -273,7 +273,7 @@ public final class BigFunctions
    * Compute the natural logarithm of x to a given scale, x > 0. Use Newton's
    * algorithm.
    */
-  private static BigDecimal _lnNewton (@Nonnull final BigDecimal px, final int scale)
+  private static BigDecimal _lnNewton (@NonNull final BigDecimal px, final int scale)
   {
     BigDecimal x = px;
     final int sp1 = scale + 1;
@@ -312,7 +312,7 @@ public final class BigFunctions
    *        the desired scale of the result
    * @return the result value
    */
-  public static BigDecimal arctan (@Nonnull final BigDecimal x, final int scale)
+  public static BigDecimal arctan (@NonNull final BigDecimal x, final int scale)
   {
     // Check that |x| < 1.
     if (x.abs ().compareTo (BigDecimal.ONE) >= 0)
@@ -382,7 +382,7 @@ public final class BigFunctions
    *        the desired scale of the result
    * @return the result value
    */
-  public static BigDecimal sqrt (@Nonnull final BigDecimal x, final int scale)
+  public static BigDecimal sqrt (@NonNull final BigDecimal x, final int scale)
   {
     // Check that x >= 0.
     if (x.signum () < 0)

@@ -18,9 +18,9 @@ package com.helger.numbercruncher.mathutils;
 
 import java.io.PrintStream;
 
-import com.helger.annotation.WillNotClose;
+import org.jspecify.annotations.NonNull;
 
-import jakarta.annotation.Nonnull;
+import com.helger.annotation.WillNotClose;
 
 /**
  * Decompose a floating-point value into its parts according to the IEEE 754
@@ -437,7 +437,7 @@ public class IEEE754
    * @param aPW
    *        the PrintStream to write on
    */
-  public void print (@Nonnull @WillNotClose final PrintStream aPW)
+  public void print (@NonNull @WillNotClose final PrintStream aPW)
   {
     aPW.println ("------------------------------");
 

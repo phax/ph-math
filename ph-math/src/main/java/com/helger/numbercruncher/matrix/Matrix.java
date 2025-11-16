@@ -18,10 +18,10 @@ package com.helger.numbercruncher.matrix;
 
 import java.io.PrintStream;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.WillNotClose;
 import com.helger.numbercruncher.mathutils.SystemOutAlignRight;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * The matrix class.
@@ -511,7 +511,7 @@ public class Matrix
    * @param aPS
    *        the print stream to write on. May not be <code>null</code>.
    */
-  public void print (final int width, @Nonnull @WillNotClose final PrintStream aPS)
+  public void print (final int width, @NonNull @WillNotClose final PrintStream aPS)
   {
     final SystemOutAlignRight ar = new SystemOutAlignRight (aPS);
 

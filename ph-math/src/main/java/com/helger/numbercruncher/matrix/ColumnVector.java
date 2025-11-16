@@ -18,9 +18,9 @@ package com.helger.numbercruncher.matrix;
 
 import java.io.PrintStream;
 
-import com.helger.annotation.WillNotClose;
+import org.jspecify.annotations.NonNull;
 
-import jakarta.annotation.Nonnull;
+import com.helger.annotation.WillNotClose;
 
 /**
  * A column vector.
@@ -205,7 +205,7 @@ public class ColumnVector extends Matrix
    * @param aPS
    *        the print stream to write on. May not be <code>null</code>.
    */
-  public void print (@Nonnull @WillNotClose final PrintStream aPS)
+  public void print (@NonNull @WillNotClose final PrintStream aPS)
   {
     for (int r = 0; r < m_nRows; ++r)
     {
