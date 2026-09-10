@@ -21,9 +21,8 @@ import java.awt.Frame;
 import com.helger.numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
- * PROGRAM 16-4: Mandelbrot Set Fractal (Standalone Demo) Graph the Mandelbrot
- * set fractal. You can zoom into any rectangular region of the graph by using
- * the mouse.
+ * PROGRAM 16-4: Mandelbrot Set Fractal (Standalone Demo) Graph the Mandelbrot set fractal. You can
+ * zoom into any rectangular region of the graph by using the mouse.
  */
 public final class MandelbrotSetDemo extends AbstractDemoFrame
 {

@@ -22,8 +22,7 @@ import com.helger.numbercruncher.primeutils.MillerRabinFuncTest;
 import com.helger.numbercruncher.primeutils.MillerRabinStatus;
 
 /**
- * PROGRAM 15-2: Miller-Rabin Test for Primality Demonstrate the Miller-Rabin
- * test for primality.
+ * PROGRAM 15-2: Miller-Rabin Test for Primality Demonstrate the Miller-Rabin test for primality.
  */
 public final class TestMillerRabin implements IMillerRabinCaller
 {
@@ -93,17 +92,14 @@ public final class TestMillerRabin implements IMillerRabinCaller
   }
 }
 /*
- * Output: TESTING 21 b k s i r status
- * ---------------------------------------------------- 12 5 2 0 3 ??? 12 5 2 1
- * 9 ??? 21 is composite. TESTING 8191 b k s i r status
- * ---------------------------------------------------- 1738 4095 1 0 1 prime?
- * 7195 4095 1 0 1 prime? 7187 4095 1 0 8190 prime? 1368 4095 1 0 1 prime? 4550
- * 4095 1 0 8190 prime? 8191 is probably prime. TESTING 524287 b k s i r status
- * ---------------------------------------------------- 26082 262143 1 0 1
- * prime? 308713 262143 1 0 1 prime? 125334 262143 1 0 524286 prime? 311826
- * 262143 1 0 524286 prime? 454445 262143 1 0 1 prime? 524287 is probably prime.
- * TESTING 1604401 b k s i r status
- * ---------------------------------------------------- 637182 100275 4 0 419491
- * ??? 637182 100275 4 1 393000 ??? 637182 100275 4 2 1337735 ??? 637182 100275
- * 4 3 494434 ??? 1604401 is composite.
+ * Output: TESTING 21 b k s i r status ---------------------------------------------------- 12 5 2 0
+ * 3 ??? 12 5 2 1 9 ??? 21 is composite. TESTING 8191 b k s i r status
+ * ---------------------------------------------------- 1738 4095 1 0 1 prime? 7195 4095 1 0 1
+ * prime? 7187 4095 1 0 8190 prime? 1368 4095 1 0 1 prime? 4550 4095 1 0 8190 prime? 8191 is
+ * probably prime. TESTING 524287 b k s i r status
+ * ---------------------------------------------------- 26082 262143 1 0 1 prime? 308713 262143 1 0
+ * 1 prime? 125334 262143 1 0 524286 prime? 311826 262143 1 0 524286 prime? 454445 262143 1 0 1
+ * prime? 524287 is probably prime. TESTING 1604401 b k s i r status
+ * ---------------------------------------------------- 637182 100275 4 0 419491 ??? 637182 100275 4
+ * 1 393000 ??? 637182 100275 4 2 1337735 ??? 637182 100275 4 3 494434 ??? 1604401 is composite.
  */

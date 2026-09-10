@@ -58,9 +58,8 @@ public final class PrimeFactorsTest
   }
 }
 /*
- * Output: The Sieve of Eratosthenes: . 2 3 . 5 . 7 . . . 11 . 13 . . . 17 . 19
- * . . . 23 . . . . . 29 . 31 . . . . . 37 . . . 41 . 43 . . . 47 . . . . . 53 .
- * . . . . 59 . 61 . . . . . 67 . . . 71 . 73 . . . . . 79 . . . 83 . . . . . 89
- * . . . . . . . 97 . . . The prime factors of 84 are 2 3 7 The prime factors of
- * 1409 are 1409 The prime factors of 3141135 are 3 5 29 83
+ * Output: The Sieve of Eratosthenes: . 2 3 . 5 . 7 . . . 11 . 13 . . . 17 . 19 . . . 23 . . . . .
+ * 29 . 31 . . . . . 37 . . . 41 . 43 . . . 47 . . . . . 53 . . . . . 59 . 61 . . . . . 67 . . . 71
+ * . 73 . . . . . 79 . . . 83 . . . . . 89 . . . . . . . 97 . . . The prime factors of 84 are 2 3 7
+ * The prime factors of 1409 are 1409 The prime factors of 3141135 are 3 5 29 83
  */

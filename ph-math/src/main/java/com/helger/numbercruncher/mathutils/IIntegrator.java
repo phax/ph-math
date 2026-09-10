@@ -22,8 +22,7 @@ package com.helger.numbercruncher.mathutils;
 public interface IIntegrator
 {
   /**
-   * Integrate the function from a to b, and return an approximation to the
-   * area.
+   * Integrate the function from a to b, and return an approximation to the area.
    *
    * @param a
    *        the lower limit

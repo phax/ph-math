@@ -17,8 +17,8 @@
 package com.helger.numbercruncher.program1_2;
 
 /**
- * PROGRAM 1-2: Roundoff Errors Demonstrate how a tiny roundoff error can
- * explode into a much larger one.
+ * PROGRAM 1-2: Roundoff Errors Demonstrate how a tiny roundoff error can explode into a much larger
+ * one.
  */
 public final class RoundoffErrors
 {
@@ -49,7 +49,6 @@ public final class RoundoffErrors
   }
 }
 /*
- * Output: a = 0.50000006 b = 0.5 diff1 = 5.9604645E-8 pctError1 = 1.1920929E-5%
- * inverse = 1.6777216E7 diff2 = 3222784.0 pctError2 = 16.11392% factor =
- * 1351733.6
+ * Output: a = 0.50000006 b = 0.5 diff1 = 5.9604645E-8 pctError1 = 1.1920929E-5% inverse =
+ * 1.6777216E7 diff2 = 3222784.0 pctError2 = 16.11392% factor = 1351733.6
  */

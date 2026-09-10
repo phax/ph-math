@@ -38,6 +38,6 @@ public final class TestPrimality
   }
 }
 /*
- * Output: 7 is prime. 21 is composite. 8191 is prime. 15787 is prime. 149287 is
- * prime. 524287 is prime. 1604401 is composite.
+ * Output: 7 is prime. 21 is composite. 8191 is prime. 15787 is prime. 149287 is prime. 524287 is
+ * prime. 1604401 is composite.
  */

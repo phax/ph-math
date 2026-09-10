@@ -21,8 +21,8 @@ import java.awt.Frame;
 import com.helger.numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
- * PROGRAM 6-2d: Linear Regression (Interactive Standalone Demo) Interactively
- * demonstrate linear regression.
+ * PROGRAM 6-2d: Linear Regression (Interactive Standalone Demo) Interactively demonstrate linear
+ * regression.
  */
 public final class LinearRegressionDemo extends AbstractDemoFrame
 {

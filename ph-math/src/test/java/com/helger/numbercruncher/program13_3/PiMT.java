@@ -22,8 +22,7 @@ import java.util.Date;
 import com.helger.numbercruncher.piutils.AbstractPiFormula;
 
 /**
- * PROGRAM 13-3: The Borwein Pi Algorithm Compute digits of pi by the Borwein
- * algorithm.
+ * PROGRAM 13-3: The Borwein Pi Algorithm Compute digits of pi by the Borwein algorithm.
  */
 public final class PiMT extends AbstractPiFormula implements IPiBorweinParent
 {
@@ -105,13 +104,11 @@ public final class PiMT extends AbstractPiFormula implements IPiBorweinParent
         System.out.print ("\n" + timestamp (m_nStartTime) + " Initialization:");
         break;
       }
-
       case PiBorweinConstants.INVERTING:
       {
         System.out.println ("\n" + timestamp (m_nMarkTime) + " Inverting");
         break;
       }
-
       case PiBorweinConstants.DONE:
       {
         final String totalTime = timestamp (m_nStartTime);
@@ -122,7 +119,6 @@ public final class PiMT extends AbstractPiFormula implements IPiBorweinParent
 
         break;
       }
-
       default:
       {
         System.out.print ("\n" + timestamp (m_nMarkTime) + " Iteration " + phase + ":");

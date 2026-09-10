@@ -17,8 +17,8 @@
 package com.helger.numbercruncher.program1_3;
 
 /**
- * PROGRAM 1-3: Not Associative Demonstrate that floating-point addition and
- * multiplication are not associative operations.
+ * PROGRAM 1-3: Not Associative Demonstrate that floating-point addition and multiplication are not
+ * associative operations.
  */
 public final class NotAssociative
 {
@@ -98,9 +98,8 @@ public final class NotAssociative
 }
 
 /*
- * Output: a = 1.0 b = 3.0E-8 c = 4.0E-8 (a+b)+c = 1.0 a+(b+c) = 1.0000001 d =
- * 0.54385 e = 0.9599806 f = 0.2252711 (d+e)+f = 1.7291018 d+(e+f) = 1.7291017 u
- * = 0.5 v = 1.4E-45 w = 3.0E38 (u*v)*w = 0.0 u*(v*w) = 2.1019477E-7 x =
- * 0.9091322 y = 0.8606576 z = 0.5684686 (x*y)*z = 0.4447991 x*(y*z) =
- * 0.44479907
+ * Output: a = 1.0 b = 3.0E-8 c = 4.0E-8 (a+b)+c = 1.0 a+(b+c) = 1.0000001 d = 0.54385 e = 0.9599806
+ * f = 0.2252711 (d+e)+f = 1.7291018 d+(e+f) = 1.7291017 u = 0.5 v = 1.4E-45 w = 3.0E38 (u*v)*w =
+ * 0.0 u*(v*w) = 2.1019477E-7 x = 0.9091322 y = 0.8606576 z = 0.5684686 (x*y)*z = 0.4447991 x*(y*z)
+ * = 0.44479907
  */

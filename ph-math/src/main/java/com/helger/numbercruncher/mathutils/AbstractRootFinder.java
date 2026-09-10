@@ -93,8 +93,7 @@ public abstract class AbstractRootFinder
   }
 
   /**
-   * Check the iteration count to see if it has exceeded the maximum number of
-   * iterations.
+   * Check the iteration count to see if it has exceeded the maximum number of iterations.
    *
    * @throws IterationCountExceededException
    *         in case the maximum number of iterations is exceeded

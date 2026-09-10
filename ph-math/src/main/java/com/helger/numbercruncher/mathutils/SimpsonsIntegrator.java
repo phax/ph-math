@@ -36,8 +36,8 @@ public class SimpsonsIntegrator implements IIntegrator
   }
 
   /**
-   * Integrate the function from a to b using Simpson's algorithm, and return an
-   * approximation to the area. (Integrator implementation.)
+   * Integrate the function from a to b using Simpson's algorithm, and return an approximation to
+   * the area. (Integrator implementation.)
    *
    * @param a
    *        the lower limit

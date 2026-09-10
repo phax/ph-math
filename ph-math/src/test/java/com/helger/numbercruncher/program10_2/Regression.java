@@ -21,8 +21,8 @@ import com.helger.numbercruncher.mathutils.RegressionPolynomial;
 import com.helger.numbercruncher.matrix.ColumnVector;
 
 /**
- * PROGRAM 10-2: Polynomial Regression Demonstrate polynomial regression by
- * fitting a polynomial to a set of data points.
+ * PROGRAM 10-2: Polynomial Regression Demonstrate polynomial regression by fitting a polynomial to
+ * a set of data points.
  */
 public final class Regression
 {
@@ -81,6 +81,5 @@ public final class Regression
   }
 }
 /*
- * Output: y = -0.14296114 + 1.8568094x + -0.87079257x^2 + 0.09318722x^3
- * y(3.1415927) = -0.014611721
+ * Output: y = -0.14296114 + 1.8568094x + -0.87079257x^2 + 0.09318722x^3 y(3.1415927) = -0.014611721
  */

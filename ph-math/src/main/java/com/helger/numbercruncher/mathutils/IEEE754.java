@@ -23,8 +23,7 @@ import org.jspecify.annotations.NonNull;
 import com.helger.annotation.WillNotClose;
 
 /**
- * Decompose a floating-point value into its parts according to the IEEE 754
- * standard.
+ * Decompose a floating-point value into its parts according to the IEEE 754 standard.
  */
 public class IEEE754
 {
@@ -352,8 +351,7 @@ public class IEEE754
   // -----------------------//
 
   /**
-   * Convert a long value into a character array of '0' and '1' that represents
-   * the value in base 2.
+   * Convert a long value into a character array of '0' and '1' that represents the value in base 2.
    *
    * @param pvalue
    *        the long value
@@ -380,8 +378,7 @@ public class IEEE754
    * Decompose a floating-point value into its parts.
    *
    * @param bits
-   *        the character array of '0' and '1' that represents the value in base
-   *        2
+   *        the character array of '0' and '1' that represents the value in base 2
    * @param bias
    *        the exponent bias value
    * @param reserved
@@ -534,7 +531,10 @@ public class IEEE754
   {
     if ((biased < 0) || (biased > IEEE754Constants.FLOAT_EXPONENT_RESERVED))
     {
-      throw new IEEE754Exception ("The biased exponent value should be " + "0 through " + IEEE754Constants.FLOAT_EXPONENT_RESERVED + ".");
+      throw new IEEE754Exception ("The biased exponent value should be " +
+                                  "0 through " +
+                                  IEEE754Constants.FLOAT_EXPONENT_RESERVED +
+                                  ".");
     }
   }
 
@@ -570,7 +570,10 @@ public class IEEE754
   {
     if ((biased < 0) || (biased > IEEE754Constants.DOUBLE_EXPONENT_RESERVED))
     {
-      throw new IEEE754Exception ("The biased exponent value should be " + "0 through " + IEEE754Constants.DOUBLE_EXPONENT_RESERVED + ".");
+      throw new IEEE754Exception ("The biased exponent value should be " +
+                                  "0 through " +
+                                  IEEE754Constants.DOUBLE_EXPONENT_RESERVED +
+                                  ".");
     }
   }
 

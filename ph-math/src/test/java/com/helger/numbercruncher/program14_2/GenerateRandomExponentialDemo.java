@@ -21,9 +21,8 @@ import java.awt.Frame;
 import com.helger.numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
- * PROGRAM 14-2d: Exponentially-Distributed Random Numbers (Standalone Demo)
- * Demonstrate algorithms for generating exponentially-distributed random
- * numbers.
+ * PROGRAM 14-2d: Exponentially-Distributed Random Numbers (Standalone Demo) Demonstrate algorithms
+ * for generating exponentially-distributed random numbers.
  */
 public final class GenerateRandomExponentialDemo extends AbstractDemoFrame
 {

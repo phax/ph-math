@@ -21,8 +21,8 @@ import java.awt.Frame;
 import com.helger.numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
- * PROGRAM 8-1d: Differential Equation Solver (Interactive Standalone Demo)
- * Interactively demonstrate algorithms for solving differential equations.
+ * PROGRAM 8-1d: Differential Equation Solver (Interactive Standalone Demo) Interactively
+ * demonstrate algorithms for solving differential equations.
  */
 public final class SolveDiffEqDemo extends AbstractDemoFrame
 {

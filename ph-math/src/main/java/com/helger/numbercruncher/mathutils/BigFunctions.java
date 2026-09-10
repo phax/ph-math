@@ -76,8 +76,7 @@ public final class BigFunctions
   }
 
   /**
-   * Compute the integral root of x to a given scale, x &ge; 0. Use Newton's
-   * algorithm.
+   * Compute the integral root of x to a given scale, x &ge; 0. Use Newton's algorithm.
    *
    * @param px
    *        the value of x
@@ -134,8 +133,8 @@ public final class BigFunctions
   }
 
   /**
-   * Compute e^x to a given scale. Break x into its whole and fraction parts and
-   * compute (e^(1 + fraction/whole))^whole using Taylor's formula.
+   * Compute e^x to a given scale. Break x into its whole and fraction parts and compute (e^(1 +
+   * fraction/whole))^whole using Taylor's formula.
    *
    * @param x
    *        the value of x
@@ -270,8 +269,7 @@ public final class BigFunctions
   }
 
   /**
-   * Compute the natural logarithm of x to a given scale, x > 0. Use Newton's
-   * algorithm.
+   * Compute the natural logarithm of x to a given scale, x > 0. Use Newton's algorithm.
    */
   private static BigDecimal _lnNewton (@NonNull final BigDecimal px, final int scale)
   {
@@ -373,8 +371,7 @@ public final class BigFunctions
   }
 
   /**
-   * Compute the square root of x to a given scale, x &ge; 0. Use Newton's
-   * algorithm.
+   * Compute the square root of x to a given scale, x &ge; 0. Use Newton's algorithm.
    *
    * @param x
    *        the value of x

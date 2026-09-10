@@ -17,8 +17,7 @@
 package com.helger.numbercruncher.mathutils;
 
 /**
- * Differential equation solver that implements a fourth-order Runge-Kutta
- * algorithm.
+ * Differential equation solver that implements a fourth-order Runge-Kutta algorithm.
  */
 public class RungeKuttaDiffEqSolver extends AbstractDiffEqSolver
 {

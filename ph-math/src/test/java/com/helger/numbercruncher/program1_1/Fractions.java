@@ -17,8 +17,8 @@
 package com.helger.numbercruncher.program1_1;
 
 /**
- * PROGRAM 1-1: Fractions Print and sum the values of the fractions 1/2, 1/3,
- * 1/4, and 1/5 to look for any roundoff errors.
+ * PROGRAM 1-1: Fractions Print and sum the values of the fractions 1/2, 1/3, 1/4, and 1/5 to look
+ * for any roundoff errors.
  */
 public final class Fractions
 {
@@ -74,9 +74,8 @@ public final class Fractions
   }
 }
 /*
- * Output: 1/2 = 0.5 1/3 = 0.33333334 1/4 = 0.25 1/5 = 0.2 1/6 = 0.16666667 1/7
- * = 0.14285715 1/2 summed 840 times = 420.0 (should be 420) 1/3 summed 840
- * times = 279.99915 (should be 280) 1/4 summed 840 times = 210.0 (should be
- * 210) 1/5 summed 840 times = 167.99858 (should be 168) 1/6 summed 840 times =
- * 139.99957 (should be 140) 1/7 summed 840 times = 120.001114 (should be 120)
+ * Output: 1/2 = 0.5 1/3 = 0.33333334 1/4 = 0.25 1/5 = 0.2 1/6 = 0.16666667 1/7 = 0.14285715 1/2
+ * summed 840 times = 420.0 (should be 420) 1/3 summed 840 times = 279.99915 (should be 280) 1/4
+ * summed 840 times = 210.0 (should be 210) 1/5 summed 840 times = 167.99858 (should be 168) 1/6
+ * summed 840 times = 139.99957 (should be 140) 1/7 summed 840 times = 120.001114 (should be 120)
  */

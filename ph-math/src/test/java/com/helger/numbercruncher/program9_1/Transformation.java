@@ -162,9 +162,8 @@ final class Transformation
   }
 
   /**
-   * Transform a set of vertices based on previously-set translation, scaling,
-   * and rotation. Concatenate the transformations in the order: scale, rotate,
-   * translate.
+   * Transform a set of vertices based on previously-set translation, scaling, and rotation.
+   * Concatenate the transformations in the order: scale, rotate, translate.
    *
    * @param vertices
    *        the vertices to transform

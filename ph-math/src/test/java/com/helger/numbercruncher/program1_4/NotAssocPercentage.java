@@ -21,8 +21,8 @@ import java.util.Random;
 import com.helger.base.equals.EqualsHelper;
 
 /**
- * PROGRAM 1-4: Not Associative Percentage Figure out what percentage of
- * floating-point additions and multiplications fail their associative laws.
+ * PROGRAM 1-4: Not Associative Percentage Figure out what percentage of floating-point additions
+ * and multiplications fail their associative laws.
  */
 public final class NotAssocPercentage
 {
@@ -64,6 +64,6 @@ public final class NotAssocPercentage
   }
 }
 /*
- * Output: 17% failures of the associative law of addition. 34% failures of the
- * associative law of multiplication.
+ * Output: 17% failures of the associative law of addition. 34% failures of the associative law of
+ * multiplication.
  */

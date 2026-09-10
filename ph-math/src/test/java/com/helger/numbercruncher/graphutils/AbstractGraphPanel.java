@@ -496,7 +496,12 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
    * @param color
    *        the color of the lines
    */
-  protected void plotLines (final int xs1[], final int ys1[], final int xs2[], final int ys2[], final int k, final Color color)
+  protected void plotLines (final int xs1[],
+                            final int ys1[],
+                            final int xs2[],
+                            final int ys2[],
+                            final int k,
+                            final Color color)
   {
     plotPanel.plotLines (xs1, ys1, xs2, ys2, k, color);
   }
@@ -640,8 +645,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
   {}
 
   /**
-   * Mouse clicked event handler. (Callback from the plot panel. Do nothing
-   * here.)
+   * Mouse clicked event handler. (Callback from the plot panel. Do nothing here.)
    *
    * @param ev
    *        the mouse event
@@ -650,8 +654,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
   {}
 
   /**
-   * Mouse pressed event handler. (Callback from the plot panel. Do nothing
-   * here.)
+   * Mouse pressed event handler. (Callback from the plot panel. Do nothing here.)
    *
    * @param ev
    *        the mouse event
@@ -660,8 +663,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
   {}
 
   /**
-   * Mouse released event handler. (Callback from the plot panel. Do nothing
-   * here.)
+   * Mouse released event handler. (Callback from the plot panel. Do nothing here.)
    *
    * @param ev
    *        the mouse event
@@ -670,8 +672,7 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
   {}
 
   /**
-   * Mouse dragged event handler. (Callback from the plot panel. Do nothing
-   * here.)
+   * Mouse dragged event handler. (Callback from the plot panel. Do nothing here.)
    *
    * @param ev
    *        the mouse event
@@ -689,8 +690,8 @@ public abstract class AbstractGraphPanel extends Panel implements IDemoPanel
   {}
 
   /**
-   * Notification that the plot bounds changed. (Callback from the plot bounds
-   * panel. Do nothing here.)
+   * Notification that the plot bounds changed. (Callback from the plot bounds panel. Do nothing
+   * here.)
    */
   public void plotBoundsChanged ()
   {}

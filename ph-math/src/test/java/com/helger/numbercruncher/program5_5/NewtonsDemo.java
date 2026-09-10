@@ -21,8 +21,8 @@ import java.awt.Frame;
 import com.helger.numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
- * PROGRAM 5-5d: Newton's Algorithm (Interactive Standalone Demo) Interactively
- * demonstrate Newton's Algorithm on various functions.
+ * PROGRAM 5-5d: Newton's Algorithm (Interactive Standalone Demo) Interactively demonstrate Newton's
+ * Algorithm on various functions.
  */
 public final class NewtonsDemo extends AbstractDemoFrame
 {

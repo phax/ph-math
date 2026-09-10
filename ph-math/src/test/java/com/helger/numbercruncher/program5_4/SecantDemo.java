@@ -21,8 +21,8 @@ import java.awt.Frame;
 import com.helger.numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
- * PROGRAM 5-4d: Secant Algorithm (Interactive Standalone Demo) Interactively
- * demonstrate the Secant Algorithm on various functions.
+ * PROGRAM 5-4d: Secant Algorithm (Interactive Standalone Demo) Interactively demonstrate the Secant
+ * Algorithm on various functions.
  */
 public final class SecantDemo extends AbstractDemoFrame
 {

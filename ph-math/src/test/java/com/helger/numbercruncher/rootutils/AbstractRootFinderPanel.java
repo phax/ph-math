@@ -213,8 +213,7 @@ public abstract class AbstractRootFinderPanel extends AbstractGraphPanel
   // -----------------------------//
 
   /**
-   * Create the function frame or bring it to the front. (Callback from header
-   * panel.)
+   * Create the function frame or bring it to the front. (Callback from header panel.)
    */
   @Override
   public void doHeaderAction ()
@@ -252,8 +251,7 @@ public abstract class AbstractRootFinderPanel extends AbstractGraphPanel
   }
 
   /**
-   * Notification that a user input error occurred. Disable the run and step
-   * buttons.
+   * Notification that a user input error occurred. Disable the run and step buttons.
    */
   @Override
   protected void userErrorOccurred ()

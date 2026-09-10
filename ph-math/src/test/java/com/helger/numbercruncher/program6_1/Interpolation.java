@@ -21,9 +21,9 @@ import com.helger.numbercruncher.mathutils.InterpolationPolynomial;
 import com.helger.numbercruncher.mathutils.SystemOutAlignRight;
 
 /**
- * PROGRAM 6-1: Polynomial Interpolation Demonstrate polynomial interpolation by
- * using a divided difference table to construct an interpolation function for a
- * set of data points. Use the function to estimate new values.
+ * PROGRAM 6-1: Polynomial Interpolation Demonstrate polynomial interpolation by using a divided
+ * difference table to construct an interpolation function for a set of data points. Use the
+ * function to estimate new values.
  */
 public final class Interpolation
 {
@@ -120,24 +120,20 @@ public final class Interpolation
   }
 }
 /*
- * Output: i x f(x) First -------------------------- 0 1.12 3.0648541 3.82934 1
- * 1.55 4.71147 Estimate e^1.4 = 4.137069 Math.exp(1.4) = 4.0552 % error =
- * 2.0188677 i x f(x) First Second ------------------------------------ 0 1.12
- * 3.0648541 3.82934 1.8545004 1 1.55 4.71147 4.070425 2 1.25 3.4903429 Estimate
- * e^1.4 = 4.0591803 Math.exp(1.4) = 4.0552 % error = 0.09814953 i x f(x) First
- * Second Third ------------------------------------------------ 0 1.12
- * 3.0648541 3.82934 1.8545004 0.724587 1 1.55 4.71147 4.070425 2.43417 2 1.25
- * 3.4903429 4.971068 3 1.92 6.820958 Estimate e^1.4 = 4.0546155 Math.exp(1.4) =
- * 4.0552 % error = 0.014416116 i x f(x) First Second Third Fourth
- * ------------------------------------------------------------ 0 1.12 3.0648541
- * 3.82934 1.8545004 0.724587 0.17594407 1 1.55 4.71147 4.070425 2.43417
- * 0.7615353 2 1.25 3.4903429 4.971068 2.2666323 3 1.92 6.820958 5.1523986 4
- * 1.33 3.7810435 Estimate e^1.4 = 4.055192 Math.exp(1.4) = 4.0552 % error =
- * 1.998972E-4 i x f(x) First Second Third Fourth Fifth
- * ------------------------------------------------------------------------ 0
- * 1.12 3.0648541 3.82934 1.8545004 0.724587 0.17594407 0.037198737 1 1.55
- * 4.71147 4.070425 2.43417 0.7615353 0.19937928 2 1.25 3.4903429 4.971068
- * 2.2666323 0.80141115 3 1.92 6.820958 5.1523986 2.667338 4 1.33 3.7810435
- * 4.6989512 5 1.75 5.754603 Estimate e^1.4 = 4.0552006 Math.exp(1.4) = 4.0552 %
- * error = 1.1758659E-5
+ * Output: i x f(x) First -------------------------- 0 1.12 3.0648541 3.82934 1 1.55 4.71147
+ * Estimate e^1.4 = 4.137069 Math.exp(1.4) = 4.0552 % error = 2.0188677 i x f(x) First Second
+ * ------------------------------------ 0 1.12 3.0648541 3.82934 1.8545004 1 1.55 4.71147 4.070425 2
+ * 1.25 3.4903429 Estimate e^1.4 = 4.0591803 Math.exp(1.4) = 4.0552 % error = 0.09814953 i x f(x)
+ * First Second Third ------------------------------------------------ 0 1.12 3.0648541 3.82934
+ * 1.8545004 0.724587 1 1.55 4.71147 4.070425 2.43417 2 1.25 3.4903429 4.971068 3 1.92 6.820958
+ * Estimate e^1.4 = 4.0546155 Math.exp(1.4) = 4.0552 % error = 0.014416116 i x f(x) First Second
+ * Third Fourth ------------------------------------------------------------ 0 1.12 3.0648541
+ * 3.82934 1.8545004 0.724587 0.17594407 1 1.55 4.71147 4.070425 2.43417 0.7615353 2 1.25 3.4903429
+ * 4.971068 2.2666323 3 1.92 6.820958 5.1523986 4 1.33 3.7810435 Estimate e^1.4 = 4.055192
+ * Math.exp(1.4) = 4.0552 % error = 1.998972E-4 i x f(x) First Second Third Fourth Fifth
+ * ------------------------------------------------------------------------ 0 1.12 3.0648541 3.82934
+ * 1.8545004 0.724587 0.17594407 0.037198737 1 1.55 4.71147 4.070425 2.43417 0.7615353 0.19937928 2
+ * 1.25 3.4903429 4.971068 2.2666323 0.80141115 3 1.92 6.820958 5.1523986 2.667338 4 1.33 3.7810435
+ * 4.6989512 5 1.75 5.754603 Estimate e^1.4 = 4.0552006 Math.exp(1.4) = 4.0552 % error =
+ * 1.1758659E-5
  */

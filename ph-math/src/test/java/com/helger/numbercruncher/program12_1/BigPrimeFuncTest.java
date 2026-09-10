@@ -21,8 +21,8 @@ import java.math.BigInteger;
 import org.junit.Test;
 
 /**
- * PROGRAM 12-1: Big Prime Number Demonstrate BigInteger by computing the
- * Mersenne prime 2^11213 - 1.
+ * PROGRAM 12-1: Big Prime Number Demonstrate BigInteger by computing the Mersenne prime 2^11213 -
+ * 1.
  */
 public final class BigPrimeFuncTest
 {
@@ -135,8 +135,7 @@ public final class BigPrimeFuncTest
 }
 /**
  * Output: 2^11213 - 1 =<br>
- * 2,814,112,013,697,373,
- * 133,393,152,975,842,584,191,818,662,382,013,600,787,892,419,349,
+ * 2,814,112,013,697,373, 133,393,152,975,842,584,191,818,662,382,013,600,787,892,419,349,
  * 345,515,176,682,276,313,810,715,094,745,633,257,074,198,789,308,
  * 535,071,537,342,445,016,418,881,801,789,390,548,709,414,391,857,
  * 257,571,565,758,706,478,418,356,747,070,674,633,497,188,053,050,

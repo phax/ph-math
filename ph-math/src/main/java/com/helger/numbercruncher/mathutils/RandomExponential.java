@@ -19,8 +19,7 @@ package com.helger.numbercruncher.mathutils;
 import java.util.Random;
 
 /**
- * Utility class that generates exponentially-distributed random values using
- * several algorithms.
+ * Utility class that generates exponentially-distributed random values using several algorithms.
  */
 public class RandomExponential
 {
@@ -41,8 +40,8 @@ public class RandomExponential
   }
 
   /**
-   * Compute the next random value using the logarithm algorithm. Requires a
-   * uniformly-distributed random value in [0, 1).
+   * Compute the next random value using the logarithm algorithm. Requires a uniformly-distributed
+   * random value in [0, 1).
    *
    * @return next value
    */
@@ -59,8 +58,8 @@ public class RandomExponential
   }
 
   /**
-   * Compute the next random value using the von Neumann algorithm. Requires
-   * sequences of uniformly-distributed random values in [0, 1).
+   * Compute the next random value using the von Neumann algorithm. Requires sequences of
+   * uniformly-distributed random values in [0, 1).
    *
    * @return next value
    */

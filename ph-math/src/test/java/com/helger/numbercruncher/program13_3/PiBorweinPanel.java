@@ -267,14 +267,12 @@ public final class PiBorweinPanel extends Panel implements IDemoPanel, IPiBorwei
         taskText.setText (" ");
         break;
       }
-
       case PiBorweinConstants.INVERTING:
       {
         phaseText.setText ("Inverting");
         taskText.setText (" ");
         break;
       }
-
       case PiBorweinConstants.DONE:
       {
         timerThread.interrupt ();
@@ -282,7 +280,6 @@ public final class PiBorweinPanel extends Panel implements IDemoPanel, IPiBorwei
         taskText.setText ("DONE");
         break;
       }
-
       default:
       {
         phaseText.setText ("Iteration #" + Integer.toString (phase));

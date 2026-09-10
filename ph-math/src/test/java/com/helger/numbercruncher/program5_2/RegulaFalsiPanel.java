@@ -218,8 +218,8 @@ public final class RegulaFalsiPanel extends AbstractRootFinderPanel
   }
 
   /**
-   * Do one iteration step by constructing the secant and choosing the left or
-   * right part of the interval.
+   * Do one iteration step by constructing the secant and choosing the left or right part of the
+   * interval.
    */
   @Override
   protected void step ()

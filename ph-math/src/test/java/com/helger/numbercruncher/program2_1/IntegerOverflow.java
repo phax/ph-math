@@ -17,8 +17,7 @@
 package com.helger.numbercruncher.program2_1;
 
 /**
- * PROGRAM 2-1: Integer Overflow Show the effects of integer overflow and of
- * division by zero.
+ * PROGRAM 2-1: Integer Overflow Show the effects of integer overflow and of division by zero.
  */
 public final class IntegerOverflow
 {
@@ -43,10 +42,9 @@ public final class IntegerOverflow
   }
 }
 /*
- * Output: 2147483645 + 1 = 2147483646 2147483645 + 2 = 2147483647 2147483645 +
- * 3 = -2147483648 2147483645 + 4 = -2147483647 2147483645 * 1 = 2147483645
- * 2147483645 * 2 = -6 2147483645 * 3 = 2147483639 2147483645 * 4 = -12
- * java.lang.ArithmeticException: / by zero at
- * numbercruncher.program2_1.IntegerOverflow.main(IntegerOverflow.java:24)
- * Exception in thread "main"
+ * Output: 2147483645 + 1 = 2147483646 2147483645 + 2 = 2147483647 2147483645 + 3 = -2147483648
+ * 2147483645 + 4 = -2147483647 2147483645 * 1 = 2147483645 2147483645 * 2 = -6 2147483645 * 3 =
+ * 2147483639 2147483645 * 4 = -12 java.lang.ArithmeticException: / by zero at
+ * numbercruncher.program2_1.IntegerOverflow.main(IntegerOverflow.java:24) Exception in thread
+ * "main"
  */

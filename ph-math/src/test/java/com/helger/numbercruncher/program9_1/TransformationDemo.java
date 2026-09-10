@@ -21,8 +21,8 @@ import java.awt.Frame;
 import com.helger.numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
- * PROGRAM 9-1d: Graphic Transformations (Interactive Standalone Demo)
- * Interactively demonstrate the use of graphic transformation matrices.
+ * PROGRAM 9-1d: Graphic Transformations (Interactive Standalone Demo) Interactively demonstrate the
+ * use of graphic transformation matrices.
  */
 public final class TransformationDemo extends AbstractDemoFrame
 {

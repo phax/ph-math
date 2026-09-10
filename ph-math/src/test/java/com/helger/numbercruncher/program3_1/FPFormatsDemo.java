@@ -26,9 +26,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 /**
- * PROGRAM 3-1d: IEEE 754 Standard (Interactive Standalone Demo) Interactive
- * decompose and recompose floating-point numbers according to the IEEE 754
- * standard.
+ * PROGRAM 3-1d: IEEE 754 Standard (Interactive Standalone Demo) Interactive decompose and recompose
+ * floating-point numbers according to the IEEE 754 standard.
  */
 public final class FPFormatsDemo extends Frame
 {

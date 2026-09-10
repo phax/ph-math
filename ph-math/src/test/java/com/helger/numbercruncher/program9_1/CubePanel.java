@@ -23,8 +23,7 @@ import java.awt.Panel;
 import java.awt.Rectangle;
 
 /**
- * The panel that represents the enclosed 3-D space for the tumbling wire-frame
- * cube.
+ * The panel that represents the enclosed 3-D space for the tumbling wire-frame cube.
  */
 public final class CubePanel extends Panel
 {

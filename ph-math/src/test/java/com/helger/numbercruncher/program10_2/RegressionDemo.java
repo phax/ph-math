@@ -21,8 +21,8 @@ import java.awt.Frame;
 import com.helger.numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
- * PROGRAM 10-2d: Polynomial Regression (Interactive Standalone Demo)
- * Interactively demonstrate polynomial regression.
+ * PROGRAM 10-2d: Polynomial Regression (Interactive Standalone Demo) Interactively demonstrate
+ * polynomial regression.
  */
 public final class RegressionDemo extends AbstractDemoFrame
 {

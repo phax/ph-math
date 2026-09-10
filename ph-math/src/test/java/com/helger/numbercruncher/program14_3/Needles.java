@@ -19,8 +19,7 @@ package com.helger.numbercruncher.program14_3;
 import java.util.Random;
 
 /**
- * Implementation of Buffon's needles, which are randomly dropped onto a ruled
- * sheet of paper.
+ * Implementation of Buffon's needles, which are randomly dropped onto a ruled sheet of paper.
  */
 final class Needles
 {

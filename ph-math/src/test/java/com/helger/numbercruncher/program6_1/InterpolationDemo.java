@@ -21,8 +21,8 @@ import java.awt.Frame;
 import com.helger.numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
- * PROGRAM 6-1d: Polynomial Interpolation (Interactive Standalone Demo)
- * Interactively demonstrate polynomial interpolation.
+ * PROGRAM 6-1d: Polynomial Interpolation (Interactive Standalone Demo) Interactively demonstrate
+ * polynomial interpolation.
  */
 public final class InterpolationDemo extends AbstractDemoFrame
 {

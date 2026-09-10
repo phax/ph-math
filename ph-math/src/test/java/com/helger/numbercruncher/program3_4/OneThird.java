@@ -62,15 +62,13 @@ public final class OneThird
   }
 }
 /*
- * Output: Float 1/3 = 0.33333334 Converted to double = 0.3333333432674408
- * Double 1/3 = 0.3333333333333333 ------------------------------ float value =
- * 0.33333334 sign=0, exponent=01111101 (biased=125, normalized, unbiased=-2)
- * significand=1.01010101010101010101011 ------------------------------ double
- * value = 0.3333333432674408 sign=0, exponent=01111111101 (biased=1021,
- * normalized, unbiased=-2)
- * significand=1.0101010101010101010101100000000000000000000000000000
- * ------------------------------ double value = 0.3333333333333333 sign=0,
- * exponent=01111111101 (biased=1021, normalized, unbiased=-2)
- * significand=1.0101010101010101010101010101010101010101010101010101 Converted
- * 1/3 by summation = 0.3333333432674408
+ * Output: Float 1/3 = 0.33333334 Converted to double = 0.3333333432674408 Double 1/3 =
+ * 0.3333333333333333 ------------------------------ float value = 0.33333334 sign=0,
+ * exponent=01111101 (biased=125, normalized, unbiased=-2) significand=1.01010101010101010101011
+ * ------------------------------ double value = 0.3333333432674408 sign=0, exponent=01111111101
+ * (biased=1021, normalized, unbiased=-2)
+ * significand=1.0101010101010101010101100000000000000000000000000000 ------------------------------
+ * double value = 0.3333333333333333 sign=0, exponent=01111111101 (biased=1021, normalized,
+ * unbiased=-2) significand=1.0101010101010101010101010101010101010101010101010101 Converted 1/3 by
+ * summation = 0.3333333432674408
  */

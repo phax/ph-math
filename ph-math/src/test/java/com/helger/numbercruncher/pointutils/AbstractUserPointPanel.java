@@ -28,8 +28,7 @@ import com.helger.numbercruncher.graphutils.AbstractGraphPanel;
 import com.helger.numbercruncher.graphutils.PlotProperties;
 
 /**
- * The base panel for all demo panels that allow the user to set data points
- * with the mouse.
+ * The base panel for all demo panels that allow the user to set data points with the mouse.
  */
 public abstract class AbstractUserPointPanel extends AbstractGraphPanel
 {
@@ -210,8 +209,8 @@ public abstract class AbstractUserPointPanel extends AbstractGraphPanel
   }
 
   /**
-   * Notification that a user input error occurred. Disable the action1 button
-   * and enable the action2 button.
+   * Notification that a user input error occurred. Disable the action1 button and enable the
+   * action2 button.
    */
   @Override
   protected void userErrorOccurred ()

@@ -20,8 +20,8 @@ import com.helger.numbercruncher.mathutils.DataPoint;
 import com.helger.numbercruncher.mathutils.RegressionLine;
 
 /**
- * PROGRAM 6-2: Linear Regression Demonstrate linear regression by constructing
- * the regression line for a set of data points.
+ * PROGRAM 6-2: Linear Regression Demonstrate linear regression by constructing the regression line
+ * for a set of data points.
  */
 public final class LinearRegression
 {
@@ -77,7 +77,6 @@ public final class LinearRegression
   }
 }
 /*
- * Output: n = 7 Sum x = 31.399999618530273 Sum y = 25.77999973297119 Sum xx =
- * 171.71999621391296 Sum xy = 138.7909932732582 Regression line: y =
- * 0.74993044x + 0.31888318
+ * Output: n = 7 Sum x = 31.399999618530273 Sum y = 25.77999973297119 Sum xx = 171.71999621391296
+ * Sum xy = 138.7909932732582 Regression line: y = 0.74993044x + 0.31888318
  */

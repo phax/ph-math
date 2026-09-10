@@ -17,9 +17,8 @@
 package com.helger.numbercruncher.mathutils;
 
 /**
- * Compute the machine epsilon for the float and double types, the largest
- * positive floating-point value that, when added to 1, results in a value equal
- * to 1 due to roundoff.
+ * Compute the machine epsilon for the float and double types, the largest positive floating-point
+ * value that, when added to 1, results in a value equal to 1 due to roundoff.
  */
 public final class Epsilon
 {

@@ -21,8 +21,8 @@ import com.helger.numbercruncher.mathutils.SystemOutAlignRight;
 import com.helger.numbercruncher.rootutils.RootFunctions;
 
 /**
- * PROGRAM 5-3: Improved Regula Falsi Algorithm Demonstrate the Improved Regula
- * Falsi Algorithm on a function.
+ * PROGRAM 5-3: Improved Regula Falsi Algorithm Demonstrate the Improved Regula Falsi Algorithm on a
+ * function.
  */
 public final class ImprovedRegulaFalsiAlgorithm
 {
@@ -77,10 +77,9 @@ public final class ImprovedRegulaFalsiAlgorithm
 }
 /*
  * Output: n xNeg f(xNeg) xFalse f(xFalse) xPos f(xPos)
- * ----------------------------------------------------------------------- 1
- * -0.25 -3.9375 1.0625 -2.8710938 3.25 6.5625 2 1.0625 -2.8710938 2.0833335
- * 0.34027863 3.25 3.28125 3 1.0625 -2.8710938 1.9751655 -0.098721266 2.0833335
- * 0.34027863 4 1.9751655 -0.098721266 1.99949 -0.002039671 2.0833335 0.34027863
- * 5 1.99949 -0.002039671 2.0004833 0.0019330978 2.0833335 0.17013931 6 1.99949
+ * ----------------------------------------------------------------------- 1 -0.25 -3.9375 1.0625
+ * -2.8710938 3.25 6.5625 2 1.0625 -2.8710938 2.0833335 0.34027863 3.25 3.28125 3 1.0625 -2.8710938
+ * 1.9751655 -0.098721266 2.0833335 0.34027863 4 1.9751655 -0.098721266 1.99949 -0.002039671
+ * 2.0833335 0.34027863 5 1.99949 -0.002039671 2.0004833 0.0019330978 2.0833335 0.17013931 6 1.99949
  * -0.002039671 2.0 0.0 2.0004833 0.0019330978 Success! Root = 2.0
  */

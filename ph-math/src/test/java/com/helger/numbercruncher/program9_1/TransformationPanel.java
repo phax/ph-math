@@ -207,8 +207,7 @@ public final class TransformationPanel extends Panel implements IDemoPanel
   }
 
   /**
-   * Update the displayed transformation matix elements. (Called from
-   * CubePanel.)
+   * Update the displayed transformation matix elements. (Called from CubePanel.)
    */
   public void updateMatrixDisplay ()
   {

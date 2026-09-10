@@ -24,8 +24,7 @@ import org.junit.Test;
 import com.helger.numbercruncher.mathutils.BigFunctions;
 
 /**
- * PROGRAM 13-3: Ramanujan's Formulas for pi Compute estimates of pi using
- * Ramanujan's formulas.
+ * PROGRAM 13-3: Ramanujan's Formulas for pi Compute estimates of pi using Ramanujan's formulas.
  */
 public final class PiRamanujanFuncTest
 {

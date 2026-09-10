@@ -106,8 +106,8 @@ public class Buckets
   }
 
   /**
-   * Print the counter values as a horizontal bar chart. Scale the chart so that
-   * the longest bar is MAX_BAR_SIZE.
+   * Print the counter values as a horizontal bar chart. Scale the chart so that the longest bar is
+   * MAX_BAR_SIZE.
    */
   public void print ()
   {

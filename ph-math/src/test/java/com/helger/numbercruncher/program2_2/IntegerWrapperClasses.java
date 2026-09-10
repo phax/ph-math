@@ -17,8 +17,8 @@
 package com.helger.numbercruncher.program2_2;
 
 /**
- * PROGRAM 2-2: Integer Wrapper Classes Print the values of some of the
- * constants defined in the integer wrapper classes.
+ * PROGRAM 2-2: Integer Wrapper Classes Print the values of some of the constants defined in the
+ * integer wrapper classes.
  */
 public final class IntegerWrapperClasses
 {
@@ -60,14 +60,11 @@ public final class IntegerWrapperClasses
   }
 }
 /*
- * Output: Byte.MIN_VALUE = -128 Byte.MAX_VALUE = 127 Short.MIN_VALUE = -32768
- * Short.MAX_VALUE = 32767 Character.MIN_VALUE = 0 Character.MAX_VALUE = 65535
- * Integer.MIN_VALUE = -2147483648 Binary: 10000000000000000000000000000000 Hex:
- * 80000000 Integer.MAX_VALUE = 2147483647 Binary:
- * 1111111111111111111111111111111 Hex: 7fffffff Long.MIN_VALUE =
- * -9223372036854775808 Binary:
- * 1000000000000000000000000000000000000000000000000000000000000000 Hex:
- * 8000000000000000 Long.MAX_VALUE = 9223372036854775807 Binary:
- * 111111111111111111111111111111111111111111111111111111111111111 Hex:
- * 7fffffffffffffff
+ * Output: Byte.MIN_VALUE = -128 Byte.MAX_VALUE = 127 Short.MIN_VALUE = -32768 Short.MAX_VALUE =
+ * 32767 Character.MIN_VALUE = 0 Character.MAX_VALUE = 65535 Integer.MIN_VALUE = -2147483648 Binary:
+ * 10000000000000000000000000000000 Hex: 80000000 Integer.MAX_VALUE = 2147483647 Binary:
+ * 1111111111111111111111111111111 Hex: 7fffffff Long.MIN_VALUE = -9223372036854775808 Binary:
+ * 1000000000000000000000000000000000000000000000000000000000000000 Hex: 8000000000000000
+ * Long.MAX_VALUE = 9223372036854775807 Binary:
+ * 111111111111111111111111111111111111111111111111111111111111111 Hex: 7fffffffffffffff
  */

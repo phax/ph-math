@@ -21,8 +21,8 @@ import java.awt.Frame;
 import com.helger.numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
- * PROGRAM 14-3d: Graphic Buffons (Interactive Standalone Demo) Interactively
- * demonstrate the use of graphic transformation matrices.
+ * PROGRAM 14-3d: Graphic Buffons (Interactive Standalone Demo) Interactively demonstrate the use of
+ * graphic transformation matrices.
  */
 public final class BuffonDemo extends AbstractDemoFrame
 {

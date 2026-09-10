@@ -328,8 +328,7 @@ public final class SecantPanel extends AbstractRootFinderPanel
   }
 
   /**
-   * Notification that a user input error occurred. Disable user starting
-   * points.
+   * Notification that a user input error occurred. Disable user starting points.
    */
   @Override
   protected void userErrorOccurred ()
@@ -338,8 +337,7 @@ public final class SecantPanel extends AbstractRootFinderPanel
   }
 
   /**
-   * Iterate to compute x[n+1] from the secant through (x[n-1], f(x[n-1])) and
-   * (x[n], f(x[n])).
+   * Iterate to compute x[n+1] from the secant through (x[n-1], f(x[n-1])) and (x[n], f(x[n])).
    */
   @Override
   protected void step ()

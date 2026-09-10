@@ -21,10 +21,9 @@ import java.awt.Frame;
 import com.helger.numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
- * PROGRAM 5-2d: Regula Falsi Algorithm (Interactive Standalone Demo)
- * Interactively demonstrate the Regula Falsi Algorithm on various functions.
- * Either single-step or let the program automatically step once each half
- * second.
+ * PROGRAM 5-2d: Regula Falsi Algorithm (Interactive Standalone Demo) Interactively demonstrate the
+ * Regula Falsi Algorithm on various functions. Either single-step or let the program automatically
+ * step once each half second.
  */
 public final class RegulaFalsiDemo extends AbstractDemoFrame
 {

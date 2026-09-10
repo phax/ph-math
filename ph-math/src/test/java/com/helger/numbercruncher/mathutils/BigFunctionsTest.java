@@ -22,8 +22,8 @@ import java.math.RoundingMode;
 import org.junit.Test;
 
 /**
- * PROGRAM 12-2: Test BigFunctions Test the {@link BigFunctions} by comparing
- * results with class java.lang.Math.
+ * PROGRAM 12-2: Test BigFunctions Test the {@link BigFunctions} by comparing results with class
+ * java.lang.Math.
  */
 public final class BigFunctionsTest
 {
@@ -60,8 +60,7 @@ public final class BigFunctionsTest
                         BigFunctions.arctan (BigFunctions.sqrt (BigDecimal.valueOf (3), SCALE)
                                                          .divide (BigDecimal.valueOf (3),
                                                                   SCALE,
-                                                                  RoundingMode.HALF_EVEN),
-                                             SCALE));
+                                                                  RoundingMode.HALF_EVEN), SCALE));
   }
 }
 /**

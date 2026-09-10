@@ -280,13 +280,11 @@ public final class SolveDiffEqPanel extends AbstractGraphPanel
         solver = new EulersDiffEqSolver (equation);
         break;
       }
-
       case PREDICTOR_CORRECTOR:
       {
         solver = new PredictorCorrectorDiffEqSolver (equation);
         break;
       }
-
       case RUNGE_KUTTA:
       {
         solver = new RungeKuttaDiffEqSolver (equation);
@@ -410,8 +408,7 @@ public final class SolveDiffEqPanel extends AbstractGraphPanel
   }
 
   /**
-   * Plot the solution approximation forward from the initial condition data
-   * point.
+   * Plot the solution approximation forward from the initial condition data point.
    */
   private void plotForward (final float h)
   {
@@ -434,8 +431,7 @@ public final class SolveDiffEqPanel extends AbstractGraphPanel
   }
 
   /**
-   * Plot the solution approximation backward from the initial condition data
-   * point.
+   * Plot the solution approximation backward from the initial condition data point.
    */
   private void plotBackward (final float h)
   {
@@ -490,8 +486,7 @@ public final class SolveDiffEqPanel extends AbstractGraphPanel
   }
 
   /**
-   * Create the function frame or bring it to the front (callback from header
-   * panel).
+   * Create the function frame or bring it to the front (callback from header panel).
    */
   @Override
   public void doHeaderAction ()
@@ -529,8 +524,7 @@ public final class SolveDiffEqPanel extends AbstractGraphPanel
   }
 
   /**
-   * Notification that a user input error occurred. Disable the run and step
-   * buttons.
+   * Notification that a user input error occurred. Disable the run and step buttons.
    */
   @Override
   protected void userErrorOccurred ()

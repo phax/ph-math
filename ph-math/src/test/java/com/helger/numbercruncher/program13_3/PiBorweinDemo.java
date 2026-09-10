@@ -21,8 +21,8 @@ import java.awt.Frame;
 import com.helger.numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
- * PROGRAM 13-3d: The Borwein Pi Algorithm (Interactive Standalone Demo) Compute
- * digits of pi by the Borwein algorithm.
+ * PROGRAM 13-3d: The Borwein Pi Algorithm (Interactive Standalone Demo) Compute digits of pi by the
+ * Borwein algorithm.
  */
 public final class PiBorweinDemo extends AbstractDemoFrame
 {

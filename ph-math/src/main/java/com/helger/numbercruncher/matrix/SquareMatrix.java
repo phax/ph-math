@@ -63,9 +63,8 @@ public class SquareMatrix extends Matrix
   // ---------//
 
   /**
-   * Set this square matrix from another matrix. Note that this matrix will
-   * reference the values of the argument matrix. If the values are not square,
-   * only the upper left square is used.
+   * Set this square matrix from another matrix. Note that this matrix will reference the values of
+   * the argument matrix. If the values are not square, only the upper left square is used.
    *
    * @param m
    *        the 2-d array of values
@@ -77,8 +76,8 @@ public class SquareMatrix extends Matrix
   }
 
   /**
-   * Set this square matrix from a 2-d array of values. If the values are not
-   * square, only the upper left square is used.
+   * Set this square matrix from a 2-d array of values. If the values are not square, only the upper
+   * left square is used.
    *
    * @param values
    *        the 2-d array of values

@@ -17,8 +17,8 @@
 package com.helger.numbercruncher.mathutils;
 
 /**
- * The base class for functions that can have derivatives. Initialize the static
- * function table with some sample functions.
+ * The base class for functions that can have derivatives. Initialize the static function table with
+ * some sample functions.
  */
 public abstract class AbstractDifferentialEquation implements IEvaluatable
 {
@@ -62,8 +62,7 @@ public abstract class AbstractDifferentialEquation implements IEvaluatable
   }
 
   /**
-   * Return the value of the differential equation at x. (Implementation of
-   * {@link IEvaluatable}.)
+   * Return the value of the differential equation at x. (Implementation of {@link IEvaluatable}.)
    *
    * @param x
    *        the value of x

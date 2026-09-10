@@ -209,9 +209,8 @@ final class HeaderPanel extends Panel
   }
 
   /**
-   * Return the minimum size of the header panel. The height is either the
-   * height of the tallest function in the image, or the height of the header
-   * label.
+   * Return the minimum size of the header panel. The height is either the height of the tallest
+   * function in the image, or the height of the header label.
    *
    * @return the minimum size
    */

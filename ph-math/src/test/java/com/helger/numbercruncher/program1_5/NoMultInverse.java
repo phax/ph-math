@@ -19,8 +19,8 @@ package com.helger.numbercruncher.program1_5;
 import java.util.Random;
 
 /**
- * PROGRAM 1-5: No Multiplicative Inverse Figure out what percentage of
- * floating-point multiplicative inverses fail.
+ * PROGRAM 1-5: No Multiplicative Inverse Figure out what percentage of floating-point
+ * multiplicative inverses fail.
  */
 public final class NoMultInverse
 {

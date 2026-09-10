@@ -26,8 +26,8 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
 /**
- * The panel that contains the x-min, x-max, y-min, and y-max text controls for
- * the function plot bounds.
+ * The panel that contains the x-min, x-max, y-min, and y-max text controls for the function plot
+ * bounds.
  */
 final class PlotBoundsPanel extends Panel
 {

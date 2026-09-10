@@ -21,8 +21,8 @@ import java.awt.Frame;
 import com.helger.numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
- * PROGRAM 14-1d: Normally-Distributed Random Numbers (Standalone Demo)
- * Demonstrate algorithms for generating normally-distributed random numbers.
+ * PROGRAM 14-1d: Normally-Distributed Random Numbers (Standalone Demo) Demonstrate algorithms for
+ * generating normally-distributed random numbers.
  */
 public final class GenerateRandomNormalDemo extends AbstractDemoFrame
 {

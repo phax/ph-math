@@ -21,9 +21,8 @@ import java.awt.Frame;
 import com.helger.numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
- * PROGRAM 5-6d: Fixed-Point Iteration (Interactive Standalone Demo)
- * Interactively demonstrate Fixed-Point Iteration Algorithm on various
- * functions.
+ * PROGRAM 5-6d: Fixed-Point Iteration (Interactive Standalone Demo) Interactively demonstrate
+ * Fixed-Point Iteration Algorithm on various functions.
  */
 public final class FixedPointDemo extends AbstractDemoFrame
 {

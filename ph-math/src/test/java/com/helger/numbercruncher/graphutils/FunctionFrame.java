@@ -34,8 +34,8 @@ import java.awt.event.WindowEvent;
 import java.net.URL;
 
 /**
- * The window that displays the image of all the functions to plot. The user
- * clicks on a function to select it.
+ * The window that displays the image of all the functions to plot. The user clicks on a function to
+ * select it.
  */
 public final class FunctionFrame extends Frame
 {

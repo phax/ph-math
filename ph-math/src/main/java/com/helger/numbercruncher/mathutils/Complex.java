@@ -17,8 +17,8 @@
 package com.helger.numbercruncher.mathutils;
 
 /**
- * Perform basic complex arithmetic. The complex objects are immutable, and
- * complex operations create new complex objects.
+ * Perform basic complex arithmetic. The complex objects are immutable, and complex operations
+ * create new complex objects.
  */
 public class Complex
 {

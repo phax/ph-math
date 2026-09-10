@@ -190,8 +190,7 @@ public class LinearSystem extends SquareMatrix
    * @param width
    *        the column width
    * @param aPS
-   *        the print stream to write on. May not be
-   *        {@link NullPointerException}.
+   *        the print stream to write on. May not be {@link NullPointerException}.
    * @throws MatrixException
    *         if an error occurred
    */
@@ -217,9 +216,8 @@ public class LinearSystem extends SquareMatrix
   }
 
   /**
-   * Compute the upper triangular matrix U and lower triangular matrix L such
-   * that A = L*U. Store L and U together in matrix LU. Compute the permutation
-   * vector permutation of the row indices.
+   * Compute the upper triangular matrix U and lower triangular matrix L such that A = L*U. Store L
+   * and U together in matrix LU. Compute the permutation vector permutation of the row indices.
    *
    * @throws MatrixException
    *         for a zero row or a singular matrix

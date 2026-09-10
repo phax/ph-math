@@ -1599,8 +1599,7 @@ final class FPFormatsPanel extends Panel
   }
 
   /**
-   * Convert a long value into a string of '0' and '1' that represents the value
-   * in base 2.
+   * Convert a long value into a string of '0' and '1' that represents the value in base 2.
    *
    * @param pn
    *        the long value
@@ -1681,8 +1680,7 @@ final class FPFormatsPanel extends Panel
   }
 
   /**
-   * Hack for older JVMs that support only the default constructor of
-   * java.awt.GridBagConstraints.
+   * Hack for older JVMs that support only the default constructor of java.awt.GridBagConstraints.
    */
   private static class GridBagConstraints extends java.awt.GridBagConstraints
   {

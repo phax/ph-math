@@ -17,8 +17,7 @@
 package com.helger.numbercruncher.matrix;
 
 /**
- * A matrix that can be inverted. Also, compute its determinant, norm, and
- * condition number.
+ * A matrix that can be inverted. Also, compute its determinant, norm, and condition number.
  */
 public class InvertibleMatrix extends LinearSystem
 {

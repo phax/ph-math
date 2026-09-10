@@ -20,10 +20,9 @@ import com.helger.numbercruncher.mathutils.KahanSummation;
 import com.helger.numbercruncher.mathutils.SystemOutAlignRight;
 
 /**
- * PROGRAM 4-5: Fraction Sum 100M by the Kahan Summation Algorithm Use the Kahan
- * Summation Algorithm to compute the sum 1/d + 2/d + 3/d + ... + n/d = d/d
- * where: n = 100,000,000 d = 1 + 2 + 3 + ... + n = (n/2)(n + 1) See if the sum
- * is closer to 1.
+ * PROGRAM 4-5: Fraction Sum 100M by the Kahan Summation Algorithm Use the Kahan Summation Algorithm
+ * to compute the sum 1/d + 2/d + 3/d + ... + n/d = d/d where: n = 100,000,000 d = 1 + 2 + 3 + ... +
+ * n = (n/2)(n + 1) See if the sum is closer to 1.
  */
 public final class FractionSum100MKahan
 {
@@ -77,11 +76,9 @@ public final class FractionSum100MKahan
   }
 }
 /*
- * Output: i Running sum % ExpDiff>24 -----------------------------------------
- * 5000000 0.0025000004 0 10000000 0.010000001 0 15000000 0.0225 0 20000000 0.04
- * 0 25000000 0.0625 0 30000000 0.09 26 35000000 0.1225 12 40000000 0.16 46
- * 45000000 0.2025 42 50000000 0.25 36 55000000 0.3025 64 60000000 0.35999998 61
- * 65000000 0.42249998 58 70000000 0.48999998 54 75000000 0.5625 72 80000000
- * 0.64 73 85000000 0.72249997 72 90000000 0.81 70 95000000 0.9025 68 100000000
- * 1.0 67 % error = 0.0
+ * Output: i Running sum % ExpDiff>24 ----------------------------------------- 5000000 0.0025000004
+ * 0 10000000 0.010000001 0 15000000 0.0225 0 20000000 0.04 0 25000000 0.0625 0 30000000 0.09 26
+ * 35000000 0.1225 12 40000000 0.16 46 45000000 0.2025 42 50000000 0.25 36 55000000 0.3025 64
+ * 60000000 0.35999998 61 65000000 0.42249998 58 70000000 0.48999998 54 75000000 0.5625 72 80000000
+ * 0.64 73 85000000 0.72249997 72 90000000 0.81 70 95000000 0.9025 68 100000000 1.0 67 % error = 0.0
  */

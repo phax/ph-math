@@ -21,8 +21,8 @@ import java.awt.Frame;
 import com.helger.numbercruncher.graphutils.AbstractDemoFrame;
 
 /**
- * PROGRAM 7-1d: Integration (Interactive Standalone Demo) Interactively
- * demonstrate numerical integration algorithms.
+ * PROGRAM 7-1d: Integration (Interactive Standalone Demo) Interactively demonstrate numerical
+ * integration algorithms.
  */
 public final class IntegrationDemo extends AbstractDemoFrame
 {

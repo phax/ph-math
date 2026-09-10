@@ -19,8 +19,7 @@ package com.helger.numbercruncher.mathutils;
 import java.util.Random;
 
 /**
- * Utility class that generates normally-distributed random values using several
- * algorithms.
+ * Utility class that generates normally-distributed random values using several algorithms.
  */
 public class RandomNormal
 {
@@ -56,9 +55,8 @@ public class RandomNormal
   }
 
   /**
-   * Compute the next random value using the Central Limit Theorem, which states
-   * that the averages of sets of uniformly-distributed random values are
-   * normally distributed.
+   * Compute the next random value using the Central Limit Theorem, which states that the averages
+   * of sets of uniformly-distributed random values are normally distributed.
    *
    * @return next value
    */
@@ -74,9 +72,9 @@ public class RandomNormal
   }
 
   /**
-   * Compute the next random value using the polar algorithm. Requires two
-   * uniformly-distributed random values in [-1, +1). Actually computes two
-   * random values and saves the second one for the next invocation.
+   * Compute the next random value using the polar algorithm. Requires two uniformly-distributed
+   * random values in [-1, +1). Actually computes two random values and saves the second one for the
+   * next invocation.
    *
    * @return next value
    */
@@ -123,8 +121,8 @@ public class RandomNormal
   private static final float C3 = (float) (4 * Math.exp (-1.35));
 
   /**
-   * Compute the next random value using the ratio algorithm. Requires two
-   * uniformly-distributed random values in [0, 1).
+   * Compute the next random value using the ratio algorithm. Requires two uniformly-distributed
+   * random values in [0, 1).
    *
    * @return next value
    */
